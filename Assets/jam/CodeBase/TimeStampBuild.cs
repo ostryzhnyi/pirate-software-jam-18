@@ -11,6 +11,7 @@ namespace jam.CodeBase
         [ContextMenu("Set")]
         public void Set()
         {
+            Debug.LogError("!!!");
             _tmpText.SetText(DateTime.Now.ToShortDateString());
         }
     }
