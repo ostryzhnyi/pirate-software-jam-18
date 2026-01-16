@@ -11,7 +11,7 @@ from git import Repo
 BRANCH = 'origin/main'
 REPO_PATH = '/Users/ostrzhnyi/Work/pirate-software-jam-18'  # Path to the local Git repository
 UNITY_PROJECT_PATH = REPO_PATH  # Path to the Unity project
-UNITY_EXECUTABLE = ''  # Path to the Unity executable
+UNITY_EXECUTABLE = '/Applications/Unity/Hub/Editor/6000.3.4f1/Unity.app/Contents/MacOS/Unity'  # Path to the Unity executable
 WEBGL_BUILD_PATH = REPO_PATH+'/webgl_build'  # Path to store WebGL build
 BUTLER_EXECUTABLE = '/Users/ostrzhnyi/Work/cicd-gem/bin/butler'  # Path to the butler executable (assuming you're running the script from the butler directory)
                                 # you can read about butler here https://itch.io/docs/butler/login.html
@@ -37,7 +37,6 @@ def build_unity_project():
     try:
         # Build the single command string as you would run it in the terminal
         unity_command = (
-        f'sudo '
             f'{UNITY_EXECUTABLE} -batchmode -nographics -quit '
             f'-projectPath "{UNITY_PROJECT_PATH}" '
             f'-executeMethod WebGLBuilder.Build '
