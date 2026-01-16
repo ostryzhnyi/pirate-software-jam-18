@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: c0450ef6a79541e18202b4150d8093ff
+timeCreated: 1689540647
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294103
+  packageName: Easy View Service
+  packageVersion: 1.0
+  assetPath: Assets/Ostryzhnyi/EasyViewService/Impl/Service/CloseViewButton.cs
+  uploadId: 695505

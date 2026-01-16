@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 24a423bfee824899b14ba161756c829d
+timeCreated: 1687373490
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294103
+  packageName: Easy View Service
+  packageVersion: 1.0
+  assetPath: Assets/Ostryzhnyi/EasyViewService/Api/Service/IViewService.cs
+  uploadId: 695505
