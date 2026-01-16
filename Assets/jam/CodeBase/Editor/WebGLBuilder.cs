@@ -21,7 +21,6 @@ namespace jam.CodeBase
             buildPlayerOptions.locationPathName = "webgl_build";
             buildPlayerOptions.target = BuildTarget.WebGL;
             buildPlayerOptions.options = BuildOptions.None;
-            Object.FindAnyObjectByType<TimeStampBuild>().Set();
 
             BuildPipeline.BuildPlayer(scenes, "webgl_build", BuildTarget.WebGL, BuildOptions.None);
         }
