@@ -39,7 +39,7 @@ def build_unity_project():
         unity_command = (
             f'{UNITY_EXECUTABLE} -batchmode -nographics -quit '
             f'-projectPath "{UNITY_PROJECT_PATH}" '
-            f'-executeMethod WebGLBuilder.Build '
+            f'-executeMethod jam.CodeBase.WebGLBuilder.Build  '
             f'-buildTarget WebGL '
             f'-output "{WEBGL_BUILD_PATH}"'
         )
