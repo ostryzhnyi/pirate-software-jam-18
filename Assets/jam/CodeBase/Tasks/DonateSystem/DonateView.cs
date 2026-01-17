@@ -28,9 +28,9 @@ namespace jam.CodeBase.Tasks.DonateSystem
         {
             G.Interactors.CallAll<IDonate>((d) => d.Donate(baseTask, baseTask.Price));
 
-            foreach (var VARIABLE in _donateButton)
+            foreach (var donateButton in _donateButton)
             {
-                
+                donateButton.Button.interactable = false;
             }
         }
     }

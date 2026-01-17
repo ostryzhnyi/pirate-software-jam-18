@@ -15,7 +15,7 @@ UNITY_EXECUTABLE = '/Applications/Unity/Hub/Editor/6000.3.4f1/Unity.app/Contents
 WEBGL_BUILD_PATH = REPO_PATH+'/webgl_build'  # Path to store WebGL build
 BUTLER_EXECUTABLE = '/Users/ostrzhnyi/Work/cicd-gem/bin/butler'  # Path to the butler executable (assuming you're running the script from the butler directory)
                                 # you can read about butler here https://itch.io/docs/butler/login.html
-ITCH_PROJECT = 'ostryzhnyi/test:webgl'  # Itch.io project and channel
+ITCH_PROJECT = 'ostryzhnyi/worldiswatching:webgl'  # Itch.io project and channel
 
 CHECK_INTERVAL = 60  # Time in seconds to wait before checking for new commits
 
