@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using jam.CodeBase.Audio;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
+using jam.CodeBase.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
@@ -14,6 +15,7 @@ namespace jam.CodeBase.Core
     {
         public static Interactor Interactors;
         public static Saves Saves;
+        public static Donate Donate = new Donate();
      
         public static AudioController Audio;
         
@@ -35,6 +37,7 @@ namespace jam.CodeBase.Core
         {
             GameAliveCancellationToken = gameObject.GetCancellationTokenOnDestroy();
             GameObject = gameObject;
+            Donate.DonateExecute();
         }
 
         private void Start()

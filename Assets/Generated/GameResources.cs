@@ -6,5 +6,22 @@ using UnityEngine.UIElements;
 
 public static class GameResources
 {
+    public static class CMS
+    {
+        public static class Characters
+        {
+            public static CMSEntityPfb Man1CharacterEntity => Resources.Load<CMSEntityPfb>("CMS/Characters/Man1CharacterEntity");
+            public static CMSEntityPfb Man2CharacterEntity => Resources.Load<CMSEntityPfb>("CMS/Characters/Man2CharacterEntity");
+        }
+        public static class Tasks
+        {
+            public static CMSEntityPfb GiveEatTask => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiveEatTask");
+            public static CMSEntityPfb MusicOnNight => Resources.Load<CMSEntityPfb>("CMS/Tasks/MusicOnNight");
+        }
+        public static class Templates
+        {
+        }
+        public static CMSEntityPfb CMSEnity => Resources.Load<CMSEntityPfb>("CMS/CMSEnity");
+    }
     public static AudioController AudioController => Resources.Load<AudioController>("AudioController");
 }

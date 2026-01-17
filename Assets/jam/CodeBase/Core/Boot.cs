@@ -17,10 +17,7 @@ namespace jam.CodeBase.Core
             //PlayerPrefs.DeleteAll();
             
 #if UNITY_EDITOR
-            if (EditorPrefs.GetBool(LoadFromMenuKey, false))
-            {
-              SceneManager.LoadScene("Menu");
-            }
+            SceneManager.LoadScene("Gameplay");
 #endif
             SpawnG();
             SpawnAudioController();
