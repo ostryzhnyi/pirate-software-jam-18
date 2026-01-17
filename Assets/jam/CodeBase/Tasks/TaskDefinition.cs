@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
 namespace jam.CodeBase.Tasks
@@ -7,6 +6,7 @@ namespace jam.CodeBase.Tasks
     [Serializable]
     public class TaskDefinition : EntityComponentDefinition
     {
+        public float Duration;
     }
 
     [Serializable]

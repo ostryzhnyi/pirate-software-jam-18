@@ -9,18 +9,40 @@ namespace jam.CodeBase.Tasks.DonateSystem
     {
         public BaseTask Task { get; private set; }
         public Button Button => _button;
+        public float Price;
         
         [SerializeField] private TMP_Text _text;
         [SerializeField] private Image _progress;
         [SerializeField] private Button _button;
+        [SerializeField] private Button _plus;
+        [SerializeField] private Button _minus;
 
-        public void Init(BaseTask task, Action<BaseTask> onClick)
+        private const float MinBit = 50;
+
+        public void Init(BaseTask task, Action<DonateButton> onClick)
         {
             Task = task;
+            Price = task.Price;
+            UpdateText();
+            _button.onClick.AddListener(() => onClick?.Invoke(this));
             
-            _text.SetText(task.Name + " $" + task.Price);
+            _plus.onClick.AddListener(() =>
+            {
+                Price += MinBit;
+                UpdateText();
+            });
             
-            _button.onClick.AddListener(() => onClick?.Invoke(task));
+            _minus.onClick.AddListener(() =>
+            {
+                Price -= MinBit;
+                UpdateText();
+            });
+        }
+
+        private void UpdateText()
+        {
+            _minus.interactable = MinBit < Price;
+            _text.SetText(Task.Name + " $" + Price);
         }
         
         public void UpdateProgress(float progress)

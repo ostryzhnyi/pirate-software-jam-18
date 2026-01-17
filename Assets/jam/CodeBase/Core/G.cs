@@ -16,6 +16,7 @@ namespace jam.CodeBase.Core
         public static Interactor Interactors;
         public static Saves Saves;
         public static Donate Donate = new Donate();
+        public static M Menu;
      
         public static AudioController Audio;
         
@@ -37,11 +38,12 @@ namespace jam.CodeBase.Core
         {
             GameAliveCancellationToken = gameObject.GetCancellationTokenOnDestroy();
             GameObject = gameObject;
-            Donate.DonateExecute();
         }
 
         private void Start()
         {
+            Donate.DonateExecuteProcess().Forget();
+            
             StartAsync().Forget();
         }
 

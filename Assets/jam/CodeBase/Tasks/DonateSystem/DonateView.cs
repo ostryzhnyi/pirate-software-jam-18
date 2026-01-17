@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using jam.CodeBase.Core;
 using jam.CodeBase.Tasks.Interactors;
 using UnityEngine;
@@ -7,12 +8,14 @@ namespace jam.CodeBase.Tasks.DonateSystem
 {
     public class DonateView : MonoBehaviour
     {
+        public List<DonateButton> DonateButtons = new  List<DonateButton>();
+        
         [SerializeField] private DonateButton _prefab;
         [SerializeField] private Transform _content;
-        [SerializeField] private List<DonateButton> _donateButton;
         
         public void Init(List<BaseTask> tasks)
         {
+            DonateButtons.Clear();
             foreach (Transform child in _content)
             {
                 Destroy(child.gameObject);
@@ -20,18 +23,30 @@ namespace jam.CodeBase.Tasks.DonateSystem
             
             foreach (var baseTask in tasks)
             {
-                Instantiate(_prefab, transform).Init(baseTask, OnClick);
+                var button = Instantiate(_prefab, _content);
+                button.Init(baseTask, OnClick);
+                DonateButtons.Add(button);
             }    
         }
 
-        private void OnClick(BaseTask baseTask)
+        private void OnClick(DonateButton button)
         {
-            G.Interactors.CallAll<IDonate>((d) => d.Donate(baseTask, baseTask.Price));
+            Debug.LogError("Donate: ");
+            
+            G.Interactors.CallAll<IDonate>((d) => d.Donate(button.Task, button.Price));
+        }
 
-            foreach (var donateButton in _donateButton)
+        public void LockButtons()
+        {
+            foreach (var donateButton in DonateButtons)
             {
                 donateButton.Button.interactable = false;
             }
+        }
+
+        public DonateButton GetDonateButton(BaseTask task)
+        {
+            return DonateButtons.FirstOrDefault(d => d.Task == task);
         }
     }
 }

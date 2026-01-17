@@ -19,12 +19,13 @@ namespace jam.CodeBase.Core
 #if UNITY_EDITOR
             SceneManager.LoadScene("Gameplay");
 #endif
+            G.Interactors = new Interactor();
+            G.Saves = new Saves();
+            
             SpawnG();
             SpawnAudioController();
             CMS.Unload();
             CMS.Init();
-            G.Interactors = new Interactor();
-            G.Saves = new Saves();
         }
         
         private static void SpawnG()
