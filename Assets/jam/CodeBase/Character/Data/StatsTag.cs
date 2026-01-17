@@ -16,4 +16,9 @@ namespace jam.CodeBase.Character.Data
         [Range(0.1f, 1.5f)] public float PainThreshold;
         [Range(0.1f, 1.5f)] public float StressResistance;
     }
+    
+    [Serializable]
+    public class CharacterTag : EntityComponentDefinition
+    {
+    }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2537096692893693260}
   - component: {fileID: 7006747429192221996}
   m_Layer: 0
-  m_Name: Man2CharacterEntity
+  m_Name: Day1Messages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,39 +44,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1729a46f79086449a991b5512530e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CMS::CMSEntityPfb
-  idCMS: CMS/Characters/Man2CharacterEntity
+  idCMS: CMS/Chat/Day1Messages
   Components:
-  - rid: 4608936542719443195
-  - rid: 4608936542719443196
-  - rid: 4608936542719443198
-  - rid: 4608936542719443201
-  - rid: 4608936542719443205
-  - rid: 3433833492070269053
+  - rid: 3433833492070269045
   references:
     version: 2
     RefIds:
-    - rid: 3433833492070269053
-      type: {class: CharacterTag, ns: jam.CodeBase.Character.Data, asm: Assembly-CSharp}
-      data: 
-    - rid: 4608936542719443195
-      type: {class: NameTag, ns: jam.CodeBase.Core.Tags, asm: Assembly-CSharp}
+    - rid: 3433833492070269045
+      type: {class: DailyMessages, ns: jam.CodeBase.Stream, asm: Assembly-CSharp}
       data:
-        Name: Man 2
-    - rid: 4608936542719443196
-      type: {class: DescribeTag, ns: jam.CodeBase.Core.Tags, asm: Assembly-CSharp}
-      data:
-        Description: Scientist
-    - rid: 4608936542719443198
-      type: {class: StatsTag, ns: jam.CodeBase.Character.Data, asm: Assembly-CSharp}
-      data:
-        Health: 100
-        Stress: 100
-    - rid: 4608936542719443201
-      type: {class: StatsModifierTag, ns: jam.CodeBase.Character.Data, asm: Assembly-CSharp}
-      data:
-        PainThreshold: 0.8
-        StressResistance: 0.563
-    - rid: 4608936542719443205
-      type: {class: TagSprite, ns: Runtime, asm: CMS}
-      data:
-        sprite: {fileID: 0}
+        Day: 0
+        Messages:
+        - Type: 1
+          Sender: Hater01
+          Message: so he is a {0}, lol
+        - Type: 0
+          Sender: haCker
+          Message: 'I wonder how much he will earn today. '
+        - Type: 0
+          Sender: antonio_huge_clock
+          Message: hello everyone
+        - Type: 0
+          Sender: Ddd129092039
+          Message: Hello, good luck everyone
+        - Type: 0
+          Sender: hater_123
+          Message: gl hf
+        - Type: 2
+          Sender: Cutie888
+          Message: good luck {0}
