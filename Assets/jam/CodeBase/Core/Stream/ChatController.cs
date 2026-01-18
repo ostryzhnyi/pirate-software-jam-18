@@ -29,7 +29,6 @@ namespace jam.CodeBase.Stream
 
         public async void StartMessaging()
         {
-            Debug.LogError(_dailyMessages.Count);
             foreach (var message in _dailyMessages.OrderBy(x => Random.value))
             {
                 var data = GetData(message.Type);

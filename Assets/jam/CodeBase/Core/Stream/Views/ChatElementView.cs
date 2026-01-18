@@ -11,15 +11,15 @@ namespace jam.CodeBase.Stream.View
         [SerializeField] private TMP_Text _senderText;
         [SerializeField] private TMP_Text _messageText;
 
-        public void SetupMessage(ChatMessage messageData, SenderColorData senderColor)
+        public void SetupMessage(ChatMessage messageData, Color senderColor)
         {
             if (_senderIcon != null)
-                _senderIcon.sprite = senderColor.Sprite;
+                _senderIcon.color = senderColor;
 
             if (_senderText != null)
             {
                 _senderText.text = messageData.Sender;
-                _senderText.color = senderColor.Color;
+                _senderText.color = senderColor;
             }
 
             _messageText.text = messageData.Message;
