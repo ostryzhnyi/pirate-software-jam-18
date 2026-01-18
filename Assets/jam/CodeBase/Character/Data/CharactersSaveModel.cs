@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using jam.CodeBase.Core.SavesGeneral;
-using UnityEditor.Overlays;
 
 namespace jam.CodeBase.Character.Data
 {
@@ -15,7 +14,7 @@ namespace jam.CodeBase.Character.Data
     }
 
     [Serializable]
-    public class CharactersSaveData : SaveData
+    public class CharactersSaveData 
     {
         public List<CharacterSaveData> CharactersSaves { get; set; }
     }
