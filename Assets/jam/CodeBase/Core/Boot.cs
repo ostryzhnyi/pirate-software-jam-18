@@ -16,9 +16,6 @@ namespace jam.CodeBase.Core
         {
             //PlayerPrefs.DeleteAll();
             
-#if UNITY_EDITOR
-            SceneManager.LoadScene("Gameplay");
-#endif
             G.Interactors = new Interactor();
             G.Saves = new Saves();
             
@@ -26,6 +23,12 @@ namespace jam.CodeBase.Core
             SpawnAudioController();
             CMS.Unload();
             CMS.Init();
+        }
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+        private static void LoadGamePlay()
+        {
+            SceneManager.LoadScene("Gameplay");
         }
         
         private static void SpawnG()

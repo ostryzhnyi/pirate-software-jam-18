@@ -42,7 +42,6 @@ namespace jam.CodeBase.Core
 
         private void Start()
         {
-            Donate.DonateExecuteProcess().Forget();
             
             StartAsync().Forget();
         }

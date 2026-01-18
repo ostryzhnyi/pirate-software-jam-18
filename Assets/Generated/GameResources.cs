@@ -24,6 +24,4 @@ public static class GameResources
         public static CMSEntityPfb CMSEnity => Resources.Load<CMSEntityPfb>("CMS/CMSEnity");
     }
     public static AudioController AudioController => Resources.Load<AudioController>("AudioController");
-    public static TextAsset PerformanceTestRunInfo => Resources.Load<TextAsset>("PerformanceTestRunInfo");
-    public static TextAsset PerformanceTestRunSettings => Resources.Load<TextAsset>("PerformanceTestRunSettings");
 }
