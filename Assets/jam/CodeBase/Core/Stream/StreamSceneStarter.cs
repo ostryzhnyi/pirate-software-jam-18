@@ -23,13 +23,13 @@ namespace jam.CodeBase.Stream
             //
             await UniTask.Delay(2000);
             G.StreamController.OnCharActionExecuted(1);
-            
-            await UniTask.Delay(5000);
-            G.StreamController.OnDonateReceived(100);
-            G.StreamController.OnDonateReceived(300);
-            G.StreamController.OnDonateReceived(2000);
-            G.StreamController.OnDonateReceived(1000);
-            G.StreamController.OnDonateReceived(100);
+            //
+            // await UniTask.Delay(5000);
+            // G.StreamController.OnDonateReceived(100);
+            // G.StreamController.OnDonateReceived(300);
+            // G.StreamController.OnDonateReceived(2000);
+            // G.StreamController.OnDonateReceived(1000);
+            // G.StreamController.OnDonateReceived(100);
         }
     }
 }
