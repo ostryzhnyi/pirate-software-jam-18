@@ -1,17 +1,53 @@
 using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 namespace jam.CodeBase.Stream
 {
     public class DaysController
     {
+        public event Action<float> OnTimeUpdated;
+        public event Action<int> OnDayEnded;
+
+        private const float DAY_TIME = 24;//hours
+        private const float DAY_REALTIME = 5;//minutes
+        private const float DAY_SENONDS_PER_REAL_SECOND = (DAY_TIME * 3600) / (DAY_REALTIME * 60);//seconds
+
         public event Action<int> OnDayUpdated;
 
         public int CurrentDay { get; private set; }
+        public float CurrentTimeSeconds { get; private set; }
+
+        private CancellationTokenSource _cst;
+
+        public void Dispose()
+        {
+            _cst?.Cancel();
+        }
 
         public void SetDay(int dayNumber)
         {
+            _cst = new CancellationTokenSource(); 
+
             CurrentDay = dayNumber;
             OnDayUpdated?.Invoke(CurrentDay);
+
+            StartDayCycle(_cst.Token).Forget();
+        }
+
+        private async UniTask StartDayCycle(CancellationToken token)
+        {
+            CurrentTimeSeconds = 0f;
+
+            while (CurrentTimeSeconds < DAY_TIME * 3600f)
+            {
+                await UniTask.Delay(1000, cancellationToken: token);
+                CurrentTimeSeconds += DAY_SENONDS_PER_REAL_SECOND;
+                OnTimeUpdated?.Invoke(CurrentTimeSeconds);
+            }
+
+            OnDayEnded?.Invoke(CurrentDay);
         }
     }
 }

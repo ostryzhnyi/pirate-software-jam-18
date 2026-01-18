@@ -689,7 +689,7 @@ TextureImporter:
         width: 5
         height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -711,7 +711,7 @@ TextureImporter:
         width: 5
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -720,6 +720,28 @@ TextureImporter:
       bones: []
       spriteID: 0e3ce7bb20e1d784c8ee048350708847
       internalID: 8982099749623107299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 313
+        width: 21
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37a9668814b5b347b5dc739f1226c87
+      internalID: 2068379245
       vertices: []
       indices: 
       edges: []
@@ -767,6 +789,7 @@ TextureImporter:
       4_7: -1055780868267058655
       4_8: -8334946893605160405
       4_9: 8290443533355553962
+      MainAtlas_0: 2068379245
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -17,6 +17,12 @@ namespace jam.CodeBase.Stream
             _chatController = new ChatController();
         }
 
+        public void Dispose()
+        {
+            _daysController.Dispose();
+            _chatController.Dispose();
+        }
+
         public void StartStream(CMSEntity entity)
         {
             _daysController.SetDay(0);

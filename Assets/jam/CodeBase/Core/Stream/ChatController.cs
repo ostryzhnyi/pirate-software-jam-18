@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using System.Threading;
+using System.Threading.Tasks;
 using jam.CodeBase.Core.Tags;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -19,12 +21,19 @@ namespace jam.CodeBase.Stream
         private List<ChatMessage> _dailyMessages = new();
         private RepeatableMessages _repeatableMessages = new();
         private CMSEntity _targetEntity = new();
+        private CancellationTokenSource _cst;
 
         public void InitializeData(CMSEntity entity, int day)
         {
             _targetEntity = entity;
             _dailyMessages = CMS.GetAll<CMSEntity>().First(e => e.Is<DailyMessages>() && e.Get<DailyMessages>().Day == day).Get<DailyMessages>().Messages;
             _repeatableMessages = CMS.GetAll<CMSEntity>().First(e => e.Is<RepeatableMessages>()).Get<RepeatableMessages>();
+            _cst = new CancellationTokenSource(); 
+        }
+
+        public void Dispose()
+        {
+            _cst?.Cancel();
         }
 
         public async void StartMessaging()
@@ -36,7 +45,7 @@ namespace jam.CodeBase.Stream
                 OnMessageReceived?.Invoke(messageData);
                 Debug.Log($"Send message: {messageData.Sender} : {messageData.Message}");
                 var waitTIme = Random.Range(DEFAULT_TIME_RANGE.x, DEFAULT_TIME_RANGE.y);
-                await UniTask.Delay(TimeSpan.FromSeconds(waitTIme));
+                await UniTask.Delay(TimeSpan.FromSeconds(waitTIme), cancellationToken: _cst.Token);
             }
         }
 
@@ -70,7 +79,7 @@ namespace jam.CodeBase.Stream
                 OnMessageReceived?.Invoke(chatMessage);
                 Debug.Log($"Send message: {chatMessage.Sender} : {chatMessage.Message}");
                 var waitTIme = Random.Range(REACTIONS_TIME_RANGE.x, REACTIONS_TIME_RANGE.y);
-                await UniTask.Delay(TimeSpan.FromSeconds(waitTIme));
+                await UniTask.Delay(TimeSpan.FromSeconds(waitTIme), cancellationToken: _cst.Token);
             }
         }
     }
