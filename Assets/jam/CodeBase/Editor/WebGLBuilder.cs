@@ -11,6 +11,7 @@ namespace jam.CodeBase
             string[] scenes =
             {
                 "Assets/Scenes/SampleScene.unity",
+                "Assets/jam/Scenes/Gameplay.unity",
             };
             
             PlayerSettings.defaultWebScreenWidth = 1340;
