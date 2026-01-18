@@ -4,6 +4,6 @@ namespace jam.CodeBase.Tasks.Interactors
 {
     public interface ITasksReceive
     {
-        public void TasksReceive(List<BaseTask> tasks);
+        public void TasksReceive(TaskDefinition taskDefinition, List<BaseTask> tasks);
     }
 }

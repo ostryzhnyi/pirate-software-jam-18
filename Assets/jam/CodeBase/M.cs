@@ -1,14 +1,15 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
-using jam.CodeBase.Tasks.DonateSystem;
+using jam.CodeBase.UI;
+using Ostryzhnyi.EasyViewService.Impl.Service;
 using UnityEngine;
 
 namespace jam.CodeBase
 {
     public class M : MonoBehaviour
     {
-        public DonateView DonateView;
+        public ViewService ViewService;
+        public HUD HUD;
 
         private void Awake()
         {
