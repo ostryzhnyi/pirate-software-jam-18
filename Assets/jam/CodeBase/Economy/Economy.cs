@@ -36,7 +36,7 @@ namespace jam.CodeBase.Economy
                 return;
             }
 
-            Debug.LogError("SPEND: " + money);
+            Debug.Log("SPEND: " + money);
             _economySaveModel.Data.Money -= money;
             OnMoneyChanged?.Invoke(_economySaveModel.Data.Money);
             _economySaveModel.ForceSave();
