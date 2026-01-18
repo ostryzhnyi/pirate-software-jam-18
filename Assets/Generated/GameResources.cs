@@ -26,7 +26,8 @@ public static class GameResources
         public static class Templates
         {
         }
-        public static CMSEntityPfb CMSEnity => Resources.Load<CMSEntityPfb>("CMS/CMSEnity");
+        public static CMSEntityPfb BaseEconomy => Resources.Load<CMSEntityPfb>("CMS/BaseEconomy");
+        public static CMSEntityPfb CMSEntity => Resources.Load<CMSEntityPfb>("CMS/CMSEntity");
     }
     public static AudioController AudioController => Resources.Load<AudioController>("AudioController");
 }

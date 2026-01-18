@@ -37,8 +37,15 @@ namespace jam.CodeBase.Tasks
                 await UniTask.WaitForSeconds(1f);
             }
 
-            var wonTask = Donates.OrderBy(p => p.Value).FirstOrDefault();
+            var wonTask = Donates.OrderByDescending(p => p.Value).FirstOrDefault();
             G.Interactors.CallAll<IFinishDonatesProcess>(t => t.OnFinishDonates(tasks.Item1, wonTask.Key, wonTask.Value));
+
+            await wonTask.Key.Execute();
+
+            foreach (var statsAfforded in wonTask.Key.StatsAfforded)
+            {
+                G.Characters.CurrentCharacter.ApplyStatsAfforded(statsAfforded);
+            }
         }
         
         public (TaskDefinition, List<BaseTask>) GetRandomTaskList()

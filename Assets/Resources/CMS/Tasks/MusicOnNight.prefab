@@ -56,13 +56,15 @@ MonoBehaviour:
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Description: Enable music to night
-        Duration: 60
+        Duration: 10
         BasePrice: 100
     - rid: 4608936559312109709
       type: {class: EnableMusicOnNightTask, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Name: Enable
+        StatsAfforded: []
     - rid: 4608936559312109710
       type: {class: NotEnableMusicOnNightTask, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Name: Not enable
+        StatsAfforded: []

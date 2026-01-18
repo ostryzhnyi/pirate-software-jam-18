@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Character;
 
 namespace jam.CodeBase.Tasks
 {
@@ -15,7 +17,22 @@ namespace jam.CodeBase.Tasks
     public abstract class BaseTask : EntityComponentDefinition
     {
         public string Name;
+        public List<StatsAfforded> StatsAfforded;
 
         public abstract UniTask Execute();
+    }
+
+    [Serializable]
+    public class StatsAfforded
+    {
+        public StatsType StatsType;
+        public float Value;
+        public StatsChangeMethod Method;
+    }
+
+    public enum StatsType
+    {
+        Health,
+        Stress,
     }
 }

@@ -1,4 +1,6 @@
-﻿using jam.CodeBase.Audio;
+﻿using Cysharp.Threading.Tasks;
+using jam.CodeBase.Audio;
+using jam.CodeBase.Character;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
 using UnityEditor;
@@ -9,26 +11,36 @@ namespace jam.CodeBase.Core
 {
     public abstract class Boot
     {
-        private const string LoadFromMenuKey = "LoadFromMenu";
-        
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
         private static void StartGame()
         {
             //PlayerPrefs.DeleteAll();
+            CMS.Unload();
+            CMS.Init();
             
             G.Interactors = new Interactor();
             G.Saves = new Saves();
+            G.Economy = new Economy.Economy();
+            G.Characters = new Characters();
             
             SpawnG();
             SpawnAudioController();
-            CMS.Unload();
-            CMS.Init();
         }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void LoadGamePlay()
         {
-            SceneManager.LoadScene("Gameplay");
+            LoadGamePlayAsync().Forget();
+        }
+
+        private static async UniTask LoadGamePlayAsync()
+        {
+            await SceneManager.LoadSceneAsync("Gameplay");
+            
+            foreach (var levelLoaded in G.Interactors.GetAll<IGameplayLoaded>())
+            {
+                await levelLoaded.OnLoaded();
+            }
         }
         
         private static void SpawnG()

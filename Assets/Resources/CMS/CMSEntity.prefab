@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2537096692893693260}
   - component: {fileID: 7006747429192221996}
   m_Layer: 0
-  m_Name: CMSEnity
+  m_Name: CMSEntity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1729a46f79086449a991b5512530e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CMS::CMSEntityPfb
-  idCMS: CMS/CMSEnity
+  idCMS: CMS/CMSEntity
   Components: []
   references:
     version: 2

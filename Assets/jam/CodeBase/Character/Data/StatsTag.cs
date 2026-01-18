@@ -20,5 +20,6 @@ namespace jam.CodeBase.Character.Data
     [Serializable]
     public class CharacterTag : EntityComponentDefinition
     {
+        public int Age;
     }
 }

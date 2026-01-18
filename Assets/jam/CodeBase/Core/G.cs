@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Audio;
+using jam.CodeBase.Character;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
 using jam.CodeBase.Stream;
@@ -18,6 +19,8 @@ namespace jam.CodeBase.Core
         public static Saves Saves;
         public static Donate Donate = new Donate();
         public static M Menu;
+        public static Economy.Economy Economy;
+        public static Characters Characters;
      
         public static AudioController Audio;
         
