@@ -1,0 +1,31 @@
+﻿using Cysharp.Threading.Tasks;
+using jam.CodeBase.Core;
+using jam.CodeBase.Core.Interactors;
+
+namespace jam.CodeBase.Character
+{
+    public class StatsUpdateInteractor : BaseInteractor, IGameplayLoaded
+    {
+        public override int GetPriority()
+        {
+            return int.MaxValue;
+        }
+
+        public UniTask OnLoaded()
+        {
+            G.Characters.CurrentCharacter.OnHealthUpdated += OnHealthUpdated;
+            G.Characters.CurrentCharacter.OnStressUpdated += OnStressUpdated;
+            return UniTask.CompletedTask;
+        }
+
+        private void OnStressUpdated(float value)
+        {
+            G.Menu.HUD.StatsView.UpdateStress(value / G.Characters.CurrentCharacter.BaseStress).Forget();
+        }
+
+        private void OnHealthUpdated(float value)
+        {
+            G.Menu.HUD.StatsView.UpdateHP(value / G.Characters.CurrentCharacter.BaseHP).Forget();
+        }
+    }
+}

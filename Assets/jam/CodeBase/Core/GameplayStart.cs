@@ -27,6 +27,9 @@ namespace jam.CodeBase.Core
             {
                 G.Characters.CurrentCharacter = loadedCharacter;
             }
+            
+            G.Menu.HUD.StatsView.UpdateStress(G.Characters.CurrentCharacter.CurrentStress, true).Forget();
+            G.Menu.HUD.StatsView.UpdateHP(G.Characters.CurrentCharacter.CurrentHealth, true).Forget();
 
             //todo:show card pop up
         }

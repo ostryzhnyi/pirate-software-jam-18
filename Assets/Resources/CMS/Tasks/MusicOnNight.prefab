@@ -49,6 +49,7 @@ MonoBehaviour:
   - rid: 4608936542719443226
   - rid: 4608936559312109709
   - rid: 4608936559312109710
+  - rid: 4608936559312109798
   references:
     version: 2
     RefIds:
@@ -68,3 +69,6 @@ MonoBehaviour:
       data:
         Name: Not enable
         StatsAfforded: []
+    - rid: 4608936559312109798
+      type: {class: IgnoreTag, ns: jam.CodeBase.Core.Tags, asm: Assembly-CSharp}
+      data: 

@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,7 +31,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
         
         public void UpdateProgress(float progress)
         {
-            _progress.fillAmount = progress;
+            _progress.DOFillAmount(progress, .2f).SetEase(Ease.OutSine);
         }
 
         public void SetSelected(bool isSelected)

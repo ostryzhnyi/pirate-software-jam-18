@@ -14,6 +14,9 @@ namespace jam.CodeBase.Character
         public event Action OnStressDie;
         public event Action OnHealthDie;
         
+        public event Action<float> OnStressUpdated;
+        public event Action<float> OnHealthUpdated;
+        
         public string Name => _entity.Get<NameTag>().Name;
         public string Description => _entity.Get<DescribeTag>().Description;
         public int Age => _entity.Get<CharacterTag>().Age;
@@ -21,6 +24,8 @@ namespace jam.CodeBase.Character
 
         public float CurrentHealth;
         public float CurrentStress;
+        public float BaseStress { private set; get; }
+        public float BaseHP { private set; get; }
         
         private CMSEntity _entity;
         private CharacterSaveData _saveData;
@@ -42,6 +47,9 @@ namespace jam.CodeBase.Character
                 CurrentHealth = _entity.Get<StatsTag>().Health;
                 CurrentStress = _entity.Get<StatsTag>().Stress;
             }
+            
+            BaseHP = _entity.Get<StatsTag>().Health;
+            BaseStress = _entity.Get<StatsTag>().Stress;
 
             _modifierTag = entity.Get<StatsModifierTag>();
         }
@@ -62,7 +70,10 @@ namespace jam.CodeBase.Character
         {
             if (method == StatsChangeMethod.Add)
             {
-                CurrentHealth += amount;
+                if(CurrentHealth + amount >= BaseHP)
+                    CurrentHealth = BaseHP;
+                else
+                    CurrentHealth += amount;
             }
             else if (method == StatsChangeMethod.Remove)
             {
@@ -74,6 +85,8 @@ namespace jam.CodeBase.Character
                     _saveData.IsDie = true;
                 }
             }
+            
+            OnHealthUpdated?.Invoke(CurrentHealth);
 
             Debug.LogError("Update HP to: " +  CurrentHealth);
             Save();
@@ -83,18 +96,22 @@ namespace jam.CodeBase.Character
         {
             if (method == StatsChangeMethod.Add)
             {
-                CurrentStress += amount;
+                if(CurrentStress + amount >= BaseStress)
+                    CurrentStress = BaseStress;
+                else
+                    CurrentStress += amount;
             }
             else if (method == StatsChangeMethod.Remove)
             {
                 CurrentStress -= amount * _modifierTag.StressResistance;
-                
                 if (CurrentStress <= 0)
                 {
                     OnStressDie?.Invoke();
                     _saveData.IsDie = true;
                 }
             }
+            
+            OnStressUpdated?.Invoke(CurrentStress);
             
             Debug.LogError("Update stress to: " +  CurrentHealth);
             Save();

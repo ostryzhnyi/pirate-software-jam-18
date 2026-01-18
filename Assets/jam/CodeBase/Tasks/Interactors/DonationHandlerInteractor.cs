@@ -16,7 +16,7 @@ namespace jam.CodeBase.Tasks.Interactors
         
         public void Donate(BaseTask task, float cost)
         {
-            Debug.LogError("Donate: " + cost + " to " + task.Name);
+            Debug.Log("Donate: " + cost + " to " + task.Name);
             G.Donate.Donates[task] += cost;
 
             var sum = G.Donate.Donates.Sum(d => d.Value);
@@ -27,11 +27,12 @@ namespace jam.CodeBase.Tasks.Interactors
                 if(G.Donate.Donates[item.Key] > 0)
                 {
                     var donateProportion = G.Donate.Donates[item.Key] / sum;
-                    Debug.LogError(item.Key + " " + donateProportion);
-                    donateView.GetDonateButton(item.Key).UpdateProgress(donateProportion);
+                    donateView.GetDonateButton(item.Key)?.UpdateProgress(donateProportion);
                 }
                 else
-                    donateView.GetDonateButton(item.Key).UpdateProgress(0);
+                {
+                    donateView.GetDonateButton(item.Key)?.UpdateProgress(0);
+                }
             }
         }
 

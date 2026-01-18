@@ -30,20 +30,22 @@ namespace jam.CodeBase.Economy
         
         public void SpendMoney(float money)
         {
-            if (CanSpend(money))
+            if (!CanSpend(money))
             {
                 Debug.LogError("Use CanSpend");
                 return;
             }
-            
+
+            Debug.LogError("SPEND: " + money);
             _economySaveModel.Data.Money -= money;
-            
+            OnMoneyChanged?.Invoke(_economySaveModel.Data.Money);
             _economySaveModel.ForceSave();
         }
         
         public void AddMoney(float money)
         {
             _economySaveModel.Data.Money += money;
+            OnMoneyChanged?.Invoke(_economySaveModel.Data.Money);
             
             _economySaveModel.ForceSave();
         }

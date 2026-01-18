@@ -2,8 +2,11 @@
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
+using jam.CodeBase.Core.Tags;
+using jam.CodeBase.Economy;
 using jam.CodeBase.Tasks.DonateSystem;
 using jam.CodeBase.Tasks.Interactors;
+using ProjectX.CodeBase.Utils;
 using UnityEngine;
 
 namespace jam.CodeBase.Tasks
@@ -31,10 +34,22 @@ namespace jam.CodeBase.Tasks
             }
             
             float time = tasks.Item1.Duration;
+            var economyTag = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
+            var donators = Random.Range(economyTag.DonatorsAmountMinMax.x, economyTag.DonatorsAmountMinMax.y);
             while (time > 0)
             {
                 time--;
+                
                 await UniTask.WaitForSeconds(1f);
+                
+                if(donators > 0)
+                {
+                    G.Interactors.CallAll<IDonate>(t =>
+                        t.Donate(BaseTasks[Random.Range(0, BaseTasks.Count)],
+                            Random.Range(economyTag.RandomDonateRange.x, economyTag.RandomDonateRange.y)));
+
+                    donators--;
+                }
             }
 
             var wonTask = Donates.OrderByDescending(p => p.Value).FirstOrDefault();
@@ -50,12 +65,11 @@ namespace jam.CodeBase.Tasks
         
         public (TaskDefinition, List<BaseTask>) GetRandomTaskList()
         {
-            Debug.LogError("G.Saves:" + G.Saves);
-            Debug.LogError("G.Saves.Get<RunSaveModel>():" + G.Saves.Get<RunSaveModel>());
             var runSave = G.Saves.Get<RunSaveModel>().Data;
             
             var tasks = CMS.GetAll<CMSEntity>()
                 .Where(e => e.Is<TaskDefinition>())
+                .Where(e => !e.Is<IgnoreTag>())
                 .Where(e => !runSave.CompletedTask.Contains(e.id))
                 .ToList();
 

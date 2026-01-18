@@ -1,7 +1,6 @@
-﻿using System;
+﻿using jam.CodeBase.Character;
 using jam.CodeBase.Core;
 using jam.CodeBase.Tasks.DonateSystem;
-using Ostryzhnyi.EasyViewService.Api.Service;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +9,7 @@ namespace jam.CodeBase.UI
     public class HUD : MonoBehaviour
     {
         public Button Donate;
+        public StatsView StatsView;
 
         private void OnEnable()
         {

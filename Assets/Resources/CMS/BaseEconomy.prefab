@@ -54,3 +54,5 @@ MonoBehaviour:
       type: {class: BaseEconomyTag, ns: jam.CodeBase.Economy, asm: Assembly-CSharp}
       data:
         BaseMoney: 5000
+        DonatorsAmountMinMax: {x: 1, y: 10}
+        RandomDonateRange: {x: 100, y: 200}

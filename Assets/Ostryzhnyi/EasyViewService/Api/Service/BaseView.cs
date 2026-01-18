@@ -38,7 +38,14 @@ namespace Ostryzhnyi.EasyViewService.Api.Service
 
         public virtual async UniTask Hide()
         {
-            await _baseAnimationStrategy.Hide();
+            if(_baseAnimationStrategy != null)
+            {
+                await _baseAnimationStrategy.Hide();
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
             Hided();
             _option = null;
         }

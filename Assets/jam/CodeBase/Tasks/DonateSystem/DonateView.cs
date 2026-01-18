@@ -64,15 +64,18 @@ namespace jam.CodeBase.Tasks.DonateSystem
             {
                 var baseTask = CastedOption.Tasks[i];
                 DonateButtons[i].Init(baseTask, OnClick);
+                DonateButtons[i].UpdateProgress(G.Donate.Donates[baseTask]);
             }
             
             DonateButtons.First().Button.onClick.Invoke();
+            _donate.interactable = G.Economy.CanSpend(Price);
             
             _donate.onClick.AddListener(OnDonate);
         }
 
         private void UpdateText()
         {
+            _donate.interactable = G.Economy.CanSpend(Price);
             _minus.interactable = MinBit < Price;
             _priceText.SetText("$ " + Price);
         }
@@ -84,6 +87,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
 
         private void OnDonate()
         {
+            G.Economy.SpendMoney(Price);
             G.Interactors.CallAll<IDonate>((d) => d.Donate(_selected.Task, Price));
             _window.DOPunchScale(Vector3.one * 0.05f, .2f, 20);
         }
