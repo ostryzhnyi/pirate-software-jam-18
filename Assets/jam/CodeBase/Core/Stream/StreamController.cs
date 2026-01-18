@@ -8,9 +8,10 @@ namespace jam.CodeBase.Stream
         // todo: Add
         // private StreamRewards _streamRewards; // accumulative donates, Players bid and coefficient
         private CMSEntityPfb _currentEntity;
+        public DaysController DaysController => _daysController;
         public ChatController ChatController => _chatController;
 
-        public void Initialize()
+        public StreamController()
         {
             _daysController = new DaysController();
             _chatController = new ChatController();
@@ -27,7 +28,7 @@ namespace jam.CodeBase.Stream
         {
             _chatController.ShowDonateMessage(value);
         }
-        
+
         public void OnCharActionExecuted(int actionType)
         {
             _chatController.ShowReactionMessage(actionType);

@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using jam.CodeBase.Audio;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
+using jam.CodeBase.Stream;
 using jam.CodeBase.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,7 +27,8 @@ namespace jam.CodeBase.Core
 
         public static bool IsPaused = false;
         public static GameObject GameObject;
-        
+        public static StreamController StreamController;
+
         
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static void OnApplicationQuit() {
@@ -59,8 +61,13 @@ namespace jam.CodeBase.Core
         public async UniTask StartGameLoop()
         {
             _cancellationTokenSourceStop = new CancellationTokenSource();
-            
+            InitControllers();
             await GameLoop();
+        }
+
+        private void InitControllers()
+        {
+            StreamController = new StreamController();
         }
 
         private async UniTask GameLoop()

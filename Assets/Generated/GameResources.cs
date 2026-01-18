@@ -13,6 +13,11 @@ public static class GameResources
             public static CMSEntityPfb Man1CharacterEntity => Resources.Load<CMSEntityPfb>("CMS/Characters/Man1CharacterEntity");
             public static CMSEntityPfb Man2CharacterEntity => Resources.Load<CMSEntityPfb>("CMS/Characters/Man2CharacterEntity");
         }
+        public static class Chat
+        {
+            public static CMSEntityPfb Day1Messages => Resources.Load<CMSEntityPfb>("CMS/Chat/Day1Messages");
+            public static CMSEntityPfb ReactionMessages => Resources.Load<CMSEntityPfb>("CMS/Chat/ReactionMessages");
+        }
         public static class Tasks
         {
             public static CMSEntityPfb GiveEatTask => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiveEatTask");

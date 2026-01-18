@@ -11,6 +11,7 @@ namespace jam.CodeBase.Stream
     public class ChatController
     {
         public event Action<ChatMessage> OnMessageReceived;
+        public event Action<ChatMessage> OnDayUpdated;
 
         private static Vector2 DEFAULT_TIME_RANGE = new Vector2(0.1f, 5f);
         private static Vector2 REACTIONS_TIME_RANGE = new Vector2(0.1f, 0.5f);
@@ -24,16 +25,11 @@ namespace jam.CodeBase.Stream
             _targetEntity = entity;
             _dailyMessages = CMS.GetAll<CMSEntity>().First(e => e.Is<DailyMessages>() && e.Get<DailyMessages>().Day == day).Get<DailyMessages>().Messages;
             _repeatableMessages = CMS.GetAll<CMSEntity>().First(e => e.Is<RepeatableMessages>()).Get<RepeatableMessages>();
-
-            // var description = entity.Get<DescribeTag>()?.Description;
-            // foreach (var chatMessage in messages)
-            // {
-            //     Debug.LogError($"{chatMessage.Sender} : {string.Format(chatMessage.Message, description?.ToLower())}");
-            // }
         }
 
         public async void StartMessaging()
         {
+            Debug.LogError(_dailyMessages.Count);
             foreach (var message in _dailyMessages.OrderBy(x => Random.value))
             {
                 var data = GetData(message.Type);
@@ -57,7 +53,7 @@ namespace jam.CodeBase.Stream
 
         public void ShowDonateMessage(int value)
         {
-            var chatMessage = new ChatMessage("", $"Donated ${value}");
+            var chatMessage = new ChatMessage("", $"Someone donated ${value}", MessageDataType.Donate);
             Debug.Log($"Send message: {chatMessage.Message}");
             OnMessageReceived?.Invoke(chatMessage);
         }
