@@ -1922,7 +1922,7 @@ Material:
     - _FadeBurnTransition: 0.075
     - _FadeBurnWidth: 0.025
     - _FishEyeUvAmount: 0.35
-    - _FlickerAlpha: 0
+    - _FlickerAlpha: 0.215
     - _FlickerFreq: 0.2
     - _FlickerPercent: 0.05
     - _GhostBlend: 1
@@ -1931,8 +1931,8 @@ Material:
     - _GlitchAmount: 3
     - _GlitchSize: 1
     - _GlitchSpeed: 20
-    - _Glow: 10
-    - _GlowGlobal: 1
+    - _Glow: 0
+    - _GlowGlobal: 69.3
     - _GradBlend: 1
     - _GradBoostX: 1.2
     - _GradBoostY: 1.2
