@@ -7,6 +7,7 @@ using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
 using jam.CodeBase.Stream;
 using jam.CodeBase.Tasks;
+using Ostryzhnyi.EasyViewService.Api.Service;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
@@ -21,6 +22,7 @@ namespace jam.CodeBase.Core
         public static M Menu;
         public static Economy.Economy Economy;
         public static Characters Characters;
+        public static IViewService GlobalViewService;
      
         public static AudioController Audio;
         
