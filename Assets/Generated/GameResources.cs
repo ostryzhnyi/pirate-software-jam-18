@@ -1,5 +1,6 @@
 using jam.CodeBase.Audio;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 // This file is auto-generated. Do not modify manually.
@@ -30,6 +31,5 @@ public static class GameResources
         public static CMSEntityPfb CMSEntity => Resources.Load<CMSEntityPfb>("CMS/CMSEntity");
     }
     public static AudioController AudioController => Resources.Load<AudioController>("AudioController");
-    public static TextAsset PerformanceTestRunInfo => Resources.Load<TextAsset>("PerformanceTestRunInfo");
-    public static TextAsset PerformanceTestRunSettings => Resources.Load<TextAsset>("PerformanceTestRunSettings");
+    public static CanvasScaler Canvas => Resources.Load<CanvasScaler>("Canvas");
 }

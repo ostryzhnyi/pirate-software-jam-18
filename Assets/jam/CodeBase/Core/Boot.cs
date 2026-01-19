@@ -3,6 +3,7 @@ using jam.CodeBase.Audio;
 using jam.CodeBase.Character;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
+using Ostryzhnyi.EasyViewService.Impl.Service;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -47,6 +48,10 @@ namespace jam.CodeBase.Core
         {
             var gObject = new GameObject("G");
             gObject.AddComponent<G>();
+            var canvas = GameObject.Instantiate(GameResources.Canvas, gObject.transform).GetComponentInChildren<ViewServiceCanvas>();
+            var viewService = canvas.gameObject.AddComponent<ViewService>();
+            viewService._canvas = canvas;
+            G.GlobalViewService = viewService;
             Object.DontDestroyOnLoad(gObject);
         }
 
