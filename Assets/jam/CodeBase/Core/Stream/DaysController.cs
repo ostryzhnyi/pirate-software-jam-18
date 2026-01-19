@@ -16,7 +16,7 @@ namespace jam.CodeBase.Stream
 
         public event Action<int> OnDayUpdated;
 
-        public int CurrentDay { get; private set; }
+        public int CurrentDay { get; private set; } = -1;
         public float CurrentTimeSeconds { get; private set; }
 
         private CancellationTokenSource _cst;
@@ -30,6 +30,7 @@ namespace jam.CodeBase.Stream
         {
             _cst = new CancellationTokenSource(); 
 
+            OnDayEnded?.Invoke(CurrentDay);
             CurrentDay = dayNumber;
             OnDayUpdated?.Invoke(CurrentDay);
 
