@@ -1,7 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Character;
 using jam.CodeBase.Core.Interactors;
+using jam.CodeBase.Utils;
 
 namespace jam.CodeBase.Core
 {
@@ -31,7 +32,11 @@ namespace jam.CodeBase.Core
             G.Menu.HUD.StatsView.UpdateStress(G.Characters.CurrentCharacter.CurrentStress, true).Forget();
             G.Menu.HUD.StatsView.UpdateHP(G.Characters.CurrentCharacter.CurrentHealth, true).Forget();
 
-            //todo:show card pop up
+            G.Menu.ViewService.ShowView<CharacterCardView>(new CharacterCardViewOptions(G.Characters.CurrentCharacter));
+
+            await UniTaskHelper.SmartWaitSeconds(15);
+            
+            G.Menu.ViewService.HideView<CharacterCardView>();
         }
     }
 }

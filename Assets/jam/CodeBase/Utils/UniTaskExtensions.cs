@@ -1,7 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace ProjectX.CodeBase.Utils
+namespace jam.CodeBase.Utils
 {
     public struct UniTaskHelper
     {

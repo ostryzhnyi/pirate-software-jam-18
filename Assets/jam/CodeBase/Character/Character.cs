@@ -5,6 +5,7 @@ using jam.CodeBase.Character.Data;
 using jam.CodeBase.Core;
 using jam.CodeBase.Core.Tags;
 using jam.CodeBase.Tasks;
+using Runtime;
 using UnityEngine;
 
 namespace jam.CodeBase.Character
@@ -20,6 +21,8 @@ namespace jam.CodeBase.Character
         public string Name => _entity.Get<NameTag>().Name;
         public string Description => _entity.Get<DescribeTag>().Description;
         public int Age => _entity.Get<CharacterTag>().Age;
+        public Sprite Preview => _entity.Get<TagSprite>().sprite;
+        public GameObject Prefab => _entity.Get<CharacterTag>().Prefab;
         public bool IsDie => _saveData is { IsDie: true };
 
         public float CurrentHealth;
@@ -30,7 +33,7 @@ namespace jam.CodeBase.Character
         private CMSEntity _entity;
         private CharacterSaveData _saveData;
 
-        private StatsModifierTag _modifierTag;
+        public StatsModifierTag ModifierTag { private set; get; }
         
         public Character(CMSEntity entity, CharacterSaveData characterSaveData)
         {
@@ -51,7 +54,7 @@ namespace jam.CodeBase.Character
             BaseHP = _entity.Get<StatsTag>().Health;
             BaseStress = _entity.Get<StatsTag>().Stress;
 
-            _modifierTag = entity.Get<StatsModifierTag>();
+            ModifierTag = entity.Get<StatsModifierTag>();
         }
 
         public void ApplyStatsAfforded(StatsAfforded statsAfforded)
@@ -77,7 +80,7 @@ namespace jam.CodeBase.Character
             }
             else if (method == StatsChangeMethod.Remove)
             {
-                CurrentHealth -= amount * _modifierTag.PainThreshold;
+                CurrentHealth -= amount * ModifierTag.PainThreshold;
 
                 if (CurrentStress <= 0)
                 {
@@ -103,7 +106,7 @@ namespace jam.CodeBase.Character
             }
             else if (method == StatsChangeMethod.Remove)
             {
-                CurrentStress -= amount * _modifierTag.StressResistance;
+                CurrentStress -= amount * ModifierTag.StressResistance;
                 if (CurrentStress <= 0)
                 {
                     OnStressDie?.Invoke();
