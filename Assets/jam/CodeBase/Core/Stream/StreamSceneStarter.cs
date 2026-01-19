@@ -3,7 +3,6 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Character.Data;
 using jam.CodeBase.Core;
-using jam.CodeBase.Stream.View;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -39,16 +38,12 @@ namespace jam.CodeBase.Stream
 
         private void OnDestroy()
         {
-            if(G.StreamController != null && G.StreamController.DaysController != null)
-                G.StreamController.DaysController.OnDayEnded -= OnDayChangedTransition;
+            G.StreamController.DaysController.OnDayEnded -= OnDayChangedTransition;
         }
 
         private void OnDayChangedTransition(int obj)
         {
-            Debug.LogError($"Day {obj} ended");
-            if (obj < 0)
-                return;
-            G.GlobalViewService.ShowView<DaysTransitionPopup>();
+            
         }
     }
 }
