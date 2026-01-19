@@ -1,21 +1,20 @@
-using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace jam.CodeBase.Stream.View
 {
-
-
     public class ChatMessageView : MonoBehaviour
     {
         [SerializeField] private ChatElementView _prefab;
         [SerializeField] private ChatElementView _donateMessage;
         [SerializeField] private Transform _parent;
         [SerializeField] private ScrollRect _scrollRect;
+        [SerializeField] private TMP_Text _streamDayText;
         [SerializeField] private Color[] _senderColors;
 
         private List<ChatElementView> _elements = new List<ChatElementView>();
@@ -29,6 +28,7 @@ namespace jam.CodeBase.Stream.View
 
         private void OnDayUpdated(int day)
         {
+            _streamDayText.text = $"STREAM DAY: {day + 1}";
             Clear();
         }
 

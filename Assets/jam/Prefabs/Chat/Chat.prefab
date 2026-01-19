@@ -289,6 +289,7 @@ MonoBehaviour:
   _donateMessage: {fileID: 4822483572927201734, guid: 5f58e622f7c33c145aadf056ecd78e68, type: 3}
   _parent: {fileID: 5283937799399794845}
   _scrollRect: {fileID: 4164327228036324809}
+  _streamDayText: {fileID: 6867135140954316853}
   _senderColors:
   - {r: 0.6745098, g: 0.19607845, b: 0.19607845, a: 1}
   - {r: 0.8000001, g: 0.7725491, b: 0.25490198, a: 1}
