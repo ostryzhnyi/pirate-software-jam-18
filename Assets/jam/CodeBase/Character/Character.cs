@@ -18,11 +18,11 @@ namespace jam.CodeBase.Character
         public event Action<float> OnStressUpdated;
         public event Action<float> OnHealthUpdated;
         
-        public string Name => _entity.Get<NameTag>().Name;
-        public string Description => _entity.Get<DescribeTag>().Description;
-        public int Age => _entity.Get<CharacterTag>().Age;
-        public Sprite Preview => _entity.Get<TagSprite>().sprite;
-        public GameObject Prefab => _entity.Get<CharacterTag>().Prefab;
+        public string Name => Entity.Get<NameTag>().Name;
+        public string Description => Entity.Get<DescribeTag>().Description;
+        public int Age => Entity.Get<CharacterTag>().Age;
+        public Sprite Preview => Entity.Get<TagSprite>().sprite;
+        public GameObject Prefab => Entity.Get<CharacterTag>().Prefab;
         public bool IsDie => _saveData is { IsDie: true };
 
         public float CurrentHealth;
@@ -30,14 +30,14 @@ namespace jam.CodeBase.Character
         public float BaseStress { private set; get; }
         public float BaseHP { private set; get; }
         
-        private CMSEntity _entity;
+        public CMSEntity Entity;
         private CharacterSaveData _saveData;
 
         public StatsModifierTag ModifierTag { private set; get; }
         
         public Character(CMSEntity entity, CharacterSaveData characterSaveData)
         {
-            _entity = entity;
+            Entity = entity;
             _saveData = characterSaveData;
 
             if (_saveData != null)
@@ -47,12 +47,12 @@ namespace jam.CodeBase.Character
             }
             else
             {
-                CurrentHealth = _entity.Get<StatsTag>().Health;
-                CurrentStress = _entity.Get<StatsTag>().Stress;
+                CurrentHealth = Entity.Get<StatsTag>().Health;
+                CurrentStress = Entity.Get<StatsTag>().Stress;
             }
             
-            BaseHP = _entity.Get<StatsTag>().Health;
-            BaseStress = _entity.Get<StatsTag>().Stress;
+            BaseHP = Entity.Get<StatsTag>().Health;
+            BaseStress = Entity.Get<StatsTag>().Stress;
 
             ModifierTag = entity.Get<StatsModifierTag>();
         }

@@ -6,8 +6,13 @@ using jam.CodeBase.Utils;
 
 namespace jam.CodeBase.Core
 {
-    public class GameplayStart : BaseInteractor, IGameplayLoaded
+    public class GameplayStartInteractor : BaseInteractor, IGameplayLoaded
     {
+        public override int GetPriority()
+        {
+            return int.MinValue;
+        }
+
         public async UniTask OnLoaded()
         {
             var runSaveModel = G.Saves.Get<RunSaveModel>();

@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Audio;
+using jam.CodeBase.Bets;
 using jam.CodeBase.Character;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
@@ -22,6 +23,7 @@ namespace jam.CodeBase.Core
         public static M Menu;
         public static Economy.Economy Economy;
         public static Characters Characters;
+        public static BetController BetController;
         public static IViewService GlobalViewService;
      
         public static AudioController Audio;

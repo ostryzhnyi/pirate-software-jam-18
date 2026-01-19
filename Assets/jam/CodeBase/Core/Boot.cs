@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using jam.CodeBase.Audio;
+using jam.CodeBase.Bets;
 using jam.CodeBase.Character;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
@@ -23,6 +24,7 @@ namespace jam.CodeBase.Core
             G.Saves = new Saves();
             G.Economy = new Economy.Economy();
             G.Characters = new Characters();
+            G.BetController = new BetController();
             
             SpawnG();
             SpawnAudioController();

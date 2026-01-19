@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
 using jam.CodeBase.UI;
 using Ostryzhnyi.EasyViewService.Impl.Service;
@@ -16,14 +17,18 @@ namespace jam.CodeBase
             G.Menu = this;
         }
 
-        private void Start()
-        {
-            G.Donate.DonateExecuteProcess().Forget();
-        }
-
         private void OnDestroy()
         {
             G.Menu = null;
+            OnGamePlayUnloaded().Forget();
+        }
+
+        private static async UniTask OnGamePlayUnloaded()
+        {
+            foreach (var gameplayUnloaded in G.Interactors.GetAll<IGameplayUnloaded>())
+            {
+                await gameplayUnloaded.OnUnloaded();
+            }
         }
     }
 }

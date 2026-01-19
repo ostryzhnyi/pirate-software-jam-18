@@ -4,9 +4,7 @@ using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
 using jam.CodeBase.Core.Tags;
 using jam.CodeBase.Economy;
-using jam.CodeBase.Tasks.DonateSystem;
 using jam.CodeBase.Tasks.Interactors;
-using ProjectX.CodeBase.Utils;
 using UnityEngine;
 
 namespace jam.CodeBase.Tasks
@@ -17,7 +15,6 @@ namespace jam.CodeBase.Tasks
 
         public TaskDefinition TaskDefinition;
         public List<BaseTask> BaseTasks;
-        
         
         public async UniTask DonateExecuteProcess()
         {

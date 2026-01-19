@@ -21,7 +21,10 @@ namespace jam.CodeBase.Tasks.DonateSystem
             Task = task;
             UpdateText();
             _button.onClick.RemoveAllListeners();
-            _button.onClick.AddListener(() => onClick?.Invoke(this));
+            _button.onClick.AddListener(() =>
+            {
+                onClick?.Invoke(this);
+            });
         }
 
         private void UpdateText()
