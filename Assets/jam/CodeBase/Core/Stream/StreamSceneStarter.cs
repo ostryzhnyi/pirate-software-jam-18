@@ -22,13 +22,7 @@ namespace jam.CodeBase.Stream
             var characters = CMS.GetAll<CMSEntity>().Where(x => x.Is<CharacterTag>());
             var currentCharacter = characters.OrderBy(_ => Random.value).First();
 
-            await UniTask.DelayFrame(2);
-            G.StreamController.StartStream(currentCharacter);
-            //
-            await UniTask.Delay(2000);
-            G.StreamController.OnCharActionExecuted(1);
-            await UniTask.Delay(2000);
-            //
+         
             // await UniTask.Delay(5000);
             // G.StreamController.OnDonateReceived(100);
             // G.StreamController.OnDonateReceived(300);

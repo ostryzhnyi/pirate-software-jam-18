@@ -6,4 +6,9 @@ namespace jam.CodeBase.Core
     {
         public UniTask OnLoaded();
     }
+    
+    public interface IGameplayUnloaded
+    {
+        public UniTask OnUnloaded();
+    }
 }

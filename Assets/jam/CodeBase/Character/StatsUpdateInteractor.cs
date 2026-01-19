@@ -4,7 +4,7 @@ using jam.CodeBase.Core.Interactors;
 
 namespace jam.CodeBase.Character
 {
-    public class StatsUpdateInteractor : BaseInteractor, IGameplayLoaded
+    public class StatsUpdateInteractor : BaseInteractor, IGameplayLoaded, IGameplayUnloaded
     {
         public override int GetPriority()
         {
@@ -26,6 +26,20 @@ namespace jam.CodeBase.Character
         private void OnHealthUpdated(float value)
         {
             G.Menu.HUD.StatsView.UpdateHP(value / G.Characters.CurrentCharacter.BaseHP).Forget();
+        }
+
+        public UniTask OnUnloaded()
+        {
+            try
+            {
+                G.Characters.CurrentCharacter.OnHealthUpdated -= OnHealthUpdated;
+                G.Characters.CurrentCharacter.OnStressUpdated -= OnStressUpdated;
+            }
+            catch
+            {
+                //ignore
+            }
+            return UniTask.CompletedTask;
         }
     }
 }
