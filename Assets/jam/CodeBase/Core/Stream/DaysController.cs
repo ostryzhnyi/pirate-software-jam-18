@@ -1,8 +1,6 @@
 using System;
 using System.Threading;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 
 namespace jam.CodeBase.Stream
 {
@@ -49,8 +47,8 @@ namespace jam.CodeBase.Stream
                 OnTimeUpdated?.Invoke(CurrentTimeSeconds);
             }
 
-            Debug.LogError($"Day {CurrentDay} ended");
             OnDayEnded?.Invoke(CurrentDay);
+            // SetDay(CurrentDay + 1);
         }
     }
 }

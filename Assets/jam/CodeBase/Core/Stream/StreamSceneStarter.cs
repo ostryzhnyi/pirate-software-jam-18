@@ -45,10 +45,12 @@ namespace jam.CodeBase.Stream
 
         private void OnDayChangedTransition(int obj)
         {
-            Debug.LogError($"Day {obj} ended");
             if (obj < 0)
                 return;
-            G.GlobalViewService.ShowView<DaysTransitionPopup>();
+            Debug.Log($"Day {obj} ended");
+            var view =  G.GlobalViewService.GetView<DaysTransitionPopup>() as DaysTransitionPopup;
+            view.Setup(obj);
+            view.Show();
         }
     }
 }
