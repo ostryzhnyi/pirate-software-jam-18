@@ -30,8 +30,8 @@ namespace jam.CodeBase.Core
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void LoadGamePlay()
-        {
-            LoadGamePlayAsync().Forget();
+        { 
+            //LoadGamePlayAsync().Forget();
         }
 
         private static async UniTask LoadGamePlayAsync()
