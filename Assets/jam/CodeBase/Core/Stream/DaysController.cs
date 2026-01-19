@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace jam.CodeBase.Stream
 {
@@ -11,7 +12,7 @@ namespace jam.CodeBase.Stream
         public event Action<int> OnDayEnded;
 
         private const float DAY_TIME = 24;//hours
-        private const float DAY_REALTIME = 5;//minutes
+        private const float DAY_REALTIME = 1f;//minutes
         private const float DAY_SENONDS_PER_REAL_SECOND = (DAY_TIME * 3600) / (DAY_REALTIME * 60);//seconds
 
         public event Action<int> OnDayUpdated;
@@ -48,6 +49,7 @@ namespace jam.CodeBase.Stream
                 OnTimeUpdated?.Invoke(CurrentTimeSeconds);
             }
 
+            Debug.LogError($"Day {CurrentDay} ended");
             OnDayEnded?.Invoke(CurrentDay);
         }
     }
