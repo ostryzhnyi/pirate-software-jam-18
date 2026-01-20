@@ -61,5 +61,6 @@ MonoBehaviour:
         AmountBetsRange: {x: 80, y: 120}
         BaseBet: {x: 8000, y: 12000}
         PercentsRangeFromPlayerMoney: {x: 4, y: 6}
-        BiddersProporion: {x: 0.9, y: 0.1}
+        DieBiddersProporionRange: {x: 0.8, y: 0.5}
+        AliveBiddersProporionRange: {x: 0.5, y: 0.2}
         CoefficientScale: 1

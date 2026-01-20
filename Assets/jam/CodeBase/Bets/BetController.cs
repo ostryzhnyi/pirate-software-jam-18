@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
 using jam.CodeBase.Economy;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace jam.CodeBase.Bets
 {
@@ -10,7 +11,7 @@ namespace jam.CodeBase.Bets
     {
         public Action<float> OnChangeDieCoefficient;
         public Action<float> OnChangeAliveCoefficient;
-        
+
         public float CurrentBet => AliveBet + DieBet;
         public float AliveBet;
         public float DieBet;
@@ -19,46 +20,55 @@ namespace jam.CodeBase.Bets
 
         private Vector2 BetBaseDieCoefficientRange;
         private Vector2 BetBasAliveCoefficientRange;
-        
-        private float CoefficientScale;
+
 
         private const int BetTime = 30;
 
-        private float _roundTotalMaxBet;
         private float _perSecondBet;
-        private float _remainingRoundBet;
+
 
         public BetController()
         {
             var baseEconomyTag = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
             BetBaseDieCoefficientRange = baseEconomyTag.BetBaseDieCoefficientRange;
             BetBasAliveCoefficientRange = baseEconomyTag.BetBaseAliveCoefficientRange;
-            CoefficientScale = baseEconomyTag.CoefficientScale;
-            
+
             AliveBet = 0;
             DieBet = 0;
 
             AliveBetCoefficient = BetBasAliveCoefficientRange.x;
             DieBetCoefficient = BetBaseDieCoefficientRange.x;
-
-            InitRoundTotalMaxBet();
-            AddBaseBet();
-            UpdateCoefficients();
         }
 
-        private void InitRoundTotalMaxBet()
+        private void MakeBaseBet()
         {
             var cfg = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
 
-            float baseBetMax = cfg.BaseBet.y;
-            float baseMoney  = cfg.BaseMoney;
-            float percentMax = cfg.PercentsRangeFromPlayerMoney.y;
+            float baseBet = Random.Range(cfg.BaseBet.x, cfg.BaseBet.y);
 
-            _roundTotalMaxBet = baseBetMax + baseMoney * percentMax;
-            _perSecondBet = _roundTotalMaxBet / BetTime;
-            _remainingRoundBet = _roundTotalMaxBet;
+            var dieBet = baseBet * Random.Range(cfg.DieBiddersProporionRange.x, cfg.DieBiddersProporionRange.y);
+            var aliveBet = baseBet * Random.Range(cfg.AliveBiddersProporionRange.x, cfg.AliveBiddersProporionRange.y);
 
-            Debug.LogError($"[InitRound] roundTotalMaxBet: {_roundTotalMaxBet}, perSecondBet: {_perSecondBet}");
+            Debug.LogError("Base AliveBet: " + aliveBet);
+            Debug.LogError("Base DieBet: " + dieBet);
+
+            BetToDie(dieBet);
+            BetToAlive(aliveBet);
+        }
+
+        private float GetBetPerSecond()
+        {
+            var cfg = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
+
+            float baseMoney = G.Economy.CurrentMoney;
+            float totalBetMultiplier =
+                Random.Range(cfg.PercentsRangeFromPlayerMoney.x, cfg.PercentsRangeFromPlayerMoney.y);
+
+            var totalAdditionalBet = baseMoney * totalBetMultiplier;
+            _perSecondBet = totalAdditionalBet / BetTime;
+
+            Debug.LogError($"[InitRound] perSecondBet: {_perSecondBet}");
+            return _perSecondBet;
         }
 
         public void BetToDie(float bet)
@@ -79,116 +89,121 @@ namespace jam.CodeBase.Bets
 
         public async UniTask BetProcess()
         {
-            var time = BetTime;
+            G.Menu.ViewService.ShowView<BetPopup>();
+            MakeBaseBet();
+
+            var cfg = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
+
+            float baseMoney = G.Economy.CurrentMoney;
+            float totalBetMultiplier =
+                Random.Range(cfg.PercentsRangeFromPlayerMoney.x, cfg.PercentsRangeFromPlayerMoney.y);
+
+            float totalAdditionalBet = baseMoney * totalBetMultiplier;
+
+            float[] tickBets = BuildTickBets(totalAdditionalBet);
+
+            int tick = 0;
+            int time = BetTime;
 
             while (time > 0)
             {
+                MakeSecondBet(tickBets[tick]);
+
                 await UniTask.WaitForSeconds(1);
-                AddSecondBets();
-                time -= 1;
+
+                tick++;
+                time--;
             }
+            
+            G.Menu.ViewService.HideView<BetPopup>();
         }
 
-        private void AddBaseBet()
+        private float[] BuildTickBets(float totalAdditionalBet)
         {
-            var baseBetConfig = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
-            float baseBet = UnityEngine.Random.Range(baseBetConfig.BaseBet.x, baseBetConfig.BaseBet.y);
+            float[] weights = new float[BetTime];
+            float totalWeight = 0f;
 
-            float percent = UnityEngine.Random.Range(
-                baseBetConfig.PercentsRangeFromPlayerMoney.x,
-                baseBetConfig.PercentsRangeFromPlayerMoney.y
-            );
+            for (int i = 0; i < BetTime; i++)
+            {
+                float w = GetTimeWeight(i);
+                weights[i] = w;
+                totalWeight += w;
+            }
 
-            float finalBet = baseBet + G.Economy.CurrentMoney * percent;
+            float[] tickBets = new float[BetTime];
+            for (int i = 0; i < BetTime; i++)
+            {
+                tickBets[i] = totalAdditionalBet * (weights[i] / totalWeight);
+            }
 
-            float aliveShare = baseBetConfig.BiddersProporion.y;
-            float dieShare   = baseBetConfig.BiddersProporion.x;
-
-            float addAlive = finalBet * aliveShare;
-            float addDie   = finalBet * dieShare;
-
-            AliveBet += addAlive;
-            DieBet   += addDie;
-
-            Debug.LogError($"[BaseBet] baseBet: {baseBet}, percent: {percent}, finalBet: {finalBet}, AliveBet: {AliveBet}, DieBet: {DieBet}");
+            return tickBets;
         }
 
-        private void AddSecondBets()
+        private float GetTimeWeight(int t)
         {
-            if (_remainingRoundBet <= 0)
+            float x = (float)t / BetTime;
+            float peak = 0.5f;
+            float d = x - peak;
+            return 1f - 4f * d * d;
+        }
+
+
+        private void MakeSecondBet(float bet)
+        {
+            if (bet <= 0f)
                 return;
 
             var cfg = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
 
-            float secondPool = Mathf.Min(_perSecondBet, _remainingRoundBet);
-            _remainingRoundBet -= secondPool;
+            float r = Random.value; // 0..1
 
-            int biddersCount = UnityEngine.Random.Range(
-                (int)cfg.AmountBetsRange.x,
-                (int)cfg.AmountBetsRange.y + 1
-            );
+            float aliveAdd = 0f;
+            float dieAdd = 0f;
 
-            if (biddersCount <= 0)
-                return;
-
-            float perBidder = secondPool / biddersCount;
-
-            float aliveShare = cfg.BiddersProporion.y;
-            float dieShare   = cfg.BiddersProporion.x;
-
-            for (int i = 0; i < biddersCount; i++)
+            if (r < 0.33f)
             {
-                float aliveAdd = perBidder * aliveShare;
-                float dieAdd   = perBidder * dieShare;
+                aliveAdd = bet;
+                dieAdd = 0f;
+            }
+            else if (r < 0.66f)
+            {
+                aliveAdd = 0f;
+                dieAdd = bet;
+            }
+            else
+            {
+                float aliveShare = Random.Range(cfg.AliveBiddersProporionRange.x, cfg.AliveBiddersProporionRange.y);
+                float dieShare = Random.Range(cfg.DieBiddersProporionRange.x, cfg.DieBiddersProporionRange.y);
 
-                AliveBet += aliveAdd;
-                DieBet   += dieAdd;
+                float totalShare = aliveShare + dieShare;
+                if (totalShare <= 0f)
+                {
+                    aliveAdd = bet * 0.5f;
+                    dieAdd = bet * 0.5f;
+                }
+                else
+                {
+                    aliveAdd = bet * (aliveShare / totalShare);
+                    dieAdd = bet * (dieShare / totalShare);
+                }
             }
 
-            Debug.LogError($"[Second] secondPool: {secondPool}, remaining: {_remainingRoundBet}, bidders: {biddersCount}, perBidder: {perBidder}, AliveBet: {AliveBet}, DieBet: {DieBet}");
+            AliveBet += aliveAdd;
+            DieBet += dieAdd;
+
             UpdateCoefficients();
         }
 
+
         private void UpdateCoefficients()
         {
-            float totalAlive = AliveBet;
-            float totalDie   = DieBet;
-            float totalBets  = totalAlive + totalDie;
+            AliveBetCoefficient = AliveBet / CurrentBet;
+            DieBetCoefficient = DieBet / CurrentBet;
 
-            float aliveShare = totalBets > 0 ? totalAlive / totalBets : 0.5f;
-            float dieShare   = totalBets > 0 ? totalDie   / totalBets : 0.5f;
-
-            float alivePressure = Mathf.Clamp01(aliveShare * CoefficientScale);
-            float diePressure   = Mathf.Clamp01(dieShare   * CoefficientScale);
-
-            float aliveK = Mathf.Lerp(
-                BetBasAliveCoefficientRange.y,
-                BetBasAliveCoefficientRange.x,
-                alivePressure
-            );
-
-            float dieK = Mathf.Lerp(
-                BetBaseDieCoefficientRange.y,
-                BetBaseDieCoefficientRange.x,
-                diePressure
-            );
-
-            if (totalBets <= 0)
-            {
-                aliveK = BetBasAliveCoefficientRange.x;
-                dieK   = BetBaseDieCoefficientRange.x;
-            }
-
-            if (Mathf.Abs(AliveBetCoefficient - aliveK) > 0.0001f ||
-                Mathf.Abs(DieBetCoefficient   - dieK)   > 0.0001f)
-            {
-                AliveBetCoefficient = aliveK;
-                DieBetCoefficient   = dieK;
-
-                Debug.LogError($"[Coeffs] AliveShare: {aliveShare}, DieShare: {dieShare}, AliveK: {aliveK}, DieK: {dieK}, AliveBet: {AliveBet}, DieBet: {DieBet}");
-                OnChangeAliveCoefficient?.Invoke(AliveBetCoefficient);
-                OnChangeDieCoefficient?.Invoke(DieBetCoefficient);
-            }
+            Debug.LogError(
+                $"[Coeffs]  AliveBet: {AliveBet}, DieBet: {DieBet}, AliveBetCoefficient: {AliveBetCoefficient}, DieBetCoefficient: {DieBetCoefficient}");
+            OnChangeAliveCoefficient?.Invoke(AliveBetCoefficient);
+            OnChangeDieCoefficient?.Invoke(DieBetCoefficient);
         }
     }
 }
