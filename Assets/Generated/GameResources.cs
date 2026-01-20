@@ -21,8 +21,15 @@ public static class GameResources
         }
         public static class Tasks
         {
+            public static CMSEntityPfb AddBeesToTheRoom => Resources.Load<CMSEntityPfb>("CMS/Tasks/AddBeesToTheRoom");
+            public static CMSEntityPfb DrinkAllSleepPils => Resources.Load<CMSEntityPfb>("CMS/Tasks/DrinkAllSleepPils");
+            public static CMSEntityPfb EnableAC => Resources.Load<CMSEntityPfb>("CMS/Tasks/EnableAC");
+            public static CMSEntityPfb FriendsCall => Resources.Load<CMSEntityPfb>("CMS/Tasks/FriendsCall");
+            public static CMSEntityPfb GiftSleepPils => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiftSleepPils");
             public static CMSEntityPfb GiveEatTask => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiveEatTask");
             public static CMSEntityPfb MusicOnNight => Resources.Load<CMSEntityPfb>("CMS/Tasks/MusicOnNight");
+            public static CMSEntityPfb PlayMovie => Resources.Load<CMSEntityPfb>("CMS/Tasks/PlayMovie");
+            public static CMSEntityPfb TakeShower => Resources.Load<CMSEntityPfb>("CMS/Tasks/TakeShower");
         }
         public static class Templates
         {

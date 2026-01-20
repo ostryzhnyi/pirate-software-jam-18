@@ -68,6 +68,7 @@ namespace jam.CodeBase.Tasks
                 .Where(e => e.Is<TaskDefinition>())
                 .Where(e => !e.Is<IgnoreTag>())
                 .Where(e => !runSave.CompletedTask.Contains(e.id))
+                .Where(e => !e.Is<RequireItem>() || runSave.ObtainedItems.Contains(e.Get<RequireItem>().ItemName))
                 .ToList();
 
             if (tasks.Count == 0)

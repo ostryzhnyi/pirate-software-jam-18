@@ -21,6 +21,12 @@ namespace jam.CodeBase.Tasks
 
         public abstract UniTask Execute();
     }
+    
+    [Serializable]
+    public class RequireItem : EntityComponentDefinition
+    {
+        public string ItemName;
+    }
 
     [Serializable]
     public class StatsAfforded

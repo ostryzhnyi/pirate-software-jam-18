@@ -21,6 +21,7 @@ namespace jam.CodeBase
     {
         public int DayNumber;
         public List<string> CompletedTask;
+        public List<string> ObtainedItems;
         public string CharacterName;
     }
 }
