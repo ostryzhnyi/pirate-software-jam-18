@@ -2,6 +2,7 @@
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
 using jam.CodeBase.Economy;
+using jam.CodeBase.Utils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -25,7 +26,7 @@ namespace jam.CodeBase.Bets
 
         private float _smoothAlive;
         private float _smoothDie;
-        private const float CoeffSmooth = 0.25f;
+        private const float CoeffSmooth = 1f;
 
         public BetController()
         {
@@ -84,6 +85,8 @@ namespace jam.CodeBase.Bets
                 tick++;
                 time--;
             }
+
+            await UniTaskHelper.SmartWaitSeconds(5);
 
             G.Menu.ViewService.HideView<BetPopup>();
         }
@@ -182,8 +185,8 @@ namespace jam.CodeBase.Bets
                 _smoothDie = Mathf.Lerp(_smoothDie, rawDie, CoeffSmooth);
             }
 
-            AliveBetCoefficient = _smoothAlive;
-            DieBetCoefficient = _smoothDie;
+            AliveBetCoefficient = _smoothDie + 1;
+            DieBetCoefficient = _smoothAlive + 1;
 
             Debug.LogError(
                 $"[Coeffs]  AliveBet: {AliveBet}, DieBet: {DieBet}, AliveBetCoefficient: {AliveBetCoefficient}, DieBetCoefficient: {DieBetCoefficient}");

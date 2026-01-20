@@ -5,8 +5,10 @@ using Ostryzhnyi.EasyViewService.Api.Service;
 using Ostryzhnyi.EasyViewService.ViewLayers;
 using UnityEngine;
 using DG.Tweening;
+using jam.CodeBase.UI;
 using jam.CodeBase.Utils;
 using TMPro;
+using UnityEngine.UI;
 
 namespace jam.CodeBase.Bets
 {
@@ -21,6 +23,11 @@ namespace jam.CodeBase.Bets
         [SerializeField] private TMP_Text _aliveKoef;
         [SerializeField] private TMP_Text _aliveSum;
         [SerializeField] private TMP_Text _dieSum;
+        [SerializeField] private BetView _aliveBetView;
+        [SerializeField] private BetView _dieBetView;
+        [SerializeField] private Button _bet;
+        [SerializeField] private TMP_Text _totalBet;
+        [SerializeField] private SequenceAnimation _timerAnimation;
         [SerializeField] private float _maxRotate = 15f;
         [SerializeField] private float _rotateDuration = 0.25f;
         [SerializeField] private Ease _ease = Ease.OutQuad;
@@ -47,16 +54,32 @@ namespace jam.CodeBase.Bets
         {
             G.BetController.OnChangeAliveCoefficient += Redraw;
             G.BetController.OnChangeDieCoefficient += Redraw;
+            
+            _aliveBetView.SetBit(0);
+            _dieBetView.SetBit(0);
+            
+            _aliveBetView.OnBitChange += OnAliveBitChange;
+            _dieBetView.OnBitChange += OnDieBitChange;
+            _bet.onClick.AddListener(OnBet);
+            
+            _timerAnimation.Play().Forget();
+
+            _bet.interactable = false;
         }
 
         private void OnDisable()
         {
             G.BetController.OnChangeAliveCoefficient -= Redraw;
             G.BetController.OnChangeDieCoefficient -= Redraw;
-
+            
+            _aliveBetView.OnBitChange -= OnAliveBitChange;
+            _dieBetView.OnBitChange -= OnDieBitChange;
+            _bet.onClick.RemoveListener(OnBet);
+            
             _weightTween?.Kill();
             _aliveTween?.Kill();
             _dieTween?.Kill();
+            _timerAnimation.Stop();
         }
 
         protected override void Showed(ViewOption option = null)
@@ -73,8 +96,6 @@ namespace jam.CodeBase.Bets
         private async UniTask Redraw()
         {
             await UniTask.SwitchToMainThread();
-            Debug.LogError(AliveKoef);
-            Debug.LogError(_rotateDuration);
             AliveKoef.DOFloatNumber(G.BetController.AliveBetCoefficient, _rotateDuration, "{0:0.00}", .01f);
             _dieKoef.DOFloatNumber(G.BetController.DieBetCoefficient, _rotateDuration, "{0:0.00}", .01f);
             
@@ -111,6 +132,42 @@ namespace jam.CodeBase.Bets
             _dieTween = _dieCardParent
                 .DOLocalRotate(new Vector3(0f, 0f, angle), _rotateDuration)
                 .SetEase(_ease);
+            
+            _totalBet.DOFloatNumber(G.BetController.CurrentBet, _rotateDuration, "${0:0}", 10);
+        }
+        
+        private void OnDieBitChange(float bit)
+        {
+            _aliveBetView.SetBit(0, true);
+            
+            _bet.interactable = Math.Max(_aliveBetView.Bit, _dieBetView.Bit) > 0;
+        }
+
+        private void OnAliveBitChange(float bit)
+        {
+            _dieBetView.SetBit(0, true);
+
+            _bet.interactable = Math.Max(_aliveBetView.Bit, _dieBetView.Bit) > 0;
+        }
+
+        private void OnBet()
+        {
+            if(_aliveBetView.Bit > 0)
+            {
+                G.BetController.BetToAlive(_aliveBetView.Bit);
+                G.Economy.SpendMoney(_aliveBetView.Bit);
+                _aliveBetView.SetBit(0);
+            }
+            
+            if(_dieBetView.Bit > 0)
+            {
+                G.BetController.BetToDie(_dieBetView.Bit);
+                G.Economy.SpendMoney(_dieBetView.Bit);
+                _dieBetView.SetBit(0);
+            }
+            
+            _dieBetView.UpdateButtons();
+            _aliveBetView.UpdateButtons();
         }
     }
 }

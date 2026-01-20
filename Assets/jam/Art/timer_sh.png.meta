@@ -1,0 +1,1352 @@
+fileFormatVersion: 2
+guid: 8e929e39fa3190a45bc17a2849c24433
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4121035635872490967
+    second: timer_sh_0
+  - first:
+      213: -1853761899525516251
+    second: timer_sh_1
+  - first:
+      213: 786635768281338939
+    second: timer_sh_2
+  - first:
+      213: -349333017222737476
+    second: timer_sh_3
+  - first:
+      213: -7321035420950054503
+    second: timer_sh_4
+  - first:
+      213: 5434525741925842286
+    second: timer_sh_5
+  - first:
+      213: -5114559568701779202
+    second: timer_sh_6
+  - first:
+      213: -7341142515110139020
+    second: timer_sh_7
+  - first:
+      213: -8204805781087397532
+    second: timer_sh_8
+  - first:
+      213: 8097530821035800516
+    second: timer_sh_9
+  - first:
+      213: -4158704046520315440
+    second: timer_sh_10
+  - first:
+      213: -4657718230058827611
+    second: timer_sh_11
+  - first:
+      213: 2915525826557085184
+    second: timer_sh_12
+  - first:
+      213: -7192806748805628776
+    second: timer_sh_13
+  - first:
+      213: -8780168460391052131
+    second: timer_sh_14
+  - first:
+      213: 5590391078556845898
+    second: timer_sh_15
+  - first:
+      213: 8828893620195498128
+    second: timer_sh_16
+  - first:
+      213: -2688951319035461278
+    second: timer_sh_17
+  - first:
+      213: -7145222924136448646
+    second: timer_sh_18
+  - first:
+      213: 6393566816446143767
+    second: timer_sh_19
+  - first:
+      213: -6514559690032179451
+    second: timer_sh_20
+  - first:
+      213: 1671901873627600139
+    second: timer_sh_21
+  - first:
+      213: 2370370847245666363
+    second: timer_sh_22
+  - first:
+      213: 793792679745527869
+    second: timer_sh_23
+  - first:
+      213: 1777332967651875183
+    second: timer_sh_24
+  - first:
+      213: 5916405093161711078
+    second: timer_sh_25
+  - first:
+      213: 2728871943940240727
+    second: timer_sh_26
+  - first:
+      213: -88809041208233525
+    second: timer_sh_27
+  - first:
+      213: 3910939035188524971
+    second: timer_sh_28
+  - first:
+      213: 7775955785788708561
+    second: timer_sh_29
+  - first:
+      213: 7893074599284969784
+    second: timer_sh_30
+  - first:
+      213: -5700865410462231206
+    second: timer_sh_31
+  - first:
+      213: 5344437182614120502
+    second: timer_sh_32
+  - first:
+      213: -5254209050668548237
+    second: timer_sh_33
+  - first:
+      213: -7175787467601390670
+    second: timer_sh_34
+  - first:
+      213: 9120068223078550193
+    second: timer_sh_35
+  - first:
+      213: 6321646421244045881
+    second: timer_sh_36
+  - first:
+      213: 2173584237176968021
+    second: timer_sh_37
+  - first:
+      213: 679303997274667961
+    second: timer_sh_38
+  - first:
+      213: 1261384817476207667
+    second: timer_sh_39
+  - first:
+      213: 5931945768065119048
+    second: timer_sh_40
+  - first:
+      213: 3587900539102973540
+    second: timer_sh_41
+  - first:
+      213: 4446411389423713889
+    second: timer_sh_42
+  - first:
+      213: -4111662702783918171
+    second: timer_sh_43
+  - first:
+      213: -434233242178951932
+    second: timer_sh_44
+  - first:
+      213: -5545562896308479543
+    second: timer_sh_45
+  - first:
+      213: 2308705416769644544
+    second: timer_sh_46
+  - first:
+      213: 8787931585237838122
+    second: timer_sh_47
+  - first:
+      213: 4702878265006054388
+    second: timer_sh_48
+  - first:
+      213: -8083669278180478612
+    second: timer_sh_49
+  - first:
+      213: 3909244727477370736
+    second: timer_sh_50
+  - first:
+      213: -6437370260199768682
+    second: timer_sh_51
+  - first:
+      213: -1779175538675784295
+    second: timer_sh_52
+  - first:
+      213: 4066013509446413889
+    second: timer_sh_53
+  - first:
+      213: -903941474871917826
+    second: timer_sh_54
+  - first:
+      213: 6233114212075963776
+    second: timer_sh_55
+  - first:
+      213: 1675627992483439223
+    second: timer_sh_56
+  - first:
+      213: 5223373120358622802
+    second: timer_sh_57
+  - first:
+      213: -6801589724567542600
+    second: timer_sh_58
+  - first:
+      213: -1917582011301304519
+    second: timer_sh_59
+  - first:
+      213: -4373178303529509952
+    second: timer_sh_60
+  - first:
+      213: -8114649379794070362
+    second: timer_sh_61
+  - first:
+      213: 3245037641270411714
+    second: timer_sh_62
+  - first:
+      213: -3933333656024447177
+    second: timer_sh_63
+  - first:
+      213: -2973449873757929848
+    second: timer_sh_64
+  - first:
+      213: -1773623596350009182
+    second: timer_sh_65
+  - first:
+      213: 9050562442978685678
+    second: timer_sh_66
+  - first:
+      213: -1231173686022185682
+    second: timer_sh_67
+  - first:
+      213: -8626770562059316345
+    second: timer_sh_68
+  - first:
+      213: -4789325552778349833
+    second: timer_sh_69
+  - first:
+      213: -925221759921105101
+    second: timer_sh_70
+  - first:
+      213: -2468818358388894826
+    second: timer_sh_71
+  - first:
+      213: -7871512828758101862
+    second: timer_sh_72
+  - first:
+      213: -4163274278673498235
+    second: timer_sh_73
+  - first:
+      213: 3438988165915370071
+    second: timer_sh_74
+  - first:
+      213: 6402213581957293417
+    second: timer_sh_75
+  - first:
+      213: 4561431804084115889
+    second: timer_sh_76
+  - first:
+      213: -4922791933926037120
+    second: timer_sh_77
+  - first:
+      213: 5410407247676948126
+    second: timer_sh_78
+  - first:
+      213: 9140704604152255783
+    second: timer_sh_79
+  - first:
+      213: 4832315639824091603
+    second: timer_sh_80
+  - first:
+      213: 8242030381457664817
+    second: timer_sh_81
+  - first:
+      213: 1614870205472614932
+    second: timer_sh_82
+  - first:
+      213: -6433887414100795382
+    second: timer_sh_83
+  - first:
+      213: -4990048048065047171
+    second: timer_sh_84
+  - first:
+      213: 5972091438210484055
+    second: timer_sh_85
+  - first:
+      213: 6780357158671692067
+    second: timer_sh_86
+  - first:
+      213: -4657829606978304234
+    second: timer_sh_87
+  - first:
+      213: -4072285156349015439
+    second: timer_sh_88
+  - first:
+      213: 2597125958620789693
+    second: timer_sh_89
+  - first:
+      213: -8801356938785634626
+    second: timer_sh_90
+  - first:
+      213: 3737156812100975871
+    second: timer_sh_91
+  - first:
+      213: 4083115548430249108
+    second: timer_sh_92
+  - first:
+      213: 2797289914094850277
+    second: timer_sh_93
+  - first:
+      213: 9178920976889649090
+    second: timer_sh_94
+  - first:
+      213: -7142814680540791663
+    second: timer_sh_95
+  - first:
+      213: 2223905212909615268
+    second: timer_sh_96
+  - first:
+      213: 463378153360498898
+    second: timer_sh_97
+  - first:
+      213: 4822337806836825619
+    second: timer_sh_98
+  - first:
+      213: 3990671943295330241
+    second: timer_sh_99
+  - first:
+      213: -5670709003819849783
+    second: timer_sh_100
+  - first:
+      213: -1463290075758473929
+    second: timer_sh_101
+  - first:
+      213: 8700431047580602706
+    second: timer_sh_102
+  - first:
+      213: -8218879352157833750
+    second: timer_sh_103
+  - first:
+      213: 1106964312193362641
+    second: timer_sh_104
+  - first:
+      213: -8236503486425303192
+    second: timer_sh_105
+  - first:
+      213: 6198384012470069971
+    second: timer_sh_106
+  - first:
+      213: 1310603960069277093
+    second: timer_sh_107
+  - first:
+      213: 2645936956971126532
+    second: timer_sh_108
+  - first:
+      213: -2344922052230601128
+    second: timer_sh_109
+  - first:
+      213: -2337736800015163009
+    second: timer_sh_110
+  - first:
+      213: -6008289301183505725
+    second: timer_sh_111
+  - first:
+      213: 7885064856068197923
+    second: timer_sh_112
+  - first:
+      213: -6652168794278591011
+    second: timer_sh_113
+  - first:
+      213: 5665474335851152413
+    second: timer_sh_114
+  - first:
+      213: 408919805323815230
+    second: timer_sh_115
+  - first:
+      213: -175383010738281166
+    second: timer_sh_116
+  - first:
+      213: 4228467843333707047
+    second: timer_sh_117
+  - first:
+      213: 8284030665918063051
+    second: timer_sh_118
+  - first:
+      213: 115186347625936868
+    second: timer_sh_119
+  - first:
+      213: 3392433613595492984
+    second: timer_sh_120
+  - first:
+      213: -1435611306061709288
+    second: timer_sh_121
+  - first:
+      213: -1202478097236134497
+    second: timer_sh_122
+  - first:
+      213: -3562016287229530765
+    second: timer_sh_123
+  - first:
+      213: -6848056043976011226
+    second: timer_sh_124
+  - first:
+      213: -3927215737158793930
+    second: timer_sh_125
+  - first:
+      213: -1346325717317493521
+    second: timer_sh_126
+  - first:
+      213: 6357693324256345454
+    second: timer_sh_127
+  - first:
+      213: -7713485515583288272
+    second: timer_sh_128
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: timer_sh_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 385
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6db4327e505b6b40800000000000000
+      internalID: 5434525741925842286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 374
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef294fc9b2f6509b0800000000000000
+      internalID: -5114559568701779202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 363
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47ba75d07c50f1a90800000000000000
+      internalID: -7341142515110139020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 469d63fec9ca22e80800000000000000
+      internalID: -8204805781087397532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 341
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c7bd911165306070800000000000000
+      internalID: 8097530821035800516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 330
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d15d2514b05946c0800000000000000
+      internalID: -4158704046520315440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 319
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a08b7982f57c5fb0800000000000000
+      internalID: -4657718230058827611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 308
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0068969ca47067820800000000000000
+      internalID: 2915525826557085184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 297
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89c786ffe540e2c90800000000000000
+      internalID: -7192806748805628776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 286
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9c8d4afd43962680800000000000000
+      internalID: -8780168460391052131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 275
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a47c4e8111f059d40800000000000000
+      internalID: 5590391078556845898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 264
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 098177758f7868a70800000000000000
+      internalID: 8828893620195498128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 253
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 261c292a50deeaad0800000000000000
+      internalID: -2688951319035461278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 242
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7d7ed58b9117dc90800000000000000
+      internalID: -7145222924136448646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 231
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71d5ffd15238ab850800000000000000
+      internalID: 6393566816446143767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 220
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5079d8f3a72a795a0800000000000000
+      internalID: -6514559690032179451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 209
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0512ec55e9c33710800000000000000
+      internalID: 1671901873627600139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 198
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3805001abf35e020800000000000000
+      internalID: 2370370847245666363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 187
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30a98d8c3e140b00800000000000000
+      internalID: 793792679745527869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f691b78daea5aa810800000000000000
+      internalID: 1777332967651875183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 165
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e53735f51b4b1250800000000000000
+      internalID: 5916405093161711078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 154
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75576182396eed520800000000000000
+      internalID: 2728871943940240727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 143
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc1b0f5c5ac74cef0800000000000000
+      internalID: -88809041208233525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 132
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba7fe9ad452764630800000000000000
+      internalID: 3910939035188524971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 121
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d65411a69eb9eb60800000000000000
+      internalID: 7775955785788708561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 110
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8311a0c5785d98d60800000000000000
+      internalID: 7893074599284969784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 99
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5556191d1572e0b0800000000000000
+      internalID: -5700865410462231206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 88
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 638aa123d414b2a40800000000000000
+      internalID: 5344437182614120502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 77
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37f3247d4bc4517b0800000000000000
+      internalID: -5254209050668548237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 66
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b35be1315b7a6c90800000000000000
+      internalID: -7175787467601390670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 55
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bacceb8abdf09e70800000000000000
+      internalID: 9120068223078550193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 33
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93aeed53deffab750800000000000000
+      internalID: 6321646421244045881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 553525af85f1a2e10800000000000000
+      internalID: 2173584237176968021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 44
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b376c994c16664f980b0b6ce29b029
+      internalID: -2024017348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 22
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9dec0f3f48e409409feef6ed339b27c
+      internalID: 835030123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: timer_sh_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c90840bbf4025446a6da103a55c905d
+      internalID: -1635857697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 139b758f5bf81254d8a1bb766482b06c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":27.0,"y":11.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      timer_sh_0: -4121035635872490967
+      timer_sh_1: -1853761899525516251
+      timer_sh_10: -4158704046520315440
+      timer_sh_11: -4657718230058827611
+      timer_sh_12: 2915525826557085184
+      timer_sh_13: -7192806748805628776
+      timer_sh_14: -8780168460391052131
+      timer_sh_15: 5590391078556845898
+      timer_sh_16: 8828893620195498128
+      timer_sh_17: -2688951319035461278
+      timer_sh_18: -7145222924136448646
+      timer_sh_19: 6393566816446143767
+      timer_sh_2: 786635768281338939
+      timer_sh_20: -6514559690032179451
+      timer_sh_21: 1671901873627600139
+      timer_sh_22: 2370370847245666363
+      timer_sh_23: 793792679745527869
+      timer_sh_24: 1777332967651875183
+      timer_sh_25: 5916405093161711078
+      timer_sh_26: 2728871943940240727
+      timer_sh_27: -88809041208233525
+      timer_sh_28: 3910939035188524971
+      timer_sh_29: 7775955785788708561
+      timer_sh_3: -349333017222737476
+      timer_sh_30: 7893074599284969784
+      timer_sh_31: -5700865410462231206
+      timer_sh_32: 5344437182614120502
+      timer_sh_33: -5254209050668548237
+      timer_sh_34: -7175787467601390670
+      timer_sh_35: 9120068223078550193
+      timer_sh_36: -2024017348
+      timer_sh_37: 6321646421244045881
+      timer_sh_38: 835030123
+      timer_sh_39: 2173584237176968021
+      timer_sh_4: -7321035420950054503
+      timer_sh_40: -1635857697
+      timer_sh_5: 5434525741925842286
+      timer_sh_6: -5114559568701779202
+      timer_sh_7: -7341142515110139020
+      timer_sh_8: -8204805781087397532
+      timer_sh_9: 8097530821035800516
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

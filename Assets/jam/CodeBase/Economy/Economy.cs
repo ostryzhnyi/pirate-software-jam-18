@@ -16,7 +16,7 @@ namespace jam.CodeBase.Economy
         {
             _economySaveModel = G.Saves.Get<EconomySaveModel>();
 
-            if (_economySaveModel.Data.Money <= 0)
+            if (_economySaveModel.Data.Money < 0)
             {
                 _economySaveModel.Data.Money = GameResources.CMS.BaseEconomy.AsEntity().Get<BaseEconomyTag>().BaseMoney;
                 _economySaveModel.ForceSave();
