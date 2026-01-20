@@ -6,24 +6,25 @@ using UnityEngine;
 namespace jam.CodeBase.Tasks
 {
     [Serializable]
-    public class DrinkAllSleepPills : BaseTask
+    public class CrashGlassBottleWithHead : BaseTask
     {
         public string ItemName;
         public override UniTask Execute()
         {
-            Debug.LogError("DrinkAllSleepPills");
+            Debug.LogError("CrashGlassBottleWithHead");
             G.Saves.Get<RunSaveModel>().Data.ObtainedItems.Remove(ItemName);
             return UniTask.CompletedTask;
         }
     }
 
     [Serializable]
-    public class DoNotDrinkAllSleepPills : BaseTask
+    public class DoNotCrashGlassBottleWithHead : BaseTask
     {
         public override UniTask Execute()
         {
-            Debug.LogError("DoNotDrinkAllSleepPills");
+            Debug.LogError("DoNotCrashGlassBottleWithHead");
             return UniTask.CompletedTask;
         }
     }
+
 }

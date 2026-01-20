@@ -1,28 +1,25 @@
 using System;
 using Cysharp.Threading.Tasks;
-using jam.CodeBase.Core;
 using UnityEngine;
 
 namespace jam.CodeBase.Tasks
 {
     [Serializable]
-    public class DrinkAllSleepPills : BaseTask
+    public class SitOnElectricChair : BaseTask
     {
-        public string ItemName;
         public override UniTask Execute()
         {
-            Debug.LogError("DrinkAllSleepPills");
-            G.Saves.Get<RunSaveModel>().Data.ObtainedItems.Remove(ItemName);
+            Debug.LogError("SitOnElectricChair");
             return UniTask.CompletedTask;
         }
     }
 
     [Serializable]
-    public class DoNotDrinkAllSleepPills : BaseTask
+    public class DoNotSitOnElectricChair : BaseTask
     {
         public override UniTask Execute()
         {
-            Debug.LogError("DoNotDrinkAllSleepPills");
+            Debug.LogError("DoNotSitOnElectricChair");
             return UniTask.CompletedTask;
         }
     }

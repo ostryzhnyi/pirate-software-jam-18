@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2537096692893693260}
   - component: {fileID: 7006747429192221996}
   m_Layer: 0
-  m_Name: GiveEatTask
+  m_Name: GiveFavoriteFood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,33 +44,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1729a46f79086449a991b5512530e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CMS::CMSEntityPfb
-  idCMS: CMS/Tasks/GiveEatTask
+  idCMS: CMS/Tasks/GiveFavoriteFood
   Components:
   - rid: 4608936542719443226
-  - rid: 4608936542719443245
-  - rid: 4608936542719443246
+  - rid: 3433833559035740289
+  - rid: 3433833559035740290
   references:
     version: 2
     RefIds:
+    - rid: 3433833559035740289
+      type: {class: GiveFavoriteFood, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
+      data:
+        Name: Sit on electric chair
+        StatsAfforded:
+        - StatsType: 0
+          Value: 50
+          Method: 1
+    - rid: 3433833559035740290
+      type: {class: DoNotGiveFavoriteFood, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
+      data:
+        Name: Do not sit on electric chair
+        StatsAfforded: []
     - rid: 4608936542719443226
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
-        Description: Give eat for {9}
+        Description: Give favorite food
         Duration: 10
-        BasePrice: 100
-    - rid: 4608936542719443245
-      type: {class: GiveEatTask, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
-      data:
-        Name: Give
-        StatsAfforded:
-        - StatsType: 0
-          Value: 10
-          Method: 0
-    - rid: 4608936542719443246
-      type: {class: NotGiveEatTask, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
-      data:
-        Name: Not give
-        StatsAfforded:
-        - StatsType: 1
-          Value: 5
-          Method: 1
+        BasePrice: 300

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2537096692893693260}
   - component: {fileID: 7006747429192221996}
   m_Layer: 0
-  m_Name: DrinkAllSleepPils
+  m_Name: EnableHeater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,36 +44,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1729a46f79086449a991b5512530e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CMS::CMSEntityPfb
-  idCMS: CMS/Tasks/DrinkAllSleepPils
+  idCMS: CMS/Tasks/EnableHeater
   Components:
   - rid: 4608936542719443226
-  - rid: 3433833539746136205
-  - rid: 3433833539746136206
-  - rid: 3433833539746136201
+  - rid: 3433833559035740285
+  - rid: 3433833559035740286
   references:
     version: 2
     RefIds:
-    - rid: 3433833539746136201
-      type: {class: RequireItem, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
+    - rid: 3433833559035740285
+      type: {class: EnableHeater, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
-        ItemName: SleepPils
-    - rid: 3433833539746136205
-      type: {class: DrinkAllSleepPills, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
-      data:
-        Name: Drink all sleep pils
-        StatsAfforded: []
-        ItemName: SleepPils
-    - rid: 3433833539746136206
-      type: {class: DoNotDrinkAllSleepPills, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
-      data:
-        Name: Do not drink all sleep pils
+        Name: Enable heater
         StatsAfforded:
         - StatsType: 1
-          Value: 5
-          Method: 1
+          Value: 20
+          Method: 0
+    - rid: 3433833559035740286
+      type: {class: DoNotEnableHeater, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
+      data:
+        Name: Do not enable heater
+        StatsAfforded: []
     - rid: 4608936542719443226
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
-        Description: Gift sleep pils
+        Description: Enable heater
         Duration: 10
         BasePrice: 300

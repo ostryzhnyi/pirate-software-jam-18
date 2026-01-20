@@ -1,26 +1,25 @@
-﻿using System;
+using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace jam.CodeBase.Tasks
 {
     [Serializable]
-    public class GiveEatTask : BaseTask
+    public class SelectLeftPill : BaseTask
     {
         public override UniTask Execute()
         {
-            Debug.LogError("give stats");
+            Debug.LogError("GiveFavoriteFood");
             return UniTask.CompletedTask;
-            
         }
     }
-    
+
     [Serializable]
-    public class NotGiveEatTask : BaseTask
+    public class SelectRightPill : BaseTask
     {
         public override UniTask Execute()
         {
-            Debug.LogError("Not give stats");
+            Debug.LogError("DoNotGiveFavoriteFood");
             return UniTask.CompletedTask;
         }
     }
