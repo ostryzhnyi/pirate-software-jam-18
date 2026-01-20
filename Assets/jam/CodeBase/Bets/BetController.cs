@@ -21,11 +21,11 @@ namespace jam.CodeBase.Bets
         private Vector2 BetBaseDieCoefficientRange;
         private Vector2 BetBasAliveCoefficientRange;
 
-
         private const int BetTime = 30;
 
-        private float _perSecondBet;
-
+        private float _smoothAlive;
+        private float _smoothDie;
+        private const float CoeffSmooth = 0.25f;
 
         public BetController()
         {
@@ -38,37 +38,6 @@ namespace jam.CodeBase.Bets
 
             AliveBetCoefficient = BetBasAliveCoefficientRange.x;
             DieBetCoefficient = BetBaseDieCoefficientRange.x;
-        }
-
-        private void MakeBaseBet()
-        {
-            var cfg = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
-
-            float baseBet = Random.Range(cfg.BaseBet.x, cfg.BaseBet.y);
-
-            var dieBet = baseBet * Random.Range(cfg.DieBiddersProporionRange.x, cfg.DieBiddersProporionRange.y);
-            var aliveBet = baseBet * Random.Range(cfg.AliveBiddersProporionRange.x, cfg.AliveBiddersProporionRange.y);
-
-            Debug.LogError("Base AliveBet: " + aliveBet);
-            Debug.LogError("Base DieBet: " + dieBet);
-
-            BetToDie(dieBet);
-            BetToAlive(aliveBet);
-        }
-
-        private float GetBetPerSecond()
-        {
-            var cfg = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
-
-            float baseMoney = G.Economy.CurrentMoney;
-            float totalBetMultiplier =
-                Random.Range(cfg.PercentsRangeFromPlayerMoney.x, cfg.PercentsRangeFromPlayerMoney.y);
-
-            var totalAdditionalBet = baseMoney * totalBetMultiplier;
-            _perSecondBet = totalAdditionalBet / BetTime;
-
-            Debug.LogError($"[InitRound] perSecondBet: {_perSecondBet}");
-            return _perSecondBet;
         }
 
         public void BetToDie(float bet)
@@ -90,17 +59,18 @@ namespace jam.CodeBase.Bets
         public async UniTask BetProcess()
         {
             G.Menu.ViewService.ShowView<BetPopup>();
-            MakeBaseBet();
 
             var cfg = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
 
+            float baseBet = Random.Range(cfg.BaseBet.x, cfg.BaseBet.y);
             float baseMoney = G.Economy.CurrentMoney;
             float totalBetMultiplier =
                 Random.Range(cfg.PercentsRangeFromPlayerMoney.x, cfg.PercentsRangeFromPlayerMoney.y);
 
             float totalAdditionalBet = baseMoney * totalBetMultiplier;
+            float totalPool = totalAdditionalBet + baseBet;
 
-            float[] tickBets = BuildTickBets(totalAdditionalBet);
+            float[] tickBets = BuildTickBets(totalPool);
 
             int tick = 0;
             int time = BetTime;
@@ -114,11 +84,11 @@ namespace jam.CodeBase.Bets
                 tick++;
                 time--;
             }
-            
+
             G.Menu.ViewService.HideView<BetPopup>();
         }
 
-        private float[] BuildTickBets(float totalAdditionalBet)
+        private float[] BuildTickBets(float totalPool)
         {
             float[] weights = new float[BetTime];
             float totalWeight = 0f;
@@ -133,7 +103,7 @@ namespace jam.CodeBase.Bets
             float[] tickBets = new float[BetTime];
             for (int i = 0; i < BetTime; i++)
             {
-                tickBets[i] = totalAdditionalBet * (weights[i] / totalWeight);
+                tickBets[i] = totalPool * (weights[i] / totalWeight);
             }
 
             return tickBets;
@@ -147,7 +117,6 @@ namespace jam.CodeBase.Bets
             return 1f - 4f * d * d;
         }
 
-
         private void MakeSecondBet(float bet)
         {
             if (bet <= 0f)
@@ -155,17 +124,17 @@ namespace jam.CodeBase.Bets
 
             var cfg = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
 
-            float r = Random.value; // 0..1
+            float r = Random.value;
 
             float aliveAdd = 0f;
             float dieAdd = 0f;
 
-            if (r < 0.33f)
+            if (r < 0.25f)
             {
                 aliveAdd = bet;
                 dieAdd = 0f;
             }
-            else if (r < 0.66f)
+            else if (r < 0.5f)
             {
                 aliveAdd = 0f;
                 dieAdd = bet;
@@ -194,11 +163,27 @@ namespace jam.CodeBase.Bets
             UpdateCoefficients();
         }
 
-
         private void UpdateCoefficients()
         {
-            AliveBetCoefficient = AliveBet / CurrentBet;
-            DieBetCoefficient = DieBet / CurrentBet;
+            if (CurrentBet <= 0f)
+                return;
+
+            float rawAlive = AliveBet / CurrentBet;
+            float rawDie = DieBet / CurrentBet;
+
+            if (_smoothAlive <= 0f && _smoothDie <= 0f)
+            {
+                _smoothAlive = rawAlive;
+                _smoothDie = rawDie;
+            }
+            else
+            {
+                _smoothAlive = Mathf.Lerp(_smoothAlive, rawAlive, CoeffSmooth);
+                _smoothDie = Mathf.Lerp(_smoothDie, rawDie, CoeffSmooth);
+            }
+
+            AliveBetCoefficient = _smoothAlive;
+            DieBetCoefficient = _smoothDie;
 
             Debug.LogError(
                 $"[Coeffs]  AliveBet: {AliveBet}, DieBet: {DieBet}, AliveBetCoefficient: {AliveBetCoefficient}, DieBetCoefficient: {DieBetCoefficient}");
