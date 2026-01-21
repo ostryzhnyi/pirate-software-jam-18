@@ -1,6 +1,9 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Core;
+using jam.CodeBase.Stream.View;
+using UnityEngine;
 
 namespace jam.CodeBase.Stream
 {
@@ -27,13 +30,22 @@ namespace jam.CodeBase.Stream
 
         public void SetDay(int dayNumber)
         {
+            var runSaveModel = G.Saves.Get<RunSaveModel>();
             _cst = new CancellationTokenSource(); 
+            Debug.LogError("SetDay: " +  dayNumber);
 
             OnDayEnded?.Invoke(CurrentDay);
             CurrentDay = dayNumber;
             OnDayUpdated?.Invoke(CurrentDay);
-
+            runSaveModel.Data.CurrentDonateNumberInDay = 0;
+            runSaveModel.Data.DayNumber = dayNumber;
             StartDayCycle(_cst.Token).Forget();
+            
+            var view =  G.GlobalViewService.GetView<DaysTransitionPopup>() as DaysTransitionPopup;
+            view.Setup(dayNumber);
+            view.Show();
+            
+            runSaveModel.ForceSave();
         }
 
         private async UniTask StartDayCycle(CancellationToken token)

@@ -4,7 +4,7 @@ namespace jam.CodeBase.Core
 {
     public interface IGameplayLoaded
     {
-        public UniTask OnLoaded();
+        public UniTask OnLoaded(RunSaveModel runSaveModel);
     }
     
     public interface IGameplayUnloaded

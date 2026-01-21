@@ -42,7 +42,7 @@ namespace jam.CodeBase.Core
             
             foreach (var levelLoaded in G.Interactors.GetAll<IGameplayLoaded>())
             {
-                await levelLoaded.OnLoaded();
+                await levelLoaded.OnLoaded(G.Saves.Get<RunSaveModel>());
             }
         }
         

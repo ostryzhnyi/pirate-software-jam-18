@@ -18,24 +18,29 @@ namespace jam.CodeBase.Tasks
         
         public async UniTask DonateExecuteProcess()
         {
+            var runSaveModel = G.Saves.Get<RunSaveModel>();
+            
             var tasks = GetRandomTaskList();
             G.Interactors.CallAll<ITasksReceive>(t => t.TasksReceive(tasks.Item1, tasks.Item2));
             TaskDefinition = tasks.Item1;
             BaseTasks = tasks.Item2;
-
             Donates = new Dictionary<BaseTask, float>();
-
+            
+            G.Menu.HUD.DonateNotification.Play(TaskDefinition.Description).Forget();
+                
             foreach (var baseTask in tasks.Item2)
             {
                 Donates.Add(baseTask, 0);
             }
             
+            G.Menu.HUD.DonateHUDButton.SetAmount(1, true);
             float time = tasks.Item1.Duration;
             var economyTag = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
             var donators = Random.Range(economyTag.DonatorsAmountMinMax.x, economyTag.DonatorsAmountMinMax.y);
             while (time > 0)
             {
                 time--;
+                G.Menu.HUD.DonateHUDButton.SetAmount( time / tasks.Item1.Duration);
                 
                 await UniTask.WaitForSeconds(1f);
                 
@@ -50,7 +55,13 @@ namespace jam.CodeBase.Tasks
             }
 
             var wonTask = Donates.OrderByDescending(p => p.Value).FirstOrDefault();
+            
+            runSaveModel.Data.CurrentDonateNumberInDay++;
+            runSaveModel.Data.CompletedTask.Add(tasks.Item3);
+            runSaveModel.ForceSave();
+            
             G.Interactors.CallAll<IFinishDonatesProcess>(t => t.OnFinishDonates(tasks.Item1, wonTask.Key, wonTask.Value));
+            G.Menu.HUD.DonateHUDButton.SetAmount(0);
 
             await wonTask.Key.Execute();
 
@@ -60,7 +71,7 @@ namespace jam.CodeBase.Tasks
             }
         }
         
-        public (TaskDefinition, List<BaseTask>) GetRandomTaskList()
+        public (TaskDefinition, List<BaseTask>, string) GetRandomTaskList()
         {
             var runSave = G.Saves.Get<RunSaveModel>().Data;
             
@@ -74,6 +85,14 @@ namespace jam.CodeBase.Tasks
             if (tasks.Count == 0)
             {
                 Debug.LogError("NOT HAVE TASK");
+                runSave.CompletedTask.Clear();
+                
+                tasks = CMS.GetAll<CMSEntity>()
+                    .Where(e => e.Is<TaskDefinition>())
+                    .Where(e => !e.Is<IgnoreTag>())
+                    .Where(e => !runSave.CompletedTask.Contains(e.id))
+                    .Where(e => !e.Is<RequireItem>() || runSave.ObtainedItems.Contains(e.Get<RequireItem>().ItemName))
+                    .ToList();
             }
 
             var randTask = tasks[UnityEngine.Random.Range(0, tasks.Count)];;
@@ -81,7 +100,7 @@ namespace jam.CodeBase.Tasks
             var taskDefinition = randTask.Get<TaskDefinition>();
             var baseTasks = randTask.components.OfType<BaseTask>().ToList();
 
-            return (taskDefinition, baseTasks);
+            return (taskDefinition, baseTasks, randTask.id);
         }
     }
 }

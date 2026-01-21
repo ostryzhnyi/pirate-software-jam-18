@@ -9,7 +9,7 @@ namespace jam.CodeBase.Stream
     {
         public void Donate(BaseTask task, float cost)
         {
-            G.StreamController.OnDonateReceived((int)cost);
+            G.StreamController.OnDonateReceived((int)cost, task.Name);
         }
     }
 }

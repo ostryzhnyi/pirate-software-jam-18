@@ -36,8 +36,9 @@ namespace jam.CodeBase.Stream
             _cst?.Cancel();
         }
 
-        public async void StartMessaging()
+        public async UniTask StartMessaging()
         {
+            Debug.LogError("!!!");
             foreach (var message in _dailyMessages.OrderBy(x => Random.value))
             {
                 var data = GetData(message.Type);
@@ -59,9 +60,9 @@ namespace jam.CodeBase.Stream
             };
         }
 
-        public void ShowDonateMessage(int value)
+        public void ShowDonateMessage(int value, string goal)
         {
-            var chatMessage = new ChatMessage("", $"Someone donated ${value}", MessageDataType.Donate);
+            var chatMessage = new ChatMessage("", $"Someone donated ${value} to {goal}", MessageDataType.Donate);
             Debug.Log($"Send message: {chatMessage.Message}");
             OnMessageReceived?.Invoke(chatMessage);
         }

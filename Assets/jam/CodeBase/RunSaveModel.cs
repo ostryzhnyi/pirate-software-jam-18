@@ -11,7 +11,8 @@ namespace jam.CodeBase
             Data = new RunSaveData()
             {
                 DayNumber = 1,
-                CompletedTask = new List<string>()
+                CompletedTask = new List<string>(),
+                ObtainedItems = new List<string>()
             };
         }
     }
@@ -20,6 +21,8 @@ namespace jam.CodeBase
     public class RunSaveData
     {
         public int DayNumber;
+        public bool IsStarted;
+        public int CurrentDonateNumberInDay;
         public List<string> CompletedTask;
         public List<string> ObtainedItems;
         public string CharacterName;

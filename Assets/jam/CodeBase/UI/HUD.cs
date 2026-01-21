@@ -10,6 +10,8 @@ namespace jam.CodeBase.UI
     {
         public Button Donate;
         public StatsView StatsView;
+        public DonateHUDButton DonateHUDButton;
+        public StartDonateNotification DonateNotification;
 
         private void OnEnable()
         {

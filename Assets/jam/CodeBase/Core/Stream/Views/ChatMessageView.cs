@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
@@ -24,6 +25,18 @@ namespace jam.CodeBase.Stream.View
         {
             G.StreamController.ChatController.OnMessageReceived += OnMessageReceived;
             G.StreamController.DaysController.OnDayUpdated += OnDayUpdated;
+        }
+
+        private void OnDestroy()
+        {
+            try
+            {
+                G.StreamController.ChatController.OnMessageReceived -= OnMessageReceived;
+                G.StreamController.DaysController.OnDayUpdated -= OnDayUpdated;
+            }
+            catch (Exception e)
+            {
+            }
         }
 
         private void OnDayUpdated(int day)

@@ -25,6 +25,7 @@ namespace jam.CodeBase.Core
         public static Characters Characters;
         public static BetController BetController;
         public static IViewService GlobalViewService;
+        public static DaysController DaysController => StreamController.DaysController;
      
         public static AudioController Audio;
         

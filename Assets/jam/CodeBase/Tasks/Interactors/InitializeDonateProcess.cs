@@ -1,7 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
 using jam.CodeBase.Core.Interactors;
-using UnityEngine;
 
 namespace jam.CodeBase.Tasks.Interactors
 {
@@ -12,9 +11,8 @@ namespace jam.CodeBase.Tasks.Interactors
             return 1;
         }
 
-        public UniTask OnLoaded()
+        public UniTask OnLoaded(RunSaveModel runSaveModel)
         {
-            Debug.LogError("!!!");
             G.Donate.DonateExecuteProcess().Forget();
             return UniTask.CompletedTask;
         }

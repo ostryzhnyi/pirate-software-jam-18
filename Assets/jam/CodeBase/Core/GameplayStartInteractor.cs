@@ -13,14 +13,12 @@ namespace jam.CodeBase.Core
             return int.MinValue;
         }
 
-        public async UniTask OnLoaded()
+        public async UniTask OnLoaded(RunSaveModel runSaveModel)
         {
-            var runSaveModel = G.Saves.Get<RunSaveModel>();
-
             var loadedCharacter =
                 G.Characters.CharactersList.FirstOrDefault(c => c.Name == runSaveModel.Data.CharacterName);
 
-            if (loadedCharacter == null)
+            if (!runSaveModel.Data.IsStarted || loadedCharacter == null)
             {
                 var aliveCharacter = G.Characters.CharactersList
                     .Where(c => !c.IsDie)
@@ -28,20 +26,28 @@ namespace jam.CodeBase.Core
                     .FirstOrDefault();
 
                 G.Characters.CurrentCharacter = aliveCharacter;
+
             }
             else
             {
                 G.Characters.CurrentCharacter = loadedCharacter;
+                UpdateHUD();
+                return;
             }
             
-            G.Menu.HUD.StatsView.UpdateStress(G.Characters.CurrentCharacter.CurrentStress, true).Forget();
-            G.Menu.HUD.StatsView.UpdateHP(G.Characters.CurrentCharacter.CurrentHealth, true).Forget();
+            UpdateHUD();
 
             G.Menu.ViewService.ShowView<CharacterCardView>(new CharacterCardViewOptions(G.Characters.CurrentCharacter));
 
             await UniTaskHelper.SmartWaitSeconds(15);
             
             G.Menu.ViewService.HideView<CharacterCardView>();
+        }
+
+        private static void UpdateHUD()
+        {
+            G.Menu.HUD.StatsView.UpdateStress(G.Characters.CurrentCharacter.CurrentStress, true).Forget();
+            G.Menu.HUD.StatsView.UpdateHP(G.Characters.CurrentCharacter.CurrentHealth, true).Forget();
         }
     }
 }

@@ -19,26 +19,26 @@ namespace jam.CodeBase.Bets
         public float AliveBetCoefficient;
         public float DieBetCoefficient;
 
-        private Vector2 BetBaseDieCoefficientRange;
-        private Vector2 BetBasAliveCoefficientRange;
-
         private const int BetTime = 30;
 
         private float _smoothAlive;
         private float _smoothDie;
         private const float CoeffSmooth = 1f;
-
+        private BetSaveModel _saveModel;
+        
         public BetController()
         {
-            var baseEconomyTag = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
-            BetBaseDieCoefficientRange = baseEconomyTag.BetBaseDieCoefficientRange;
-            BetBasAliveCoefficientRange = baseEconomyTag.BetBaseAliveCoefficientRange;
+            _saveModel = G.Saves.Get<BetSaveModel>();
+            
+            var runSave = G.Saves.Get<RunSaveModel>().Data;
+            if (runSave.IsStarted)
+            {
+                AliveBet = _saveModel.Data.AliveBet;
+                DieBet = _saveModel.Data.DieBet;
 
-            AliveBet = 0;
-            DieBet = 0;
+                UpdateCoefficients();
+            }
 
-            AliveBetCoefficient = BetBasAliveCoefficientRange.x;
-            DieBetCoefficient = BetBaseDieCoefficientRange.x;
         }
 
         public void BetToDie(float bet)

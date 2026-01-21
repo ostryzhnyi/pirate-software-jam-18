@@ -1,3 +1,5 @@
+using Cysharp.Threading.Tasks;
+
 namespace jam.CodeBase.Stream
 {
     public class StreamController
@@ -25,14 +27,13 @@ namespace jam.CodeBase.Stream
 
         public void StartStream(CMSEntity entity)
         {
-            _daysController.SetDay(0);
             _chatController.InitializeData(entity, 0);
-            _chatController.StartMessaging();
+            _chatController.StartMessaging().Forget();
         }
 
-        public void OnDonateReceived(int value)
+        public void OnDonateReceived(int value, string goal)
         {
-            _chatController.ShowDonateMessage(value);
+            _chatController.ShowDonateMessage(value, goal);
         }
 
         public void OnCharActionExecuted(int actionType)

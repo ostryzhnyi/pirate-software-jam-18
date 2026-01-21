@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Tasks.DonateSystem;
@@ -36,10 +37,33 @@ namespace jam.CodeBase.Tasks.Interactors
             }
         }
 
-        public void OnFinishDonates(TaskDefinition taskDefinition, BaseTask task, float price)
+        public async UniTask OnFinishDonates(TaskDefinition taskDefinition, BaseTask task, float price)
         {
+            var runSaveData = G.Saves.Get<RunSaveModel>().Data;
             G.Menu.HUD.Donate.interactable = false;
             G.Menu.ViewService.HideView<DonateView>();
+            await UniTask.WaitForSeconds(5);
+
+            var donateButtons = (G.Menu.ViewService.GetView<DonateView>() as DonateView)?.DonateButtons;
+            if (donateButtons != null)
+            {
+                foreach (var donateButton in donateButtons)
+                {
+                    donateButton?.UpdateProgress(0);
+                }
+            }
+
+            Debug.LogError("CurrentDonateNumberInDay: " +  runSaveData.CurrentDonateNumberInDay);
+            if (runSaveData.CurrentDonateNumberInDay >= 3)
+            {
+                G.DaysController.SetDay(++runSaveData.DayNumber);
+                await UniTask.WaitForSeconds(5);
+                G.Donate.DonateExecuteProcess().Forget();
+            }
+            else
+            {
+                G.Donate.DonateExecuteProcess().Forget();
+            }
         }
     }
 }

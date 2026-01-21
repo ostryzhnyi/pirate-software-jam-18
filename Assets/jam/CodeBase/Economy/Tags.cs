@@ -13,9 +13,6 @@ namespace jam.CodeBase.Economy
         public Vector2Int DonatorsAmountMinMax;
         public Vector2Int RandomDonateRange;
         
-        [Header("Bets")]
-        public Vector2 BetBaseDieCoefficientRange;
-        public Vector2 BetBaseAliveCoefficientRange;
         [Tooltip("Amount donators human")]
         public Vector2 BaseBet = new Vector2(8000, 12000);
         public Vector2 PercentsRangeFromPlayerMoney = new Vector2(4, 6);

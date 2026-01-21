@@ -11,7 +11,7 @@ namespace jam.CodeBase.Character
             return int.MaxValue;
         }
 
-        public UniTask OnLoaded()
+        public UniTask OnLoaded(RunSaveModel runSaveModel)
         {
             G.Characters.CurrentCharacter.OnHealthUpdated += OnHealthUpdated;
             G.Characters.CurrentCharacter.OnStressUpdated += OnStressUpdated;

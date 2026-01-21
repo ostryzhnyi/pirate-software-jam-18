@@ -1,13 +1,17 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core.Interactors;
+using UnityEngine;
 
 namespace jam.CodeBase.Core.Stream
 {
     public class ChatInitializeInteractor : BaseInteractor, IGameplayLoaded, IGameplayUnloaded
     {
-        public async UniTask OnLoaded()
+        public async UniTask OnLoaded(RunSaveModel runSaveModel)
         {
+            Debug.LogError("INIT ChatInitializeInteractor");
+            await UniTask.SwitchToMainThread();
+            await UniTask.WaitForSeconds(0.1f);;
             G.StreamController.DaysController.OnDayEnded += OnDayChangedTransition;
             
             G.StreamController.StartStream(G.Characters.CurrentCharacter.Entity);
