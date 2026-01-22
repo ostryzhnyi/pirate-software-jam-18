@@ -5,6 +5,7 @@ using jam.CodeBase.Character.Data;
 using jam.CodeBase.Core;
 using jam.CodeBase.Core.Tags;
 using jam.CodeBase.Tasks;
+using ProjectX.CodeBase.Utils;
 using Runtime;
 using UnityEngine;
 
@@ -63,11 +64,11 @@ namespace jam.CodeBase.Character
         {
             if (statsAfforded.StatsType == StatsType.Health)
             {
-                ChangeHP(statsAfforded.Value, statsAfforded.Method);
+                ChangeHP(statsAfforded.ValueRange.GetRandomRange(), statsAfforded.Method);
             }
             else
             {
-                ChangeStress(statsAfforded.Value, statsAfforded.Method);
+                ChangeStress(statsAfforded.ValueRange.GetRandomRange(), statsAfforded.Method);
             }
         }
 
