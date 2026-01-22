@@ -58,10 +58,10 @@ MonoBehaviour:
         Name: Select left
         StatsAfforded:
         - StatsType: 0
-          Value: 0
+          ValueRange: {x: 1, y: 25}
           Method: 1
         - StatsType: 1
-          Value: 0
+          ValueRange: {x: 1, y: 10}
           Method: 0
         TaskTarget: 0
     - rid: 3433833559035740284
@@ -70,15 +70,15 @@ MonoBehaviour:
         Name: Select right
         StatsAfforded:
         - StatsType: 0
-          Value: 0
+          ValueRange: {x: 1, y: 25}
           Method: 0
-        - StatsType: 0
-          Value: 0
-          Method: 0
+        - StatsType: 1
+          ValueRange: {x: 1, y: 10}
+          Method: 1
         TaskTarget: 1
     - rid: 4608936542719443226
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Description: Select pill to drink
-        Duration: 10
+        Duration: 30
         BasePrice: 300

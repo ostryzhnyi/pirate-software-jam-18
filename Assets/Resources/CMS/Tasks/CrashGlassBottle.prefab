@@ -48,7 +48,6 @@ MonoBehaviour:
   Components:
   - rid: 4608936542719443226
   - rid: 3433833559035740259
-  - rid: 3433833559035740260
   - rid: 3433833539746136201
   references:
     version: 2
@@ -63,26 +62,13 @@ MonoBehaviour:
         Name: Crash bottle with head
         StatsAfforded:
         - StatsType: 0
-          Value: 30
+          ValueRange: {x: 25, y: 35}
           Method: 1
         TaskTarget: 0
         ItemName: 
-    - rid: 3433833559035740260
-      type: {class: CrashGlassBottleWithHead, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
-      data:
-        Name: Allow drink soda
-        StatsAfforded:
-        - StatsType: 1
-          Value: 10
-          Method: 1
-        - StatsType: 0
-          Value: 10
-          Method: 0
-        TaskTarget: 1
-        ItemName: SodaGlassBottle
     - rid: 4608936542719443226
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Description: Crash glass bottle with head
-        Duration: 10
+        Duration: 30
         BasePrice: 300

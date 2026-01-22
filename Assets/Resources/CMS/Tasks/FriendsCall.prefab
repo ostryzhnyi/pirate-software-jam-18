@@ -58,7 +58,7 @@ MonoBehaviour:
         Name: Allow call
         StatsAfforded:
         - StatsType: 1
-          Value: 15
+          ValueRange: {x: 10, y: 20}
           Method: 1
         TaskTarget: 1
     - rid: 3433833539746136189
@@ -71,5 +71,5 @@ MonoBehaviour:
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Description: Call to a friend
-        Duration: 10
+        Duration: 30
         BasePrice: 300
