@@ -36,6 +36,11 @@ namespace jam.CodeBase.Tasks.DonateSystem
         {
             _progress.DOFillAmount(progress, .2f).SetEase(Ease.OutSine);
         }
+        
+        public void UpdateProgressWithoutAnim(float progress)
+        {
+            _progress.fillAmount = progress;
+        }
 
         public void SetSelected(bool isSelected)
         {

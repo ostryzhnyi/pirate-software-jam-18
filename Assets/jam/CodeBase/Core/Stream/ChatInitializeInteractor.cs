@@ -9,7 +9,6 @@ namespace jam.CodeBase.Core.Stream
     {
         public async UniTask OnLoaded(RunSaveModel runSaveModel)
         {
-            Debug.LogError("INIT ChatInitializeInteractor");
             await UniTask.SwitchToMainThread();
             await UniTask.WaitForSeconds(0.1f);;
             G.StreamController.DaysController.OnDayEnded += OnDayChangedTransition;

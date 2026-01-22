@@ -20,7 +20,7 @@ namespace jam.CodeBase.Tasks
             }
             else
             {
-                G.Die();
+                G.Loose();
             }
         }
     }

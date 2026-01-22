@@ -6,6 +6,7 @@ using jam.CodeBase.Bets;
 using jam.CodeBase.Character;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
+using jam.CodeBase.GameLoop;
 using jam.CodeBase.Stream;
 using jam.CodeBase.Tasks;
 using Ostryzhnyi.EasyViewService.Api.Service;
@@ -47,6 +48,8 @@ namespace jam.CodeBase.Core
 
         private void Awake()
         {
+            InitControllers();
+            
             GameAliveCancellationToken = gameObject.GetCancellationTokenOnDestroy();
             GameObject = gameObject;
         }
@@ -69,18 +72,21 @@ namespace jam.CodeBase.Core
 
         public static void Win()
         {
-            
+            var result = Menu.ViewService.GetView<ResultScreen>();
+            (result as ResultScreen).SetState(true);
+            result.Show();
         }
 
-        public static void Die()
+        public static void Loose()
         {
-            
+            var result = Menu.ViewService.GetView<ResultScreen>();
+            (result as ResultScreen).SetState(false);
+            result.Show();
         }
 
         public async UniTask StartGameLoop()
         {
             _cancellationTokenSourceStop = new CancellationTokenSource();
-            InitControllers();
             await GameLoop();
         }
 

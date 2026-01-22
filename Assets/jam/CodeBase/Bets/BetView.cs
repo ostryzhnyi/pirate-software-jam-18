@@ -17,11 +17,20 @@ namespace jam.CodeBase.Bets
         [SerializeField] private TMP_Text _currentBit;
         
         private const float OneBit = 50;
+        private bool IsLocked = false;
+
+        private bool _isFirstBet = false;
 
         public void OnEnable()
         {
+            IsLocked = false;
+
+            _isFirstBet = G.Saves.Get<BetSaveModel>().Data.IsFirst;
+            
             _plus.onClick.AddListener(OnPlus);
             _minus.onClick.AddListener(OnMinus);
+
+            UpdateButtons();
         }
 
         public void OnDisable()
@@ -54,8 +63,22 @@ namespace jam.CodeBase.Bets
 
         public void UpdateButtons()
         {
-            _plus.interactable = G.Economy.CanSpend(Bit + OneBit);
-            _minus.interactable = Bit >= OneBit;
+            _plus.interactable =
+                !IsLocked &&
+                G.Economy.CanSpend(Bit + OneBit) &&
+                (!_isFirstBet || Bit + OneBit < 500);
+
+            _minus.interactable =
+                !IsLocked &&
+                Bit >= OneBit;
+        }
+
+        public void LockButton()
+        {
+            IsLocked = true;
+            
+            _plus.interactable = false;
+            _minus.interactable = false;
         }
     }
 }

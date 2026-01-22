@@ -24,7 +24,7 @@ namespace jam.CodeBase.Character
         public int Age => Entity.Get<CharacterTag>().Age;
         public Sprite Preview => Entity.Get<TagSprite>().sprite;
         public Texture2D Texture => Entity.Get<CharacterTag>().Texture2D;
-        public bool IsDie => _saveData is { IsDie: true };
+        public bool IsDie => IsDieStress() || IsDieHP();
 
         public float CurrentHealth;
         public float CurrentStress;
@@ -32,19 +32,17 @@ namespace jam.CodeBase.Character
         public float BaseHP { private set; get; }
 
         public CMSEntity Entity;
-        private CharacterSaveData _saveData;
 
         public StatsModifierTag ModifierTag { private set; get; }
 
         public Character(CMSEntity entity, CharacterSaveData characterSaveData)
         {
             Entity = entity;
-            _saveData = characterSaveData;
             
-            if (_saveData != null)
+            if (characterSaveData != null)
             {
-                CurrentHealth = _saveData.Health;
-                CurrentStress = _saveData.Stress;
+                CurrentHealth = characterSaveData.Health;
+                CurrentStress = characterSaveData.Stress;
             }
             else
             {
@@ -85,10 +83,9 @@ namespace jam.CodeBase.Character
             {
                 CurrentHealth -= amount * ModifierTag.PainThreshold;
 
-                if (CurrentStress <= Entity.Get<StatsTag>().MinHP)
+                if (IsDieHP())
                 {
                     OnHealthDie?.Invoke();
-                    _saveData.IsDie = true;
                 }
             }
 
@@ -104,10 +101,9 @@ namespace jam.CodeBase.Character
             {
                 CurrentStress += amount * ModifierTag.StressResistance;
 
-                if (CurrentStress >= Entity.Get<StatsTag>().MaxStress)
+                if (IsDieStress())
                 {
                     OnStressDie?.Invoke();
-                    _saveData.IsDie = true;
                 }
             }
             else if (method == StatsChangeMethod.Remove)
@@ -122,6 +118,16 @@ namespace jam.CodeBase.Character
 
             Debug.LogError("Update stress to: " + CurrentHealth);
             Save();
+        }
+
+        private bool IsDieHP()
+        {
+            return CurrentHealth <= Entity.Get<StatsTag>().MinHP;
+        }
+
+        private bool IsDieStress()
+        {
+            return CurrentStress >= Entity.Get<StatsTag>().MaxStress;
         }
 
         private void Save()

@@ -17,6 +17,10 @@ namespace jam.CodeBase.Bets
                 return;
             
             await G.BetController.BetProcess();
+
+            var betSaveModel = G.Saves.Get<BetSaveModel>();
+            betSaveModel.Data.IsFirst = false;
+            betSaveModel.ForceSave();
         }
     }
 }

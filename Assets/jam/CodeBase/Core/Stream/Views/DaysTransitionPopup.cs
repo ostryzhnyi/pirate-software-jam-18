@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
-using jam.CodeBase.Core;
 using Ostryzhnyi.EasyViewService.Api.Service;
 using Ostryzhnyi.EasyViewService.ViewLayers;
 using UnityEngine;
@@ -33,7 +32,10 @@ namespace jam.CodeBase.Stream.View
         {
             ResetImages();
             if (day is > 3 or < 0)
+            {
+                gameObject.SetActive(false);
                 return;
+            }
             day--;
             var currentData = _daysData.First(x => x.Day == day - 1);
             var nextData = day - 1 == _daysData.Last().Day
@@ -60,7 +62,10 @@ namespace jam.CodeBase.Stream.View
         {
             ResetImages();
             if (day is > 3 or < 0)
+            {
+                gameObject.SetActive(false);
                 return;
+            }
             day -= 1;
             var currentData = _daysData.First(x => x.Day == day);
           

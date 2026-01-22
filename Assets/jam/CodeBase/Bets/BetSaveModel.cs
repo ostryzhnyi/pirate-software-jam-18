@@ -11,13 +11,11 @@ namespace jam.CodeBase.Bets
             Data = new BetSaveData()
             {
                 DieBet = 0,
-                AliveBet = 0
+                AliveBet = 0,
+                MyBetLive = 0,
+                MyBetDie = 0,
+                IsFirst = true
             };
-        }
-
-        public override void ForceSave()
-        {
-            base.ForceSave();
         }
     }
 
@@ -26,5 +24,8 @@ namespace jam.CodeBase.Bets
     {
         public float DieBet;
         public float AliveBet;
+        public float MyBetDie;
+        public float MyBetLive;
+        public bool IsFirst;
     }
 }

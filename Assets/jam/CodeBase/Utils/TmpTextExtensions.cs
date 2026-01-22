@@ -2,6 +2,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Globalization;
+using Cysharp.Threading.Tasks;
 
 namespace jam.CodeBase.Utils
 {
@@ -84,6 +85,34 @@ namespace jam.CodeBase.Utils
                 {
                     text.SetText(format, to);
                 });
+        }
+        
+        public static async UniTask ToType(this TMP_Text text, string fullText, float oneSymbolDuration = 0.03f)
+        {
+            text.text = string.Empty;
+            int i = 0;
+            while (i < fullText.Length)
+            {
+                if (fullText[i] == '<')
+                {
+                    int tagEnd = fullText.IndexOf('>', i);
+                    if (tagEnd == -1)
+                        tagEnd = fullText.Length - 1; 
+
+                    text.text += fullText.Substring(i, tagEnd - i + 1);
+                    i = tagEnd + 1;
+                    continue;
+                }
+
+                text.text += fullText[i];
+                bool waitedFull = await UniTaskHelper.SmartWaitSeconds(oneSymbolDuration);
+                if (!waitedFull)
+                {
+                    text.text = fullText;
+                    break;
+                }
+                i++;
+            }
         }
     }
 }

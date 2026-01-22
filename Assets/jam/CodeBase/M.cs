@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
 using jam.CodeBase.UI;
 using Ostryzhnyi.EasyViewService.Impl.Service;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace jam.CodeBase
@@ -29,6 +30,19 @@ namespace jam.CodeBase
             {
                 await gameplayUnloaded.OnUnloaded();
             }
+        }
+
+        [Button]
+        private void Win()
+        {
+            G.Win();
+        }
+        
+
+        [Button]
+        private void Lose()
+        {
+            G.Loose();
         }
     }
 }
