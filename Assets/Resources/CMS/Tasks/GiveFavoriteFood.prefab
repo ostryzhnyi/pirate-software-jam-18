@@ -49,6 +49,7 @@ MonoBehaviour:
   - rid: 4608936542719443226
   - rid: 3433833559035740289
   - rid: 3433833559035740290
+  - rid: 4608936634225786988
   references:
     version: 2
     RefIds:
@@ -60,14 +61,19 @@ MonoBehaviour:
         - StatsType: 0
           Value: 50
           Method: 1
+        TaskTarget: 1
     - rid: 3433833559035740290
       type: {class: DoNotGiveFavoriteFood, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Name: Do not sit on electric chair
         StatsAfforded: []
+        TaskTarget: 0
     - rid: 4608936542719443226
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Description: Give favorite food
         Duration: 10
         BasePrice: 300
+    - rid: 4608936634225786988
+      type: {class: IgnoreTag, ns: jam.CodeBase.Core.Tags, asm: Assembly-CSharp}
+      data: 

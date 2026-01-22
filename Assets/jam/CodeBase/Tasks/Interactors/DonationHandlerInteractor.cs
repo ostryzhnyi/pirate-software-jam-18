@@ -56,7 +56,7 @@ namespace jam.CodeBase.Tasks.Interactors
             Debug.LogError("CurrentDonateNumberInDay: " +  runSaveData.CurrentDonateNumberInDay);
             if (runSaveData.CurrentDonateNumberInDay >= 3)
             {
-                G.DaysController.SetDay(++runSaveData.DayNumber);
+                G.DaysController.SetDay(++runSaveData.DayNumber, true);
                 await UniTask.WaitForSeconds(5);
                 G.Donate.DonateExecuteProcess().Forget();
             }

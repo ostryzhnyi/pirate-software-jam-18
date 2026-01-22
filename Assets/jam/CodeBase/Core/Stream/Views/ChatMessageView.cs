@@ -41,7 +41,7 @@ namespace jam.CodeBase.Stream.View
 
         private void OnDayUpdated(int day)
         {
-            _streamDayText.text = $"STREAM DAY: {day + 1}";
+            _streamDayText.text = $"STREAM DAY: {day} / 3";
             Clear();
         }
 

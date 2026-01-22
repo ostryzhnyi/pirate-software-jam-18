@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403ae2dd693bb1d4b924f6b8d206b053, type: 3}
+  m_Name: gg.fadeMotionList
+  m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Framework.MotionFade.CubismFadeMotionList
+  MotionInstanceIds: 34f0ffffaaefffff74efffff4ceffffffaeeffffd2eeffff9ceeffff74eeffff76e5ffff32e5ffff
+  CubismFadeMotionObjects:
+  - {fileID: 11400000, guid: faded105a52a1fb489d5977e7e3e07cf, type: 2}
+  - {fileID: 11400000, guid: 4612d164aa5a9134b9559b453722ef5b, type: 2}
+  - {fileID: 11400000, guid: 25141c9d18d8bff4b818569383c882a4, type: 2}
+  - {fileID: 11400000, guid: 3adc802e20ddd11409039756a7b5789a, type: 2}
+  - {fileID: 11400000, guid: 72c84ba308615a247b185ab92f4da650, type: 2}
+  - {fileID: 11400000, guid: 6ae3a2d8c827a584d9bd13feb05b65c5, type: 2}
+  - {fileID: 11400000, guid: 7b35e4f9842612142982737a3f61dc05, type: 2}
+  - {fileID: 11400000, guid: 20e44aed9a5c47845a3b41247c45d646, type: 2}
+  - {fileID: 11400000, guid: 98bef5b9198412d4db5f4a014ef6fd8f, type: 2}
+  - {fileID: 11400000, guid: c7e2f59b5fbbef148925039685885397, type: 2}

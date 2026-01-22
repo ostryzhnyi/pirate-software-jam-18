@@ -65,6 +65,7 @@ MonoBehaviour:
         - StatsType: 0
           Value: 30
           Method: 1
+        TaskTarget: 0
         ItemName: 
     - rid: 3433833559035740260
       type: {class: CrashGlassBottleWithHead, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
@@ -77,6 +78,7 @@ MonoBehaviour:
         - StatsType: 0
           Value: 10
           Method: 0
+        TaskTarget: 1
         ItemName: SodaGlassBottle
     - rid: 4608936542719443226
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}

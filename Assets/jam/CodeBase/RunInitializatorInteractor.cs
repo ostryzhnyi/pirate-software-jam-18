@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
 using jam.CodeBase.Core.Interactors;
+using UnityEngine;
 
 namespace jam.CodeBase
 {
@@ -8,10 +9,10 @@ namespace jam.CodeBase
     {
         public override int GetPriority()
         {
-            return int.MaxValue - 1;
+            return -5;
         }
 
-        public UniTask OnLoaded(RunSaveModel runSaveModel1)
+        public async UniTask OnLoaded(RunSaveModel runSaveModel1)
         {
             var runSaveModel = G.Saves.Get<RunSaveModel>();
             
@@ -24,8 +25,7 @@ namespace jam.CodeBase
                 runSaveModel.ForceSave();
             }
             G.DaysController.SetDay(runSaveModel.Data.DayNumber);
-            
-            return UniTask.CompletedTask;
+            await UniTask.WaitForSeconds(3);
         }
     }
 }

@@ -1,0 +1,45 @@
+{
+	"Version": 3,
+	"Meta": {
+		"Duration": 3.033,
+		"Fps": 30.0,
+		"Loop": true,
+		"AreBeziersRestricted": true,
+		"CurveCount": 1,
+		"TotalSegmentCount": 3,
+		"TotalPointCount": 10,
+		"UserDataCount": 0,
+		"TotalUserDataSize": 0
+	},
+	"Curves": [
+		{
+			"Target": "Parameter",
+			"Id": "ParamEyeBallX",
+			"Segments": [
+				0,
+				-1,
+				1,
+				0.244,
+				-1,
+				0.489,
+				-0.697,
+				0.733,
+				0,
+				1,
+				0.956,
+				0.633,
+				1.178,
+				1,
+				1.4,
+				1,
+				1,
+				1.944,
+				1,
+				2.489,
+				0,
+				3.033,
+				0
+			]
+		}
+	]
+}

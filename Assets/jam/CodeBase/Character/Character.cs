@@ -14,32 +14,32 @@ namespace jam.CodeBase.Character
     {
         public event Action OnStressDie;
         public event Action OnHealthDie;
-        
+
         public event Action<float> OnStressUpdated;
         public event Action<float> OnHealthUpdated;
-        
+
         public string Name => Entity.Get<NameTag>().Name;
         public string Description => Entity.Get<DescribeTag>().Description;
         public int Age => Entity.Get<CharacterTag>().Age;
         public Sprite Preview => Entity.Get<TagSprite>().sprite;
-        public GameObject Prefab => Entity.Get<CharacterTag>().Prefab;
+        public Texture2D Texture => Entity.Get<CharacterTag>().Texture2D;
         public bool IsDie => _saveData is { IsDie: true };
 
         public float CurrentHealth;
         public float CurrentStress;
         public float BaseStress { private set; get; }
         public float BaseHP { private set; get; }
-        
+
         public CMSEntity Entity;
         private CharacterSaveData _saveData;
 
         public StatsModifierTag ModifierTag { private set; get; }
-        
+
         public Character(CMSEntity entity, CharacterSaveData characterSaveData)
         {
             Entity = entity;
             _saveData = characterSaveData;
-
+            
             if (_saveData != null)
             {
                 CurrentHealth = _saveData.Health;
@@ -49,8 +49,10 @@ namespace jam.CodeBase.Character
             {
                 CurrentHealth = Entity.Get<StatsTag>().Health;
                 CurrentStress = Entity.Get<StatsTag>().Stress;
+
+                Save();
             }
-            
+
             BaseHP = Entity.Get<StatsTag>().Health;
             BaseStress = Entity.Get<StatsTag>().Stress;
 
@@ -73,7 +75,7 @@ namespace jam.CodeBase.Character
         {
             if (method == StatsChangeMethod.Add)
             {
-                if(CurrentHealth + amount >= BaseHP)
+                if (CurrentHealth + amount >= BaseHP)
                     CurrentHealth = BaseHP;
                 else
                     CurrentHealth += amount;
@@ -82,41 +84,42 @@ namespace jam.CodeBase.Character
             {
                 CurrentHealth -= amount * ModifierTag.PainThreshold;
 
-                if (CurrentStress <= 0)
+                if (CurrentStress <= Entity.Get<StatsTag>().MinHP)
                 {
                     OnHealthDie?.Invoke();
                     _saveData.IsDie = true;
                 }
             }
-            
+
             OnHealthUpdated?.Invoke(CurrentHealth);
 
-            Debug.LogError("Update HP to: " +  CurrentHealth);
+            Debug.LogError("Update HP to: " + CurrentHealth);
             Save();
-        }   
-        
+        }
+
         public void ChangeStress(float amount, StatsChangeMethod method)
         {
             if (method == StatsChangeMethod.Add)
             {
-                if(CurrentStress + amount >= BaseStress)
-                    CurrentStress = BaseStress;
-                else
-                    CurrentStress += amount;
-            }
-            else if (method == StatsChangeMethod.Remove)
-            {
-                CurrentStress -= amount * ModifierTag.StressResistance;
-                if (CurrentStress <= 0)
+                CurrentStress += amount * ModifierTag.StressResistance;
+
+                if (CurrentStress >= Entity.Get<StatsTag>().MaxStress)
                 {
                     OnStressDie?.Invoke();
                     _saveData.IsDie = true;
                 }
             }
-            
+            else if (method == StatsChangeMethod.Remove)
+            {
+                if (CurrentStress - amount >= BaseStress)
+                    CurrentStress -= amount;
+                else
+                    CurrentStress = BaseStress;
+            }
+
             OnStressUpdated?.Invoke(CurrentStress);
-            
-            Debug.LogError("Update stress to: " +  CurrentHealth);
+
+            Debug.LogError("Update stress to: " + CurrentHealth);
             Save();
         }
 
@@ -124,7 +127,7 @@ namespace jam.CodeBase.Character
         {
             var saveModel = G.Saves.Get<CharactersSaveModel>();
             var saveData = saveModel.Data;
-            
+
             var currentCharacterSave = saveData.CharactersSaves
                 .FirstOrDefault(s => s.CharacterName == Name);
 
@@ -138,14 +141,14 @@ namespace jam.CodeBase.Character
                 {
                     saveModel.Data.CharactersSaves = new List<CharacterSaveData>();
                 }
+
                 saveModel.Data.CharactersSaves.Add(currentCharacterSave);
             }
 
-            currentCharacterSave.Health   = CurrentHealth;
-            currentCharacterSave.Stress   = CurrentStress;
+            currentCharacterSave.Health = CurrentHealth;
+            currentCharacterSave.Stress = CurrentStress;
 
             saveModel.ForceSave();
         }
-
     }
 }

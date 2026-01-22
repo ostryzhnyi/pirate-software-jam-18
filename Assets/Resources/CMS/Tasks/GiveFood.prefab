@@ -60,14 +60,16 @@ MonoBehaviour:
         - StatsType: 0
           Value: 30
           Method: 0
+        TaskTarget: 0
     - rid: 3433833559035740288
       type: {class: DoNotGiveFood, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Name: Do not feed
         StatsAfforded: []
+        TaskTarget: 1
     - rid: 4608936542719443226
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
-        Description: Sit on electric chair
+        Description: Give food
         Duration: 10
         BasePrice: 300

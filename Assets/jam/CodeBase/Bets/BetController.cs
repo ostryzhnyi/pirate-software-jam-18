@@ -33,6 +33,7 @@ namespace jam.CodeBase.Bets
             var runSave = G.Saves.Get<RunSaveModel>().Data;
             if (runSave.IsStarted)
             {
+                Debug.LogError("INIT COEFS");
                 AliveBet = _saveModel.Data.AliveBet;
                 DieBet = _saveModel.Data.DieBet;
 
@@ -46,6 +47,7 @@ namespace jam.CodeBase.Bets
             if (bet <= 0) return;
 
             DieBet += bet;
+            
             UpdateCoefficients();
         }
 
@@ -54,6 +56,7 @@ namespace jam.CodeBase.Bets
             if (bet <= 0) return;
 
             AliveBet += bet;
+            
             UpdateCoefficients();
         }
 
@@ -174,6 +177,10 @@ namespace jam.CodeBase.Bets
             float rawAlive = AliveBet / CurrentBet;
             float rawDie = DieBet / CurrentBet;
 
+            _saveModel.Data.AliveBet = AliveBet;
+            _saveModel.Data.DieBet = DieBet; 
+            _saveModel.ForceSave();
+            
             if (_smoothAlive <= 0f && _smoothDie <= 0f)
             {
                 _smoothAlive = rawAlive;
@@ -187,7 +194,6 @@ namespace jam.CodeBase.Bets
 
             AliveBetCoefficient = _smoothDie + 1;
             DieBetCoefficient = _smoothAlive + 1;
-
             Debug.LogError(
                 $"[Coeffs]  AliveBet: {AliveBet}, DieBet: {DieBet}, AliveBetCoefficient: {AliveBetCoefficient}, DieBetCoefficient: {DieBetCoefficient}");
             OnChangeAliveCoefficient?.Invoke(AliveBetCoefficient);

@@ -28,7 +28,7 @@ namespace jam.CodeBase.Stream
             _cst?.Cancel();
         }
 
-        public void SetDay(int dayNumber)
+        public void SetDay(int dayNumber, bool isNext = false)
         {
             var runSaveModel = G.Saves.Get<RunSaveModel>();
             _cst = new CancellationTokenSource(); 
@@ -42,9 +42,14 @@ namespace jam.CodeBase.Stream
             StartDayCycle(_cst.Token).Forget();
             
             var view =  G.GlobalViewService.GetView<DaysTransitionPopup>() as DaysTransitionPopup;
-            view.Setup(dayNumber);
             view.Show();
             
+            if(isNext)
+                view.SetupNextDay(dayNumber);
+            else
+            {
+                view.SetupCurrent(dayNumber);
+            }
             runSaveModel.ForceSave();
         }
 

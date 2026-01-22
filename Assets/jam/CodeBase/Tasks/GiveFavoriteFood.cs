@@ -1,5 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Character;
+using jam.CodeBase.Core;
 using UnityEngine;
 
 namespace jam.CodeBase.Tasks
@@ -7,10 +9,13 @@ namespace jam.CodeBase.Tasks
     [Serializable]
     public class GiveFavoriteFood : BaseTask
     {
-        public override UniTask Execute()
+        public override async UniTask Execute()
         {
             Debug.LogError("GiveFavoriteFood");
-            return UniTask.CompletedTask;
+            
+            G.CharacterAnimator.PlayAnimation(AnimationType.Eat);
+
+            await UniTask.WaitForSeconds(3);
         }
     }
     

@@ -35,6 +35,7 @@ public static class GameResources
             public static CMSEntityPfb GiveWater => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiveWater");
             public static CMSEntityPfb MusicOnNight => Resources.Load<CMSEntityPfb>("CMS/Tasks/MusicOnNight");
             public static CMSEntityPfb PlayMovie => Resources.Load<CMSEntityPfb>("CMS/Tasks/PlayMovie");
+            public static CMSEntityPfb RussianRoulette => Resources.Load<CMSEntityPfb>("CMS/Tasks/RussianRoulette");
             public static CMSEntityPfb SitOnElectricChair => Resources.Load<CMSEntityPfb>("CMS/Tasks/SitOnElectricChair");
             public static CMSEntityPfb TakeShower => Resources.Load<CMSEntityPfb>("CMS/Tasks/TakeShower");
             public static CMSEntityPfb TwoPilsSelection => Resources.Load<CMSEntityPfb>("CMS/Tasks/TwoPilsSelection");
@@ -47,6 +48,4 @@ public static class GameResources
     }
     public static AudioController AudioController => Resources.Load<AudioController>("AudioController");
     public static CanvasScaler Canvas => Resources.Load<CanvasScaler>("Canvas");
-    public static TextAsset PerformanceTestRunInfo => Resources.Load<TextAsset>("PerformanceTestRunInfo");
-    public static TextAsset PerformanceTestRunSettings => Resources.Load<TextAsset>("PerformanceTestRunSettings");
 }

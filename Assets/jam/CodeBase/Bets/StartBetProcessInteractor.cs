@@ -8,7 +8,7 @@ namespace jam.CodeBase.Bets
     {
         public override int GetPriority()
         {
-            return -1;
+            return -10;
         }
 
         public async UniTask OnLoaded(RunSaveModel runSaveModel)

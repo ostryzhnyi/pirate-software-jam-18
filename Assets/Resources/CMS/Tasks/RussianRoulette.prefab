@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4703047008015293048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2537096692893693260}
+  - component: {fileID: 7006747429192221996}
+  m_Layer: 0
+  m_Name: RussianRoulette
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2537096692893693260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4703047008015293048}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7006747429192221996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4703047008015293048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1729a46f79086449a991b5512530e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CMS::CMSEntityPfb
+  idCMS: CMS/Tasks/RussianRoulette
+  Components:
+  - rid: 4608936542719443226
+  - rid: 4608936634225786986
+  - rid: 4608936634225786987
+  references:
+    version: 2
+    RefIds:
+    - rid: 4608936542719443226
+      type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
+      data:
+        Description: Play in Russian Roulette
+        Duration: 20
+        BasePrice: 100
+    - rid: 4608936634225786986
+      type: {class: PlayRussianRoulette, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
+      data:
+        Name: Play in Russian Roulette
+        StatsAfforded:
+        - StatsType: 1
+          Value: 10
+          Method: 0
+        TaskTarget: 0
+    - rid: 4608936634225786987
+      type: {class: NotPlayRussianRoulette, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
+      data:
+        Name: Ignore
+        StatsAfforded: []
+        TaskTarget: 1

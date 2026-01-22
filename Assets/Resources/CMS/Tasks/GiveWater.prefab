@@ -47,15 +47,21 @@ MonoBehaviour:
   idCMS: CMS/Tasks/GiveWater
   Components:
   - rid: 4608936542719443226
-  - rid: 3433833559035740272
-  - rid: 3433833559035740273
+  - rid: 4608936634225786994
+  - rid: 4608936634225786995
   references:
     version: 2
     RefIds:
-    - rid: 3433833559035740272
-      type: {class: SitOnElectricChair, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
+    - rid: 4608936542719443226
+      type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
-        Name: Sit on electric chair
+        Description: Give water
+        Duration: 10
+        BasePrice: 300
+    - rid: 4608936634225786994
+      type: {class: GiveWater, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
+      data:
+        Name: Give water
         StatsAfforded:
         - StatsType: 0
           Value: 30
@@ -63,14 +69,10 @@ MonoBehaviour:
         - StatsType: 1
           Value: 20
           Method: 0
-    - rid: 3433833559035740273
-      type: {class: DoNotSitOnElectricChair, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
+        TaskTarget: 1
+    - rid: 4608936634225786995
+      type: {class: DoNotGiveWater, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
-        Name: Do not sit on electric chair
+        Name: Do not give water
         StatsAfforded: []
-    - rid: 4608936542719443226
-      type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
-      data:
-        Description: Sit on electric chair
-        Duration: 10
-        BasePrice: 300
+        TaskTarget: 0

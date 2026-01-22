@@ -38,7 +38,6 @@ namespace jam.CodeBase.Stream
 
         public async UniTask StartMessaging()
         {
-            Debug.LogError("!!!");
             foreach (var message in _dailyMessages.OrderBy(x => Random.value))
             {
                 var data = GetData(message.Type);

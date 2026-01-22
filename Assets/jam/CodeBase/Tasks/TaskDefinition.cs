@@ -18,6 +18,7 @@ namespace jam.CodeBase.Tasks
     {
         public string Name;
         public List<StatsAfforded> StatsAfforded;
+        public TaskTarget TaskTarget; 
 
         public abstract UniTask Execute();
     }
@@ -40,5 +41,10 @@ namespace jam.CodeBase.Tasks
     {
         Health,
         Stress,
+    }
+    public enum TaskTarget
+    {
+        Die,
+        Live,
     }
 }

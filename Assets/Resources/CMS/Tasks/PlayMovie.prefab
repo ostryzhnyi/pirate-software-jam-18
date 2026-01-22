@@ -48,7 +48,7 @@ MonoBehaviour:
   Components:
   - rid: 4608936542719443226
   - rid: 3433833539746136211
-  - rid: 3433833539746136212
+  - rid: 4608936634225786996
   references:
     version: 2
     RefIds:
@@ -60,14 +60,16 @@ MonoBehaviour:
         - StatsType: 1
           Value: 10
           Method: 1
-    - rid: 3433833539746136212
-      type: {class: PlayMovie, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
-      data:
-        Name: Do not play movie
-        StatsAfforded: []
+        TaskTarget: 1
     - rid: 4608936542719443226
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Description: Play movie
         Duration: 10
         BasePrice: 300
+    - rid: 4608936634225786996
+      type: {class: DoNotPlayMovie, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
+      data:
+        Name: Do not play movie
+        StatsAfforded: []
+        TaskTarget: 0

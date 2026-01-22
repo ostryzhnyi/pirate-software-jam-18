@@ -1,5 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Character;
 using jam.CodeBase.Core;
 using UnityEngine;
 
@@ -9,11 +10,13 @@ namespace jam.CodeBase.Tasks
     public class DrinkAllSleepPills : BaseTask
     {
         public string ItemName;
-        public override UniTask Execute()
+        public override async UniTask Execute()
         {
             Debug.LogError("DrinkAllSleepPills");
             G.Saves.Get<RunSaveModel>().Data.ObtainedItems.Remove(ItemName);
-            return UniTask.CompletedTask;
+            G.CharacterAnimator.PlayAnimation(AnimationType.TakeRedPill);
+
+            await UniTask.WaitForSeconds(3);
         }
     }
 

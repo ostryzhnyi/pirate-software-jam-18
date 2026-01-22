@@ -8,6 +8,8 @@ namespace jam.CodeBase.Character.Data
     {
         public float Health;
         public float Stress;
+        public float MaxStress;
+        public float MinHP;
     }
     
     [Serializable]
@@ -18,11 +20,30 @@ namespace jam.CodeBase.Character.Data
 
         public string GetStringPainThreshold()
         {
-            return "High";
+            if (PainThreshold >= 1.5f)
+                return "Very low";
+            else if(PainThreshold < 1.5f && PainThreshold >= 1.1f)
+                return "Low";
+            else if(PainThreshold < 1.1f && PainThreshold >= 0.9f)
+                return "Normal";
+            else if(PainThreshold < 0.9f && PainThreshold >= 0.6f)
+                return "High";
+            else
+                return "Very high";
+                
         }
         public string GetStringStressResistance()
         {
-            return "High";
+            if (StressResistance >= 1.5f)
+                return "Very low";
+            else if(StressResistance < 1.5f && StressResistance >= 1.1f)
+                return "Low";
+            else if(StressResistance < 1.1f && StressResistance >= 0.9f)
+                return "Normal";
+            else if(StressResistance < 0.9f && StressResistance >= 0.6f)
+                return "High";
+            else
+                return "Very high";
         }
     }
     
@@ -30,6 +51,6 @@ namespace jam.CodeBase.Character.Data
     public class CharacterTag : EntityComponentDefinition
     {
         public int Age;
-        public GameObject Prefab;
+        public Texture2D Texture2D;
     }
 }

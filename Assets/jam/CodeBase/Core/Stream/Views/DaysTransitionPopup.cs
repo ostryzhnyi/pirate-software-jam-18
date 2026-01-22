@@ -29,26 +29,45 @@ namespace jam.CodeBase.Stream.View
         [SerializeField] private Slider _slider;
         [SerializeField] private List<DaysUIData> _daysData;
 
-        public void Setup(int day)
+        public void SetupNextDay(int day)
         {
             ResetImages();
-            if (day is > 2 or < 0)
+            if (day is > 3 or < 0)
                 return;
-            var currentData = _daysData.First(x => x.Day == day);
-            var nextData = day == _daysData.Last().Day
-                ? _daysData.First()
-                : _daysData.First(x => x.Day == day + 1);
+            day--;
+            var currentData = _daysData.First(x => x.Day == day - 1);
+            var nextData = day - 1 == _daysData.Last().Day
+                ? _daysData.Last()
+                : _daysData.First(x => x.Day == day );
             currentData.Image.sprite = currentData.SelectedSprite;
-            _slider.value = currentData.Day;
+            _slider.value = currentData.Day * 10;
             var sequence = DOTween.Sequence();
             sequence.Append(_globalCanvasGroup.DOFade(1, _fadeDuration).From(0));
             sequence.AppendInterval(_sliderDelay);
             sequence.Append(DOVirtual.DelayedCall(0, () =>
             {
-                _slider.value = nextData.Day;
+                _slider.DOValue(nextData.Day * 10, _sliderDelay);
                 currentData.Image.sprite = currentData.DefaultSprite;
                 nextData.Image.sprite = nextData.SelectedSprite;
             }));
+            sequence.AppendInterval(_sliderDelay + _fadeDuration);
+            sequence.Append(_globalCanvasGroup.DOFade(0, _fadeDuration));
+            sequence.OnComplete(() => gameObject.SetActive(false));
+            sequence.Play();
+        }
+
+        public void SetupCurrent(int day)
+        {
+            ResetImages();
+            if (day is > 3 or < 0)
+                return;
+            day -= 1;
+            var currentData = _daysData.First(x => x.Day == day);
+          
+            currentData.Image.sprite = currentData.SelectedSprite;
+            _slider.value = currentData.Day * 10;
+            var sequence = DOTween.Sequence();
+            sequence.Append(_globalCanvasGroup.DOFade(1, _fadeDuration).From(0));
             sequence.AppendInterval(_sliderDelay);
             sequence.Append(_globalCanvasGroup.DOFade(0, _fadeDuration));
             sequence.OnComplete(() => gameObject.SetActive(false));

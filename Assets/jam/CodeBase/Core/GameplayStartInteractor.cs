@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Character;
+using jam.CodeBase.Character.Data;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Utils;
 
@@ -38,7 +39,7 @@ namespace jam.CodeBase.Core
             UpdateHUD();
 
             G.Menu.ViewService.ShowView<CharacterCardView>(new CharacterCardViewOptions(G.Characters.CurrentCharacter));
-
+            G.CharacterAnimator.ApplyTexture(G.Characters.CurrentCharacter.Texture);
             await UniTaskHelper.SmartWaitSeconds(15);
             
             G.Menu.ViewService.HideView<CharacterCardView>();

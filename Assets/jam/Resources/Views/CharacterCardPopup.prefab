@@ -412,9 +412,9 @@ MonoBehaviour:
   m_fontSize: 25.57
   m_fontSizeBase: 25.57
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 25.57
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 1024
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Stress resistance: high'
+  m_text: 'Stress resistance: very high'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e03049ec9d37182478291da04347b902, type: 2}
   m_sharedMaterial: {fileID: 4586836457170111227, guid: e03049ec9d37182478291da04347b902, type: 2}
@@ -549,9 +549,9 @@ MonoBehaviour:
   m_fontSize: 25.57
   m_fontSizeBase: 25.57
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 25.57
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 1024

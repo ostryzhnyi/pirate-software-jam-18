@@ -26,6 +26,7 @@ namespace jam.CodeBase.Core
         public static BetController BetController;
         public static IViewService GlobalViewService;
         public static DaysController DaysController => StreamController.DaysController;
+        public static CharacterAnimator CharacterAnimator;
      
         public static AudioController Audio;
         
@@ -64,6 +65,16 @@ namespace jam.CodeBase.Core
         public static void StopInteractions()
         {
             _cancellationTokenSourceStop.Cancel();
+        }
+
+        public static void Win()
+        {
+            
+        }
+
+        public static void Die()
+        {
+            
         }
 
         public async UniTask StartGameLoop()
