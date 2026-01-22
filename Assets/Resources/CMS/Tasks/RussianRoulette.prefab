@@ -62,10 +62,7 @@ MonoBehaviour:
       type: {class: PlayRussianRoulette, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Name: Play in Russian Roulette
-        StatsAfforded:
-        - StatsType: 1
-          Value: 10
-          Method: 0
+        StatsAfforded: []
         TaskTarget: 0
     - rid: 4608936634225786987
       type: {class: NotPlayRussianRoulette, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}

@@ -56,7 +56,7 @@ MonoBehaviour:
     - rid: 3433833559035740289
       type: {class: GiveFavoriteFood, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
-        Name: Sit on electric chair
+        Name: Giive favorite food
         StatsAfforded:
         - StatsType: 0
           Value: 50
@@ -65,7 +65,7 @@ MonoBehaviour:
     - rid: 3433833559035740290
       type: {class: DoNotGiveFavoriteFood, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
-        Name: Do not sit on electric chair
+        Name: Don't give favorite food
         StatsAfforded: []
         TaskTarget: 0
     - rid: 4608936542719443226
