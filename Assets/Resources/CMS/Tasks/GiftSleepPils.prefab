@@ -57,8 +57,11 @@ MonoBehaviour:
       data:
         Name: Gift sleep pils
         StatsAfforded:
+        - StatsType: 0
+          Value: 50
+          Method: 0
         - StatsType: 1
-          Value: 10
+          Value: 35
           Method: 1
         TaskTarget: 1
         ItemName: SleepPils

@@ -22,8 +22,8 @@ public static class GameResources
         public static class Tasks
         {
             public static CMSEntityPfb AddBeesToTheRoom => Resources.Load<CMSEntityPfb>("CMS/Tasks/AddBeesToTheRoom");
-            public static CMSEntityPfb CrashGlassBottle => Resources.Load<CMSEntityPfb>("CMS/Tasks/CrashGlassBottle");
-            public static CMSEntityPfb DrinkAllSleepPils => Resources.Load<CMSEntityPfb>("CMS/Tasks/DrinkAllSleepPils");
+            public static GameObject CrashGlassBottle => Resources.Load<GameObject>("CMS/Tasks/CrashGlassBottle");
+            public static GameObject DrinkAllSleepPils => Resources.Load<GameObject>("CMS/Tasks/DrinkAllSleepPils");
             public static CMSEntityPfb EnableAC => Resources.Load<CMSEntityPfb>("CMS/Tasks/EnableAC");
             public static CMSEntityPfb EnableHeater => Resources.Load<CMSEntityPfb>("CMS/Tasks/EnableHeater");
             public static CMSEntityPfb FriendsCall => Resources.Load<CMSEntityPfb>("CMS/Tasks/FriendsCall");
@@ -31,7 +31,7 @@ public static class GameResources
             public static CMSEntityPfb GiftSodaGlassBottle => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiftSodaGlassBottle");
             public static CMSEntityPfb GiveBandage => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiveBandage");
             public static CMSEntityPfb GiveFavoriteFood => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiveFavoriteFood");
-            public static CMSEntityPfb GiveFood => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiveFood");
+            public static GameObject GiveFood => Resources.Load<GameObject>("CMS/Tasks/GiveFood");
             public static CMSEntityPfb GiveWater => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiveWater");
             public static CMSEntityPfb MusicOnNight => Resources.Load<CMSEntityPfb>("CMS/Tasks/MusicOnNight");
             public static CMSEntityPfb PlayMovie => Resources.Load<CMSEntityPfb>("CMS/Tasks/PlayMovie");

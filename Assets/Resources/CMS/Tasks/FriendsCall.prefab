@@ -58,7 +58,7 @@ MonoBehaviour:
         Name: Allow call
         StatsAfforded:
         - StatsType: 1
-          Value: 10
+          Value: 15
           Method: 1
         TaskTarget: 1
     - rid: 3433833539746136189

@@ -64,7 +64,7 @@ MonoBehaviour:
         Name: Give water
         StatsAfforded:
         - StatsType: 0
-          Value: 30
+          Value: 8
           Method: 1
         - StatsType: 1
           Value: 20

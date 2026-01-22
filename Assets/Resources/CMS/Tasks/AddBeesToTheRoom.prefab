@@ -61,7 +61,7 @@ MonoBehaviour:
           Value: 10
           Method: 1
         - StatsType: 1
-          Value: 10
+          Value: 15
           Method: 0
         TaskTarget: 0
     - rid: 3433833539746136182

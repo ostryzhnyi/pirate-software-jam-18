@@ -58,7 +58,7 @@ MonoBehaviour:
         Name: Sit on electric chair
         StatsAfforded:
         - StatsType: 0
-          Value: 30
+          Value: 25
           Method: 1
         - StatsType: 1
           Value: 20
