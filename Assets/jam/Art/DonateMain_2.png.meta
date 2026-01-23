@@ -189,7 +189,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 195
+        y: 255
         width: 45
         height: 5
       alignment: 0
@@ -211,7 +211,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 193
+        y: 253
         width: 7
         height: 7
       alignment: 0
@@ -233,7 +233,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 106
+        y: 166
         width: 159
         height: 78
       alignment: 0
@@ -255,7 +255,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 173
+        y: 233
         width: 117
         height: 11
       alignment: 0
@@ -276,10 +276,10 @@ TextureImporter:
       name: DonateMain_2_4
       rect:
         serializedVersion: 2
-        x: 224
-        y: 159
-        width: 117
-        height: 11
+        x: 352
+        y: 231
+        width: 119
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,9 +299,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 143
-        width: 105
-        height: 9
+        y: 219
+        width: 117
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,10 +320,10 @@ TextureImporter:
       name: DonateMain_2_6
       rect:
         serializedVersion: 2
-        x: 226
-        y: 136
-        width: 101
-        height: 5
+        x: 224
+        y: 203
+        width: 105
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,10 +342,10 @@ TextureImporter:
       name: DonateMain_2_7
       rect:
         serializedVersion: 2
-        x: 272
-        y: 107
-        width: 13
-        height: 13
+        x: 336
+        y: 201
+        width: 107
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,10 +364,10 @@ TextureImporter:
       name: DonateMain_2_8
       rect:
         serializedVersion: 2
-        x: 288
-        y: 107
-        width: 13
-        height: 13
+        x: 226
+        y: 196
+        width: 101
+        height: 5
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -386,8 +386,8 @@ TextureImporter:
       name: DonateMain_2_9
       rect:
         serializedVersion: 2
-        x: 320
-        y: 107
+        x: 272
+        y: 167
         width: 13
         height: 13
       alignment: 0
@@ -408,8 +408,8 @@ TextureImporter:
       name: DonateMain_2_10
       rect:
         serializedVersion: 2
-        x: 272
-        y: 91
+        x: 288
+        y: 167
         width: 13
         height: 13
       alignment: 0
@@ -430,8 +430,8 @@ TextureImporter:
       name: DonateMain_2_11
       rect:
         serializedVersion: 2
-        x: 288
-        y: 91
+        x: 320
+        y: 167
         width: 13
         height: 13
       alignment: 0
@@ -452,9 +452,9 @@ TextureImporter:
       name: DonateMain_2_12
       rect:
         serializedVersion: 2
-        x: 320
-        y: 91
-        width: 13
+        x: 336
+        y: 167
+        width: 49
         height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -474,10 +474,10 @@ TextureImporter:
       name: DonateMain_2_13
       rect:
         serializedVersion: 2
-        x: 2
-        y: 41
-        width: 262
-        height: 47
+        x: 272
+        y: 151
+        width: 13
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -496,10 +496,10 @@ TextureImporter:
       name: DonateMain_2_14
       rect:
         serializedVersion: 2
-        x: 16
-        y: 77
-        width: 11
-        height: 11
+        x: 288
+        y: 151
+        width: 13
+        height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,10 +518,10 @@ TextureImporter:
       name: DonateMain_2_18
       rect:
         serializedVersion: 2
-        x: 269
-        y: 24
-        width: 147
-        height: 63
+        x: 16
+        y: 137
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -537,35 +537,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DonateMain_2_20
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 1
-        width: 263
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 320d6a0ab9d2405d0800000000000000
-      internalID: -3097300497285591005
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: DonateMain_2_21
       rect:
         serializedVersion: 2
-        x: 16
-        y: 24
-        width: 11
-        height: 11
+        x: 143
+        y: 101
+        width: 121
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -576,6 +554,182 @@ TextureImporter:
       bones: []
       spriteID: 9bb94e13ebfff70a0800000000000000
       internalID: -6881500513252893767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DonateMain_2_15
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 151
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4cc55c164dafb64c82e43eab557d4a2
+      internalID: 4534119095597487745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DonateMain_2_16
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 153
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75824bffedbcd3743937459bd655d83e
+      internalID: 1501121797287121468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DonateMain_2_17
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 101
+        width: 133
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbde29037a94c6b4d8f807c4599c17d1
+      internalID: -2079869625504708383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DonateMain_2_22
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 85
+        width: 147
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f64660e095753c4488366f663d44eff1
+      internalID: -4443873277736285607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DonateMain_2_24
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 61
+        width: 133
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1180908f2d8c0044484db5d8d028cbe8
+      internalID: -4255260174002723426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DonateMain_2_25
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 84
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f13c9e2e7d3d7154baa70e62756a6e9d
+      internalID: -488522236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DonateMain_2_28
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 61
+        width: 121
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 595cbffd6fd179f4c9f1c2c991a0686d
+      internalID: 1431904482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DonateMain_2_29
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 11
+        width: 147
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82ddf798979fef44ad80f4acafba7ad
+      internalID: 92865874
       vertices: []
       indices: 
       edges: []
@@ -614,6 +768,11 @@ TextureImporter:
       DonateMain_2_22: -4443873277736285607
       DonateMain_2_23: 4029617633098732168
       DonateMain_2_24: -4255260174002723426
+      DonateMain_2_25: -488522236
+      DonateMain_2_26: -1121606925
+      DonateMain_2_27: -1116327209
+      DonateMain_2_28: 1431904482
+      DonateMain_2_29: 92865874
       DonateMain_2_3: -7185563546834415459
       DonateMain_2_4: 268130366887631164
       DonateMain_2_5: 9007003573541491583

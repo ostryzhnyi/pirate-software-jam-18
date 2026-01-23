@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using jam.CodeBase.Core;
 using Ostryzhnyi.EasyViewService.Api.Service;
@@ -29,12 +30,14 @@ namespace jam.CodeBase.Stream.View
         [SerializeField] private Slider _slider;
         [SerializeField] private List<DaysUIData> _daysData;
 
-        public void SetupNextDay(int day)
+        public async UniTask SetupNextDay(int day)
         {
             ResetImages();
             if (day is > 3 or < 0)
                 return;
             day--;
+            await UniTask.WaitUntil(() => G.Audio);
+            //G.Audio.PlaySound2D($"DayTransition");
             var currentData = _daysData.First(x => x.Day == day - 1);
             var nextData = day - 1 == _daysData.Last().Day
                 ? _daysData.Last()
@@ -53,14 +56,16 @@ namespace jam.CodeBase.Stream.View
             sequence.AppendInterval(_sliderDelay + _fadeDuration);
             sequence.Append(_globalCanvasGroup.DOFade(0, _fadeDuration));
             sequence.OnComplete(() => gameObject.SetActive(false));
-            sequence.Play();
+            await sequence.Play();
         }
 
-        public void SetupCurrent(int day)
+        public async UniTask SetupCurrent(int day)
         {
             ResetImages();
             if (day is > 3 or < 0)
                 return;
+            await UniTask.WaitUntil(() => G.Audio);
+            //G.Audio.PlaySound2D($"DayTransition");
             day -= 1;
             var currentData = _daysData.First(x => x.Day == day);
           
@@ -71,7 +76,7 @@ namespace jam.CodeBase.Stream.View
             sequence.AppendInterval(_sliderDelay);
             sequence.Append(_globalCanvasGroup.DOFade(0, _fadeDuration));
             sequence.OnComplete(() => gameObject.SetActive(false));
-            sequence.Play();
+            await sequence.Play();
         }
 
         private void ResetImages()

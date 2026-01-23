@@ -36,9 +36,19 @@ namespace jam.CodeBase.Core
 
         public static bool IsPaused = false;
         public static GameObject GameObject;
-        public static StreamController StreamController;
 
-        
+        private static StreamController _streamController;
+        public static StreamController StreamController
+        {
+            get
+            {
+                if (_streamController == null)
+                    _streamController = new StreamController();
+                return _streamController;
+            }
+        }
+
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static void OnApplicationQuit() {
             Application.quitting += Quit;
@@ -80,13 +90,7 @@ namespace jam.CodeBase.Core
         public async UniTask StartGameLoop()
         {
             _cancellationTokenSourceStop = new CancellationTokenSource();
-            InitControllers();
             await GameLoop();
-        }
-
-        private void InitControllers()
-        {
-            StreamController = new StreamController();
         }
 
         private async UniTask GameLoop()

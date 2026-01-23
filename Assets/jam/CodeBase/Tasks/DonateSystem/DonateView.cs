@@ -28,6 +28,10 @@ namespace jam.CodeBase.Tasks.DonateSystem
         [SerializeField] private Button _minus;
         [SerializeField] private Button _hide;
         
+        [SerializeField] private Image[] _taskOneContours;
+        [SerializeField] private Image[] _taskTwoContours;
+        
+        
         private DonateButton _selected;
         
         private const float MinBit = 50;
@@ -95,7 +99,15 @@ namespace jam.CodeBase.Tasks.DonateSystem
         private void OnClick(DonateButton button)
         {
             _selected = button;
+            foreach (var contour in _taskOneContours)
+            {
+                contour.gameObject.SetActive(_selected == DonateButtons[0]);
+            }
             
+            foreach (var contour in _taskTwoContours)
+            {
+                contour.gameObject.SetActive(_selected == DonateButtons[1]);
+            }
             foreach (var donateButton in DonateButtons)
             {
                 donateButton.SetSelected(button == donateButton);

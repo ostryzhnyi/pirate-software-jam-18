@@ -14,7 +14,9 @@ namespace jam.CodeBase.Tasks.DonateSystem
         [SerializeField] private TMP_Text _text;
         [SerializeField] private Image _progress;
         [SerializeField] private Button _button;
-        [SerializeField] private GameObject _selectedMark;
+        [SerializeField] private Image _selectedMark;
+        [SerializeField] private Sprite _selected;
+        [SerializeField] private Sprite _disabled;
 
         public void Init(BaseTask task, Action<DonateButton> onClick)
         {
@@ -39,7 +41,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
 
         public void SetSelected(bool isSelected)
         {
-            _selectedMark.SetActive(isSelected);
+            _selectedMark.sprite = isSelected ? _selected : _disabled;
         }
 
     }

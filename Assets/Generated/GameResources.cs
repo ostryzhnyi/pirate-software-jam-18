@@ -7,6 +7,18 @@ using UnityEngine.UIElements;
 
 public static class GameResources
 {
+    public static class Audio
+    {
+        public static class Loops
+        {
+            public static AudioClip Day1_Stream_ON => Resources.Load<AudioClip>("Audio/Loops/Day1_Stream ON");
+            public static AudioClip Day2_3 => Resources.Load<AudioClip>("Audio/Loops/Day2_3");
+            public static AudioClip Day3_keep_your_mind => Resources.Load<AudioClip>("Audio/Loops/Day3_keep your mind");
+        }
+        public static class SFX
+        {
+        }
+    }
     public static class CMS
     {
         public static class Characters

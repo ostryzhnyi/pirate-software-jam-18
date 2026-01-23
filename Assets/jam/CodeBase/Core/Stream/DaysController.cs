@@ -28,7 +28,7 @@ namespace jam.CodeBase.Stream
             _cst?.Cancel();
         }
 
-        public void SetDay(int dayNumber, bool isNext = false)
+        public async void SetDay(int dayNumber, bool isNext = false)
         {
             var runSaveModel = G.Saves.Get<RunSaveModel>();
             _cst = new CancellationTokenSource(); 
@@ -45,11 +45,12 @@ namespace jam.CodeBase.Stream
             view.Show();
             
             if(isNext)
-                view.SetupNextDay(dayNumber);
+                await view.SetupNextDay(dayNumber);
             else
             {
-                view.SetupCurrent(dayNumber);
+                await view.SetupCurrent(dayNumber);
             }
+            G.Audio.SetLoopAndPlay($"Day{dayNumber}");
             runSaveModel.ForceSave();
         }
 
