@@ -16,10 +16,21 @@ namespace jam.CodeBase.Tasks
 {
     public class Donate
     {
+        public event Action<float> OnDonateProgressUpdated;
         public Dictionary<BaseTask, float> Donates;
 
         public TaskDefinition TaskDefinition;
         public List<BaseTask> BaseTasks;
+        private float _donateProgress;
+        public float DonateProgress
+        {
+            get => _donateProgress;
+            set
+            {
+                _donateProgress = value;
+                OnDonateProgressUpdated?.Invoke(value);
+            }
+        }
 
         public async UniTask DonateExecuteProcess()
         {
@@ -44,6 +55,7 @@ namespace jam.CodeBase.Tasks
                 Donates.Add(baseTask, 0);
             }
 
+            DonateProgress = 1;
             G.Menu.HUD.DonateHUDButton.SetAmount(1, true);
             float time = tasks.Item1.Duration;
             var economyTag = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
@@ -66,7 +78,7 @@ namespace jam.CodeBase.Tasks
                 
                 time--;
                 G.Menu.HUD.DonateHUDButton.SetAmount(time / duration);
-
+                DonateProgress = time / duration;
                 if (currentSecond < totalSeconds && remainingDonate > 0f)
                 {
               
@@ -131,8 +143,9 @@ namespace jam.CodeBase.Tasks
             var wonTask = Donates.OrderByDescending(p => p.Value).FirstOrDefault();
 
             G.Interactors.CallAll<IFinishDonatesProcess>(t =>
-                t.OnFinishDonates(tasks.Item1, wonTask.Key, wonTask.Value));
+            t.OnFinishDonates(tasks.Item1, wonTask.Key, wonTask.Value));
             G.Menu.HUD.DonateHUDButton.SetAmount(0);
+            DonateProgress = 0;
 
             G.Menu.HUD.FinishDonateNotification.Play(wonTask.Key.Name).Forget();
             await UniTask.WaitForSeconds(1);

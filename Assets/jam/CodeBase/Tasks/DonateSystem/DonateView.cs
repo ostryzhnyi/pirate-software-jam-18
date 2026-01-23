@@ -27,6 +27,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
         [SerializeField] private Button _plus;
         [SerializeField] private Button _minus;
         [SerializeField] private Button _hide;
+        [SerializeField] private DonateHUDButton _donateProgress;
         
         [SerializeField] private Image[] _taskOneContours;
         [SerializeField] private Image[] _taskTwoContours;
@@ -38,6 +39,8 @@ namespace jam.CodeBase.Tasks.DonateSystem
 
         private void Awake()
         {
+            G.Donate.OnDonateProgressUpdated += UpdateDotateProgress;
+            
             _plus.onClick.AddListener(() =>
             {
                 Price += MinBit;
@@ -53,8 +56,19 @@ namespace jam.CodeBase.Tasks.DonateSystem
             _hide.onClick.AddListener(() => Hide().Forget());
         }
 
+        private void OnEnable()
+        {
+            Debug.LogError("enable");
+        }
+
+        private void UpdateDotateProgress(float obj)
+        {
+            _donateProgress.SetAmount(obj);
+        }
+
         protected override void Showed(ViewOption option = null)
         {
+            _donateProgress.SetAmount(G.Donate.DonateProgress, true);
             Price = CastedOption.TaskDefinition.BasePrice;
             UpdateText();
             
@@ -99,15 +113,15 @@ namespace jam.CodeBase.Tasks.DonateSystem
         private void OnClick(DonateButton button)
         {
             _selected = button;
-            foreach (var contour in _taskOneContours)
-            {
-                contour.gameObject.SetActive(_selected == DonateButtons[0]);
-            }
-            
-            foreach (var contour in _taskTwoContours)
-            {
-                contour.gameObject.SetActive(_selected == DonateButtons[1]);
-            }
+            // foreach (var contour in _taskOneContours)
+            // {
+            //     contour.gameObject.SetActive(_selected == DonateButtons[0]);
+            // }
+            //
+            // foreach (var contour in _taskTwoContours)
+            // {
+            //     contour.gameObject.SetActive(_selected == DonateButtons[1]);
+            // }
             foreach (var donateButton in DonateButtons)
             {
                 donateButton.SetSelected(button == donateButton);
