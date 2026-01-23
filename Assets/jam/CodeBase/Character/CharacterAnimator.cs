@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using jam.CodeBase.Core;
+using Live2D.Cubism.Core;
 using Live2D.Cubism.Framework.Expression;
 using Live2D.Cubism.Rendering;
 using Sirenix.OdinInspector;
@@ -9,17 +10,21 @@ using UnityEngine;
 
 namespace jam.CodeBase.Character
 {
+    [RequireComponent(typeof(Animator), typeof(CubismExpressionController))]
     public class CharacterAnimator : SerializedMonoBehaviour
     {
-        [SerializeField] private Animator _animator;
-
         public CubismExpressionList ExpressionsList;
+        public CubismModel CubismModel;
 
-        [SerializeField] private CubismExpressionController _expressionController;
         [SerializeField] private List<CharacterAnimation> _characterAnimationStructures = new  List<CharacterAnimation>();
+
+        private Animator _animator;
+        private CubismExpressionController _expressionController;
 
         private void Awake()
         {
+            _animator = GetComponent<Animator>();
+            _expressionController = GetComponent<CubismExpressionController>();
             G.CharacterAnimator = this;
         }
 
@@ -41,6 +46,7 @@ namespace jam.CodeBase.Character
         {
             PlayAnimation(_characterAnimationStructures.First(x => x.AnimationType == animationType).Structure);
         }
+        
         
         public void PlayAnimation(CharacterAnimationStructure structure)
         {

@@ -12,6 +12,7 @@ namespace jam.CodeBase.UI
         public StatsView StatsView;
         public DonateHUDButton DonateHUDButton;
         public StartDonateNotification DonateNotification;
+        public FinishDonateNotification FinishDonateNotification;
 
         private void OnEnable()
         {

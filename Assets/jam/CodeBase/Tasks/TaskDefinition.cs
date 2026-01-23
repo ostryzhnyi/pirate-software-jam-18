@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Character;
+using UnityEngine;
 
 namespace jam.CodeBase.Tasks
 {
@@ -33,7 +34,7 @@ namespace jam.CodeBase.Tasks
     public class StatsAfforded
     {
         public StatsType StatsType;
-        public float Value;
+        public Vector2 ValueRange = new Vector2(5, 15);
         public StatsChangeMethod Method;
     }
 

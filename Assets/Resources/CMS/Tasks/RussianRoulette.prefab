@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1729a46f79086449a991b5512530e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CMS::CMSEntityPfb
-  idCMS: CMS/Tasks/RussianRoulette
+  idCMS: CMS\Tasks\RussianRoulette
   Components:
   - rid: 4608936542719443226
   - rid: 4608936634225786986
@@ -56,16 +56,13 @@ MonoBehaviour:
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Description: Play in Russian Roulette
-        Duration: 20
+        Duration: 30
         BasePrice: 100
     - rid: 4608936634225786986
       type: {class: PlayRussianRoulette, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Name: Play in Russian Roulette
-        StatsAfforded:
-        - StatsType: 1
-          Value: 10
-          Method: 0
+        StatsAfforded: []
         TaskTarget: 0
     - rid: 4608936634225786987
       type: {class: NotPlayRussianRoulette, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}

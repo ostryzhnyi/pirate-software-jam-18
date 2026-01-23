@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Audio;
@@ -6,6 +7,7 @@ using jam.CodeBase.Bets;
 using jam.CodeBase.Character;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
+using jam.CodeBase.GameLoop;
 using jam.CodeBase.Stream;
 using jam.CodeBase.Tasks;
 using Ostryzhnyi.EasyViewService.Api.Service;
@@ -36,8 +38,8 @@ namespace jam.CodeBase.Core
 
         public static bool IsPaused = false;
         public static GameObject GameObject;
-
         private static StreamController _streamController;
+        public static bool FinishRun = false;
         public static StreamController StreamController
         {
             get
@@ -57,6 +59,7 @@ namespace jam.CodeBase.Core
 
         private void Awake()
         {
+            FinishRun = false;
             GameAliveCancellationToken = gameObject.GetCancellationTokenOnDestroy();
             GameObject = gameObject;
         }
@@ -77,14 +80,39 @@ namespace jam.CodeBase.Core
             _cancellationTokenSourceStop.Cancel();
         }
 
-        public static void Win()
+        public static async UniTask RestartRun()
         {
+            var runSave = Saves.Get<RunSaveModel>();
+            runSave.Clear();
             
+            var betSaveModel = Saves.Get<BetSaveModel>();
+            betSaveModel.Clear();
+
+            BetController = new BetController();
+            FinishRun = false;
+            
+            foreach (var levelLoaded in Interactors.GetAll<IGameplayLoaded>())
+            {
+                await levelLoaded.OnLoaded(runSave);
+            }
+        }
+
+        public static void Alive()
+        {
+            FinishRun = true;
+            var result = Menu.ViewService.GetView<ResultScreen>();
+            
+            (result as ResultScreen).SetState(BetController.MyBetAlive > 0);
+            result.Show();
         }
 
         public static void Die()
         {
+            FinishRun = true;
             
+            var result = Menu.ViewService.GetView<ResultScreen>();
+            (result as ResultScreen).SetState(BetController.MyBetDie > 0);
+            result.Show();
         }
 
         public async UniTask StartGameLoop()

@@ -157,6 +157,7 @@ namespace jam.CodeBase.Bets
                 G.BetController.BetToAlive(_aliveBetView.Bit);
                 G.Economy.SpendMoney(_aliveBetView.Bit);
                 _aliveBetView.SetBit(0);
+                _dieBetView.LockButton();
             }
             
             if(_dieBetView.Bit > 0)
@@ -164,6 +165,7 @@ namespace jam.CodeBase.Bets
                 G.BetController.BetToDie(_dieBetView.Bit);
                 G.Economy.SpendMoney(_dieBetView.Bit);
                 _dieBetView.SetBit(0);
+                _aliveBetView.LockButton();
             }
             
             _dieBetView.UpdateButtons();

@@ -5,8 +5,13 @@ using Random = UnityEngine.Random;
 
 namespace ProjectX.CodeBase.Utils
 {
-    public class RandomUtils
+    public static class RandomUtils
     {
+        public static float GetRandomRange(this Vector2 vector2)
+        {
+            return Random.Range(vector2.x, vector2.y);
+        }
+        
         public static Vector3 Get90AngleRandom()
         {
             var rand = Random.Range(0, 4);

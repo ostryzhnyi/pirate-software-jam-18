@@ -59,7 +59,7 @@ namespace Live2D.Cubism.Editor.Inspectors
                             ? displayInfoParameterName.Name
                             : displayInfoParameterName.DisplayName)
                         : parameter.Id;
-
+                    displayName += " " + parameter.Id;
                     var field = new FloatField() { value = parameter.Value };
 
                     field.SetEnabled(!Application.isPlaying);

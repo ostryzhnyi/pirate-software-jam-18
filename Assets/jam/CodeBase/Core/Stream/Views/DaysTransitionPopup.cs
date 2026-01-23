@@ -34,7 +34,10 @@ namespace jam.CodeBase.Stream.View
         {
             ResetImages();
             if (day is > 3 or < 0)
+            {
+                gameObject.SetActive(false);
                 return;
+            }
             day--;
             await UniTask.WaitUntil(() => G.Audio);
             //G.Audio.PlaySound2D($"DayTransition");
@@ -63,7 +66,10 @@ namespace jam.CodeBase.Stream.View
         {
             ResetImages();
             if (day is > 3 or < 0)
+            {
+                gameObject.SetActive(false);
                 return;
+            }
             await UniTask.WaitUntil(() => G.Audio);
             //G.Audio.PlaySound2D($"DayTransition");
             day -= 1;

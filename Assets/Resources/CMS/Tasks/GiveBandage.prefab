@@ -58,7 +58,7 @@ MonoBehaviour:
         Name: Allow take shower
         StatsAfforded:
         - StatsType: 0
-          Value: 20
+          ValueRange: {x: 15, y: 25}
           Method: 0
         TaskTarget: 1
     - rid: 3433833559035740267
@@ -71,5 +71,5 @@ MonoBehaviour:
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Description: Give bandage
-        Duration: 10
+        Duration: 30
         BasePrice: 300

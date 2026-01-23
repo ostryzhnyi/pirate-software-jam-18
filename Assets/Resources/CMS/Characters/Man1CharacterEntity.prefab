@@ -67,7 +67,9 @@ MonoBehaviour:
     - rid: 4608936542719443196
       type: {class: DescribeTag, ns: jam.CodeBase.Core.Tags, asm: Assembly-CSharp}
       data:
-        Description: Builder
+        Description: ' An ordinary guy born into a wealthy family. He has an economics
+          degree and is in good physical shape. But fate has thrown him into trouble
+          at work and at home. Now he''s mired in debt, which has become life-threatening. '
     - rid: 4608936542719443198
       type: {class: StatsTag, ns: jam.CodeBase.Character.Data, asm: Assembly-CSharp}
       data:

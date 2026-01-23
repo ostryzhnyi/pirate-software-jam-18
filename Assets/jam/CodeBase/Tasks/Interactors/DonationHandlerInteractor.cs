@@ -22,7 +22,6 @@ namespace jam.CodeBase.Tasks.Interactors
 
             var sum = G.Donate.Donates.Sum(d => d.Value);
             var donateView = (G.Menu.ViewService.GetView<DonateView>() as DonateView);
-            
             foreach (var item in G.Donate.Donates)
             {
                 if(G.Donate.Donates[item.Key] > 0)

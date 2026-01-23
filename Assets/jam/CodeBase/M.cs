@@ -1,8 +1,10 @@
 ﻿using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Character;
 using jam.CodeBase.Core;
 using jam.CodeBase.UI;
 using Ostryzhnyi.EasyViewService.Impl.Service;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace jam.CodeBase
@@ -29,6 +31,19 @@ namespace jam.CodeBase
             {
                 await gameplayUnloaded.OnUnloaded();
             }
+        }
+
+        [Button]
+        private void Alive()
+        {
+            G.Alive();
+        }
+        
+
+        [Button]
+        private void Die()
+        {
+            G.Characters.CurrentCharacter.ChangeHP(int.MaxValue, StatsChangeMethod.Remove).Forget();
         }
     }
 }

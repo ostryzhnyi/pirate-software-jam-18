@@ -18,7 +18,9 @@ namespace jam.CodeBase.Bets
         public float DieBet;
         public float AliveBetCoefficient;
         public float DieBetCoefficient;
-
+        public float MyBetAlive;
+        public float MyBetDie;
+        public float MyBet => MyBetAlive + MyBetDie;
         private const int BetTime = 30;
 
         private float _smoothAlive;
@@ -36,7 +38,8 @@ namespace jam.CodeBase.Bets
                 Debug.LogError("INIT COEFS");
                 AliveBet = _saveModel.Data.AliveBet;
                 DieBet = _saveModel.Data.DieBet;
-
+                MyBetAlive = _saveModel.Data.MyBetLive;
+                MyBetDie = _saveModel.Data.MyBetDie;
                 UpdateCoefficients();
             }
 
@@ -47,6 +50,7 @@ namespace jam.CodeBase.Bets
             if (bet <= 0) return;
 
             DieBet += bet;
+            MyBetDie += bet;
             
             UpdateCoefficients();
         }
@@ -56,6 +60,7 @@ namespace jam.CodeBase.Bets
             if (bet <= 0) return;
 
             AliveBet += bet;
+            MyBetAlive += bet;
             
             UpdateCoefficients();
         }
@@ -88,7 +93,7 @@ namespace jam.CodeBase.Bets
                 tick++;
                 time--;
             }
-
+            
             await UniTaskHelper.SmartWaitSeconds(5);
 
             G.Menu.ViewService.HideView<BetPopup>();
@@ -179,6 +184,8 @@ namespace jam.CodeBase.Bets
 
             _saveModel.Data.AliveBet = AliveBet;
             _saveModel.Data.DieBet = DieBet; 
+            _saveModel.Data.MyBetLive = MyBetAlive; 
+            _saveModel.Data.MyBetDie = MyBetDie; 
             _saveModel.ForceSave();
             
             if (_smoothAlive <= 0f && _smoothDie <= 0f)
@@ -194,7 +201,7 @@ namespace jam.CodeBase.Bets
 
             AliveBetCoefficient = _smoothDie + 1;
             DieBetCoefficient = _smoothAlive + 1;
-            Debug.LogError(
+            Debug.Log(
                 $"[Coeffs]  AliveBet: {AliveBet}, DieBet: {DieBet}, AliveBetCoefficient: {AliveBetCoefficient}, DieBetCoefficient: {DieBetCoefficient}");
             OnChangeAliveCoefficient?.Invoke(AliveBetCoefficient);
             OnChangeDieCoefficient?.Invoke(DieBetCoefficient);

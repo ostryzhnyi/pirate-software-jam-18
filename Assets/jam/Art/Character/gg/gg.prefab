@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 4
-  Value: -30
+  Value: 30
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &6009417967965112264
@@ -387,7 +387,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199680421605865660}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -452,7 +452,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 22
   _depthOffset: 0.00001
-  _opacity: 0.15999997
+  _opacity: 0
 --- !u!1 &281806229457624205
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +647,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351534438002574540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -712,7 +712,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 19
   _depthOffset: 0.00001
-  _opacity: 0.15999997
+  _opacity: 0
 --- !u!1 &359977789969728077
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,7 +903,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818645088843728725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -968,7 +968,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 40
   _depthOffset: 0.00001
-  _opacity: 1
+  _opacity: 0
 --- !u!1 &821862937466662920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,7 +1338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 7
-  Value: -30
+  Value: 30
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &8569027851413900163
@@ -1527,7 +1527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 29
-  Value: -30
+  Value: 0
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &948591406683516438
@@ -1913,7 +1913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 3
-  Value: 0
+  Value: -30
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &79545939265826627
@@ -2783,7 +2783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 0
-  Value: 0.121
+  Value: 0
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &2414498328268407467
@@ -3124,7 +3124,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3145647434062997790}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3189,7 +3189,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 41
   _depthOffset: 0.00001
-  _opacity: 1
+  _opacity: 0
 --- !u!1 &3250391430987905639
 GameObject:
   m_ObjectHideFlags: 0
@@ -3644,7 +3644,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3449411500711099102}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3709,7 +3709,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 47
   _depthOffset: 0.00001
-  _opacity: 0.15999997
+  _opacity: 0
 --- !u!1 &3515007389138397459
 GameObject:
   m_ObjectHideFlags: 0
@@ -4034,7 +4034,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3605691156862365017}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4099,7 +4099,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 36
   _depthOffset: 0.00001
-  _opacity: 1
+  _opacity: 0
 --- !u!1 &3809320131202945297
 GameObject:
   m_ObjectHideFlags: 0
@@ -4676,7 +4676,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4203597826282290532}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4741,7 +4741,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 35
   _depthOffset: 0.00001
-  _opacity: 1
+  _opacity: 0
 --- !u!1 &4261334393581212636
 GameObject:
   m_ObjectHideFlags: 0
@@ -4788,7 +4788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 1
-  Value: 0.311
+  Value: 0
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &2507267944543343332
@@ -4869,7 +4869,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4421464167462894182}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4934,7 +4934,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 25
   _depthOffset: 0.00001
-  _opacity: 0.15999997
+  _opacity: 0
 --- !u!1 &4484486778882392623
 GameObject:
   m_ObjectHideFlags: 0
@@ -5578,7 +5578,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5363150517366431392}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5643,7 +5643,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 33
   _depthOffset: 0.00001
-  _opacity: 0.242
+  _opacity: 0
 --- !u!1 &5392090041242788207
 GameObject:
   m_ObjectHideFlags: 0
@@ -5771,7 +5771,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5426225589183530820}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5836,7 +5836,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 31
   _depthOffset: 0.00001
-  _opacity: 1
+  _opacity: 0
 --- !u!1 &5667853024779063024
 GameObject:
   m_ObjectHideFlags: 0
@@ -5901,7 +5901,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5667853024779063024}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5966,7 +5966,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 38
   _depthOffset: 0.00001
-  _opacity: 1
+  _opacity: 0
 --- !u!1 &5717107170869407865
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,7 +6143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 2
-  Value: -0.976
+  Value: -1
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &660400332695638821
@@ -6206,7 +6206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 8
-  Value: 30
+  Value: -30
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &4190698551154021656
@@ -6349,7 +6349,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6044595568856585246}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -6414,7 +6414,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 39
   _depthOffset: 0.00001
-  _opacity: 1
+  _opacity: 0
 --- !u!1 &6204766362243220767
 GameObject:
   m_ObjectHideFlags: 0
@@ -7385,7 +7385,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6830382029568957336}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -7450,7 +7450,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 34
   _depthOffset: 0.00001
-  _opacity: 0.758
+  _opacity: 0
 --- !u!1 &6896678263107405967
 GameObject:
   m_ObjectHideFlags: 0
@@ -8161,7 +8161,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7683919251435691667}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -8226,7 +8226,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 37
   _depthOffset: 0.00001
-  _opacity: 1
+  _opacity: 0
 --- !u!1 &7741275273755509715
 GameObject:
   m_ObjectHideFlags: 0
@@ -8551,7 +8551,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7813897847810473166}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -8616,7 +8616,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 1
   _depthOffset: 0.00001
-  _opacity: 0.15999997
+  _opacity: 0
 --- !u!1 &7838486385016054750
 GameObject:
   m_ObjectHideFlags: 0
@@ -8663,7 +8663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 5
-  Value: 20.4
+  Value: 30
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &946751493491742110
@@ -9321,7 +9321,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10.048066, y: 10.048066, z: 10.048066}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7673777582495069507}
   - {fileID: 239432641694365730}
@@ -9386,7 +9386,7 @@ MonoBehaviour:
   _modelScreenColor: {r: 0, g: 0, b: 0, a: 0}
   _sortingLayerId: 1765700325
   _sortingMode: 0
-  _sortingOrder: 1
+  _sortingOrder: 0
   CameraToFace: {fileID: 0}
   _drawOrderHandler: {fileID: 0}
   _opacityHandler: {fileID: 0}
@@ -9729,9 +9729,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _animator: {fileID: 3642171915579300648}
   ExpressionsList: {fileID: 11400000, guid: a2e3a3273a645aa488705511215251a7, type: 2}
-  _expressionController: {fileID: 5097888388677435515}
+  CubismModel: {fileID: 116959744342998510}
 --- !u!114 &548732614756624423
 MonoBehaviour:
   m_ObjectHideFlags: 0

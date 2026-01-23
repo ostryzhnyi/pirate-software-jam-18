@@ -1,11 +1,13 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
+using jam.CodeBase.Character;
 using jam.CodeBase.Core;
 using jam.CodeBase.Core.Interactors;
 using UnityEngine;
 
 namespace jam.CodeBase
 {
-    public class RunInitializatorInteractor : BaseInteractor, IGameplayLoaded
+    public class RunInitializatorInteractor : BaseInteractor, IGameplayLoaded, IAliveCharacter, IDieStressCharacter, IDieHealthCharacter
     {
         public override int GetPriority()
         {
@@ -15,7 +17,8 @@ namespace jam.CodeBase
         public async UniTask OnLoaded(RunSaveModel runSaveModel1)
         {
             var runSaveModel = G.Saves.Get<RunSaveModel>();
-            
+
+
             if(!runSaveModel.Data.IsStarted)
             {
                 runSaveModel.Data.CharacterName = G.Characters.CurrentCharacter.Name;
@@ -24,8 +27,34 @@ namespace jam.CodeBase
                 
                 runSaveModel.ForceSave();
             }
-            G.DaysController.SetDay(runSaveModel.Data.DayNumber);
+            try
+            {
+                G.DaysController.SetDay(runSaveModel.Data.DayNumber);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+                G.DaysController.SetDay(1);
+            }
             await UniTask.WaitForSeconds(3);
+        }
+
+        public UniTask OnAlive(Character.Character character)
+        {
+            G.Alive();
+            return UniTask.CompletedTask;
+        }
+
+        public UniTask OnDie(Character.Character character)
+        {
+            G.Die();
+            return UniTask.CompletedTask;
+        }
+
+        UniTask IDieHealthCharacter.OnDie(Character.Character character)
+        {
+            G.Die();
+            return UniTask.CompletedTask;
         }
     }
 }

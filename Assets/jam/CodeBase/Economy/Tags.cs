@@ -10,9 +10,12 @@ namespace jam.CodeBase.Economy
         public float BaseMoney;
         
         [Header("Donators")]
-        public Vector2Int DonatorsAmountMinMax = new Vector2Int(2, 5);
-        public Vector2Int MinRandomDonateRange = new Vector2Int(1, 10);
-        public Vector2 AdditionalDonatorsMultiplierFromPlayerMoney = new Vector2(0.01f, 0.1f);
+        public float BaseDonate = 5000;
+        public Vector2 DonateMultiplier = new Vector2(0.7f, 1.3f);
+        public float BaseBetMultiplier = 0.25f;
+        public Vector2Int DonatorsAmountMinMax = new Vector2Int(40, 60);
+        public Vector2 DonateСhanceOppositeByPlayer = new Vector2(0.45f, .65f);
+        public Vector2 OneDonateRandMultiplier = new Vector2(0.2f, 2f);
         
         [Header("Bets")]
         public Vector2 BaseBet = new Vector2(8000, 12000);

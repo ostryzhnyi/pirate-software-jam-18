@@ -57,8 +57,11 @@ MonoBehaviour:
       data:
         Name: Gift sleep pils
         StatsAfforded:
+        - StatsType: 0
+          ValueRange: {x: 40, y: 60}
+          Method: 0
         - StatsType: 1
-          Value: 10
+          ValueRange: {x: 30, y: 40}
           Method: 1
         TaskTarget: 1
         ItemName: SleepPils
@@ -72,5 +75,5 @@ MonoBehaviour:
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Description: Gift sleep pils
-        Duration: 10
+        Duration: 30
         BasePrice: 300

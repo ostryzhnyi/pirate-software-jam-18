@@ -63,12 +63,12 @@ namespace jam.CodeBase.Tasks.DonateSystem
             {
                 donateButton.Button.interactable = true;
             }
-            
+            var sum = G.Donate.Donates.Sum(d => d.Value);
             for (var i = 0; i < CastedOption.Tasks.Count; i++)
             {
                 var baseTask = CastedOption.Tasks[i];
                 DonateButtons[i].Init(baseTask, OnClick);
-                DonateButtons[i].UpdateProgress(G.Donate.Donates[baseTask]);
+                DonateButtons[i].UpdateProgressWithoutAnim(G.Donate.Donates[baseTask] / sum);
             }
             
             DonateButtons.First().Button.onClick.Invoke();
