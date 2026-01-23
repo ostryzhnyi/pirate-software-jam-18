@@ -14,13 +14,18 @@ namespace jam.CodeBase.Tasks
             G.CharacterAnimator.PlayAnimation(AnimationType.RussianRullete);
             await UniTask.WaitForSeconds(2);
 
+         
             if (isAlive)
             {
-                G.Win();
+                var alives = G.Interactors.GetAll<IAliveCharacter>();
+                foreach (var alive in alives)
+                {
+                    await alive.OnAlive(G.Characters.CurrentCharacter);
+                }
             }
             else
             {
-                G.Loose();
+                G.Characters.CurrentCharacter.ChangeHP(int.MaxValue, StatsChangeMethod.Remove).Forget();
             }
         }
     }
@@ -31,7 +36,11 @@ namespace jam.CodeBase.Tasks
         public override async UniTask Execute()
         {
             await UniTask.WaitForSeconds(2);
-            G.Win();
+            var alives = G.Interactors.GetAll<IAliveCharacter>();
+            foreach (var alive in alives)
+            {
+                await alive.OnAlive(G.Characters.CurrentCharacter);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Audio;
@@ -38,7 +39,7 @@ namespace jam.CodeBase.Core
         public static bool IsPaused = false;
         public static GameObject GameObject;
         public static StreamController StreamController;
-
+        public static bool FinishRun = false;
         
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static void OnApplicationQuit() {
@@ -48,6 +49,7 @@ namespace jam.CodeBase.Core
 
         private void Awake()
         {
+            FinishRun = false;
             InitControllers();
             
             GameAliveCancellationToken = gameObject.GetCancellationTokenOnDestroy();
@@ -70,17 +72,38 @@ namespace jam.CodeBase.Core
             _cancellationTokenSourceStop.Cancel();
         }
 
-        public static void Win()
+        public static async UniTask RestartRun()
         {
+            var runSave = Saves.Get<RunSaveModel>();
+            runSave.Clear();
+            
+            var betSaveModel = Saves.Get<BetSaveModel>();
+            betSaveModel.Clear();
+
+            BetController = new BetController();
+            FinishRun = false;
+            
+            foreach (var levelLoaded in Interactors.GetAll<IGameplayLoaded>())
+            {
+                await levelLoaded.OnLoaded(runSave);
+            }
+        }
+
+        public static void Alive()
+        {
+            FinishRun = true;
             var result = Menu.ViewService.GetView<ResultScreen>();
-            (result as ResultScreen).SetState(true);
+            
+            (result as ResultScreen).SetState(BetController.MyBetAlive > 0);
             result.Show();
         }
 
-        public static void Loose()
+        public static void Die()
         {
+            FinishRun = true;
+            
             var result = Menu.ViewService.GetView<ResultScreen>();
-            (result as ResultScreen).SetState(false);
+            (result as ResultScreen).SetState(BetController.MyBetDie > 0);
             result.Show();
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using jam.CodeBase.Character.Data;
 using jam.CodeBase.Core;
 using jam.CodeBase.Core.Tags;
@@ -13,9 +14,6 @@ namespace jam.CodeBase.Character
 {
     public class Character
     {
-        public event Action OnStressDie;
-        public event Action OnHealthDie;
-
         public event Action<float> OnStressUpdated;
         public event Action<float> OnHealthUpdated;
 
@@ -62,15 +60,15 @@ namespace jam.CodeBase.Character
         {
             if (statsAfforded.StatsType == StatsType.Health)
             {
-                ChangeHP(statsAfforded.ValueRange.GetRandomRange(), statsAfforded.Method);
+                ChangeHP(statsAfforded.ValueRange.GetRandomRange(), statsAfforded.Method).Forget();
             }
             else
             {
-                ChangeStress(statsAfforded.ValueRange.GetRandomRange(), statsAfforded.Method);
+                ChangeStress(statsAfforded.ValueRange.GetRandomRange(), statsAfforded.Method).Forget();
             }
         }
 
-        public void ChangeHP(float amount, StatsChangeMethod method)
+        public async UniTask ChangeHP(float amount, StatsChangeMethod method)
         {
             if (method == StatsChangeMethod.Add)
             {
@@ -85,7 +83,11 @@ namespace jam.CodeBase.Character
 
                 if (IsDieHP())
                 {
-                    OnHealthDie?.Invoke();
+                    var dies = G.Interactors.GetAll<IDieHealthCharacter>();
+                    foreach (var dy in dies)
+                    {
+                        await dy.OnDie(this);
+                    }
                 }
             }
 
@@ -95,7 +97,7 @@ namespace jam.CodeBase.Character
             Save();
         }
 
-        public void ChangeStress(float amount, StatsChangeMethod method)
+        public async UniTask ChangeStress(float amount, StatsChangeMethod method)
         {
             if (method == StatsChangeMethod.Add)
             {
@@ -103,7 +105,11 @@ namespace jam.CodeBase.Character
 
                 if (IsDieStress())
                 {
-                    OnStressDie?.Invoke();
+                    var dies = G.Interactors.GetAll<IDieStressCharacter>();
+                    foreach (var dy in dies)
+                    {
+                        await dy.OnDie(this);
+                    }
                 }
             }
             else if (method == StatsChangeMethod.Remove)

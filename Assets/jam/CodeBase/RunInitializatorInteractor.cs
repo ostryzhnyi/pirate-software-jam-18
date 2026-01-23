@@ -1,12 +1,13 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Character;
 using jam.CodeBase.Core;
 using jam.CodeBase.Core.Interactors;
 using UnityEngine;
 
 namespace jam.CodeBase
 {
-    public class RunInitializatorInteractor : BaseInteractor, IGameplayLoaded
+    public class RunInitializatorInteractor : BaseInteractor, IGameplayLoaded, IAliveCharacter, IDieStressCharacter, IDieHealthCharacter
     {
         public override int GetPriority()
         {
@@ -36,6 +37,24 @@ namespace jam.CodeBase
                 G.DaysController.SetDay(1);
             }
             await UniTask.WaitForSeconds(3);
+        }
+
+        public UniTask OnAlive(Character.Character character)
+        {
+            G.Alive();
+            return UniTask.CompletedTask;
+        }
+
+        public UniTask OnDie(Character.Character character)
+        {
+            G.Die();
+            return UniTask.CompletedTask;
+        }
+
+        UniTask IDieHealthCharacter.OnDie(Character.Character character)
+        {
+            G.Die();
+            return UniTask.CompletedTask;
         }
     }
 }

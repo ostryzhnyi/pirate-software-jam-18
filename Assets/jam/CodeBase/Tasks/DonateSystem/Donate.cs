@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Character;
 using jam.CodeBase.Core;
@@ -22,6 +23,9 @@ namespace jam.CodeBase.Tasks
 
         public async UniTask DonateExecuteProcess()
         {
+            if(G.FinishRun)
+                return;
+            
             var runSaveModel = G.Saves.Get<RunSaveModel>();
             runSaveModel.Data.CurrentDonateNumberInDay++;
 
@@ -57,6 +61,9 @@ namespace jam.CodeBase.Tasks
 
             while (time > 0)
             {
+                if(G.FinishRun)
+                    return;
+                
                 time--;
                 G.Menu.HUD.DonateHUDButton.SetAmount(time / duration);
 
@@ -127,6 +134,9 @@ namespace jam.CodeBase.Tasks
                 t.OnFinishDonates(tasks.Item1, wonTask.Key, wonTask.Value));
             G.Menu.HUD.DonateHUDButton.SetAmount(0);
 
+            G.Menu.HUD.FinishDonateNotification.Play(wonTask.Key.Name).Forget();
+            await UniTask.WaitForSeconds(1);
+            
             await wonTask.Key.Execute();
 
             foreach (var statsAfforded in wonTask.Key.StatsAfforded)

@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Character;
 using jam.CodeBase.Core;
 using jam.CodeBase.UI;
 using Ostryzhnyi.EasyViewService.Impl.Service;
@@ -33,16 +34,16 @@ namespace jam.CodeBase
         }
 
         [Button]
-        private void Win()
+        private void Alive()
         {
-            G.Win();
+            G.Alive();
         }
         
 
         [Button]
-        private void Lose()
+        private void Die()
         {
-            G.Loose();
+            G.Characters.CurrentCharacter.ChangeHP(int.MaxValue, StatsChangeMethod.Remove).Forget();
         }
     }
 }

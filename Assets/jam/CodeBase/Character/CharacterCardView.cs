@@ -22,7 +22,6 @@ namespace jam.CodeBase.Character
         protected override void Showed(ViewOption option = null)
         {
             base.Showed(option);
-
             var character = CastedOption.Character;
             
             _name.SetText(character.Name);
