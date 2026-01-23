@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::jam.CodeBase.UI.MainButton
   _image: {fileID: 4377329275847413019}
-  _defaultSprite: {fileID: -6765637748463255839, guid: 339fa4a9dd265de4c81af967d9a2d90a, type: 3}
-  _disableSprite: {fileID: -5275146381823814606, guid: 339fa4a9dd265de4c81af967d9a2d90a, type: 3}
+  _defaultSprite: {fileID: 4534119095597487745, guid: 8d39f5e42e2f3ba46a706802795d8738, type: 3}
+  _disableSprite: {fileID: -7539034708695851585, guid: 8d39f5e42e2f3ba46a706802795d8738, type: 3}
 --- !u!1 &895563661875219938
 GameObject:
   m_ObjectHideFlags: 0
