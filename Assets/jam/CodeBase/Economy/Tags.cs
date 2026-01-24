@@ -8,6 +8,7 @@ namespace jam.CodeBase.Economy
     {
         [Header("General")]
         public float BaseMoney;
+        public Vector2 RestoreMoneyByDayRange = new Vector2(100, 1000);
         
         [Header("Donators")]
         public float BaseDonate = 5000;
@@ -22,5 +23,9 @@ namespace jam.CodeBase.Economy
         public Vector2 PercentsRangeFromPlayerMoney = new Vector2(4, 6);
         public Vector2 DieBiddersProporionRange = new Vector2(0.7f, 0.5f);
         public Vector2 AliveBiddersProporionRange = new Vector2(0.5f, 0.3f);
+        
+        [Header("Stats")]
+        public Vector2 RestoreStressByDayRange = new Vector2(5, 15);
+        public Vector2 RestoreHealthByDayRange = new Vector2(5, 15);
     }
 }

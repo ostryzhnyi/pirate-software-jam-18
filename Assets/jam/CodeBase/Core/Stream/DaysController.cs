@@ -1,8 +1,11 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Character;
 using jam.CodeBase.Core;
+using jam.CodeBase.Economy;
 using jam.CodeBase.Stream.View;
+using ProjectX.CodeBase.Utils;
 using UnityEngine;
 
 namespace jam.CodeBase.Stream
@@ -47,7 +50,16 @@ namespace jam.CodeBase.Stream
             view.Show();
             
             if(isNext)
+            {
                 await view.SetupNextDay(dayNumber);
+
+                var economyTag = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
+                G.Characters.CurrentCharacter.ChangeHP(economyTag.RestoreHealthByDayRange.GetRandomRange(),
+                    StatsChangeMethod.Add).Forget();
+                G.Characters.CurrentCharacter.ChangeStress(economyTag.RestoreStressByDayRange.GetRandomRange(),
+                    StatsChangeMethod.Remove).Forget();;
+                G.Economy.AddMoney(economyTag.RestoreMoneyByDayRange.GetRandomRange());
+            }
             else
             {
                 await view.SetupCurrent(dayNumber);
