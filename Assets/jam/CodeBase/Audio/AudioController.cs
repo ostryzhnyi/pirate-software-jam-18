@@ -40,6 +40,11 @@ namespace jam.CodeBase.Audio
         }
 
         public bool Fading { get; private set; }
+        public float GlobalVolume
+        {
+            get => _globalVolume;
+            set => _globalVolume = value;
+        }
 
         private Dictionary<string, float> limitedFrequencySounds = new Dictionary<string, float>();
         private Dictionary<string, int>   lastPlayedSounds       = new Dictionary<string, int>(); 
@@ -47,6 +52,7 @@ namespace jam.CodeBase.Audio
 
         private float _sfxVolume  = 1f;
         private float _musicVolume = 1f;
+        private float _globalVolume = 1f;
 
         private const string SOUNDID_REPEAT_DELIMITER = "#";
         private const float  DEFAULT_SPATIAL_BLEND    = 0.75f;
@@ -104,7 +110,7 @@ namespace jam.CodeBase.Audio
             _sfxVolume = sfxVolume;
           
             if (sfxMixerGroup != null && masterMixer != null)
-                masterMixer.SetFloat("SFXVolume", LinearToMixerDb(sfxVolume));
+                masterMixer.SetFloat("SFXVolume", LinearToMixerDb(sfxVolume  * _globalVolume));
         }
 
         public void SetMusicVolume(float musicVolume)
@@ -112,7 +118,7 @@ namespace jam.CodeBase.Audio
             _musicVolume = musicVolume;
           
             if (musicMixerGroup != null && masterMixer != null)
-                    masterMixer.SetFloat("MusicVolume", LinearToMixerDb(musicVolume));
+                    masterMixer.SetFloat("MusicVolume", LinearToMixerDb(musicVolume * _globalVolume));
         }
 
         private float LinearToMixerDb(float v)
@@ -162,7 +168,8 @@ namespace jam.CodeBase.Audio
                 return null;
 
             var targetVolume = volume ?? _sfxVolume;
-
+            targetVolume *= _globalVolume;
+            
             if (repetition != null)
             {
                 if (RepetitionIsTooFrequent(soundId, repetition.minRepetitionFrequency, repetition.entryId))
@@ -342,7 +349,7 @@ namespace jam.CodeBase.Audio
                 var src = loopSources[_currentLoopSourceIndex];
                 src.clip = newClip;
                 src.time = 0f;
-                src.volume = targetVolume;
+                src.volume = targetVolume * _globalVolume;
                 src.loop = true;
                 src.Play();
 
