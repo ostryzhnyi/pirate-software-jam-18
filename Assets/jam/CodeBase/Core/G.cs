@@ -84,6 +84,11 @@ namespace jam.CodeBase.Core
 
         public static async UniTask RestartRun()
         {
+            foreach (var levelLoaded in Interactors.GetAll<IGameplayUnloaded>())
+            {
+                await levelLoaded.OnUnloaded();
+            }
+            
             var runSave = Saves.Get<RunSaveModel>();
             runSave.Clear();
             

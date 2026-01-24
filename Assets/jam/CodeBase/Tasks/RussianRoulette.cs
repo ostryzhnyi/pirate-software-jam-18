@@ -2,6 +2,7 @@
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Character;
 using jam.CodeBase.Core;
+using UnityEngine;
 
 namespace jam.CodeBase.Tasks
 {
@@ -13,7 +14,9 @@ namespace jam.CodeBase.Tasks
             G.Room.TVAnimator.Play(TVAnimation.ShootTime, 6f);
             await UniTask.WaitForSeconds(1);
 
-            var isAlive = UnityEngine.Random.Range(0, 60f) > 10;
+            var range = UnityEngine.Random.Range(0, 60f);
+            Debug.Log("Rand of russion rullet: " + range + ". Alive if less 10");
+            var isAlive = range > 10;
             G.CharacterAnimator.PlayAnimation(AnimationType.RussianRullete);
             await UniTask.WaitForSeconds(2);
 

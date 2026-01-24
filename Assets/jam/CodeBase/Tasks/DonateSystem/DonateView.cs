@@ -27,6 +27,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
         [SerializeField] private Button _plus;
         [SerializeField] private Button _minus;
         [SerializeField] private Button _hide;
+        [SerializeField] private Button _hideBack;
         [SerializeField] private DonateHUDButton _donateProgress;
         [SerializeField] private HoverDonateButton _plusHover;
         [SerializeField] private HoverDonateButton _minusHover;
@@ -56,6 +57,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
             });
             
             _hide.onClick.AddListener(() => Hide().Forget());
+            _hideBack.onClick.AddListener(() => Hide().Forget());
             
         }
 

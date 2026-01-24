@@ -54,11 +54,9 @@ namespace jam.CodeBase.Tasks.Interactors
             }
 
             Debug.LogError("CurrentDonateNumberInDay: " +  runSaveData.CurrentDonateNumberInDay);
-            if (runSaveData.CurrentDonateNumberInDay >= 3)
+            if (runSaveData.CurrentDonateNumberInDay >= 3 || task is GiftSleepPills)
             {
-                G.DaysController.SetDay(++runSaveData.DayNumber, true);
-                await UniTask.WaitForSeconds(5);
-                G.Donate.DonateExecuteProcess().Forget();
+                G.DaysController.SetDay(++runSaveData.DayNumber, true).Forget();
             }
             else
             {

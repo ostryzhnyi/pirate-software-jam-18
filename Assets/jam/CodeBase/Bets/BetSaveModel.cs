@@ -17,6 +17,20 @@ namespace jam.CodeBase.Bets
                 IsFirst = true
             };
         }
+
+        public override void Clear()
+        {
+            Data = new BetSaveData()
+            {
+                DieBet = 0,
+                AliveBet = 0,
+                MyBetLive = 0,
+                MyBetDie = 0,
+                IsFirst = Data.IsFirst
+            };
+            
+            ForceSave();
+        }
     }
 
     [Serializable]
