@@ -87,6 +87,7 @@ namespace jam.CodeBase.Tasks
                 if (currentSecond < totalSeconds && remainingDonate > 0f)
                 {
               
+                    
                     float donateAmount = oneDonate * economyTag.OneDonateRandMultiplier.GetRandomRange();
 
                     if (donateAmount > remainingDonate)
@@ -122,29 +123,29 @@ namespace jam.CodeBase.Tasks
                 await UniTask.WaitForSeconds(1f);
             }
 
-            if (remainingDonate > 0f)
-            {
-                try
-                {
-                    var currentTargetDonate = GetCurrentTarget();
-                    var task = BaseTasks.FirstOrDefault(t => t.TaskTarget == currentTargetDonate);
-                    if (task != null)
-                    {
-                        G.Interactors.CallAll<IDonate>(d => d.Donate(task, remainingDonate));
-                    }
-                    else
-                    {
-                        G.Interactors.CallAll<IDonate>(d => d.Donate(BaseTasks.GetRandom(), remainingDonate));
-                        UnityEngine.Debug.LogError(
-                            $"Not found final target for {TaskDefinition.Description}");
-                    }
-                }
-                catch (Exception e)
-                {
-                    UnityEngine.Debug.LogError(e);
-                    G.Interactors.CallAll<IDonate>(d => d.Donate(BaseTasks.GetRandom(), remainingDonate));
-                }
-            }
+            // if (remainingDonate > 0f)
+            // {
+            //     try
+            //     {
+            //         var currentTargetDonate = GetCurrentTarget();
+            //         var task = BaseTasks.FirstOrDefault(t => t.TaskTarget == currentTargetDonate);
+            //         if (task != null)
+            //         {
+            //             G.Interactors.CallAll<IDonate>(d => d.Donate(task, remainingDonate));
+            //         }
+            //         else
+            //         {
+            //             G.Interactors.CallAll<IDonate>(d => d.Donate(BaseTasks.GetRandom(), remainingDonate));
+            //             UnityEngine.Debug.LogError(
+            //                 $"Not found final target for {TaskDefinition.Description}");
+            //         }
+            //     }
+            //     catch (Exception e)
+            //     {
+            //         UnityEngine.Debug.LogError(e);
+            //         G.Interactors.CallAll<IDonate>(d => d.Donate(BaseTasks.GetRandom(), remainingDonate));
+            //     }
+            // }
 
             var wonTask = Donates.OrderByDescending(p => p.Value).FirstOrDefault();
 

@@ -31,7 +31,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
         {
             try
             {
-                _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task]} ({(int)(_progress.fillAmount * 100)}%)");
+                _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task]}$ ({(int)(_progress.fillAmount * 100)}%)");
             }
             catch (Exception e)
             {

@@ -35,8 +35,8 @@ namespace jam.CodeBase.Bets
 
         public void OnDisable()
         {
-            _plus.onClick.AddListener(OnPlus);
-            _minus.onClick.AddListener(OnMinus);
+            _plus.onClick.RemoveListener(OnPlus);
+            _minus.onClick.RemoveListener(OnMinus);
         }
 
         private void OnPlus()
