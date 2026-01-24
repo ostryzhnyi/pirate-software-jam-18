@@ -66,7 +66,7 @@ MonoBehaviour:
           ValueRange: {x: 45, y: 60}
           Method: 1
         - StatsType: 1
-          ValueRange: {x: 15, y: 25}
+          ValueRange: {x: 25, y: 30}
           Method: 0
         TaskTarget: 0
         ItemName: Crash bottle with head
@@ -80,5 +80,11 @@ MonoBehaviour:
       type: {class: DoNotCrashGlassBottleWithHead, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Name: Do Not Crash bottle with head
-        StatsAfforded: []
+        StatsAfforded:
+        - StatsType: 0
+          ValueRange: {x: 3, y: 8}
+          Method: 0
+        - StatsType: 1
+          ValueRange: {x: 3, y: 8}
+          Method: 1
         TaskTarget: 1

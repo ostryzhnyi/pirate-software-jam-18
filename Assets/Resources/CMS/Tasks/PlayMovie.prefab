@@ -71,5 +71,11 @@ MonoBehaviour:
       type: {class: DoNotPlayMovie, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Name: Do not play movie
-        StatsAfforded: []
+        StatsAfforded:
+        - StatsType: 0
+          ValueRange: {x: 7, y: 13}
+          Method: 1
+        - StatsType: 1
+          ValueRange: {x: 7, y: 13}
+          Method: 0
         TaskTarget: 0

@@ -57,6 +57,9 @@ MonoBehaviour:
       data:
         Name: Do not allow take shower
         StatsAfforded:
+        - StatsType: 0
+          ValueRange: {x: 5, y: 10}
+          Method: 1
         - StatsType: 1
           ValueRange: {x: 5, y: 10}
           Method: 0

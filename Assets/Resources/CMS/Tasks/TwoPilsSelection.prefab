@@ -58,10 +58,10 @@ MonoBehaviour:
         Name: Select left
         StatsAfforded:
         - StatsType: 0
-          ValueRange: {x: 1, y: 25}
+          ValueRange: {x: 1, y: 50}
           Method: 1
         - StatsType: 1
-          ValueRange: {x: 1, y: 10}
+          ValueRange: {x: 1, y: 25}
           Method: 0
         TaskTarget: 0
     - rid: 3433833559035740284
@@ -70,7 +70,7 @@ MonoBehaviour:
         Name: Select right
         StatsAfforded:
         - StatsType: 0
-          ValueRange: {x: 1, y: 25}
+          ValueRange: {x: 1, y: 20}
           Method: 0
         - StatsType: 1
           ValueRange: {x: 1, y: 10}

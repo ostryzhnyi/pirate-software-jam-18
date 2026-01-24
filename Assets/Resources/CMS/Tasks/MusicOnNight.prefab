@@ -69,7 +69,13 @@ MonoBehaviour:
       type: {class: NotEnableMusicOnNightTask, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Name: Not enable
-        StatsAfforded: []
+        StatsAfforded:
+        - StatsType: 0
+          ValueRange: {x: 6, y: 12}
+          Method: 1
+        - StatsType: 1
+          ValueRange: {x: 6, y: 12}
+          Method: 0
         TaskTarget: 1
     - rid: 4608936559312109798
       type: {class: IgnoreTag, ns: jam.CodeBase.Core.Tags, asm: Assembly-CSharp}
