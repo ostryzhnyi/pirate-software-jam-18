@@ -63,8 +63,11 @@ MonoBehaviour:
         Name: Crash bottle with head
         StatsAfforded:
         - StatsType: 0
-          ValueRange: {x: 25, y: 35}
+          ValueRange: {x: 45, y: 60}
           Method: 1
+        - StatsType: 1
+          ValueRange: {x: 15, y: 25}
+          Method: 0
         TaskTarget: 0
         ItemName: Crash bottle with head
     - rid: 4608936542719443226

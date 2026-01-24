@@ -58,10 +58,10 @@ MonoBehaviour:
         Name: Launch bees into the room
         StatsAfforded:
         - StatsType: 0
-          ValueRange: {x: 10, y: 15}
+          ValueRange: {x: 25, y: 30}
           Method: 1
         - StatsType: 1
-          ValueRange: {x: 15, y: 25}
+          ValueRange: {x: 35, y: 40}
           Method: 0
         TaskTarget: 0
     - rid: 3433833539746136182

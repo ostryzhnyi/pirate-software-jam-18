@@ -58,7 +58,7 @@ MonoBehaviour:
         Name: Gift soda glass bottle
         StatsAfforded:
         - StatsType: 0
-          ValueRange: {x: 15, y: 30}
+          ValueRange: {x: 15, y: 25}
           Method: 0
         - StatsType: 1
           ValueRange: {x: 10, y: 20}
