@@ -43,7 +43,12 @@ namespace jam.CodeBase.Audio
         public float GlobalVolume
         {
             get => _globalVolume;
-            set => _globalVolume = value;
+            set
+            {
+                _globalVolume = value;
+                SetMusicVolume(_musicVolume);
+                SetSFXVolume(_sfxVolume);
+            }
         }
 
         private Dictionary<string, float> limitedFrequencySounds = new Dictionary<string, float>();

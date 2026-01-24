@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::jam.CodeBase.Audio.AudioController
   masterMixer: {fileID: 24100000, guid: 59236869d03fcfd4c9808d47322e7c70, type: 2}
   sfxMixerGroup: {fileID: 6814767968021901423, guid: 59236869d03fcfd4c9808d47322e7c70, type: 2}
-  musicMixerGroup: {fileID: 24300002, guid: 59236869d03fcfd4c9808d47322e7c70, type: 2}
+  musicMixerGroup: {fileID: -2598469184065918160, guid: 59236869d03fcfd4c9808d47322e7c70, type: 2}
   defaultCrossFadeDuration: 1

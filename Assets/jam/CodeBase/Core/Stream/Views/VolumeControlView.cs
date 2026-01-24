@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using jam.CodeBase.Core;
@@ -20,7 +19,7 @@ namespace jam.CodeBase.Stream.View
 
         private float Volume
         {
-            get => G.Audio.GlobalVolume;
+            get => G.Audio?.GlobalVolume ?? 1f;
             set => G.Audio.GlobalVolume = value;
         }
 
@@ -32,7 +31,6 @@ namespace jam.CodeBase.Stream.View
 
         private void Start()
         {
-            Debug.LogError(Volume);
             _volumeSlider.SetValueWithoutNotify(Volume);
             _volumeImage.color = Color.Lerp(Color.black, Color.white, Volume);
             _volumeImage.sprite = Volume > 0 ? _volumeOn : _volumeOff;
@@ -40,7 +38,9 @@ namespace jam.CodeBase.Stream.View
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) && !IsOverGameObject(gameObject))
+            if (Input.GetMouseButtonDown(0) 
+                && !IsOverGameObject(_volumeSlider.gameObject)
+                && !IsOverGameObject(_volumeToggle.gameObject))
             {
                 _volumePanel.SetActive(false);
             }
@@ -49,7 +49,7 @@ namespace jam.CodeBase.Stream.View
         private void OnDestroy()
         {
             _volumeSlider.onValueChanged.RemoveListener(SetVolume);
-            _volumeSlider.onValueChanged.RemoveAllListeners();
+            _volumeToggle.onClick.RemoveAllListeners();
         }
 
         private void SetVolume(float value)
@@ -64,7 +64,7 @@ namespace jam.CodeBase.Stream.View
             _volumePanel.SetActive(!_volumePanel.gameObject.activeSelf);
         }
 
-        public bool IsOverGameObject(GameObject gameObject)
+        private bool IsOverGameObject(GameObject gameObject)
         {
             var eventData = new PointerEventData(EventSystem.current) { position = Input.mousePosition };
             var raycastResults = new List<RaycastResult>();
