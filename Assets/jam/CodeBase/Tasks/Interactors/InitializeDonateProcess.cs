@@ -11,10 +11,10 @@ namespace jam.CodeBase.Tasks.Interactors
             return 1;
         }
 
-        public UniTask OnLoaded(RunSaveModel runSaveModel)
+        public UniTask<bool> OnLoaded(RunSaveModel runSaveModel)
         {
             G.Donate.DonateExecuteProcess().Forget();
-            return UniTask.CompletedTask;
+            return UniTask.FromResult(true);
         }
     }
 }

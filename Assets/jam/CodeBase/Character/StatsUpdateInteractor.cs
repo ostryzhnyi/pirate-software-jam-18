@@ -11,16 +11,16 @@ namespace jam.CodeBase.Character
             return int.MaxValue;
         }
 
-        public UniTask OnLoaded(RunSaveModel runSaveModel)
+        public UniTask<bool> OnLoaded(RunSaveModel runSaveModel)
         {
             G.Characters.CurrentCharacter.OnHealthUpdated += OnHealthUpdated;
             G.Characters.CurrentCharacter.OnStressUpdated += OnStressUpdated;
-            return UniTask.CompletedTask;
+            return UniTask.FromResult(true);
         }
 
         private void OnStressUpdated(float value)
         {
-            G.Menu.HUD.StatsView.UpdateStress(value / G.Characters.CurrentCharacter.BaseStress).Forget();
+            G.Menu.HUD.StatsView.UpdateStress(value / G.Characters.CurrentCharacter.MaxStress).Forget();
         }
 
         private void OnHealthUpdated(float value)

@@ -7,7 +7,7 @@ namespace jam.CodeBase.Core.Stream
 {
     public class ChatInitializeInteractor : BaseInteractor, IGameplayLoaded, IGameplayUnloaded
     {
-        public async UniTask OnLoaded(RunSaveModel runSaveModel)
+        public async UniTask<bool> OnLoaded(RunSaveModel runSaveModel)
         {
             await UniTask.SwitchToMainThread();
             await UniTask.WaitForSeconds(0.1f);;
@@ -16,6 +16,7 @@ namespace jam.CodeBase.Core.Stream
             G.StreamController.StartStream(G.Characters.CurrentCharacter.Entity);
             
             G.StreamController.OnCharActionExecuted(1);
+            return true;
         }
 
         private void OnDayChangedTransition(int obj)

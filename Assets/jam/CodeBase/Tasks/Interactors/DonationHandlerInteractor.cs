@@ -17,7 +17,6 @@ namespace jam.CodeBase.Tasks.Interactors
         
         public void Donate(BaseTask task, float cost)
         {
-            Debug.Log("Donate: " + cost + " to " + task.Name);
             G.Donate.Donates[task] += cost;
 
             var sum = G.Donate.Donates.Sum(d => d.Value);

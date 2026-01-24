@@ -11,16 +11,18 @@ namespace jam.CodeBase.Bets
             return -10;
         }
 
-        public async UniTask OnLoaded(RunSaveModel runSaveModel)
+        public async UniTask<bool> OnLoaded(RunSaveModel runSaveModel)
         {
             if(runSaveModel.Data.IsStarted)
-                return;
+                return  true;
             
             await G.BetController.BetProcess();
 
             var betSaveModel = G.Saves.Get<BetSaveModel>();
             betSaveModel.Data.IsFirst = false;
             betSaveModel.ForceSave();
+            return  true;
+            
         }
     }
 }

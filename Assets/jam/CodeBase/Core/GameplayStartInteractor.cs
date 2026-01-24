@@ -16,7 +16,7 @@ namespace jam.CodeBase.Core
             return int.MinValue;
         }
 
-        public async UniTask OnLoaded(RunSaveModel runSaveModel)
+        public async UniTask<bool> OnLoaded(RunSaveModel runSaveModel)
         {
             var loadedCharacter =
                 G.Characters.CharactersList.FirstOrDefault(c => c.Name == runSaveModel.Data.CharacterName);
@@ -47,7 +47,7 @@ namespace jam.CodeBase.Core
                 Debug.LogError("LIVED CHARACTER IS ALREADY LOADED! : " + G.Characters.CurrentCharacter.Name);
                 
                 UpdateHUD();
-                return;
+                return true;
             }
             
             UpdateHUD();
@@ -59,6 +59,7 @@ namespace jam.CodeBase.Core
             await UniTaskHelper.SmartWaitSeconds(15);
             
             G.Menu.ViewService.HideView<CharacterCardView>();
+            return true;
         }
 
         private static void UpdateHUD()

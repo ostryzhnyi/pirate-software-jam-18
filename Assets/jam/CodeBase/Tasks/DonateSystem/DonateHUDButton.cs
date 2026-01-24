@@ -10,7 +10,8 @@ namespace jam.CodeBase.Tasks.DonateSystem
 
         public void SetAmount(float amount, bool instant = false)
         {
-            Outline.DOFillAmount(amount, instant ? 0 : 1);
+            if(Outline != null && Outline.gameObject != null)
+                Outline.DOFillAmount(amount, instant ? 0 : 1);
         }
     }
 }

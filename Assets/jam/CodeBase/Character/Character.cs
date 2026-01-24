@@ -28,6 +28,7 @@ namespace jam.CodeBase.Character
         public float CurrentStress;
         public float BaseStress { private set; get; }
         public float BaseHP { private set; get; }
+        public float MaxStress => Entity.Get<StatsTag>().MaxStress;
 
         public CMSEntity Entity;
 
@@ -122,7 +123,7 @@ namespace jam.CodeBase.Character
 
             OnStressUpdated?.Invoke(CurrentStress);
 
-            Debug.LogError("Update stress to: " + CurrentHealth);
+            Debug.LogError("Update stress to: " + CurrentStress);
             Save();
         }
 

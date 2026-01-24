@@ -199,8 +199,8 @@ namespace jam.CodeBase.Bets
                 _smoothDie = Mathf.Lerp(_smoothDie, rawDie, CoeffSmooth);
             }
 
-            AliveBetCoefficient = _smoothDie + 1;
-            DieBetCoefficient = _smoothAlive + 1;
+            AliveBetCoefficient = (_smoothDie + 1) * 2.5f;
+            DieBetCoefficient = (_smoothAlive + 1) * 2.5f;
             Debug.Log(
                 $"[Coeffs]  AliveBet: {AliveBet}, DieBet: {DieBet}, AliveBetCoefficient: {AliveBetCoefficient}, DieBetCoefficient: {DieBetCoefficient}");
             OnChangeAliveCoefficient?.Invoke(AliveBetCoefficient);

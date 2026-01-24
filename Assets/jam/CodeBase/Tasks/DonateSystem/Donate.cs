@@ -92,6 +92,7 @@ namespace jam.CodeBase.Tasks
                     try
                     {
                         var currentTargetDonate = GetCurrentTarget();
+
                         var task = BaseTasks.FirstOrDefault(t => t.TaskTarget == currentTargetDonate);
                         if (task != null)
                         {
@@ -214,11 +215,9 @@ namespace jam.CodeBase.Tasks
         {
             var economyTag = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
             var isAlive = G.BetController.MyBetAlive > G.BetController.MyBetDie;
-            var value = Random.value;
             var oppositeChance = economyTag.DonateСhanceOppositeByPlayer.GetRandomRange();
-            var opposite = value > oppositeChance;
+            var opposite = .5 < oppositeChance;
 
-            Debug.Log("value: " + value);
             Debug.Log("oppositeChance: " + oppositeChance);
             if (isAlive && !opposite)
                 return TaskTarget.Live;

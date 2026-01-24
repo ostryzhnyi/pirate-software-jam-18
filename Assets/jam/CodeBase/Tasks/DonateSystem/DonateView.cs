@@ -28,6 +28,8 @@ namespace jam.CodeBase.Tasks.DonateSystem
         [SerializeField] private Button _minus;
         [SerializeField] private Button _hide;
         [SerializeField] private DonateHUDButton _donateProgress;
+        [SerializeField] private HoverDonateButton _plusHover;
+        [SerializeField] private HoverDonateButton _minusHover;
         
         [SerializeField] private Image[] _taskOneContours;
         [SerializeField] private Image[] _taskTwoContours;
@@ -54,11 +56,12 @@ namespace jam.CodeBase.Tasks.DonateSystem
             });
             
             _hide.onClick.AddListener(() => Hide().Forget());
+            
         }
 
-        private void OnEnable()
+        private void OnDestroy()
         {
-            Debug.LogError("enable");
+            G.Donate.OnDonateProgressUpdated -= UpdateDotateProgress;
         }
 
         private void UpdateDotateProgress(float obj)
@@ -69,10 +72,12 @@ namespace jam.CodeBase.Tasks.DonateSystem
         protected override void Showed(ViewOption option = null)
         {
             _donateProgress.SetAmount(G.Donate.DonateProgress, true);
-            Price = CastedOption.TaskDefinition.BasePrice;
+            Price = Math.Min(G.Economy.CurrentMoney, CastedOption.TaskDefinition.BasePrice);
+            
             UpdateText();
             
             _text.text = CastedOption.TaskDefinition.Description;
+            
             foreach (var donateButton in DonateButtons)
             {
                 donateButton.Button.interactable = true;
@@ -93,7 +98,8 @@ namespace jam.CodeBase.Tasks.DonateSystem
 
         private void UpdateText()
         {
-            _donate.interactable = G.Economy.CanSpend(Price);
+            _donate.interactable = G.Economy.CanSpend(Price) && Price != 0;
+            _plus.interactable = G.Economy.CanSpend(Price + MinBit);
             _minus.interactable = MinBit < Price;
             _priceText.SetText("$ " + Price);
         }
@@ -108,20 +114,16 @@ namespace jam.CodeBase.Tasks.DonateSystem
             G.Economy.SpendMoney(Price);
             G.Interactors.CallAll<IDonate>((d) => d.Donate(_selected.Task, Price));
             _window.DOPunchScale(Vector3.one * 0.05f, .2f, 20);
+            UpdateText();
         }
 
         private void OnClick(DonateButton button)
         {
             _selected = button;
-            // foreach (var contour in _taskOneContours)
-            // {
-            //     contour.gameObject.SetActive(_selected == DonateButtons[0]);
-            // }
-            //
-            // foreach (var contour in _taskTwoContours)
-            // {
-            //     contour.gameObject.SetActive(_selected == DonateButtons[1]);
-            // }
+
+            _plusHover.SetState(button.Task.Name != DonateButtons.First().Task.Name);
+            _minusHover.SetState(button.Task.Name == DonateButtons.First().Task.Name);
+            
             foreach (var donateButton in DonateButtons)
             {
                 donateButton.SetSelected(button == donateButton);

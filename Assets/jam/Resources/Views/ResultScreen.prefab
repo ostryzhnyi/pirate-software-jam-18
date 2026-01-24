@@ -991,6 +991,8 @@ GameObject:
   - component: {fileID: 4327919747746724284}
   - component: {fileID: 3691057531721643988}
   - component: {fileID: 9120441426134427359}
+  - component: {fileID: 3728903652984433876}
+  - component: {fileID: 7410837364529892796}
   m_Layer: 5
   m_Name: ResultScreen
   m_TagString: Untagged
@@ -1079,6 +1081,32 @@ MonoBehaviour:
   _betValue: {fileID: 1842031203857049862}
   _seeYou: {fileID: 1534379398166327585}
   _tapAnyButtonForPlayNext: {fileID: 2801266502315522213}
+--- !u!225 &3728903652984433876
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5870402584723837667}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &7410837364529892796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5870402584723837667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c3eedb73394383a9ec151521e2c216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ostryzhnyi.EasyViewService.Impl.Animation.FadeStrategy
+  _canvasGroup: {fileID: 3728903652984433876}
+  _fadeTime: 0.5
 --- !u!1 &5998436708100799190
 GameObject:
   m_ObjectHideFlags: 0

@@ -66,20 +66,23 @@ namespace jam.CodeBase.Stream
             OnMessageReceived?.Invoke(chatMessage);
         }
 
-        public async void ShowReactionMessage(int actionType)
+        public async UniTask ShowReactionMessage(int actionType)
         {
             var senders = _repeatableMessages.Senders;
             var messages = _repeatableMessages.Messages.Where(x => x.FeedbackType == (FeedbackType)actionType).ToList();
 
             var reactionsCount = Random.Range(1, senders.Count);
 
-            foreach (var sender in senders.OrderBy(x => Random.value).Take(reactionsCount))
+            while (!_cst.Token.IsCancellationRequested)
             {
-                var chatMessage = new ChatMessage(sender, messages.ElementAt(Random.Range(0, messages.Count)).Message);
-                OnMessageReceived?.Invoke(chatMessage);
-                Debug.Log($"Send message: {chatMessage.Sender} : {chatMessage.Message}");
-                var waitTIme = Random.Range(REACTIONS_TIME_RANGE.x, REACTIONS_TIME_RANGE.y);
-                await UniTask.Delay(TimeSpan.FromSeconds(waitTIme), cancellationToken: _cst.Token);
+                foreach (var sender in senders.OrderBy(x => Random.value).Take(reactionsCount))
+                {
+                    var chatMessage = new ChatMessage(sender, messages.ElementAt(Random.Range(0, messages.Count)).Message);
+                    OnMessageReceived?.Invoke(chatMessage);
+                    Debug.Log($"Send message: {chatMessage.Sender} : {chatMessage.Message}");
+                    var waitTIme = Random.Range(REACTIONS_TIME_RANGE.x, REACTIONS_TIME_RANGE.y);
+                    await UniTask.Delay(TimeSpan.FromSeconds(waitTIme), cancellationToken: _cst.Token);
+                }
             }
         }
     }

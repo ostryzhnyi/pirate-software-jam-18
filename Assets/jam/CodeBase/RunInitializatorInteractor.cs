@@ -14,7 +14,7 @@ namespace jam.CodeBase
             return -5;
         }
 
-        public async UniTask OnLoaded(RunSaveModel runSaveModel1)
+        public async UniTask<bool> OnLoaded(RunSaveModel runSaveModel1)
         {
             var runSaveModel = G.Saves.Get<RunSaveModel>();
 
@@ -37,6 +37,7 @@ namespace jam.CodeBase
                 G.DaysController.SetDay(1);
             }
             await UniTask.WaitForSeconds(3);
+            return true;
         }
 
         public UniTask OnAlive(Character.Character character)

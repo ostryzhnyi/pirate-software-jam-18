@@ -38,7 +38,7 @@ namespace jam.CodeBase.Stream
 
         public void OnCharActionExecuted(int actionType)
         {
-            _chatController.ShowReactionMessage(actionType);
+            _chatController.ShowReactionMessage(actionType).Forget();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using jam.CodeBase.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,17 +32,22 @@ namespace jam.CodeBase.Tasks.DonateSystem
 
         private void UpdateText()
         {
-            _text.SetText(Task.Name);
+            _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task] } ({(int)(_progress.fillAmount * 100)}%)");
+
         }
         
         public void UpdateProgress(float progress)
         {
             _progress.DOFillAmount(progress, .2f).SetEase(Ease.OutSine);
+            
+            _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task] } ({(int)(progress * 100)}%)");
         }
         
         public void UpdateProgressWithoutAnim(float progress)
         {
             _progress.fillAmount = progress;
+            
+            _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task] } ({(int)(progress * 100)}%)");
         }
 
         public void SetSelected(bool isSelected)

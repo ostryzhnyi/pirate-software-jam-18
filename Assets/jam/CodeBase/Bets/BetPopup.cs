@@ -114,7 +114,7 @@ namespace jam.CodeBase.Bets
             float aliveK = G.BetController.DieBetCoefficient;
             float dieK   = G.BetController.AliveBetCoefficient;
 
-            float diff = aliveK - dieK;                
+            float diff = aliveK / 2.5f - dieK / 2.5f;                
             float angle = diff * _maxRotate;         
 
             _weightTween?.Kill();
