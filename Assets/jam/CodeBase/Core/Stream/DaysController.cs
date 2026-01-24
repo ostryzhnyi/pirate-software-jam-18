@@ -30,10 +30,12 @@ namespace jam.CodeBase.Stream
 
         public async void SetDay(int dayNumber, bool isNext = false)
         {
+            G.Room.TVAnimator.Stop(GetDeyAnim(dayNumber - 1));
+            
             var runSaveModel = G.Saves.Get<RunSaveModel>();
             _cst = new CancellationTokenSource(); 
             Debug.LogError("SetDay: " +  dayNumber);
-
+            G.Room.TVAnimator.Play(GetDeyAnim(dayNumber), int.MaxValue);
             OnDayEnded?.Invoke(CurrentDay);
             CurrentDay = dayNumber;
             OnDayUpdated?.Invoke(CurrentDay);
@@ -67,6 +69,21 @@ namespace jam.CodeBase.Stream
 
             OnDayEnded?.Invoke(CurrentDay);
             // SetDay(CurrentDay + 1);
+        }
+
+        private TVAnimation GetDeyAnim(int dayNumber)
+        {
+            switch (dayNumber)
+            {
+                case 1:
+                    return TVAnimation.Day1;
+                case 2:
+                    return TVAnimation.Day2;
+                case 3:
+                    return TVAnimation.Day3;
+            }
+
+            return TVAnimation.Day1;
         }
     }
 }

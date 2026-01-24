@@ -33,6 +33,8 @@ namespace jam.CodeBase.Tasks.Interactors
                     donateView.GetDonateButton(item.Key)?.UpdateProgress(0);
                 }
             }
+            
+            G.Room.TVAnimator.Play(TVAnimation.NewDonation, 3f);
         }
 
         public async UniTask OnFinishDonates(TaskDefinition taskDefinition, BaseTask task, float price)

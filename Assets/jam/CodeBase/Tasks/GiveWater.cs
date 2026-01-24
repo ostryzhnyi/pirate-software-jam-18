@@ -11,6 +11,8 @@ namespace jam.CodeBase.Tasks
     {
         public override async UniTask Execute()
         {
+            G.Room.TVAnimator.Play(TVAnimation.FoodTime, 3f);
+            
             G.CharacterAnimator.PlayAnimation(AnimationType.DrinkWater);
 
             await UniTask.WaitForSeconds(3);

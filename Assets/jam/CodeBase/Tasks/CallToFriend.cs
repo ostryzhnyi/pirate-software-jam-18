@@ -12,6 +12,8 @@ namespace jam.CodeBase.Tasks
         public override async UniTask Execute()
         {
             Debug.LogError("EnableMusicOnNightTask");
+            G.Room.TVAnimator.Play(TVAnimation.CallFriend, 4f);
+
             G.CharacterAnimator.PlayAnimation(AnimationType.Call);
 
             await UniTask.WaitForSeconds(4);

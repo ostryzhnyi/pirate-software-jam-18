@@ -12,6 +12,7 @@ namespace jam.CodeBase.Tasks
         public override async UniTask Execute()
         {
             Debug.LogError("GiveFavoriteFood");
+            G.Room.TVAnimator.Play(TVAnimation.FoodTime, 3f);
             
             G.CharacterAnimator.PlayAnimation(AnimationType.Eat);
 
@@ -24,6 +25,8 @@ namespace jam.CodeBase.Tasks
     {
         public override UniTask Execute()
         {
+            G.Room.TVAnimator.Play(TVAnimation.FoodTime, 3f);
+            
             Debug.LogError("DoNotGiveFavoriteFood");
             return UniTask.CompletedTask;
         }

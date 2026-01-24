@@ -36,6 +36,9 @@ namespace jam.CodeBase
                 Debug.LogError(e);
                 G.DaysController.SetDay(1);
             }
+            
+            G.Room.TVAnimator.Play(TVAnimation.WorldIsWatching, int.MaxValue);
+            
             await UniTask.WaitForSeconds(3);
             return true;
         }
@@ -46,16 +49,22 @@ namespace jam.CodeBase
             return UniTask.CompletedTask;
         }
 
-        public UniTask OnDie(Character.Character character)
+        public async UniTask OnDie(Character.Character character)
         {
+            G.Room.TVAnimator.Play(TVAnimation.GameOver, 4f);
+            
+            await UniTask.WaitForSeconds(4f);        
+
             G.Die();
-            return UniTask.CompletedTask;
         }
 
-        UniTask IDieHealthCharacter.OnDie(Character.Character character)
+        async UniTask  IDieHealthCharacter.OnDie(Character.Character character)
         {
+            G.Room.TVAnimator.Play(TVAnimation.GameOver, 4f);
+            
+            await UniTask.WaitForSeconds(4f);        
+            
             G.Die();
-            return UniTask.CompletedTask;
         }
     }
 }

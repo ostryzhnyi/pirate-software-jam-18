@@ -8,6 +8,7 @@ using jam.CodeBase.Character;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
 using jam.CodeBase.GameLoop;
+using jam.CodeBase.Room;
 using jam.CodeBase.Stream;
 using jam.CodeBase.Tasks;
 using Ostryzhnyi.EasyViewService.Api.Service;
@@ -29,6 +30,7 @@ namespace jam.CodeBase.Core
         public static IViewService GlobalViewService;
         public static DaysController DaysController => StreamController.DaysController;
         public static CharacterAnimator CharacterAnimator;
+        public static RoomLogic Room;
      
         public static AudioController Audio;
         

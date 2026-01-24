@@ -10,6 +10,9 @@ namespace jam.CodeBase.Tasks
     {
         public override async UniTask Execute()
         {
+            G.Room.TVAnimator.Play(TVAnimation.ShootTime, 6f);
+            await UniTask.WaitForSeconds(1);
+
             var isAlive = UnityEngine.Random.Range(0, 60f) > 10;
             G.CharacterAnimator.PlayAnimation(AnimationType.RussianRullete);
             await UniTask.WaitForSeconds(2);

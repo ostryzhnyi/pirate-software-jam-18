@@ -11,7 +11,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
     {
         public BaseTask Task { get; private set; }
         public Button Button => _button;
-        
+
         [SerializeField] private TMP_Text _text;
         [SerializeField] private Image _progress;
         [SerializeField] private Button _button;
@@ -24,36 +24,54 @@ namespace jam.CodeBase.Tasks.DonateSystem
             Task = task;
             UpdateText();
             _button.onClick.RemoveAllListeners();
-            _button.onClick.AddListener(() =>
-            {
-                onClick?.Invoke(this);
-            });
+            _button.onClick.AddListener(() => { onClick?.Invoke(this); });
         }
 
         private void UpdateText()
         {
-            _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task] } ({(int)(_progress.fillAmount * 100)}%)");
-
+            try
+            {
+                _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task]} ({(int)(_progress.fillAmount * 100)}%)");
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
         }
-        
+
         public void UpdateProgress(float progress)
         {
-            _progress.DOFillAmount(progress, .2f).SetEase(Ease.OutSine);
-            
-            _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task] } ({(int)(progress * 100)}%)");
+            try
+            {
+                _progress.DOFillAmount(progress, .2f).SetEase(Ease.OutSine);
+
+                _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task]} ({(int)(progress * 100)}%)");
+            }
+            catch (Exception e)
+            {
+                _text.SetText($"{Task.Name} — {666} ({(int)(_progress.fillAmount * 100)}%)");
+                Debug.LogError(e);
+            }
         }
-        
+
         public void UpdateProgressWithoutAnim(float progress)
         {
             _progress.fillAmount = progress;
-            
-            _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task] } ({(int)(progress * 100)}%)");
+
+            try
+            {
+                _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task]} ({(int)(progress * 100)}%)");
+            }
+            catch (Exception e)
+            {
+                _text.SetText($"{Task.Name} — {666} ({(int)(_progress.fillAmount * 100)}%)");
+                Debug.LogError(e);
+            }
         }
 
         public void SetSelected(bool isSelected)
         {
             _selectedMark.sprite = isSelected ? _selected : _disabled;
         }
-
     }
 }

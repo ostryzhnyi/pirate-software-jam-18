@@ -1,5 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Character;
 using jam.CodeBase.Core;
 using UnityEngine;
 
@@ -9,11 +10,15 @@ namespace jam.CodeBase.Tasks
     public class CrashGlassBottleWithHead : BaseTask
     {
         public string ItemName;
-        public override UniTask Execute()
+        public override async UniTask Execute()
         {
             Debug.LogError("CrashGlassBottleWithHead");
+            
+            G.Room.TVAnimator.Play(TVAnimation.BrakeIt, 3f);
+            
             G.Saves.Get<RunSaveModel>().Data.ObtainedItems.Remove(ItemName);
-            return UniTask.CompletedTask;
+            G.CharacterAnimator.PlayAnimation(AnimationType.BrokeGlass);
+            await UniTask.WaitForSeconds(3f);
         }
     }
 
@@ -22,6 +27,8 @@ namespace jam.CodeBase.Tasks
     {
         public override UniTask Execute()
         {
+            G.Room.TVAnimator.Play(TVAnimation.BrakeIt, 3f);
+            
             Debug.LogError("DoNotCrashGlassBottleWithHead");
             return UniTask.CompletedTask;
         }

@@ -14,6 +14,8 @@ namespace jam.CodeBase.Tasks
         public override async UniTask Execute()
         {
             Debug.LogError("GiftSodaGlassBottle");
+            G.Room.TVAnimator.Play(TVAnimation.FoodTime, 3f);
+            
             G.Saves.Get<RunSaveModel>().Data.ObtainedItems.Add(ItemName);
             G.Saves.Get<RunSaveModel>().ForceSave();
             G.CharacterAnimator.PlayAnimation(AnimationType.DrinkLimonade);
@@ -28,6 +30,8 @@ namespace jam.CodeBase.Tasks
     {
         public override UniTask Execute()
         {
+            G.Room.TVAnimator.Play(TVAnimation.FoodTime, 3f);
+            
             Debug.LogError("DoNotGiftSodaGlassBottle");
             return UniTask.CompletedTask;
         }

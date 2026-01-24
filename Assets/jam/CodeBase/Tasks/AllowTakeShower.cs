@@ -1,5 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Core;
 using UnityEngine;
 
 namespace jam.CodeBase.Tasks
@@ -7,10 +8,12 @@ namespace jam.CodeBase.Tasks
     [Serializable]
     public class AllowTakeShower : BaseTask
     {
-        public override UniTask Execute()
+        public override async UniTask Execute()
         {
             Debug.LogError("AllowTakeSHowe");
-            return UniTask.CompletedTask;
+            G.Room.TVAnimator.Play(TVAnimation.ShowerTime, 4f);
+            
+            await UniTask.WaitForSeconds(4);
         }
     }
     

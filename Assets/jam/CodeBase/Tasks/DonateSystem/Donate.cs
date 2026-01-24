@@ -44,6 +44,11 @@ namespace jam.CodeBase.Tasks
             runSaveModel.Data.CompletedTask.Add(tasks.Item3);
             runSaveModel.ForceSave();
             G.Interactors.CallAll<ITasksReceive>(t => t.TasksReceive(tasks.Item1, tasks.Item2));
+
+            if (tasks.Item1.Description == "Play in Russian Roulette")
+            {
+                G.Room.TVAnimator.Play(TVAnimation.LastGame, (tasks.Item1.Duration + 10f));
+            }
             TaskDefinition = tasks.Item1;
             BaseTasks = tasks.Item2;
             Donates = new Dictionary<BaseTask, float>();
@@ -158,6 +163,8 @@ namespace jam.CodeBase.Tasks
                 G.Characters.CurrentCharacter.ApplyStatsAfforded(statsAfforded);
             }
 
+            G.Room.TVAnimator.Play(TVAnimation.SmokeTime, 3f);
+            
             G.CharacterAnimator.PlayAnimation(AnimationType.Smoking);
             await UniTask.WaitForSeconds(2);
         }

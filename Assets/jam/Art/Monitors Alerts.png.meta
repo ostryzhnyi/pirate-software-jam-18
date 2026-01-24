@@ -1,0 +1,700 @@
+fileFormatVersion: 2
+guid: 49475f549c0bc304dab126c30ea3fac9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8688111430062496975
+    second: Monitors Alerts_0
+  - first:
+      213: 5134488438485607790
+    second: Monitors Alerts_1
+  - first:
+      213: 418118985725019098
+    second: Monitors Alerts_2
+  - first:
+      213: 7213184039723110307
+    second: Monitors Alerts_3
+  - first:
+      213: -2154804827945403084
+    second: Monitors Alerts_4
+  - first:
+      213: -5589742079177286274
+    second: Monitors Alerts_5
+  - first:
+      213: -4332205369891366122
+    second: Monitors Alerts_6
+  - first:
+      213: -8765155945815362788
+    second: Monitors Alerts_7
+  - first:
+      213: 9189172506182756096
+    second: Monitors Alerts_8
+  - first:
+      213: -8822796762392158157
+    second: Monitors Alerts_9
+  - first:
+      213: 1823914591868624304
+    second: Monitors Alerts_10
+  - first:
+      213: 3435788950542845112
+    second: Monitors Alerts_11
+  - first:
+      213: -4922729587418130036
+    second: Monitors Alerts_12
+  - first:
+      213: -7435484932729185378
+    second: Monitors Alerts_13
+  - first:
+      213: 3314661806816682579
+    second: Monitors Alerts_14
+  - first:
+      213: -2485729460819113360
+    second: Monitors Alerts_15
+  - first:
+      213: -8119781613721384240
+    second: Monitors Alerts_16
+  - first:
+      213: -4427036732360931185
+    second: Monitors Alerts_17
+  - first:
+      213: -6190796103128770025
+    second: Monitors Alerts_18
+  - first:
+      213: -2186618580652679915
+    second: Monitors Alerts_19
+  - first:
+      213: 2147207045737372662
+    second: Monitors Alerts_20
+  - first:
+      213: 2253408896809844070
+    second: Monitors Alerts_21
+  - first:
+      213: 7216164333183052666
+    second: Monitors Alerts_22
+  - first:
+      213: 8749847560491409308
+    second: Monitors Alerts_23
+  - first:
+      213: 8507159487078286882
+    second: Monitors Alerts_24
+  - first:
+      213: -4840002719156415563
+    second: Monitors Alerts_25
+  - first:
+      213: -6235856503362205934
+    second: Monitors Alerts_26
+  - first:
+      213: 9215904766471174676
+    second: Monitors Alerts_27
+  - first:
+      213: -5910001791143072840
+    second: Monitors Alerts_28
+  - first:
+      213: -292076763527611005
+    second: Monitors Alerts_29
+  - first:
+      213: -2169012667705205469
+    second: Monitors Alerts_30
+  - first:
+      213: -2815283068377738632
+    second: Monitors Alerts_31
+  - first:
+      213: -662317750699000745
+    second: Monitors Alerts_32
+  - first:
+      213: 3868584898955896296
+    second: Monitors Alerts_33
+  - first:
+      213: -2019661993760636546
+    second: Monitors Alerts_34
+  - first:
+      213: 2101220720118854150
+    second: Monitors Alerts_35
+  - first:
+      213: 6643872020448026020
+    second: Monitors Alerts_36
+  - first:
+      213: 8736357491253313509
+    second: Monitors Alerts_37
+  - first:
+      213: -4777636111119514019
+    second: Monitors Alerts_38
+  - first:
+      213: 6003215929064004160
+    second: Monitors Alerts_39
+  - first:
+      213: -7249076624296979040
+    second: Monitors Alerts_40
+  - first:
+      213: 5831658146142271199
+    second: Monitors Alerts_41
+  - first:
+      213: -5588354392666871564
+    second: Monitors Alerts_42
+  - first:
+      213: 7092637960144627683
+    second: Monitors Alerts_43
+  - first:
+      213: -792073676097325884
+    second: Monitors Alerts_44
+  - first:
+      213: 6854729180127624186
+    second: Monitors Alerts_45
+  - first:
+      213: -5961470566620774844
+    second: Monitors Alerts_46
+  - first:
+      213: -8080063380559473852
+    second: Monitors Alerts_47
+  - first:
+      213: -2922138638195957688
+    second: Monitors Alerts_48
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Monitors Alerts_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 281
+        width: 51
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fccd2e5605f529870800000000000000
+      internalID: 8688111430062496975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_1
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 268
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e65e847f70e514740800000000000000
+      internalID: 5134488438485607790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 245
+        width: 40
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad38cf190057dc500800000000000000
+      internalID: 418118985725019098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_3
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 236
+        width: 53
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3af8633caa06a1460800000000000000
+      internalID: 7213184039723110307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 213
+        width: 31
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d7406fc689812e0800000000000000
+      internalID: -2154804827945403084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_5
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 204
+        width: 53
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d9598d13f3d62b0800000000000000
+      internalID: -5589742079177286274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 172
+        width: 53
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61bd5994b2ae0e3c0800000000000000
+      internalID: -4332205369891366122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_7
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 172
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c13b5c86b19eb5680800000000000000
+      internalID: -8765155945815362788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 140
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0072fc245bf768f70800000000000000
+      internalID: 9189172506182756096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 140
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 330262cf6112f8580800000000000000
+      internalID: -8822796762392158157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 140
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bd1bf468a8df4910800000000000000
+      internalID: 1823914591868624304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 124
+        width: 57
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b48150d8df5eaf20800000000000000
+      internalID: 3435788950542845112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 108
+        width: 61
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8913a0a583feabb0800000000000000
+      internalID: -4922729587418130036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 76
+        width: 53
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b58eb39d9dfc890800000000000000
+      internalID: -7435484932729185378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 60
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 352ecd9f95b000e20800000000000000
+      internalID: 3314661806816682579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_15
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 30
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a4720b93ae08dd0800000000000000
+      internalID: -2485729460819113360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monitors Alerts_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 12
+        width: 58
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0da836c84adb05f80800000000000000
+      internalID: -8119781613721384240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b1ca005e6ea342b4b8094ae9711b1f82
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Monitors Alerts_0: 8688111430062496975
+      Monitors Alerts_1: 5134488438485607790
+      Monitors Alerts_10: 1823914591868624304
+      Monitors Alerts_11: 3435788950542845112
+      Monitors Alerts_12: -4922729587418130036
+      Monitors Alerts_13: -7435484932729185378
+      Monitors Alerts_14: 3314661806816682579
+      Monitors Alerts_15: -2485729460819113360
+      Monitors Alerts_16: -8119781613721384240
+      Monitors Alerts_17: -4427036732360931185
+      Monitors Alerts_18: -6190796103128770025
+      Monitors Alerts_19: -2186618580652679915
+      Monitors Alerts_2: 418118985725019098
+      Monitors Alerts_20: 2147207045737372662
+      Monitors Alerts_21: 2253408896809844070
+      Monitors Alerts_22: 7216164333183052666
+      Monitors Alerts_23: 8749847560491409308
+      Monitors Alerts_24: 8507159487078286882
+      Monitors Alerts_25: -4840002719156415563
+      Monitors Alerts_26: -6235856503362205934
+      Monitors Alerts_27: 9215904766471174676
+      Monitors Alerts_28: -5910001791143072840
+      Monitors Alerts_29: -292076763527611005
+      Monitors Alerts_3: 7213184039723110307
+      Monitors Alerts_30: -2169012667705205469
+      Monitors Alerts_31: -2815283068377738632
+      Monitors Alerts_32: -662317750699000745
+      Monitors Alerts_33: 3868584898955896296
+      Monitors Alerts_34: -2019661993760636546
+      Monitors Alerts_35: 2101220720118854150
+      Monitors Alerts_36: 6643872020448026020
+      Monitors Alerts_37: 8736357491253313509
+      Monitors Alerts_38: -4777636111119514019
+      Monitors Alerts_39: 6003215929064004160
+      Monitors Alerts_4: -2154804827945403084
+      Monitors Alerts_40: -7249076624296979040
+      Monitors Alerts_41: 5831658146142271199
+      Monitors Alerts_42: -5588354392666871564
+      Monitors Alerts_43: 7092637960144627683
+      Monitors Alerts_44: -792073676097325884
+      Monitors Alerts_45: 6854729180127624186
+      Monitors Alerts_46: -5961470566620774844
+      Monitors Alerts_47: -8080063380559473852
+      Monitors Alerts_48: -2922138638195957688
+      Monitors Alerts_5: -5589742079177286274
+      Monitors Alerts_6: -4332205369891366122
+      Monitors Alerts_7: -8765155945815362788
+      Monitors Alerts_8: 9189172506182756096
+      Monitors Alerts_9: -8822796762392158157
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

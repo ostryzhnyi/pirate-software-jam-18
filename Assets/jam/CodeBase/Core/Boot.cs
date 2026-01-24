@@ -5,7 +5,6 @@ using jam.CodeBase.Character;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
 using Ostryzhnyi.EasyViewService.Impl.Service;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
