@@ -120,7 +120,9 @@ namespace jam.CodeBase.Stream
         None,
         DescriptionTag,
         NameTag,
-        Donate
+        Donate,
+        Positive,
+        Negative,
     }
 
     [Serializable]

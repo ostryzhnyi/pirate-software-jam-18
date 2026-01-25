@@ -23,11 +23,22 @@ namespace jam.CodeBase.Stream.View
 
         private void Start()
         {
+            Subscribe();
+        }
+
+
+        private void OnDestroy()
+        {
+            Unsubscribe();
+        }
+
+        public void Subscribe()
+        {
             G.StreamController.ChatController.OnMessageReceived += OnMessageReceived;
             G.StreamController.DaysController.OnDayUpdated += OnDayUpdated;
         }
-
-        private void OnDestroy()
+        
+        public void Unsubscribe()
         {
             try
             {
@@ -49,7 +60,7 @@ namespace jam.CodeBase.Stream.View
             Clear();
         }
 
-        private void Clear()
+        public void Clear()
         {
             foreach (var chatElementView in _elements)
             {
@@ -59,7 +70,7 @@ namespace jam.CodeBase.Stream.View
             _elements.Clear();
         }
 
-        private async void OnMessageReceived(ChatMessage messageData)
+        public async void OnMessageReceived(ChatMessage messageData)
         {
             var message = messageData.Type switch
             {
