@@ -58,11 +58,11 @@ MonoBehaviour:
         Name: Gift Valerian Root
         StatsAfforded:
         - StatsType: 0
-          ValueRange: {x: 1, y: 50}
-          Method: 1
-        - StatsType: 1
-          ValueRange: {x: 1, y: 25}
+          ValueRange: {x: 5, y: 10}
           Method: 0
+        - StatsType: 1
+          ValueRange: {x: 15, y: 20}
+          Method: 1
         TaskTarget: 1
     - rid: 3433833559035740284
       type: {class: SelectRightPill, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
@@ -70,11 +70,11 @@ MonoBehaviour:
         Name: Not Gift Valerian Root
         StatsAfforded:
         - StatsType: 0
-          ValueRange: {x: 1, y: 20}
-          Method: 0
-        - StatsType: 1
-          ValueRange: {x: 1, y: 10}
+          ValueRange: {x: 5, y: 10}
           Method: 1
+        - StatsType: 1
+          ValueRange: {x: 5, y: 10}
+          Method: 0
         TaskTarget: 0
     - rid: 4608936542719443226
       type: {class: TaskDefinition, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}

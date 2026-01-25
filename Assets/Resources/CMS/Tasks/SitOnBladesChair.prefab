@@ -64,10 +64,10 @@ MonoBehaviour:
         Name: Sit
         StatsAfforded:
         - StatsType: 0
-          ValueRange: {x: 1, y: 50}
+          ValueRange: {x: 40, y: 45}
           Method: 1
         - StatsType: 1
-          ValueRange: {x: 1, y: 25}
+          ValueRange: {x: 30, y: 40}
           Method: 0
         TaskTarget: 0
     - rid: 4608936705565130846
@@ -76,9 +76,9 @@ MonoBehaviour:
         Name: Do not sit on blades
         StatsAfforded:
         - StatsType: 0
-          ValueRange: {x: 1, y: 20}
+          ValueRange: {x: 3, y: 8}
           Method: 0
         - StatsType: 1
-          ValueRange: {x: 1, y: 10}
+          ValueRange: {x: 3, y: 8}
           Method: 1
         TaskTarget: 1

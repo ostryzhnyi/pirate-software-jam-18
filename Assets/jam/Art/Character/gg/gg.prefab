@@ -1338,7 +1338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 7
-  Value: -30
+  Value: 30
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &8569027851413900163
@@ -9380,12 +9380,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Rendering.CubismRenderController
   Opacity: 1
-  _lastOpacity: 1
+  _lastOpacity: 0
   _isOverriddenModelMultiplyColors: 0
   _isOverriddenModelScreenColors: 0
   _modelMultiplyColor: {r: 0, g: 0, b: 0, a: 0}
   _modelScreenColor: {r: 0, g: 0, b: 0, a: 0}
-  _sortingLayerId: 1765700325
+  _sortingLayerId: 0
   _sortingMode: 0
   _sortingOrder: 0
   CameraToFace: {fileID: 0}
@@ -9406,7 +9406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967223d908bf07b4f90945995bdca68f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Rendering.Masking.CubismMaskController
-  _maskTexture: {fileID: 11400000, guid: 16bf142754640ab4487bb625c30931fd, type: 2}
+  _maskTexture: {fileID: 0}
 --- !u!114 &2096277739089525335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9469,7 +9469,7 @@ Animator:
   m_GameObject: {fileID: 9108503310665553591}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 000c91cb73e9d444684b00812f88f189, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -9507,10 +9507,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::jam.CodeBase.Character.CharacterAnimator
   ExpressionsList: {fileID: 11400000, guid: a2e3a3273a645aa488705511215251a7, type: 2}
-  CubismModel: {fileID: 116959744342998510}
+  CubismModel: {fileID: 0}
   _characterAnimationStructures: []
-  _defaultExpressionController: {fileID: 5097888388677435515}
-  _cubismRenderController: {fileID: 6958622972646693681}
+  _defaultExpressionController: {fileID: 0}
+  _cubismRenderController: {fileID: 0}
   _move: {fileID: 0}
 --- !u!114 &548732614756624423
 MonoBehaviour:
