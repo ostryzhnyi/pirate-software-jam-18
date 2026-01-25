@@ -13,6 +13,8 @@ namespace jam.CodeBase.Stream.View
     {
         [SerializeField] private ChatElementView _prefab;
         [SerializeField] private ChatElementView _donateMessage;
+        [SerializeField] private ChatElementView _positiveMessage;
+        [SerializeField] private ChatElementView _negativeMessage;
         [SerializeField] private Transform _parent;
         [SerializeField] private ScrollRect _scrollRect;
         [SerializeField] private TMP_Text _streamDayText;
@@ -75,6 +77,8 @@ namespace jam.CodeBase.Stream.View
             var message = messageData.Type switch
             {
                 MessageDataType.Donate => Instantiate(_donateMessage, _parent),
+                MessageDataType.Positive => Instantiate(_positiveMessage, _parent),
+                MessageDataType.Negative => Instantiate(_negativeMessage, _parent),
                 _ => Instantiate(_prefab, _parent)
             };
             message.SetupMessage(messageData, GetSenderColor(messageData.Sender));

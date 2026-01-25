@@ -25,8 +25,23 @@ namespace jam.CodeBase.Core.Stream.Views
 
         public async UniTask Play()
         {
-            // ChatMessageView = Parent;
-            // Chat.transform.DOMove() Parent.position;
+            ChatMessageView.Unsubscribe();
+            ChatMessageView.Clear();
+            
+            Chat.parent = Parent;
+            Chat.DOLocalMove(Vector3.one, .5f);
+            Chat.DOScale(Vector3.one, .5f);
+            await UniTask.WaitForSeconds(.5f);
+            
+            
+            
+            
+            Chat.parent = _baseParent;
+            Chat.DOLocalMove(_basePos, .5f);
+            Chat.DOScale(_baseScale, .5f);
+            await UniTask.WaitForSeconds(.5f);
+            ChatMessageView.Subscribe();
+            ChatMessageView.Clear();
         }
     }
 }
