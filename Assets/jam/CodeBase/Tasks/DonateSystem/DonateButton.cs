@@ -45,11 +45,11 @@ namespace jam.CodeBase.Tasks.DonateSystem
             {
                 _progress.DOFillAmount(progress, .2f).SetEase(Ease.OutSine);
 
-                _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task]} ({(int)(progress * 100)}%)");
+                _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task]}$ ({(int)(progress * 100)}%)");
             }
             catch (Exception e)
             {
-                _text.SetText($"{Task.Name} — {666} ({(int)(_progress.fillAmount * 100)}%)");
+                _text.SetText($"{Task.Name} — {666}$ ({(int)(_progress.fillAmount * 100)}%)");
                 Debug.LogError(e);
             }
         }
@@ -60,11 +60,11 @@ namespace jam.CodeBase.Tasks.DonateSystem
 
             try
             {
-                _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task]} ({(int)(progress * 100)}%)");
+                _text.SetText($"{Task.Name} — {(int)G.Donate.Donates[Task]}$ ({(int)(progress * 100)}%)");
             }
             catch (Exception e)
             {
-                _text.SetText($"{Task.Name} — {666} ({(int)(_progress.fillAmount * 100)}%)");
+                _text.SetText($"{Task.Name} — {666}$ ({(int)(_progress.fillAmount * 100)}%)");
                 Debug.LogError(e);
             }
         }

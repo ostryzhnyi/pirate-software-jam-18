@@ -39,9 +39,13 @@ namespace jam.CodeBase.Stream.View
             }
         }
 
+        private void Update()
+        {
+            _streamDayText.text = $"STREAM DAY: {G.StreamController.DaysController.CurrentDay} / 3";
+        }
+
         private void OnDayUpdated(int day)
         {
-            _streamDayText.text = $"STREAM DAY: {day} / 3";
             Clear();
         }
 

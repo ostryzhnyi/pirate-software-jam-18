@@ -133,7 +133,7 @@ namespace jam.CodeBase.Bets
                 .DOLocalRotate(new Vector3(0f, 0f, angle), _rotateDuration)
                 .SetEase(_ease);
             
-            _totalBet.DOFloatNumber(G.BetController.CurrentBet, _rotateDuration, "${0:0}", 10);
+            _totalBet.DOFloatNumber(G.BetController.CurrentBet, _rotateDuration, "{0:0}", 10);
         }
         
         private void OnDieBitChange(float bit)

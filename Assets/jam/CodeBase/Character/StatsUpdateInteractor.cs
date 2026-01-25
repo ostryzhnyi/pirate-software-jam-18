@@ -22,18 +22,18 @@ namespace jam.CodeBase.Character
         {
             G.Menu.HUD.StatsView.UpdateStress(value / G.Characters.CurrentCharacter.MaxStress).Forget();
             
-            switch (value)
-            {
-                case >= 66:
-                    G.CharacterAnimator.PlayAnimation(AnimationType.BadStress);
-                    break;
-                case < 66 and >= 33:
-                    G.CharacterAnimator.PlayAnimation(AnimationType.NormalStress);
-                    break;
-                default:
-                    G.CharacterAnimator.PlayAnimation(AnimationType.FineStress);
-                    break;
-            }
+            // switch (value)
+            // {
+            //     case >= 66:
+            //         G.CharacterAnimator.PlayAnimation(AnimationType.BadStress);
+            //         break;
+            //     case < 66 and >= 33:
+            //         G.CharacterAnimator.PlayAnimation(AnimationType.NormalStress);
+            //         break;
+            //     default:
+            //         G.CharacterAnimator.PlayAnimation(AnimationType.FineStress);
+            //         break;
+            // }
         }
 
         private void OnHealthUpdated(float value)

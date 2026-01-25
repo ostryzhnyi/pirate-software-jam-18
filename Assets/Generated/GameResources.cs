@@ -44,10 +44,12 @@ public static class GameResources
             public static CMSEntityPfb GiveBandage => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiveBandage");
             public static CMSEntityPfb GiveFavoriteFood => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiveFavoriteFood");
             public static CMSEntityPfb GiveFood => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiveFood");
+            public static CMSEntityPfb GiveValerian => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiveValerian");
             public static CMSEntityPfb GiveWater => Resources.Load<CMSEntityPfb>("CMS/Tasks/GiveWater");
             public static CMSEntityPfb MusicOnNight => Resources.Load<CMSEntityPfb>("CMS/Tasks/MusicOnNight");
             public static CMSEntityPfb PlayMovie => Resources.Load<CMSEntityPfb>("CMS/Tasks/PlayMovie");
             public static CMSEntityPfb RussianRoulette => Resources.Load<CMSEntityPfb>("CMS/Tasks/RussianRoulette");
+            public static CMSEntityPfb SitOnBladesChair => Resources.Load<CMSEntityPfb>("CMS/Tasks/SitOnBladesChair");
             public static CMSEntityPfb SitOnElectricChair => Resources.Load<CMSEntityPfb>("CMS/Tasks/SitOnElectricChair");
             public static CMSEntityPfb TakeShower => Resources.Load<CMSEntityPfb>("CMS/Tasks/TakeShower");
             public static CMSEntityPfb TwoPilsSelection => Resources.Load<CMSEntityPfb>("CMS/Tasks/TwoPilsSelection");

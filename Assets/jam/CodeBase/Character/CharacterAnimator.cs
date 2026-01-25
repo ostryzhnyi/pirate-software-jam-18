@@ -13,15 +13,15 @@ using UnityEngine;
 namespace jam.CodeBase.Character
 {
     [RequireComponent(typeof(Animator), typeof(CubismExpressionController))]
-    public class CharacterAnimator : SerializedMonoBehaviour
+    public class CharacterAnimator : MonoBehaviour
     {
         public CubismExpressionList ExpressionsList;
         public CubismModel CubismModel;
 
-        [SerializeField] private List<CharacterAnimation> _characterAnimationStructures = new  List<CharacterAnimation>();
+        [SerializeField]
+        private List<CharacterAnimation> _characterAnimationStructures = new List<CharacterAnimation>();
+
         [SerializeField] private CubismExpressionController _defaultExpressionController;
-        [SerializeField] private CubismExpressionController _stressExpressionController;
-        [SerializeField] private CubismExpressionController _HPExpressionController;
         [SerializeField] private CubismRenderController _cubismRenderController;
         [SerializeField] private SpriteRenderer _move;
 
@@ -29,6 +29,8 @@ namespace jam.CodeBase.Character
 
         private void Awake()
         {
+            // CubismModel.Parameters.First(p => p.Id == "Param6").Value = -30;
+            //PlayAnimation(AnimationType.BadHP);
             _animator = GetComponent<Animator>();
             G.CharacterAnimator = this;
         }
@@ -41,7 +43,7 @@ namespace jam.CodeBase.Character
         public void ApplyTexture(Texture2D texture)
         {
             var renders = GetComponentsInChildren<CubismRenderer>();
-            
+
             foreach (var render in renders)
                 render.MainTexture = texture;
         }
@@ -50,17 +52,29 @@ namespace jam.CodeBase.Character
         public void PlayAnimation(AnimationType animationType)
         {
             var structure = _characterAnimationStructures.FirstOrDefault(x => x.AnimationType == animationType);
-            
-            if (animationType is AnimationType.BadHP or AnimationType.FineHP or AnimationType.NormalHP)
+
+            if (animationType is AnimationType.BadHP or AnimationType.FineHP or AnimationType.NormalHP or
+                AnimationType.NormalStress or AnimationType.BadStress or AnimationType.FineStress)
             {
-                _HPExpressionController.CurrentExpressionIndex =
-                    ExpressionsList.CubismExpressionObjects.ToList().IndexOf(structure.Structure.Data);
-                return;
-            }
-            else if (animationType is AnimationType.NormalStress or AnimationType.BadStress or AnimationType.FineStress)
-            {
-                _stressExpressionController.CurrentExpressionIndex =
-                    ExpressionsList.CubismExpressionObjects.ToList().IndexOf(structure.Structure.Data);
+                Debug.LogError("UPDATE STATEL: " + animationType + " " + structure.Structure.Data.Parameters[0].Id);
+                SetParameter("Param5", 30);
+                SetParameter("Param6", 30);
+                SetParameter("ParamEyeROpen", 0);
+
+                if (animationType is AnimationType.NormalHP)
+                {
+                    SetParameter("Param5", -30);
+                }
+                else if (animationType is AnimationType.BadHP)
+                {
+                    SetParameter("Param6", -30);
+                }
+                else
+                {
+                    SetParameter(structure.Structure.Data.Parameters[0].Id,
+                        structure.Structure.Data.Parameters[0].Value);
+                }
+
                 return;
             }
             else if (animationType == AnimationType.Move)
@@ -68,16 +82,17 @@ namespace jam.CodeBase.Character
                 PlayMoveAnim().Forget();
                 return;
             }
+
             PlayAnimation(structure.Structure);
         }
-        
-        
+
+
         public void PlayAnimation(CharacterAnimationStructure structure)
         {
-            if(structure.AnimationTrigger != null)
+            if (structure.AnimationTrigger != null)
                 SetTrigger(structure.AnimationTrigger);
-            if(structure.Data != null)
-                SetParameter(structure.Data);
+            if (structure.Data != null)
+                SetExpression(structure.Data);
         }
 
         public void SetTrigger(string trigger)
@@ -91,10 +106,18 @@ namespace jam.CodeBase.Character
         }
 
         [Button]
-        public void SetParameter(CubismExpressionData data)
+        public void SetExpression(CubismExpressionData data)
         {
             _defaultExpressionController.CurrentExpressionIndex =
                 ExpressionsList.CubismExpressionObjects.ToList().IndexOf(data);
+        }
+
+        public void SetParameter(string id, float value)
+        {
+            //var par = CubismModel.Parameters.First(p => p.Id == parameter.Id);
+            CubismModel.Parameters.First(p => p.Id == id).Value = value;
+            Debug.LogError("SET PARAMETER: " + id + " to " + value);
+            //DOTween.To(() => par.Value, (v) =>  par.Value = v, par.Value, .4f);
         }
 
         public async UniTask PlayMoveAnim(float delay = .8f)
@@ -104,13 +127,14 @@ namespace jam.CodeBase.Character
             await _move.DOColor(new Color(1, 1, 1, 1), 0.5f).ToUniTask();
 
             await UniTask.WaitForSeconds(delay);
-            
+
             DOTween.To(() => _cubismRenderController.Opacity, (o) => _cubismRenderController.Opacity = o, 1, .5f);
             await _move.DOColor(new Color(1, 1, 1, 0), 0.5f).ToUniTask();
             _move.gameObject.SetActive(false);
         }
     }
 
+    [Serializable]
     public class CharacterAnimation
     {
         public AnimationType AnimationType;
@@ -133,7 +157,6 @@ namespace jam.CodeBase.Character
         DrinkWater,
         DrinkLimonade,
         RussianRullete,
-        SetHappy,
         SetSad,
         BrokeGlass,
         Smoking,
