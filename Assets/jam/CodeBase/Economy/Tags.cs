@@ -28,4 +28,14 @@ namespace jam.CodeBase.Economy
         public Vector2 RestoreStressByDayRange = new Vector2(5, 15);
         public Vector2 RestoreHealthByDayRange = new Vector2(5, 15);
     }
+
+    [Serializable]
+    public class ChatMiniGameEconomy : EntityComponentDefinition
+    {
+        public int Duration = 30;
+        public Vector2 OneMessagePerSecondRange = new Vector2(1, 2);
+        public Vector2 GoodMesssagePercentRange = new Vector2(0, 75);
+        public float GoodMesssageDelete = -10f;
+        public float BedMesssageSkipped = -20f;
+    }
 }

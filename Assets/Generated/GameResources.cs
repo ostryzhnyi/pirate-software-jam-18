@@ -58,6 +58,7 @@ public static class GameResources
         {
         }
         public static CMSEntityPfb BaseEconomy => Resources.Load<CMSEntityPfb>("CMS/BaseEconomy");
+        public static CMSEntityPfb ChatMiniGameBalance => Resources.Load<CMSEntityPfb>("CMS/ChatMiniGameBalance");
         public static CMSEntityPfb CMSEntity => Resources.Load<CMSEntityPfb>("CMS/CMSEntity");
     }
     public static AudioController AudioController => Resources.Load<AudioController>("AudioController");
