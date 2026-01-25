@@ -25495,6 +25495,7 @@ MonoBehaviour:
   FanAnimator: {fileID: 5442711971945475516}
   TVAnimator: {fileID: 2011903022287650228}
   Steam: {fileID: 455575085785487251}
+  Bee: {fileID: 0}
   Music:
   - {fileID: 7492080221822837668}
   - {fileID: 2362610075051831544}
@@ -26415,9 +26416,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5878929730977807881}
     - target: {fileID: 2045740647595956890, guid: 8abb5dafbdd863a45982084d521aa3c3, type: 3}
+      propertyPath: CubismModel
+      value: 
+      objectReference: {fileID: 1292107190210046037}
+    - target: {fileID: 2045740647595956890, guid: 8abb5dafbdd863a45982084d521aa3c3, type: 3}
+      propertyPath: _cubismRenderController
+      value: 
+      objectReference: {fileID: 8133505711102332554}
+    - target: {fileID: 2045740647595956890, guid: 8abb5dafbdd863a45982084d521aa3c3, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 2045740647595956890, guid: 8abb5dafbdd863a45982084d521aa3c3, type: 3}
+    - target: {fileID: 2045740647595956890, guid: 8abb5dafbdd863a45982084d521aa3c3, type: 3}
+      propertyPath: _defaultExpressionController
+      value: 
+      objectReference: {fileID: 6255126712121693632}
     - target: {fileID: 2045740647595956890, guid: 8abb5dafbdd863a45982084d521aa3c3, type: 3}
       propertyPath: serializationData.SerializedFormat
       value: 2
@@ -32597,8 +32610,41 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8abb5dafbdd863a45982084d521aa3c3, type: 3}
+--- !u!114 &1292107190210046037 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 116959744342998510, guid: 8abb5dafbdd863a45982084d521aa3c3, type: 3}
+  m_PrefabInstance: {fileID: 1185004018207233467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c172444d4638384fb2ba920744553ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismModel
 --- !u!4 &2415539023186638728 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3599586740815602227, guid: 8abb5dafbdd863a45982084d521aa3c3, type: 3}
   m_PrefabInstance: {fileID: 1185004018207233467}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6255126712121693632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5097888388677435515, guid: 8abb5dafbdd863a45982084d521aa3c3, type: 3}
+  m_PrefabInstance: {fileID: 1185004018207233467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b893d4d32dd60bc4c9a2e447d31c6e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Framework.Expression.CubismExpressionController
+--- !u!114 &8133505711102332554 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6958622972646693681, guid: 8abb5dafbdd863a45982084d521aa3c3, type: 3}
+  m_PrefabInstance: {fileID: 1185004018207233467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f718ba9eaf9cd9a48923922e5df94070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Rendering.CubismRenderController
