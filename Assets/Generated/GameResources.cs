@@ -31,6 +31,11 @@ public static class GameResources
             public static CMSEntityPfb Day1Messages => Resources.Load<CMSEntityPfb>("CMS/Chat/Day1Messages");
             public static CMSEntityPfb ReactionMessages => Resources.Load<CMSEntityPfb>("CMS/Chat/ReactionMessages");
         }
+        public static class ChatMiniGame
+        {
+            public static CMSEntityPfb ChatMiniGameBalance => Resources.Load<CMSEntityPfb>("CMS/ChatMiniGame/ChatMiniGameBalance");
+            public static CMSEntityPfb ChatMiniMessages => Resources.Load<CMSEntityPfb>("CMS/ChatMiniGame/ChatMiniMessages");
+        }
         public static class Tasks
         {
             public static CMSEntityPfb AddBeesToTheRoom => Resources.Load<CMSEntityPfb>("CMS/Tasks/AddBeesToTheRoom");
@@ -58,7 +63,6 @@ public static class GameResources
         {
         }
         public static CMSEntityPfb BaseEconomy => Resources.Load<CMSEntityPfb>("CMS/BaseEconomy");
-        public static CMSEntityPfb ChatMiniGameBalance => Resources.Load<CMSEntityPfb>("CMS/ChatMiniGameBalance");
         public static CMSEntityPfb CMSEntity => Resources.Load<CMSEntityPfb>("CMS/CMSEntity");
     }
     public static AudioController AudioController => Resources.Load<AudioController>("AudioController");

@@ -1,4 +1,5 @@
 ﻿using System;
+using jam.CodeBase.Stream;
 using UnityEngine;
 
 namespace jam.CodeBase.Economy
@@ -37,5 +38,22 @@ namespace jam.CodeBase.Economy
         public Vector2 GoodMesssagePercentRange = new Vector2(0, 75);
         public float GoodMesssageDelete = -10f;
         public float BedMesssageSkipped = -20f;
+        public float BedMesssageDeleted = 20f;
+        public float BedMesssageSkippedStess = 2f;
     }
+
+    [Serializable]
+    public class ChatMiniGameMessages : EntityComponentDefinition
+    {
+        public ChatMiniGameMessage[] Messages;
+    }
+
+    [Serializable]
+    public class ChatMiniGameMessage
+    {
+        public MessageDataType Type;
+        public string Author;
+        public string Message;
+    }
+    
 }

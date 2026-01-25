@@ -1,6 +1,7 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using jam.CodeBase.Economy;
 using jam.CodeBase.Stream.View;
 using UnityEngine;
 
@@ -32,10 +33,18 @@ namespace jam.CodeBase.Core.Stream.Views
             Chat.DOLocalMove(Vector3.one, .5f);
             Chat.DOScale(Vector3.one, .5f);
             await UniTask.WaitForSeconds(.5f);
-            
-            
-            
-            
+            // var balance = GameResources.CMS.ChatMiniGameBalance.As<ChatMiniGameEconomy>();
+            // var duration = balance.Duration;
+            // while (duration > 0)
+            // {
+            //
+            //     await UniTask.WaitForSeconds(1);
+            //     duration -= 1;
+            // }
+            //
+
+
+
             Chat.parent = _baseParent;
             Chat.DOLocalMove(_basePos, .5f);
             Chat.DOScale(_baseScale, .5f);

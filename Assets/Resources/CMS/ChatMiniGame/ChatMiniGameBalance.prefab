@@ -44,23 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1729a46f79086449a991b5512530e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CMS::CMSEntityPfb
-  idCMS: CMS/BaseEconomy
+  idCMS: CMS/ChatMiniGame/ChatMiniGameBalance
   Components:
-  - rid: 4608936559312109739
+  - rid: 4608936708307419245
   references:
     version: 2
     RefIds:
-    - rid: 4608936559312109739
-      type: {class: BaseEconomyTag, ns: jam.CodeBase.Economy, asm: Assembly-CSharp}
+    - rid: 4608936708307419245
+      type: {class: ChatMiniGameEconomy, ns: jam.CodeBase.Economy, asm: Assembly-CSharp}
       data:
-        BaseMoney: 2000
-        BaseDonate: 5000
-        DonateMultiplier: {x: 0.7, y: 1.3}
-        BaseBetMultiplier: 0.25
-        DonatorsAmountMinMax: {x: 40, y: 60}
-        "Donate\u0421hanceOppositeByPlayer": {x: 0.45, y: 0.6}
-        OneDonateRandMultiplier: {x: 0.2, y: 2}
-        BaseBet: {x: 8000, y: 12000}
-        PercentsRangeFromPlayerMoney: {x: 4, y: 6}
-        DieBiddersProporionRange: {x: 0.8, y: 0.5}
-        AliveBiddersProporionRange: {x: 0.5, y: 0.2}
+        Duration: 30
+        OneMessagePerSecondRange: {x: 1, y: 2}
+        GoodMesssagePercentRange: {x: 0, y: 75}
+        GoodMesssageDelete: -10
+        BedMesssageSkipped: -20
+        BedMesssageDeleted: 20
+        BedMesssageSkippedStess: 2
