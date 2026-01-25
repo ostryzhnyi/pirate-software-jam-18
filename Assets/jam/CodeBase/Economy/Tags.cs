@@ -54,6 +54,7 @@ namespace jam.CodeBase.Economy
         public MessageDataType Type;
         public string Author;
         public string Message;
+        public string CharacterAnswer;
     }
     
 }
