@@ -64,6 +64,7 @@ public static class GameResources
         }
         public static CMSEntityPfb BaseEconomy => Resources.Load<CMSEntityPfb>("CMS/BaseEconomy");
         public static CMSEntityPfb CMSEntity => Resources.Load<CMSEntityPfb>("CMS/CMSEntity");
+        public static CMSEntityPfb DebugRun => Resources.Load<CMSEntityPfb>("CMS/DebugRun");
     }
     public static AudioController AudioController => Resources.Load<AudioController>("AudioController");
     public static CanvasScaler Canvas => Resources.Load<CanvasScaler>("Canvas");

@@ -143,6 +143,7 @@ namespace jam.CodeBase.Core.Stream.Views
             else if (message.Data.Type == MessageDataType.Positive)
             {
                 _minusMoney += balance.GoodMesssageDeleteMoney;
+                _stress += balance.GoodMesssageDeleteStress;
             }
             
         }
