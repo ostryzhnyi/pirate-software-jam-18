@@ -54,5 +54,6 @@ MonoBehaviour:
       type: {class: DebugRunTag, ns: jam.CodeBase.Core, asm: Assembly-CSharp}
       data:
         DebugTask: []
-        OverrideDay: 3
-        OverrideCurentDonate: 1
+        OverrideDay: -1
+        OverrideCurentDonate: -1
+        OnlyChat: 0
