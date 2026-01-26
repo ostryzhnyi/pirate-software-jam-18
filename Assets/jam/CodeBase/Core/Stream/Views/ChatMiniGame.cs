@@ -103,7 +103,7 @@ namespace jam.CodeBase.Core.Stream.Views
             Debug.Log("Mini game stress: " + stress);
             Debug.Log("Mini game plus money: " + _plusMoney);
 
-            G.Characters.CurrentCharacter.ChangeStress(stress, G.BetController.MyBetAlive > 0 ? StatsChangeMethod.Remove : StatsChangeMethod.Add).Forget();
+            G.Characters.CurrentCharacter.ChangeStress(stress, G.BetController.MyBetAlive > 0 ? StatsChangeMethod.Add : StatsChangeMethod.Remove).Forget();
             var totalMoney = _plusMoney -  _minusMoney;
             G.Economy.AddMoney(totalMoney);
             

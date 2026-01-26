@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Material: {fileID: 2100000, guid: d91391cf306d4a748826c99d09eb1e87, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastPadding: {x: 0, y: 2.5, z: 0, w: -2.5}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -700,8 +700,8 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1429954232896169632, guid: 0293b1d51214f6340abfb1bdf09335b8, type: 3}
   m_PrefabInstance: {fileID: 314708433813654650}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1695084551923034852 stripped
-RectTransform:
+--- !u!4 &1695084551923034852 stripped
+Transform:
   m_CorrespondingSourceObject: {fileID: 1429954232896169630, guid: 0293b1d51214f6340abfb1bdf09335b8, type: 3}
   m_PrefabInstance: {fileID: 314708433813654650}
   m_PrefabAsset: {fileID: 0}
