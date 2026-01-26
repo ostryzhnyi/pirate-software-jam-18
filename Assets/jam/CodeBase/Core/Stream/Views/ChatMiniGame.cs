@@ -26,6 +26,7 @@ namespace jam.CodeBase.Core.Stream.Views
         private Transform _baseParent;
         private Vector3 _baseScale;
         private Vector3 _basePos;
+        private int _baseTransformIndex;
         private ChatMiniGameEconomy balance;
         private ChatMiniGameMessage[] messages;
         private List<ChatMiniGameMessage> goodMessage;
@@ -42,11 +43,13 @@ namespace jam.CodeBase.Core.Stream.Views
             _baseParent = Chat.parent;
             _baseScale = Chat.localScale;
             _basePos = Chat.localPosition;
+            _baseTransformIndex = transform.GetSiblingIndex();
             balance = GameResources.CMS.ChatMiniGame.ChatMiniGameBalance.As<ChatMiniGameEconomy>();
             
             messages = GameResources.CMS.ChatMiniGame.ChatMiniMessages.As<ChatMiniGameMessages>().Messages;
             goodMessage = messages.Where(m => m.Type == MessageDataType.Positive).ToList();
             badMessage = messages.Where(m => m.Type == MessageDataType.Negative).ToList();
+            gameObject.SetActive(false);
         }
 
         private void OnDestroy()
@@ -88,9 +91,9 @@ namespace jam.CodeBase.Core.Stream.Views
             _minusMoney += lostBedMessageCount * balance.BedMesssageSkipped;
             _stress +=  lostBedMessageCount * balance.BedMesssageSkippedStess;
 
-            Debug.LogError("Mini game minus money: " + _minusMoney);
-            Debug.LogError("Mini game add stress: " + _stress);
-            Debug.LogError("Mini game plus money: " + _plusMoney);
+            Debug.Log("Mini game minus money: " + _minusMoney);
+            Debug.Log("Mini game add stress: " + _stress);
+            Debug.Log("Mini game plus money: " + _plusMoney);
 
             G.Characters.CurrentCharacter.ChangeStress(_stress, StatsChangeMethod.Add).Forget();
             var totalMoney = _plusMoney -  _minusMoney;
@@ -99,6 +102,7 @@ namespace jam.CodeBase.Core.Stream.Views
             _background.DOFade(0f, .5f);
             
             Chat.parent = _baseParent;
+            Chat.SetSiblingIndex(_baseTransformIndex);
             Chat.DOLocalMove(_basePos, .5f);
             Chat.DOScale(_baseScale, .5f);
             await UniTask.WaitForSeconds(.5f);

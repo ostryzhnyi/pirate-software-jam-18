@@ -73,13 +73,20 @@ namespace jam.CodeBase.Tasks
             float duration = tasks.Item1.Duration;
 
             float remainingDonate = fullDonate;
-
             int currentSecond = 0;
 
             while (time > 0)
             {
                 if(G.FinishRun)
                     return;
+
+                if (duration / 2 > time)
+                {
+                    while (!G.Saves.Get<FTUESaveModel>().Data.ShowedDonateFTUE)
+                    {
+                        await UniTask.WaitForSeconds(1);
+                    }
+                }
                 
                 time--;
                 G.Menu.HUD.DonateHUDButton.SetAmount(time / duration);

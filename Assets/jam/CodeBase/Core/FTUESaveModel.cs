@@ -6,12 +6,14 @@ namespace jam.CodeBase.Core
     {
         protected override void SetDefault()
         {
-           
+            Data = new FTUESaveData();
         }
     }
 
     public class FTUESaveData
     {
         public bool ShowedChatMinigameFTUE;
+        public bool ShowedBetFTUE;
+        public bool ShowedDonateFTUE;
     }
 }

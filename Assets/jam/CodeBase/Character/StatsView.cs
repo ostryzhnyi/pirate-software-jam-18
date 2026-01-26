@@ -17,14 +17,11 @@ namespace jam.CodeBase.Character
         [Sirenix.OdinInspector.Button]
         public async UniTask UpdateStress(float value, bool withoutNotify = false)
         {
-            Debug.LogError("UpdateStress value"+ value);
             if (withoutNotify)
             {
                 _stressView.UpdateWithoutNotifyValue(value);
                 return;
             }
-            Debug.LogError("UpdateStress 26");
-            
             _pendingUpdateCount++;
 
             if (!gameObject.activeSelf)
