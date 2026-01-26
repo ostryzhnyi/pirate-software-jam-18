@@ -53,10 +53,12 @@ MonoBehaviour:
     - rid: 4608936708307419245
       type: {class: ChatMiniGameEconomy, ns: jam.CodeBase.Economy, asm: Assembly-CSharp}
       data:
+        OneTick: 0.33
         Duration: 30
-        OneMessagePerSecondRange: {x: 1, y: 2}
+        OneMessagePerTickRange: {x: 1, y: 1}
         GoodMesssagePercentRange: {x: 0, y: 75}
-        GoodMesssageDelete: 10
-        BedMesssageSkipped: 20
-        BedMesssageDeleted: 20
+        GoodMesssageDeleteMoney: 10
+        GoodMesssageDeleteStress: 0.5
+        BedMesssageSkipped: 0
+        BedMesssageDeleted: 10
         BedMesssageSkippedStess: 2

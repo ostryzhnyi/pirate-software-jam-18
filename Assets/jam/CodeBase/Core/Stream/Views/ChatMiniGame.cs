@@ -107,7 +107,7 @@ namespace jam.CodeBase.Core.Stream.Views
             }
             else if (message.Data.Type == MessageDataType.Positive)
             {
-                _minusMoney += balance.GoodMesssageDelete;
+                _minusMoney += balance.GoodMesssageDeleteMoney;
             }
             
         }

@@ -37,10 +37,12 @@ namespace jam.CodeBase.Economy
         public int Duration = 30;
         public Vector2 OneMessagePerTickRange = new Vector2(1, 2);
         public Vector2 GoodMesssagePercentRange = new Vector2(0, 75);
-        public float GoodMesssageDelete = 10f;
+        public float GoodMesssageDeleteMoney = 10f;
+        public float GoodMesssageDeleteStress = 1f;
         public float BedMesssageSkipped = 20f;
         public float BedMesssageDeleted = 20f;
         public float BedMesssageSkippedStess = 2f;
+        
     }
 
     [Serializable]
