@@ -5255,11 +5255,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7812001330504845027, guid: 6b4165c0046f7db44a8c14ff90e4b7cb, type: 3}
+      propertyPath: DestroyParticles
+      value: 
+      objectReference: {fileID: 1154537725940768650}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b4165c0046f7db44a8c14ff90e4b7cb, type: 3}
+--- !u!198 &1154537725940768650 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1695084551923034842, guid: 6b4165c0046f7db44a8c14ff90e4b7cb, type: 3}
+  m_PrefabInstance: {fileID: 541447468624344400}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5856968029490185279 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6254298110662963567, guid: 6b4165c0046f7db44a8c14ff90e4b7cb, type: 3}
@@ -5832,11 +5841,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7812001330504845027, guid: 29895893d17f8eb42b48e0bf30423473, type: 3}
+      propertyPath: DestroyParticles
+      value: 
+      objectReference: {fileID: 156584706197275684}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29895893d17f8eb42b48e0bf30423473, type: 3}
+--- !u!198 &156584706197275684 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6409576962806799270, guid: 29895893d17f8eb42b48e0bf30423473, type: 3}
+  m_PrefabInstance: {fileID: 6547997171718135682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &870481442704191213 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6254298110662963567, guid: 29895893d17f8eb42b48e0bf30423473, type: 3}

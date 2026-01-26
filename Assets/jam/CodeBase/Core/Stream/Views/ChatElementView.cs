@@ -8,6 +8,8 @@ namespace jam.CodeBase.Stream.View
 {
     public class ChatElementView : MonoBehaviour
     {
+        public ParticleSystem DestroyParticles;
+        
         [SerializeField] private Image _senderIcon;
         [SerializeField] private Image _donateIcon;
         [SerializeField] private TMP_Text _senderText;

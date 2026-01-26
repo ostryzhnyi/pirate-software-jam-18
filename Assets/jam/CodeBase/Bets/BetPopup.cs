@@ -215,7 +215,8 @@ namespace jam.CodeBase.Bets
                 "Welcome to the stream. A dangerous stream. You can place a bet on the main character's life, " +
                 "whether he will survive or not. Here you can place a bet. Increase the pot.", 
                 cancellationToken:_playFirstFTUEcancellationTokenSource.Token);
-            _tutorialPointerPlusMin.SetActive(true);
+            if(!_playFirstFTUEcancellationTokenSource.IsCancellationRequested)
+                _tutorialPointerPlusMin.SetActive(true);
         }
         
         private async UniTask PlaySecondFTUE()
@@ -226,7 +227,8 @@ namespace jam.CodeBase.Bets
             await _ftueText.ToType(
                 "You have chosen the amount of money. Now you need to place your bet.", 
                 cancellationToken:_playSecondFTUEcancellationTokenSource.Token);
-            _tutorialPointerBet.SetActive(true);
+            if(!_playSecondFTUEcancellationTokenSource.IsCancellationRequested)
+                _tutorialPointerBet.SetActive(true);
         }
     }
 }

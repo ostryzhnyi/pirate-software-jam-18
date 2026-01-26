@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.coffee.ui-particle": "https://github.com/mob-sakai/ParticleEffectForUGUI.git",
     "com.megurte.cms": "https://github.com/megurte/ContentManagementSystem.git?path=/src#1.5.0",
     "com.unity.collab-proxy": "2.11.2",
     "com.unity.feature.2d": "2.0.2",

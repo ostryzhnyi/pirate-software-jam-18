@@ -64,7 +64,6 @@ namespace jam.CodeBase.Tasks.DonateSystem
             
             _hide.onClick.AddListener(() => Hide().Forget());
             _hideBack.onClick.AddListener(() => Hide().Forget());
-            
         }
 
         private void OnDestroy()
@@ -84,6 +83,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
 
         protected override void Showed(ViewOption option = null)
         {
+            _ftueText.SetText("");
             _window.anchoredPosition = Vector3.zero;
             _ftueSaveModel = G.Saves.Get<FTUESaveModel>();
             

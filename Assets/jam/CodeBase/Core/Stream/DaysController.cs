@@ -43,7 +43,6 @@ namespace jam.CodeBase.Stream
             OnDayEnded?.Invoke(CurrentDay);
             CurrentDay = dayNumber;
             OnDayUpdated?.Invoke(CurrentDay);
-            runSaveModel.Data.CurrentDonateNumberInDay = 0;
             runSaveModel.Data.DayNumber = dayNumber;
             StartDayCycle(_cst.Token).Forget();
 
@@ -52,6 +51,8 @@ namespace jam.CodeBase.Stream
 
             if (isNext)
             {
+                runSaveModel.Data.CurrentDonateNumberInDay = 0;
+                
                 await view.SetupNextDay(dayNumber);
 
                 var economyTag = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();

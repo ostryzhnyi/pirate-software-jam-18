@@ -110,6 +110,9 @@ namespace jam.CodeBase.Core
 
         public static void Alive()
         {
+            if(FinishRun)
+                return;
+            
             FinishRun = true;
             var result = Menu.ViewService.GetView<ResultScreen>();
             
@@ -119,6 +122,9 @@ namespace jam.CodeBase.Core
 
         public static void Die()
         {
+            if(FinishRun)
+                return;
+            
             FinishRun = true;
             
             var result = Menu.ViewService.GetView<ResultScreen>();

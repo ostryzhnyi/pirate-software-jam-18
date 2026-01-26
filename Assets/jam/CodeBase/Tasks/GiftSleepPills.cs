@@ -19,8 +19,6 @@ namespace jam.CodeBase.Tasks
             G.CharacterAnimator.PlayAnimation(AnimationType.TakeRedPill);
 
             await UniTask.WaitForSeconds(3);
-            
-            G.DaysController.SetDay(++G.Saves.Get<RunSaveModel>().Data.DayNumber, true);
         }
     }
 

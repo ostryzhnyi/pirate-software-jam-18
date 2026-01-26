@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using jam.CodeBase.Core;
 using jam.CodeBase.Economy;
 using TMPro;
@@ -110,14 +111,21 @@ namespace jam.CodeBase.Stream.View
             };
             message.SetupMessage(messageData, GetSenderColor(messageData.Author), (elementView) =>
             {
-                onClick?.Invoke(elementView);
-                Destroy(elementView.gameObject);
-                _elements.Remove(elementView);
+                OnItemClick(onClick, elementView).Forget();
             });
             message.gameObject.SetActive(true);
             _elements.Add(message);
             await UniTask.DelayFrame(1);
             _scrollRect.verticalNormalizedPosition = 0;
+        }
+
+        private async UniTask OnItemClick(Action<ChatElementView> onClick, ChatElementView elementView)
+        {
+            onClick?.Invoke(elementView);
+            _elements.Remove(elementView);
+            elementView.DestroyParticles.Play();
+            await elementView.transform.DOScale(0, .2f);
+            Destroy(elementView.gameObject);
         }
 
         private Color GetSenderColor(string messageDataSender)

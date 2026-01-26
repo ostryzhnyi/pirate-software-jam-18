@@ -192,31 +192,27 @@ namespace jam.CodeBase.Tasks
             }
             else
             {
-                var tasks = CMS.GetAll<CMSEntity>()
-                    .Where(e => e.Is<TaskDefinition>())
-                    .Where(e => !e.Is<PlayRussianRoulette>())
-                    .Where(e => !e.Is<IgnoreTag>())
-                    .Where(e => !runSave.CompletedTask.Contains(e.id))
-                    .Where(e => !e.Is<RequireItem>() || runSave.ObtainedItems.Contains(e.Get<RequireItem>().ItemName))
-                    .ToList();
-
-                if (tasks.Count == 0)
+                List<CMSEntity> tasks;
+                if (GameResources.CMS.DebugRun.AsEntity().Is<DebugRunTag>(out var tag) && tag.DebugTask != null 
+                    && tag.DebugTask.Any())
                 {
-                    Debug.LogError("NOT HAVE TASK");
-                    runSave.CompletedTask.Clear();
+                    tasks = tag.DebugTask.Select(d => d.AsEntity()).ToList();
+                }
+                else
+                {
+                    tasks = GetTasks(runSave);
 
-                    tasks = CMS.GetAll<CMSEntity>()
-                        .Where(e => e.Is<TaskDefinition>())
-                        .Where(e => !e.Is<PlayRussianRoulette>())
-                        .Where(e => !e.Is<IgnoreTag>())
-                        .Where(e => !runSave.CompletedTask.Contains(e.id))
-                        .Where(e => !e.Is<RequireItem>() ||
-                                    runSave.ObtainedItems.Contains(e.Get<RequireItem>().ItemName))
-                        .ToList();
+                    if (tasks.Count == 0)
+                    {
+                        Debug.LogError("NOT HAVE TASK");
+                        runSave.CompletedTask.Clear();
+
+                        tasks = GetTasks(runSave);
+
+                    }
                 }
 
-                randTask = tasks[UnityEngine.Random.Range(0, tasks.Count)];
-                ;
+                randTask = tasks[Random.Range(0, tasks.Count)];
             }
 
 
@@ -224,6 +220,18 @@ namespace jam.CodeBase.Tasks
             var baseTasks = randTask.components.OfType<BaseTask>().ToList();
 
             return (taskDefinition, baseTasks, randTask.id);
+        }
+
+        private static List<CMSEntity> GetTasks(RunSaveData runSave)
+        {
+            return CMS.GetAll<CMSEntity>()
+                .Where(e => e.Is<TaskDefinition>())
+                .Where(e => !e.Is<PlayRussianRoulette>())
+                .Where(e => !e.Is<IgnoreTag>())
+                .Where(e => !runSave.CompletedTask.Contains(e.id))
+                .Where(e => !e.Is<RequireItem>() || runSave.ObtainedItems.Contains(e.Get<RequireItem>().ItemName))
+                .Where(e => G.DaysController.CurrentDay != 3 || e.id != "CMS/Tasks/GiftSleepPils")
+                .ToList();
         }
 
         private TaskTarget GetCurrentTarget()
