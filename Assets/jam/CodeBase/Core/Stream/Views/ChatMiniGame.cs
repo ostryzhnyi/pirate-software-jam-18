@@ -34,8 +34,7 @@ namespace jam.CodeBase.Core.Stream.Views
 
         private float _minusMoney;
         private float _plusMoney;
-        private float _stress;
-        
+        private float _deletedGoodMessage;
         
         private void Awake()
         {
@@ -59,6 +58,10 @@ namespace jam.CodeBase.Core.Stream.Views
 
         public async UniTask Play()
         {
+            _deletedGoodMessage = 0;
+            _minusMoney = 0;
+            _plusMoney = 0;
+            
             _text.SetText("");
             gameObject.SetActive(true);
             ChatMessageView.Unsubscribe();
@@ -70,6 +73,7 @@ namespace jam.CodeBase.Core.Stream.Views
             await UniTask.WaitForSeconds(.5f);
             _background.DOFade(.85f, .5f);
             var ftueSaveModel = G.Saves.Get<FTUESaveModel>();
+            var totalMessages = 1;
             if (!ftueSaveModel.Data.ShowedChatMinigameFTUE)
             {
                 await PlayFTUE(ftueSaveModel);
@@ -82,6 +86,7 @@ namespace jam.CodeBase.Core.Stream.Views
                 {
                     var message = balance.GoodMesssagePercentRange.GetRandomRange() > 50 ? goodMessage.GetRandom() : badMessage.GetRandom();
                     await ChatMessageView.OnMessageReceived(message, OnClick);
+                    totalMessages++;
                 }
                 await UniTask.WaitForSeconds(balance.OneTick);
                 duration -= balance.OneTick;
@@ -89,13 +94,16 @@ namespace jam.CodeBase.Core.Stream.Views
             
             var lostBedMessageCount = ChatMessageView.Elements.Count(e => e.Data.Type == MessageDataType.Negative);
             _minusMoney += lostBedMessageCount * balance.BedMesssageSkipped;
-            _stress +=  lostBedMessageCount * balance.BedMesssageSkippedStess;
+            var wrongMessagePercent = (100 / totalMessages) * (lostBedMessageCount + _deletedGoodMessage);
+            
+            var stress =  wrongMessagePercent * balance.WrongAccuracyStressMultiply;
 
+            Debug.Log("wrongMessagePercent: " + wrongMessagePercent);
             Debug.Log("Mini game minus money: " + _minusMoney);
-            Debug.Log("Mini game add stress: " + _stress);
+            Debug.Log("Mini game stress: " + stress);
             Debug.Log("Mini game plus money: " + _plusMoney);
 
-            G.Characters.CurrentCharacter.ChangeStress(_stress, StatsChangeMethod.Add).Forget();
+            G.Characters.CurrentCharacter.ChangeStress(stress, G.BetController.MyBetAlive > 0 ? StatsChangeMethod.Remove : StatsChangeMethod.Add).Forget();
             var totalMoney = _plusMoney -  _minusMoney;
             G.Economy.AddMoney(totalMoney);
             
@@ -143,7 +151,7 @@ namespace jam.CodeBase.Core.Stream.Views
             else if (message.Data.Type == MessageDataType.Positive)
             {
                 _minusMoney += balance.GoodMesssageDeleteMoney;
-                _stress += balance.GoodMesssageDeleteStress;
+                _deletedGoodMessage++;
             }
             
         }

@@ -1,4 +1,3 @@
-using Coffee.UIExtensions;
 using jam.CodeBase.Audio;
 using UnityEngine;
 using UnityEngine.UI;
@@ -69,7 +68,7 @@ public static class GameResources
     }
     public static class VFX
     {
-        public static UIParticle DestoryMessageVFX => Resources.Load<UIParticle>("VFX/DestoryMessageVFX");
+        public static GameObject DestoryMessageVFX => Resources.Load<GameObject>("VFX/DestoryMessageVFX");
     }
     public static AudioController AudioController => Resources.Load<AudioController>("AudioController");
     public static CanvasScaler Canvas => Resources.Load<CanvasScaler>("Canvas");

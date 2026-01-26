@@ -671,28 +671,12 @@ PrefabInstance:
       value: DestoryMessageVFX
       objectReference: {fileID: 0}
     - target: {fileID: 3003417860142044815, guid: 0293b1d51214f6340abfb1bdf09335b8, type: 3}
-      propertyPath: m_Scale3D.x
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003417860142044815, guid: 0293b1d51214f6340abfb1bdf09335b8, type: 3}
       propertyPath: m_Scale3D.y
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3003417860142044815, guid: 0293b1d51214f6340abfb1bdf09335b8, type: 3}
       propertyPath: m_Scale3D.z
       value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003417860142044815, guid: 0293b1d51214f6340abfb1bdf09335b8, type: 3}
-      propertyPath: m_MeshSharing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003417860142044815, guid: 0293b1d51214f6340abfb1bdf09335b8, type: 3}
-      propertyPath: m_PositionMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3003417860142044815, guid: 0293b1d51214f6340abfb1bdf09335b8, type: 3}
-      propertyPath: m_AutoScalingMode
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3024109705470383778, guid: 0293b1d51214f6340abfb1bdf09335b8, type: 3}
       propertyPath: m_SortingLayer

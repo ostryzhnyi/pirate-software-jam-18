@@ -38,10 +38,10 @@ namespace jam.CodeBase.Economy
         public Vector2 OneMessagePerTickRange = new Vector2(1, 2);
         public Vector2 GoodMesssagePercentRange = new Vector2(0, 75);
         public float GoodMesssageDeleteMoney = 10f;
-        public float GoodMesssageDeleteStress = 1f;
         public float BedMesssageSkipped = 20f;
         public float BedMesssageDeleted = 20f;
         public float BedMesssageSkippedStess = 2f;
+        public float WrongAccuracyStressMultiply = 1.2f;
         
     }
 

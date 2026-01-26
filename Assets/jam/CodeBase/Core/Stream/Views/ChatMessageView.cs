@@ -123,9 +123,16 @@ namespace jam.CodeBase.Stream.View
         {
             onClick?.Invoke(elementView);
             _elements.Remove(elementView);
-            elementView.DestroyParticles.Play();
+            var pos = elementView.transform.position;
+            pos.z -= 5;
+            var particle = GameObject.Instantiate(GameResources.VFX.DestoryMessageVFX, pos , Quaternion.identity).GetComponent<ParticleSystem>();
+            particle.transform.localScale = Vector3.one / 2;
+            particle.Play(true);
+            
             await elementView.transform.DOScale(0, .2f);
-            Destroy(elementView.gameObject);
+            if(elementView.gameObject != null)
+                Destroy(elementView.gameObject);
+            Destroy(particle.gameObject);
         }
 
         private Color GetSenderColor(string messageDataSender)
