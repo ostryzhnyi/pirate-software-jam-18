@@ -33,8 +33,9 @@ namespace jam.CodeBase.Economy
     [Serializable]
     public class ChatMiniGameEconomy : EntityComponentDefinition
     {
+        public float OneTick = .33f;
         public int Duration = 30;
-        public Vector2 OneMessagePerSecondRange = new Vector2(1, 2);
+        public Vector2 OneMessagePerTickRange = new Vector2(1, 2);
         public Vector2 GoodMesssagePercentRange = new Vector2(0, 75);
         public float GoodMesssageDelete = 10f;
         public float BedMesssageSkipped = 20f;

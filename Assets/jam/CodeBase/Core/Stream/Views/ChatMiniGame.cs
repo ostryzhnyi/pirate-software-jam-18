@@ -63,16 +63,16 @@ namespace jam.CodeBase.Core.Stream.Views
             await UniTask.WaitForSeconds(.5f);
             _background.DOFade(.85f, .5f);
             
-            var duration = balance.Duration;
+            var duration = (float)balance.Duration;
             while (duration > 0)
             {
-                for (int i = 0; i < balance.OneMessagePerSecondRange.GetRandomRange(); i++)
+                for (int i = 0; i < balance.OneMessagePerTickRange.GetRandomRange(); i++)
                 {
                     var message = balance.GoodMesssagePercentRange.GetRandomRange() > 50 ? goodMessage.GetRandom() : badMessage.GetRandom();
                     await ChatMessageView.OnMessageReceived(message, OnClick);
                 }
-                await UniTask.WaitForSeconds(1);
-                duration -= 1;
+                await UniTask.WaitForSeconds(balance.OneTick);
+                duration -= balance.OneTick;
             }
             
             var lostBedMessageCount = ChatMessageView.Elements.Count(e => e.Data.Type == MessageDataType.Negative);
