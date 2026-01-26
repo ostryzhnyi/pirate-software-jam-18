@@ -58,7 +58,7 @@ MonoBehaviour:
         OneMessagePerTickRange: {x: 1, y: 1}
         GoodMesssagePercentRange: {x: 0, y: 75}
         GoodMesssageDeleteMoney: 10
-        GoodMesssageDeleteStress: 0.5
         BedMesssageSkipped: 0
         BedMesssageDeleted: 10
         BedMesssageSkippedStess: 2
+        WrongAccuracyStressMultiply: 0.7
