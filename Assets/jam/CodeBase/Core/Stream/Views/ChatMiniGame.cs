@@ -7,7 +7,9 @@ using jam.CodeBase.Character;
 using jam.CodeBase.Economy;
 using jam.CodeBase.Stream;
 using jam.CodeBase.Stream.View;
+using jam.CodeBase.Utils;
 using ProjectX.CodeBase.Utils;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +18,7 @@ namespace jam.CodeBase.Core.Stream.Views
     public class ChatMiniGame : MonoBehaviour
     {
         public Transform Parent;
+        public TMP_Text _text;
         public Transform Chat;
         public ChatMessageView ChatMessageView;
         public Image _background;
@@ -53,6 +56,7 @@ namespace jam.CodeBase.Core.Stream.Views
 
         public async UniTask Play()
         {
+            _text.SetText("");
             gameObject.SetActive(true);
             ChatMessageView.Unsubscribe();
             ChatMessageView.Clear();
@@ -62,6 +66,11 @@ namespace jam.CodeBase.Core.Stream.Views
             Chat.DOScale(1.12f, .5f);
             await UniTask.WaitForSeconds(.5f);
             _background.DOFade(.85f, .5f);
+            var ftueSaveModel = G.Saves.Get<FTUESaveModel>();
+            if (!ftueSaveModel.Data.ShowedChatMinigameFTUE)
+            {
+                await PlayFTUE(ftueSaveModel);
+            }
             
             var duration = (float)balance.Duration;
             while (duration > 0)
@@ -97,6 +106,28 @@ namespace jam.CodeBase.Core.Stream.Views
             ChatMessageView.Clear();
             gameObject.SetActive(false);
             ChatMessageView.SetScrollState(true);
+        }
+
+        
+        public async UniTask PlayFTUE(FTUESaveModel saveModel)
+        {
+            await _text.ToType(
+                "The chat contains good messages <color=\"green\">(green)</color> and bad messages <color=\"red\">(red)</color>. Your goal is to delete the bad messages.",
+                .06f);
+            
+            await UniTaskHelper.SmartWaitSeconds(4f);
+            
+            await _text.ToType(
+                "For each bad message you delete, you'll earn money, and for each bad message you miss, the target will experience a stress increase",
+                .06f);
+            
+            await UniTaskHelper.SmartWaitSeconds(3f);
+            await _text.ToType(
+                "For each good message you delete, you'll lose money.",
+                .06f);
+            await UniTaskHelper.SmartWaitSeconds(1f);
+            saveModel.Data.ShowedChatMinigameFTUE = true;
+            saveModel.ForceSave();
         }
 
         private void OnClick(ChatElementView message)

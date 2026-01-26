@@ -12,6 +12,6 @@ namespace jam.CodeBase.Core
 
     public class FTUESaveData
     {
-        
+        public bool ShowedChatMinigameFTUE;
     }
 }
