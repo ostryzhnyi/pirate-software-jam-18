@@ -1,3 +1,4 @@
+using CartoonFX;
 using jam.CodeBase.Audio;
 using UnityEngine;
 using UnityEngine.UI;
@@ -68,6 +69,7 @@ public static class GameResources
     }
     public static class VFX
     {
+        public static CFXR_Effect BoxParticle => Resources.Load<CFXR_Effect>("VFX/BoxParticle");
         public static GameObject DestoryMessageVFX => Resources.Load<GameObject>("VFX/DestoryMessageVFX");
     }
     public static AudioController AudioController => Resources.Load<AudioController>("AudioController");

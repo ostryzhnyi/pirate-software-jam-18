@@ -18,6 +18,11 @@ namespace jam.CodeBase.Tasks
             
             G.Saves.Get<RunSaveModel>().Data.ObtainedItems.Add(ItemName);
             G.Saves.Get<RunSaveModel>().ForceSave();
+            
+            G.BoxAnimator.PlayAnimation(BoxAnimationType.Bottle);
+            
+            await UniTask.WaitForSeconds(5.5f);
+            
             G.CharacterAnimator.PlayAnimation(AnimationType.DrinkLimonade);
 
             await UniTask.WaitForSeconds(3);

@@ -83,7 +83,7 @@ namespace jam.CodeBase.Character
         {
             try
             {
-                await UniTask.Delay(5000, cancellationToken: ct);
+                await UniTask.Delay(10000, cancellationToken: ct);
                 await Hide();
             }
             catch (OperationCanceledException)

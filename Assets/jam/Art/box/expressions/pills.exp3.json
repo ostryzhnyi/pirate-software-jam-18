@@ -1,0 +1,10 @@
+{
+	"Type": "Live2D Expression",
+	"Parameters": [
+		{
+			"Id": "pills",
+			"Value": -60,
+			"Blend": "Add"
+		}
+	]
+}

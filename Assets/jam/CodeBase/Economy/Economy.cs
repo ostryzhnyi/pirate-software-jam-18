@@ -21,6 +21,12 @@ namespace jam.CodeBase.Economy
                 _economySaveModel.Data.Money = GameResources.CMS.BaseEconomy.AsEntity().Get<BaseEconomyTag>().BaseMoney;
                 _economySaveModel.ForceSave();
             }
+
+            if (GameResources.CMS.DebugRun.AsEntity().Is<DebugRunTag>(out var tag) && tag.OverrideEconomy != -1)
+            {
+                _economySaveModel.Data.Money = tag.OverrideEconomy;
+                _economySaveModel.ForceSave();
+            }
         }
 
         public bool CanSpend(float money)

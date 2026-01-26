@@ -17,6 +17,10 @@ namespace jam.CodeBase.Tasks
             var range = UnityEngine.Random.Range(0, 60f);
             Debug.Log("Rand of russion rullet: " + range + ". Alive if less 10");
             var isAlive = range > 10;
+            G.BoxAnimator.PlayAnimation(BoxAnimationType.Gun);
+            
+            await UniTask.WaitForSeconds(5.5f);
+            
             G.CharacterAnimator.PlayAnimation(AnimationType.RussianRullete);
             await UniTask.WaitForSeconds(2);
 

@@ -1,0 +1,67 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "box1",
+			"GroupId": "",
+			"Name": "box1 vis"
+		},
+		{
+			"Id": "box2",
+			"GroupId": "",
+			"Name": "box2 vis"
+		},
+		{
+			"Id": "shake",
+			"GroupId": "",
+			"Name": "shake"
+		},
+		{
+			"Id": "rotate",
+			"GroupId": "",
+			"Name": "rotate"
+		},
+		{
+			"Id": "big",
+			"GroupId": "",
+			"Name": "big box"
+		},
+		{
+			"Id": "pills",
+			"GroupId": "",
+			"Name": "vis pills"
+		},
+		{
+			"Id": "sig",
+			"GroupId": "",
+			"Name": "vis sig"
+		},
+		{
+			"Id": "bandage",
+			"GroupId": "",
+			"Name": "vis bandage"
+		},
+		{
+			"Id": "phone",
+			"GroupId": "",
+			"Name": "vis phone"
+		},
+		{
+			"Id": "bottle",
+			"GroupId": "",
+			"Name": "vis bottle"
+		},
+		{
+			"Id": "gun",
+			"GroupId": "",
+			"Name": "vis gun"
+		},
+		{
+			"Id": "drop",
+			"GroupId": "",
+			"Name": "subject drop"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": []
+}

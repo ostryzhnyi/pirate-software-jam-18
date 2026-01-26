@@ -82,18 +82,20 @@ namespace jam.CodeBase.Character
             {
                 CurrentHealth -= amount * ModifierTag.PainThreshold;
 
-                if (IsDieHP())
-                {
-                    var dies = G.Interactors.GetAll<IDieHealthCharacter>();
-                    foreach (var dy in dies)
-                    {
-                        await dy.OnDie(this);
-                    }
-                }
+              
             }
 
             OnHealthUpdated?.Invoke(CurrentHealth);
+            if (IsDieHP())
+            {
+                var dies = G.Interactors.GetAll<IDieHealthCharacter>();
 
+                await UniTask.WaitForSeconds(1f);
+                foreach (var dy in dies)
+                {
+                    await dy.OnDie(this);
+                }
+            }
             Debug.LogError("Update HP to: " + CurrentHealth);
             Save();
         }
@@ -104,14 +106,7 @@ namespace jam.CodeBase.Character
             {
                 CurrentStress += amount * ModifierTag.StressResistance;
 
-                if (IsDieStress())
-                {
-                    var dies = G.Interactors.GetAll<IDieStressCharacter>();
-                    foreach (var dy in dies)
-                    {
-                        await dy.OnDie(this);
-                    }
-                }
+              
             }
             else if (method == StatsChangeMethod.Remove)
             {
@@ -122,7 +117,16 @@ namespace jam.CodeBase.Character
             }
 
             OnStressUpdated?.Invoke(CurrentStress);
-
+            if (IsDieStress())
+            {
+                await UniTask.WaitForSeconds(1f);
+                    
+                var dies = G.Interactors.GetAll<IDieStressCharacter>();
+                foreach (var dy in dies)
+                {
+                    await dy.OnDie(this);
+                }
+            }
             Debug.LogError("Update stress to: " + CurrentStress);
             Save();
         }

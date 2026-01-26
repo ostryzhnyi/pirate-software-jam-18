@@ -156,8 +156,6 @@ namespace jam.CodeBase.Tasks
 
             var wonTask = Donates.OrderByDescending(p => p.Value).FirstOrDefault();
 
-            G.Interactors.CallAll<IFinishDonatesProcess>(t =>
-            t.OnFinishDonates(tasks.Item1, wonTask.Key, wonTask.Value));
             G.Menu.HUD.DonateHUDButton.SetAmount(0);
             DonateProgress = 0;
 
@@ -166,11 +164,15 @@ namespace jam.CodeBase.Tasks
             
             await wonTask.Key.Execute();
 
+            G.Interactors.CallAll<IFinishDonatesProcess>(t =>
+                t.OnFinishDonates(tasks.Item1, wonTask.Key, wonTask.Value));
+            
             foreach (var statsAfforded in wonTask.Key.StatsAfforded)
             {
                 G.Characters.CurrentCharacter.ApplyStatsAfforded(statsAfforded);
             }
 
+            
             G.Room.TVAnimator.Play(TVAnimation.SmokeTime, 3f);
             
             G.CharacterAnimator.PlayAnimation(AnimationType.Smoking);

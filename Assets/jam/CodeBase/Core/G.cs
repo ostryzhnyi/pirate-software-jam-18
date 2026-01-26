@@ -13,6 +13,7 @@ using jam.CodeBase.Room;
 using jam.CodeBase.Stream;
 using jam.CodeBase.Tasks;
 using Ostryzhnyi.EasyViewService.Api.Service;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
@@ -31,6 +32,7 @@ namespace jam.CodeBase.Core
         public static IViewService GlobalViewService;
         public static DaysController DaysController => StreamController.DaysController;
         public static CharacterAnimator CharacterAnimator;
+        public static BoxAnimator BoxAnimator;
         public static RoomLogic Room;
         public static ChatMiniGame ChatMiniGame;
      
@@ -106,6 +108,18 @@ namespace jam.CodeBase.Core
                 if(!isComplete)
                     break;
             }
+        }
+
+        [Button]
+        public void AddStress(float stress = 99999)
+        {
+            G.Characters.CurrentCharacter.ChangeStress(stress, StatsChangeMethod.Add).Forget();
+        }
+
+        [Button]
+        public void AddHp(float stress = 99999)
+        {
+            G.Characters.CurrentCharacter.ChangeHP(stress, StatsChangeMethod.Remove).Forget();
         }
 
         public static void Alive()
