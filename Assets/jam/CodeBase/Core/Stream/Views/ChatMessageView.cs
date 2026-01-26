@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
+using jam.CodeBase.Economy;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,8 @@ namespace jam.CodeBase.Stream.View
         [SerializeField] private ScrollRect _scrollRect;
         [SerializeField] private TMP_Text _streamDayText;
         [SerializeField] private Color[] _senderColors;
+        
+        public IReadOnlyList<ChatElementView> Elements => _elements;
 
         private List<ChatElementView> _elements = new List<ChatElementView>();
         private Dictionary<string, Color> _userSenderIconDictionary = new();
@@ -54,7 +57,10 @@ namespace jam.CodeBase.Stream.View
 
         private void Update()
         {
-            _streamDayText.text = $"STREAM DAY: {G.StreamController.DaysController.CurrentDay} / 3";
+            var day = G.StreamController.DaysController.CurrentDay > 0
+                ? G.StreamController.DaysController.CurrentDay
+                : 1;
+            _streamDayText.text = $"STREAM DAY: {day} / 3";
         }
 
         private void OnDayUpdated(int day)
@@ -72,6 +78,11 @@ namespace jam.CodeBase.Stream.View
             _elements.Clear();
         }
 
+        public void SetScrollState(bool active)
+        {
+            _scrollRect.enabled = active;
+        }
+
         public async void OnMessageReceived(ChatMessage messageData)
         {
             var message = messageData.Type switch
@@ -82,6 +93,27 @@ namespace jam.CodeBase.Stream.View
                 _ => Instantiate(_prefab, _parent)
             };
             message.SetupMessage(messageData, GetSenderColor(messageData.Sender));
+            message.gameObject.SetActive(true);
+            _elements.Add(message);
+            await UniTask.DelayFrame(1);
+            _scrollRect.verticalNormalizedPosition = 0;
+        }
+
+        public async UniTask OnMessageReceived(ChatMiniGameMessage messageData, Action<ChatElementView> onClick)
+        {
+            var message = messageData.Type switch
+            {
+                MessageDataType.Donate => Instantiate(_donateMessage, _parent),
+                MessageDataType.Positive => Instantiate(_positiveMessage, _parent),
+                MessageDataType.Negative => Instantiate(_negativeMessage, _parent),
+                _ => Instantiate(_prefab, _parent)
+            };
+            message.SetupMessage(messageData, GetSenderColor(messageData.Author), (elementView) =>
+            {
+                onClick?.Invoke(elementView);
+                Destroy(elementView.gameObject);
+                _elements.Remove(elementView);
+            });
             message.gameObject.SetActive(true);
             _elements.Add(message);
             await UniTask.DelayFrame(1);

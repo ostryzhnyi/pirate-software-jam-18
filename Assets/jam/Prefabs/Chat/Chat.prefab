@@ -222,7 +222,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4870616017929587963}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -231,9 +231,9 @@ RectTransform:
   - {fileID: 2917356239509120009}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.71784353, y: 0.16189551}
-  m_AnchorMax: {x: 0.71784353, y: 0.16189551}
-  m_AnchoredPosition: {x: 239, y: 328.508}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 613.6909, y: 36.047607}
   m_SizeDelta: {x: 445, y: 675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1826771451045419952
@@ -288,6 +288,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::jam.CodeBase.Stream.View.ChatMessageView
   _prefab: {fileID: 7812001330504845027, guid: dcc3b024885c58f4d9c0f37e579a3fa1, type: 3}
   _donateMessage: {fileID: 4822483572927201734, guid: 5f58e622f7c33c145aadf056ecd78e68, type: 3}
+  _positiveMessage: {fileID: 7812001330504845027, guid: 6b4165c0046f7db44a8c14ff90e4b7cb, type: 3}
+  _negativeMessage: {fileID: 7812001330504845027, guid: 29895893d17f8eb42b48e0bf30423473, type: 3}
   _parent: {fileID: 5283937799399794845}
   _scrollRect: {fileID: 4164327228036324809}
   _streamDayText: {fileID: 6867135140954316853}

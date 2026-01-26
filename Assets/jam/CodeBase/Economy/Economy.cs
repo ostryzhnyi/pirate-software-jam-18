@@ -45,6 +45,10 @@ namespace jam.CodeBase.Economy
         public void AddMoney(float money)
         {
             _economySaveModel.Data.Money += money;
+
+            if (_economySaveModel.Data.Money < 0)
+                _economySaveModel.Data.Money = 0;
+            
             OnMoneyChanged?.Invoke(_economySaveModel.Data.Money);
             
             _economySaveModel.ForceSave();

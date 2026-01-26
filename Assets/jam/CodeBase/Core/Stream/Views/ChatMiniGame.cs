@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using jam.CodeBase.Character;
 using jam.CodeBase.Economy;
+using jam.CodeBase.Stream;
 using jam.CodeBase.Stream.View;
+using ProjectX.CodeBase.Utils;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace jam.CodeBase.Core.Stream.Views
 {
@@ -12,45 +18,98 @@ namespace jam.CodeBase.Core.Stream.Views
         public Transform Parent;
         public Transform Chat;
         public ChatMessageView ChatMessageView;
+        public Image _background;
 
         private Transform _baseParent;
         private Vector3 _baseScale;
         private Vector3 _basePos;
+        private ChatMiniGameEconomy balance;
+        private ChatMiniGameMessage[] messages;
+        private List<ChatMiniGameMessage> goodMessage;
+        private List<ChatMiniGameMessage> badMessage;
+
+        private float _minusMoney;
+        private float _plusMoney;
+        private float _stress;
+        
         
         private void Awake()
         {
+            G.ChatMiniGame = this;
             _baseParent = Chat.parent;
             _baseScale = Chat.localScale;
             _basePos = Chat.localPosition;
+            balance = GameResources.CMS.ChatMiniGame.ChatMiniGameBalance.As<ChatMiniGameEconomy>();
+            
+            messages = GameResources.CMS.ChatMiniGame.ChatMiniMessages.As<ChatMiniGameMessages>().Messages;
+            goodMessage = messages.Where(m => m.Type == MessageDataType.Positive).ToList();
+            badMessage = messages.Where(m => m.Type == MessageDataType.Negative).ToList();
+        }
+
+        private void OnDestroy()
+        {
+            G.ChatMiniGame = null;
         }
 
         public async UniTask Play()
         {
+            gameObject.SetActive(true);
             ChatMessageView.Unsubscribe();
             ChatMessageView.Clear();
-            
+            ChatMessageView.SetScrollState(false);
             Chat.parent = Parent;
-            Chat.DOLocalMove(Vector3.one, .5f);
-            Chat.DOScale(Vector3.one, .5f);
+            (Chat as RectTransform).DOAnchorPos(Vector3.one, .5f);
+            Chat.DOScale(1.12f, .5f);
             await UniTask.WaitForSeconds(.5f);
-            // var balance = GameResources.CMS.ChatMiniGameBalance.As<ChatMiniGameEconomy>();
-            // var duration = balance.Duration;
-            // while (duration > 0)
-            // {
-            //
-            //     await UniTask.WaitForSeconds(1);
-            //     duration -= 1;
-            // }
-            //
+            _background.DOFade(.85f, .5f);
+            
+            var duration = balance.Duration;
+            while (duration > 0)
+            {
+                for (int i = 0; i < balance.OneMessagePerSecondRange.GetRandomRange(); i++)
+                {
+                    var message = balance.GoodMesssagePercentRange.GetRandomRange() > 50 ? goodMessage.GetRandom() : badMessage.GetRandom();
+                    await ChatMessageView.OnMessageReceived(message, OnClick);
+                }
+                await UniTask.WaitForSeconds(1);
+                duration -= 1;
+            }
+            
+            var lostBedMessageCount = ChatMessageView.Elements.Count(e => e.Data.Type == MessageDataType.Negative);
+            _minusMoney += lostBedMessageCount * balance.BedMesssageSkipped;
+            _stress +=  lostBedMessageCount * balance.BedMesssageSkippedStess;
 
+            Debug.LogError("Mini game minus money: " + _minusMoney);
+            Debug.LogError("Mini game add stress: " + _stress);
+            Debug.LogError("Mini game plus money: " + _plusMoney);
 
-
+            G.Characters.CurrentCharacter.ChangeStress(_stress, StatsChangeMethod.Add).Forget();
+            var totalMoney = _plusMoney -  _minusMoney;
+            G.Economy.AddMoney(totalMoney);
+            
+            _background.DOFade(0f, .5f);
+            
             Chat.parent = _baseParent;
             Chat.DOLocalMove(_basePos, .5f);
             Chat.DOScale(_baseScale, .5f);
             await UniTask.WaitForSeconds(.5f);
             ChatMessageView.Subscribe();
             ChatMessageView.Clear();
+            gameObject.SetActive(false);
+            ChatMessageView.SetScrollState(true);
+        }
+
+        private void OnClick(ChatElementView message)
+        {
+            if (message.Data.Type == MessageDataType.Negative)
+            {
+                _plusMoney += balance.BedMesssageDeleted;
+            }
+            else if (message.Data.Type == MessageDataType.Positive)
+            {
+                _minusMoney += balance.GoodMesssageDelete;
+            }
+            
         }
     }
 }

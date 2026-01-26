@@ -13,7 +13,8 @@ namespace jam.CodeBase.Tasks.Interactors
 
         public UniTask<bool> OnLoaded(RunSaveModel runSaveModel)
         {
-            G.Donate.DonateExecuteProcess().Forget();
+            // G.Donate.DonateExecuteProcess().Forget();
+            G.ChatMiniGame.Play().Forget();
             return UniTask.FromResult(true);
         }
     }

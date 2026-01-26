@@ -56,7 +56,7 @@ MonoBehaviour:
         Duration: 30
         OneMessagePerSecondRange: {x: 1, y: 2}
         GoodMesssagePercentRange: {x: 0, y: 75}
-        GoodMesssageDelete: -10
-        BedMesssageSkipped: -20
+        GoodMesssageDelete: 10
+        BedMesssageSkipped: 20
         BedMesssageDeleted: 20
         BedMesssageSkippedStess: 2
