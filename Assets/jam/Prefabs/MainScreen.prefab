@@ -882,7 +882,7 @@ MonoBehaviour:
   FTUEText: {fileID: 5828812288508825723}
   FTUEDonatePointer: {fileID: 6500117360388049400}
   StreamScreenGlitches: {fileID: 7863379908843645614}
-  ScreenEffect: {fileID: 0}
+  ScreenEffect: {fileID: 2301480637132185143}
 --- !u!1 &1412219567448851227
 GameObject:
   m_ObjectHideFlags: 0
