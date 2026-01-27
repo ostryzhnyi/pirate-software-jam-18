@@ -66,6 +66,7 @@ public static class GameResources
         public static CMSEntityPfb BaseEconomy => Resources.Load<CMSEntityPfb>("CMS/BaseEconomy");
         public static CMSEntityPfb CMSEntity => Resources.Load<CMSEntityPfb>("CMS/CMSEntity");
         public static CMSEntityPfb DebugRun => Resources.Load<CMSEntityPfb>("CMS/DebugRun");
+        public static CMSEntityPfb Glitches => Resources.Load<CMSEntityPfb>("CMS/Glitches");
     }
     public static class VFX
     {

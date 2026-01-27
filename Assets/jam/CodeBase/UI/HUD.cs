@@ -22,6 +22,7 @@ namespace jam.CodeBase.UI
         public Image FTUEImage;
         public TMP_Text FTUEText;
         public GameObject FTUEDonatePointer;
+        public RawImage StreamScreenGlitches;
 
         private int donateButtonSiblingIndex;
         private Transform baseDonateParent;

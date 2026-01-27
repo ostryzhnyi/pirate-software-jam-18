@@ -881,6 +881,7 @@ MonoBehaviour:
   FTUEImage: {fileID: 7877769361208510011}
   FTUEText: {fileID: 5828812288508825723}
   FTUEDonatePointer: {fileID: 6500117360388049400}
+  StreamScreenGlitches: {fileID: 7863379908843645614}
 --- !u!1 &1412219567448851227
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,7 +2341,6 @@ GameObject:
   - component: {fileID: 1858670854813795586}
   - component: {fileID: 8765930217143409099}
   - component: {fileID: 7863379908843645614}
-  - component: {fileID: 8902206404466584103}
   m_Layer: 5
   m_Name: Stream
   m_TagString: Untagged
@@ -2387,7 +2387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 0980438b4332ba9439ae8a02aa698236, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2402,22 +2402,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &8902206404466584103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4370268850736093931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AllIn1SpriteShaderAssembly::AllIn1SpriteShader.AllIn1Shader
-  currentShaderType: 0
-  normalStrength: 5
-  normalSmoothing: 1
-  computingNormal: 0
 --- !u!1 &4372424266228747108
 GameObject:
   m_ObjectHideFlags: 0
@@ -5382,6 +5366,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1695084551923034853, guid: 6b4165c0046f7db44a8c14ff90e4b7cb, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290401134410717912, guid: 6b4165c0046f7db44a8c14ff90e4b7cb, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4713887366096291078, guid: 6b4165c0046f7db44a8c14ff90e4b7cb, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -6133,12 +6125,20 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6409576962806799257, guid: 29895893d17f8eb42b48e0bf30423473, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6877661647738951226, guid: 29895893d17f8eb42b48e0bf30423473, type: 3}
       propertyPath: m_Name
       value: ChatElementNegative
       objectReference: {fileID: 0}
     - target: {fileID: 6877661647738951226, guid: 29895893d17f8eb42b48e0bf30423473, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7123736130702830500, guid: 29895893d17f8eb42b48e0bf30423473, type: 3}
+      propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7812001330504845027, guid: 29895893d17f8eb42b48e0bf30423473, type: 3}

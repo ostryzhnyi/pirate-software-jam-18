@@ -9,6 +9,7 @@ using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
 using jam.CodeBase.Core.Stream.Views;
 using jam.CodeBase.GameLoop;
+using jam.CodeBase.Glitches;
 using jam.CodeBase.Room;
 using jam.CodeBase.Stream;
 using jam.CodeBase.Tasks;
@@ -35,6 +36,7 @@ namespace jam.CodeBase.Core
         public static BoxAnimator BoxAnimator;
         public static RoomLogic Room;
         public static ChatMiniGame ChatMiniGame;
+        public static GlitchesController Glitches;
      
         public static AudioController Audio;
         

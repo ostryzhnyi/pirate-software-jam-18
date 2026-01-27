@@ -4,6 +4,7 @@ using jam.CodeBase.Bets;
 using jam.CodeBase.Character;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
+using jam.CodeBase.Glitches;
 using Ostryzhnyi.EasyViewService.Impl.Service;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,6 +25,7 @@ namespace jam.CodeBase.Core
             G.Economy = new Economy.Economy();
             G.Characters = new Characters();
             G.BetController = new BetController();
+            G.Glitches = new GlitchesController();
             
             SpawnG();
             SpawnAudioController();
