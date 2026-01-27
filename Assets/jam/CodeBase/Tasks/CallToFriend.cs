@@ -13,7 +13,11 @@ namespace jam.CodeBase.Tasks
         {
             Debug.LogError("EnableMusicOnNightTask");
             G.Room.TVAnimator.Play(TVAnimation.CallFriend, 4f);
-
+            
+            G.BoxAnimator.PlayAnimation(BoxAnimationType.Phone);
+            
+            await UniTask.WaitForSeconds(5.5f);
+            
             G.CharacterAnimator.PlayAnimation(AnimationType.Call);
 
             await UniTask.WaitForSeconds(4);

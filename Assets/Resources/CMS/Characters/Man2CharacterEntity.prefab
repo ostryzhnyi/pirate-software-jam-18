@@ -58,7 +58,7 @@ MonoBehaviour:
     - rid: 3433833492070269053
       type: {class: CharacterTag, ns: jam.CodeBase.Character.Data, asm: Assembly-CSharp}
       data:
-        Age: 0
+        Age: 38
         Texture2D: {fileID: 2800000, guid: b5ebf72af19314744b322b0cd04cc236, type: 3}
     - rid: 4608936542719443195
       type: {class: NameTag, ns: jam.CodeBase.Core.Tags, asm: Assembly-CSharp}
@@ -75,14 +75,14 @@ MonoBehaviour:
       type: {class: StatsTag, ns: jam.CodeBase.Character.Data, asm: Assembly-CSharp}
       data:
         Health: 105
-        Stress: 110
-        MaxStress: 100
+        Stress: 0
+        MaxStress: 110
         MinHP: 0
     - rid: 4608936542719443201
       type: {class: StatsModifierTag, ns: jam.CodeBase.Character.Data, asm: Assembly-CSharp}
       data:
-        PainThreshold: 0.42
-        StressResistance: 0.563
+        PainThreshold: 1
+        StressResistance: 1
     - rid: 4608936542719443205
       type: {class: TagSprite, ns: Runtime, asm: CMS}
       data:

@@ -27,14 +27,31 @@ namespace jam.CodeBase
                 
                 runSaveModel.ForceSave();
             }
+            
+            if (GameResources.CMS.DebugRun.AsEntity().Is<DebugRunTag>(out var tag))
+            {
+                if (tag.OverrideDay != -1)
+                {
+                    runSaveModel.Data.DayNumber = tag.OverrideDay;
+                    Debug.LogError("OVVERIDE CURRENT  DAY: " + runSaveModel.Data.DayNumber);
+                    
+                }
+                if (tag.OverrideCurentDonate != -1)
+                {
+                    runSaveModel.Data.CurrentDonateNumberInDay = tag.OverrideCurentDonate;
+                    Debug.LogError("OVVERIDE OverrideCurentDonate: " +  tag.OverrideCurentDonate);
+                }
+                runSaveModel.ForceSave();
+            }
+            
             try
             {
-                G.DaysController.SetDay(runSaveModel.Data.DayNumber);
+                G.DaysController.SetDay(runSaveModel.Data.DayNumber).Forget();
             }
             catch (Exception e)
             {
                 Debug.LogError(e);
-                G.DaysController.SetDay(1);
+                G.DaysController.SetDay(1).Forget();
             }
             
             G.Room.TVAnimator.Play(TVAnimation.WorldIsWatching, int.MaxValue);
@@ -52,6 +69,7 @@ namespace jam.CodeBase
         public async UniTask OnDie(Character.Character character)
         {
             G.Room.TVAnimator.Play(TVAnimation.GameOver, 4f);
+            G.CharacterAnimator.PlayMoveAnim(8).Forget();
             
             await UniTask.WaitForSeconds(4f);        
 
@@ -61,6 +79,7 @@ namespace jam.CodeBase
         async UniTask  IDieHealthCharacter.OnDie(Character.Character character)
         {
             G.Room.TVAnimator.Play(TVAnimation.GameOver, 4f);
+            G.CharacterAnimator.PlayMoveAnim(8).Forget();
             
             await UniTask.WaitForSeconds(4f);        
             

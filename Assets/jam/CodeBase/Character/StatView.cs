@@ -18,6 +18,7 @@ namespace jam.CodeBase.Character
             _progressArrow.sprite = _progressBar.fillAmount < value ? _positiveProgress : _negativeProgress;
             _progressArrow.material.SetFloat("_TextureScrollYSpeed", _progressBar.fillAmount < value ? -1f : 1f);
             _progressBar.DOFillAmount(value, 1f).SetEase(Ease.InExpo);
+            
         }
         
         public void UpdateWithoutNotifyValue(float value)

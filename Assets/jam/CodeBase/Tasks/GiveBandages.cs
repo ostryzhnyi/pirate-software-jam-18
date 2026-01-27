@@ -1,5 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Character;
+using jam.CodeBase.Core;
 using UnityEngine;
 
 namespace jam.CodeBase.Tasks
@@ -7,10 +9,12 @@ namespace jam.CodeBase.Tasks
     [Serializable]
     public class GiveBandages : BaseTask
     {
-        public override UniTask Execute()
+        public override async UniTask Execute()
         {
             Debug.LogError("GiveBandages");
-            return UniTask.CompletedTask;
+            G.BoxAnimator.PlayAnimation(BoxAnimationType.Bandage);
+            
+            await UniTask.WaitForSeconds(5.5f);
         }
     }
 

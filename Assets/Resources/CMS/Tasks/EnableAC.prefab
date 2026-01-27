@@ -67,10 +67,10 @@ MonoBehaviour:
         Name: Turn coldest
         StatsAfforded:
         - StatsType: 0
-          ValueRange: {x: 15, y: 25}
+          ValueRange: {x: 45, y: 55}
           Method: 1
         - StatsType: 1
-          ValueRange: {x: 10, y: 20}
+          ValueRange: {x: 25, y: 35}
           Method: 0
         TaskTarget: 0
     - rid: 4608936542719443226

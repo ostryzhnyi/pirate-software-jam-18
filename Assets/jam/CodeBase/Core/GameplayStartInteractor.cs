@@ -64,8 +64,20 @@ namespace jam.CodeBase.Core
 
         private static void UpdateHUD()
         {
-            G.Menu.HUD.StatsView.UpdateStress(G.Characters.CurrentCharacter.CurrentStress, true).Forget();
-            G.Menu.HUD.StatsView.UpdateHP(G.Characters.CurrentCharacter.CurrentHealth, true).Forget();
+            G.Menu.HUD.StatsView.UpdateStress(G.Characters.CurrentCharacter.BaseStress / G.Characters.CurrentCharacter.MaxStress, true).Forget();
+            G.Menu.HUD.StatsView.UpdateHP(G.Characters.CurrentCharacter.CurrentHealth / G.Characters.CurrentCharacter.BaseHP , true).Forget();
+            switch (G.Characters.CurrentCharacter.CurrentHealth)
+            {
+                case >= 66:
+                    G.CharacterAnimator.PlayAnimation(AnimationType.FineHP);
+                    break;
+                case < 66 and >= 33:
+                    G.CharacterAnimator.PlayAnimation(AnimationType.NormalHP);
+                    break;
+                default:
+                    G.CharacterAnimator.PlayAnimation(AnimationType.BadHP);
+                    break;
+            }
         }
     }
 }

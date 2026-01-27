@@ -14,7 +14,7 @@ namespace jam.CodeBase.Tasks
             Debug.LogError("EnableAC");
             G.Room.FanAnimator.Play(false);
             
-            G.CharacterAnimator.PlayAnimation(AnimationType.SetHappy);
+            G.CharacterAnimator.PlayAnimation(AnimationType.SetSad);
             
             await UniTask.WaitForSeconds(4);
             G.Room.FanAnimator.Stop();

@@ -73,13 +73,20 @@ namespace jam.CodeBase.Tasks
             float duration = tasks.Item1.Duration;
 
             float remainingDonate = fullDonate;
-
             int currentSecond = 0;
 
             while (time > 0)
             {
                 if(G.FinishRun)
                     return;
+
+                if (duration / 2 > time)
+                {
+                    while (!G.Saves.Get<FTUESaveModel>().Data.ShowedDonateFTUE)
+                    {
+                        await UniTask.WaitForSeconds(1);
+                    }
+                }
                 
                 time--;
                 G.Menu.HUD.DonateHUDButton.SetAmount(time / duration);
@@ -87,6 +94,7 @@ namespace jam.CodeBase.Tasks
                 if (currentSecond < totalSeconds && remainingDonate > 0f)
                 {
               
+                    
                     float donateAmount = oneDonate * economyTag.OneDonateRandMultiplier.GetRandomRange();
 
                     if (donateAmount > remainingDonate)
@@ -122,34 +130,32 @@ namespace jam.CodeBase.Tasks
                 await UniTask.WaitForSeconds(1f);
             }
 
-            if (remainingDonate > 0f)
-            {
-                try
-                {
-                    var currentTargetDonate = GetCurrentTarget();
-                    var task = BaseTasks.FirstOrDefault(t => t.TaskTarget == currentTargetDonate);
-                    if (task != null)
-                    {
-                        G.Interactors.CallAll<IDonate>(d => d.Donate(task, remainingDonate));
-                    }
-                    else
-                    {
-                        G.Interactors.CallAll<IDonate>(d => d.Donate(BaseTasks.GetRandom(), remainingDonate));
-                        UnityEngine.Debug.LogError(
-                            $"Not found final target for {TaskDefinition.Description}");
-                    }
-                }
-                catch (Exception e)
-                {
-                    UnityEngine.Debug.LogError(e);
-                    G.Interactors.CallAll<IDonate>(d => d.Donate(BaseTasks.GetRandom(), remainingDonate));
-                }
-            }
+            // if (remainingDonate > 0f)
+            // {
+            //     try
+            //     {
+            //         var currentTargetDonate = GetCurrentTarget();
+            //         var task = BaseTasks.FirstOrDefault(t => t.TaskTarget == currentTargetDonate);
+            //         if (task != null)
+            //         {
+            //             G.Interactors.CallAll<IDonate>(d => d.Donate(task, remainingDonate));
+            //         }
+            //         else
+            //         {
+            //             G.Interactors.CallAll<IDonate>(d => d.Donate(BaseTasks.GetRandom(), remainingDonate));
+            //             UnityEngine.Debug.LogError(
+            //                 $"Not found final target for {TaskDefinition.Description}");
+            //         }
+            //     }
+            //     catch (Exception e)
+            //     {
+            //         UnityEngine.Debug.LogError(e);
+            //         G.Interactors.CallAll<IDonate>(d => d.Donate(BaseTasks.GetRandom(), remainingDonate));
+            //     }
+            // }
 
             var wonTask = Donates.OrderByDescending(p => p.Value).FirstOrDefault();
 
-            G.Interactors.CallAll<IFinishDonatesProcess>(t =>
-            t.OnFinishDonates(tasks.Item1, wonTask.Key, wonTask.Value));
             G.Menu.HUD.DonateHUDButton.SetAmount(0);
             DonateProgress = 0;
 
@@ -158,11 +164,15 @@ namespace jam.CodeBase.Tasks
             
             await wonTask.Key.Execute();
 
+            G.Interactors.CallAll<IFinishDonatesProcess>(t =>
+                t.OnFinishDonates(tasks.Item1, wonTask.Key, wonTask.Value));
+            
             foreach (var statsAfforded in wonTask.Key.StatsAfforded)
             {
                 G.Characters.CurrentCharacter.ApplyStatsAfforded(statsAfforded);
             }
 
+            
             G.Room.TVAnimator.Play(TVAnimation.SmokeTime, 3f);
             
             G.CharacterAnimator.PlayAnimation(AnimationType.Smoking);
@@ -184,31 +194,29 @@ namespace jam.CodeBase.Tasks
             }
             else
             {
-                var tasks = CMS.GetAll<CMSEntity>()
-                    .Where(e => e.Is<TaskDefinition>())
-                    .Where(e => !e.Is<PlayRussianRoulette>())
-                    .Where(e => !e.Is<IgnoreTag>())
-                    .Where(e => !runSave.CompletedTask.Contains(e.id))
-                    .Where(e => !e.Is<RequireItem>() || runSave.ObtainedItems.Contains(e.Get<RequireItem>().ItemName))
-                    .ToList();
-
-                if (tasks.Count == 0)
+                List<CMSEntity> tasks;
+                if (GameResources.CMS.DebugRun.AsEntity().Is<DebugRunTag>(out var tag) && tag.DebugTask is
+                    {
+                        Count: > 0
+                    })
                 {
-                    Debug.LogError("NOT HAVE TASK");
-                    runSave.CompletedTask.Clear();
+                    tasks = tag.DebugTask.Select(d => d.AsEntity()).ToList();
+                }
+                else
+                {
+                    tasks = GetTasks(runSave);
 
-                    tasks = CMS.GetAll<CMSEntity>()
-                        .Where(e => e.Is<TaskDefinition>())
-                        .Where(e => !e.Is<PlayRussianRoulette>())
-                        .Where(e => !e.Is<IgnoreTag>())
-                        .Where(e => !runSave.CompletedTask.Contains(e.id))
-                        .Where(e => !e.Is<RequireItem>() ||
-                                    runSave.ObtainedItems.Contains(e.Get<RequireItem>().ItemName))
-                        .ToList();
+                    if (tasks.Count == 0)
+                    {
+                        Debug.LogError("NOT HAVE TASK");
+                        runSave.CompletedTask.Clear();
+
+                        tasks = GetTasks(runSave);
+
+                    }
                 }
 
-                randTask = tasks[UnityEngine.Random.Range(0, tasks.Count)];
-                ;
+                randTask = tasks[Random.Range(0, tasks.Count)];
             }
 
 
@@ -216,6 +224,18 @@ namespace jam.CodeBase.Tasks
             var baseTasks = randTask.components.OfType<BaseTask>().ToList();
 
             return (taskDefinition, baseTasks, randTask.id);
+        }
+
+        private static List<CMSEntity> GetTasks(RunSaveData runSave)
+        {
+            return CMS.GetAll<CMSEntity>()
+                .Where(e => e.Is<TaskDefinition>())
+                .Where(e => !e.Is<PlayRussianRoulette>())
+                .Where(e => !e.Is<IgnoreTag>())
+                .Where(e => !runSave.CompletedTask.Contains(e.id))
+                .Where(e => !e.Is<RequireItem>() || runSave.ObtainedItems.Contains(e.Get<RequireItem>().ItemName))
+                .Where(e => G.DaysController.CurrentDay != 3 || e.id != "CMS/Tasks/GiftSleepPils")
+                .ToList();
         }
 
         private TaskTarget GetCurrentTarget()

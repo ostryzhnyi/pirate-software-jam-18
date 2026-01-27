@@ -8,99 +8,102 @@
 		"DisplayInfo": "gg.cdi3.json",
 		"Expressions": [
 			{
-				"Name": "expression1.exp3.json",
-				"File": "Blood.exp3.json"
+				"Name": "Blood.exp3.json",
+				"File": "expression/Blood.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json6",
-				"File": "wet hair.exp3.json"
+				"Name": "angry.exp3.json",
+				"File": "expression/angry.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json4",
-				"File": "tired eyes.exp3.json"
+				"Name": "bandage on the arm side.exp3.json",
+				"File": "expression/bandage on the arm side.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json8",
-				"File": "surprised eyes.exp3.json"
+				"Name": "blue pill.exp3.json",
+				"File": "expression/blue pill.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json2",
-				"File": "there is a bandage on the hand.exp3.json"
+				"Name": "bruises.exp3.json",
+				"File": "expression/bruises.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json3",
-				"File": "bandage on the arm side.exp3.json"
+				"Name": "lemonade.exp3.json",
+				"File": "expression/lemonade.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json5",
-				"File": "red pill.exp3.json"
+				"Name": "normal.exp3.json",
+				"File": "expression/normal.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json7",
-				"File": "blue pill.exp3.json"
+				"Name": "red pill.exp3.json",
+				"File": "expression/red pill.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json9",
-				"File": "lemonade.exp3.json"
+				"Name": "smile.exp3.json",
+				"File": "expression/smile.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json10",
-				"File": "water.exp3.json"
+				"Name": "surprised eyes.exp3.json",
+				"File": "expression/surprised eyes.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json11",
-				"File": "zigzag eyes.exp3.json"
+				"Name": "there is a bandage on the hand.exp3.json",
+				"File": "expression/there is a bandage on the hand.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json12",
-				"File": "bruises.exp3.json"
+				"Name": "tired eyes.exp3.json",
+				"File": "expression/tired eyes.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json13",
-				"File": "normal.exp3.json"
+				"Name": "water.exp3.json",
+				"File": "expression/water.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json14",
-				"File": "smile.exp3.json"
+				"Name": "wet hair.exp3.json",
+				"File": "expression/wet hair.exp3.json"
 			},
 			{
-				"Name": "expression1.exp3.json15",
-				"File": "angry.exp3.json"
+				"Name": "zigzag eyes.exp3.json",
+				"File": "expression/zigzag eyes.exp3.json"
 			}
 		],
 		"Motions": {
 			"": [
 				{
-					"File": "motions/Scene1.motion3.json"
+					"File": "motions/bottle.motion3.json"
 				},
 				{
-					"File": "motions/Scene10.motion3.json"
+					"File": "motions/drink.motion3.json"
 				},
 				{
-					"File": "motions/Scene2.motion3.json"
+					"File": "motions/folk.motion3.json"
 				},
 				{
-					"File": "motions/Scene3.motion3.json"
+					"File": "motions/gun.motion3.json"
 				},
 				{
-					"File": "motions/Scene4.motion3.json"
+					"File": "motions/head tilt.motion3.json"
 				},
 				{
-					"File": "motions/Scene5.motion3.json"
+					"File": "motions/phone.motion3.json"
 				},
 				{
-					"File": "motions/Scene6.motion3.json"
+					"File": "motions/pills.motion3.json"
 				},
 				{
-					"File": "motions/Scene7.motion3.json"
+					"File": "motions/shake.motion3.json"
 				},
 				{
-					"File": "motions/Scene9.motion3.json"
+					"File": "motions/smoke.motion3.json"
+				},
+				{
+					"File": "motions/turn head.motion3.json"
 				}
 			],
 			"Idle": [
 				{
-					"File": "motions/Scene8.motion3.json"
+					"File": "motions/idle.motion3.json"
 				}
 			]
 		}
@@ -108,12 +111,12 @@
 	"Groups": [
 		{
 			"Target": "Parameter",
-			"Name": "EyeBlink",
+			"Name": "LipSync",
 			"Ids": []
 		},
 		{
 			"Target": "Parameter",
-			"Name": "LipSync",
+			"Name": "EyeBlink",
 			"Ids": []
 		}
 	],

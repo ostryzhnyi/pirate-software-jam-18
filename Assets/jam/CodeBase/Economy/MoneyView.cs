@@ -13,7 +13,7 @@ namespace jam.CodeBase.Economy
 
         private void OnEnable()
         {
-            _money.SetText(G.Economy.CurrentMoney.ToString());
+            _money.SetText(((int)(G.Economy.CurrentMoney)).ToString());
             G.Economy.OnMoneyChanged += OnChange;
         }
 
@@ -24,7 +24,7 @@ namespace jam.CodeBase.Economy
 
         private void OnChange(float current)
         {
-            _money.DOFloatNumber(G.Economy.CurrentMoney, .2f);
+            _money.DOFloatNumber(G.Economy.CurrentMoney, .7f);
             _money.transform.DOPunchScale(Vector3.one * 0.1f, .2f);
         }
     }

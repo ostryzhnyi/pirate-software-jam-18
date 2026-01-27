@@ -28,7 +28,7 @@ namespace jam.CodeBase.Character
             _desc.SetText(character.Description);
             _age.SetText("Age: " +  character.Age);
             _health.SetText("Health: " + character.BaseHP);
-            _stress.SetText("Stress: " +  character.Age);
+            _stress.SetText("Stress: " +  character.BaseStress);
             _painThreashold.SetText("Pain threshold: " +  character.ModifierTag.GetStringPainThreshold());
             _stressResistance.SetText("Stress resistance: " +  character.ModifierTag.GetStringStressResistance());
             _image.sprite = character.Preview;

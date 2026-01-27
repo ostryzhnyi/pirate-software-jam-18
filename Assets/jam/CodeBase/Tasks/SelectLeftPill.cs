@@ -13,6 +13,10 @@ namespace jam.CodeBase.Tasks
         {
             Debug.LogError("TakeBluePill");
             G.CharacterAnimator.PlayAnimation(AnimationType.TakeBluePill);
+            G.BoxAnimator.PlayAnimation(BoxAnimationType.Pils);
+            
+            await UniTask.WaitForSeconds(5.5f);
+            
             G.Room.TVAnimator.Play(TVAnimation.ChooseRedOrBlue, 3f);
 
             await UniTask.WaitForSeconds(3);

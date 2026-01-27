@@ -67,10 +67,10 @@ MonoBehaviour:
         Name: Set the temperature to very hot
         StatsAfforded:
         - StatsType: 0
-          ValueRange: {x: 15, y: 25}
+          ValueRange: {x: 35, y: 40}
           Method: 1
         - StatsType: 1
-          ValueRange: {x: 10, y: 20}
+          ValueRange: {x: 30, y: 35}
           Method: 0
         TaskTarget: 0
     - rid: 4608936542719443226

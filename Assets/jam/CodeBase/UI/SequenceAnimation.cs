@@ -12,6 +12,8 @@ namespace jam.CodeBase.UI
 
         [SerializeField] private float _timeTick;
 
+        private bool _pause;
+
         private CancellationTokenSource _cancellationTokenSource;
         
         public async UniTask Play()
@@ -20,6 +22,11 @@ namespace jam.CodeBase.UI
             int i = 0;
             while (!_cancellationTokenSource.IsCancellationRequested)
             {
+                while(_pause)
+                {
+                    await UniTask.WaitForSeconds(_timeTick);
+                }
+                    
                 _image.sprite = _sequence[i];
                 i++;
                 
@@ -30,6 +37,11 @@ namespace jam.CodeBase.UI
         public void Stop()
         {
             _cancellationTokenSource.Cancel();
+        }
+
+        public void SetPause(bool pause)
+        {
+            _pause =  pause;
         }
 
         private void OnDestroy()

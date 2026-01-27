@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Core;
 using UnityEngine;
 
 namespace jam.CodeBase.Tasks
@@ -10,6 +11,10 @@ namespace jam.CodeBase.Tasks
         public override UniTask Execute()
         {
             Debug.LogError("EnableMusicOnNightTask");
+            foreach (var music in G.Room.Music)
+            {
+                music.Play();
+            }
             return UniTask.CompletedTask;
         }
     }

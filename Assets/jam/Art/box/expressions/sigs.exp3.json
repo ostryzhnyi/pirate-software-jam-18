@@ -1,0 +1,10 @@
+{
+	"Type": "Live2D Expression",
+	"Parameters": [
+		{
+			"Id": "sig",
+			"Value": -60,
+			"Blend": "Add"
+		}
+	]
+}

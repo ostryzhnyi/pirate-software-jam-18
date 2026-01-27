@@ -8,6 +8,9 @@ namespace jam.CodeBase.Room
     {
         public FanAnimator FanAnimator;
         public TVAnimator TVAnimator;
+        public ParticleSystem Steam;
+        public ParticleSystem Bee;
+        public ParticleSystem[] Music;
 
         private void Awake()
         {

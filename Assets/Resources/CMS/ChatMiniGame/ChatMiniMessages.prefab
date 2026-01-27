@@ -1,0 +1,309 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4703047008015293048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2537096692893693260}
+  - component: {fileID: 7006747429192221996}
+  m_Layer: 0
+  m_Name: ChatMiniMessages
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2537096692893693260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4703047008015293048}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7006747429192221996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4703047008015293048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1729a46f79086449a991b5512530e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CMS::CMSEntityPfb
+  idCMS: CMS/ChatMiniGame/ChatMiniMessages
+  Components:
+  - rid: 4608936708307419246
+  references:
+    version: 2
+    RefIds:
+    - rid: 4608936708307419246
+      type: {class: ChatMiniGameMessages, ns: jam.CodeBase.Economy, asm: Assembly-CSharp}
+      data:
+        Messages:
+        - Type: 4
+          Author: Well-wisher131313
+          Message: Well done, keep it up
+          CharacterAnswer: Thank you for your kind words.
+        - Type: 4
+          Author: sailor_-_
+          Message: Bro, everything will be ok
+          CharacterAnswer: Thank you for your kind words.
+        - Type: 4
+          Author: magical_girl1111
+          Message: Don't drift
+          CharacterAnswer: Thank you for your kind words.
+        - Type: 4
+          Author: Nicholas_Twiff14.05
+          Message: He will definitely survive.
+          CharacterAnswer: Thank you for your kind words.
+        - Type: 4
+          Author: housewife_with_a_catch
+          Message: He won't die in the toilet.
+          CharacterAnswer: Thank you for your kind words.
+        - Type: 4
+          Author: girl_with_a_dick
+          Message: Everything is fine, everything is fine
+          CharacterAnswer: Thank you for everything, it's important to me
+        - Type: 4
+          Author: I_have_a_big_faucet_in_the_backyard
+          Message: The world is burning, but I believe in you
+          CharacterAnswer: Thank you for everything, it's important to me
+        - Type: 4
+          Author: I_eat_tomatoes
+          Message: How awful) be patient
+          CharacterAnswer: Thank you for everything, it's important to me
+        - Type: 4
+          Author: "\u041Eldgray-hairedman\\/\\/\\/"
+          Message: You and I are friends)
+          CharacterAnswer: Thank you for everything, it's important to me
+        - Type: 4
+          Author: Trash_can
+          Message: I feel sorry for you (in a kind way)
+          CharacterAnswer: Thank you for everything, it's important to me
+        - Type: 4
+          Author: fatandkind
+          Message: I hope my donation can help you.
+          CharacterAnswer: Thank you for your support, I hope for you
+        - Type: 4
+          Author: FatKing666
+          Message: Hang in there bro)
+          CharacterAnswer: Thank you for your support, I hope for you
+        - Type: 4
+          Author: Yumiko
+          Message: (=_=)
+          CharacterAnswer: Thank you for your support, I hope for you
+        - Type: 4
+          Author: Chun_Huyun
+          Message: '>_<'
+          CharacterAnswer: Thank you for your support, I hope for you
+        - Type: 4
+          Author: "\u041Eldgray-hairedman\\/\\/\\/"
+          Message: I hope nothing bad happens to you. I'll be here with you, you're
+            not alone.
+          CharacterAnswer: Thank you for your support, I hope for you
+        - Type: 4
+          Author: master_of_desires1616
+          Message: Consider this my investment in making things better for you.
+          CharacterAnswer: I don't know how I can thank you for everything you do
+            for me.
+        - Type: 4
+          Author: Helios111
+          Message: You are doing cool things, keep up the good work.
+          CharacterAnswer: I don't know how I can thank you for everything you do
+            for me.
+        - Type: 4
+          Author: Percussion_in_purple_water
+          Message: Do it beautifully
+          CharacterAnswer: I don't know how I can thank you for everything you do
+            for me.
+        - Type: 4
+          Author: Percussion_in_purple_water
+          Message: Why are you here?
+          CharacterAnswer: I don't know how I can thank you for everything you do
+            for me.
+        - Type: 4
+          Author: Percussion_in_purple_water
+          Message: We will help you
+          CharacterAnswer: I don't know how I can thank you for everything you do
+            for me.
+        - Type: 4
+          Author: Gentle_bite_1_2_3
+          Message: I cry every time so that you don't get hurt.
+          CharacterAnswer: It is very precious... your warm words
+        - Type: 4
+          Author: Gentle_bite_1_2_3
+          Message: We are with you, brother.
+          CharacterAnswer: It is very precious... your warm words
+        - Type: 4
+          Author: Gentle_bite_1_2_3
+          Message: everything will be abgemacht
+          CharacterAnswer: It is very precious... your warm words
+        - Type: 4
+          Author: housewife_with_a_catch
+          Message: There's only a little time left, you can do it
+          CharacterAnswer: It is very precious... your warm words
+        - Type: 4
+          Author: FatKing666
+          Message: My neighbors and I chipped in a little for you.
+          CharacterAnswer: It is very precious... your warm words
+        - Type: 4
+          Author: I_eat_tomatoes
+          Message: It's sad to watch this(
+          CharacterAnswer: I will definitely do everything to make sure everything
+            is fine.
+        - Type: 4
+          Author: I_have_a_big_faucet_in_the_backyard
+          Message: You can handle it
+          CharacterAnswer: I will definitely do everything to make sure everything
+            is fine.
+        - Type: 4
+          Author: Nicholas_Twiff14.05
+          Message: I come here to help these people.
+          CharacterAnswer: I will definitely do everything to make sure everything
+            is fine.
+        - Type: 4
+          Author: KiryushaOloloev
+          Message: I don't like what's happening.
+          CharacterAnswer: I will definitely do everything to make sure everything
+            is fine.
+        - Type: 4
+          Author: magical_girl1111
+          Message: Can't anyone stop these horrors?
+          CharacterAnswer: I will definitely do everything to make sure everything
+            is fine.
+        - Type: 5
+          Author: MegaHater666
+          Message: Be patient, and soon you will die)
+          CharacterAnswer: Perhaps you are right...
+        - Type: 5
+          Author: MegaHater666
+          Message: I like to look at this.
+          CharacterAnswer: Perhaps you are right...
+        - Type: 5
+          Author: Bob_Dylan
+          Message: somebody hurt him
+          CharacterAnswer: Perhaps you are right...
+        - Type: 5
+          Author: BobDylanislordandmaster
+          Message: I hope he doesn't last long =)
+          CharacterAnswer: Perhaps you are right...
+        - Type: 5
+          Author: BobDylanislordandmaster
+          Message: The last money goes to donating to this trash.
+          CharacterAnswer: Perhaps you are right...
+        - Type: 5
+          Author: dark_summoner\13\/13/
+          Message: Please send him to the electric chair.
+          CharacterAnswer: I also hope that I won't live to see the end.
+        - Type: 5
+          Author: dark_summoner\13\/13/
+          Message: I hope he gets both poison pills.
+          CharacterAnswer: I also hope that I won't live to see the end.
+        - Type: 5
+          Author: BONESWALLOW
+          Message: What idiot decided to give him food?
+          CharacterAnswer: 
+        - Type: 5
+          Author: BONESWALLOW
+          Message: I prefer to see him suffer.
+          CharacterAnswer: I also hope that I won't live to see the end.
+        - Type: 5
+          Author: BONESWALLOW
+          Message: This worthless thing looks better beaten up
+          CharacterAnswer: I also hope that I won't live to see the end.
+        - Type: 5
+          Author: hawthorn_75vol
+          Message: Everyone abandoned him.
+          CharacterAnswer: I also hope that I won't live to see the end.
+        - Type: 5
+          Author: hawthorn_75vol
+          Message: The way is closed, today is your last day.
+          CharacterAnswer: Go to hell
+        - Type: 5
+          Author: hawthorn_75vol
+          Message: What is it like to feel like any day could be your last?
+          CharacterAnswer: Go to hell
+        - Type: 5
+          Author: snuff_lover666
+          Message: Bark like a dog
+          CharacterAnswer: Go to hell
+        - Type: 5
+          Author: snuff_lover666
+          Message: Where's the chain for this hand-me-down?
+          CharacterAnswer: Go to hell
+        - Type: 5
+          Author: snuff_lover666
+          Message: Why did you come here? You could have just hanged yourself at
+            home.
+          CharacterAnswer: Go to hell
+        - Type: 5
+          Author: the worse, the better
+          Message: Does he think his life is worth more than my salary?
+          CharacterAnswer: It will be over soon...it will be over soon
+        - Type: 5
+          Author: the worse, the better
+          Message: I can find fifty bucks to watch you suffer.
+          CharacterAnswer: It will be over soon...it will be over soon
+        - Type: 5
+          Author: cyborg_killer5552
+          Message: I like what I see
+          CharacterAnswer: It will be over soon...it will be over soon
+        - Type: 5
+          Author: cyborg_killer5552
+          Message: Why is he still alive?
+          CharacterAnswer: It will be over soon...it will be over soon
+        - Type: 5
+          Author: orphan_and_stepson
+          Message: I bet on death, please die for me
+          CharacterAnswer: It will be over soon...it will be over soon
+        - Type: 5
+          Author: orphan_and_stepson
+          Message: I also hope that he dies today, otherwise the day is too boring
+          CharacterAnswer: I wish you the same, only more
+        - Type: 5
+          Author: milfhunter906090
+          Message: Do you like pain?
+          CharacterAnswer: I wish you the same, only more
+        - Type: 5
+          Author: milfhunter906090
+          Message: What a shame, he could have been taken apart for organs instead
+            of burning himself so senselessly.
+          CharacterAnswer: I wish you the same, only more
+        - Type: 5
+          Author: I_love_femboys
+          Message: I like looking at you, bro, scream louder
+          CharacterAnswer: I wish you the same, only more
+        - Type: 5
+          Author: I_love_femboys
+          Message: You look pathetic, too pathetic.
+          CharacterAnswer: I wish you the same, only more
+        - Type: 5
+          Author: I_love_femboys
+          Message: No wonder you're such a loser.
+          CharacterAnswer: I can handle it...
+        - Type: 5
+          Author: fall_into_the_mud1989
+          Message: grunt for me
+          CharacterAnswer: I can handle it...
+        - Type: 5
+          Author: fall_into_the_mud1989
+          Message: Too few donations, we need more donations for death... he-he-he
+          CharacterAnswer: I can handle it...
+        - Type: 5
+          Author: fall_into_the_mud1989
+          Message: diediediediediediediediediediediediediediediediediediediediediediediediedie
+          CharacterAnswer: I can handle it...

@@ -35,8 +35,8 @@ namespace jam.CodeBase.Bets
 
         public void OnDisable()
         {
-            _plus.onClick.AddListener(OnPlus);
-            _minus.onClick.AddListener(OnMinus);
+            _plus.onClick.RemoveListener(OnPlus);
+            _minus.onClick.RemoveListener(OnMinus);
         }
 
         private void OnPlus()
@@ -66,7 +66,7 @@ namespace jam.CodeBase.Bets
             _plus.interactable =
                 !IsLocked &&
                 G.Economy.CanSpend(Bit + OneBit) &&
-                (!_isFirstBet || Bit + OneBit <= 500);
+                (!_isFirstBet || Bit + OneBit + G.BetController.MyBet <= 500);
 
             _minus.interactable =
                 !IsLocked &&

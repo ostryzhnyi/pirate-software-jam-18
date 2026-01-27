@@ -54,10 +54,15 @@ namespace jam.CodeBase.Tasks.Interactors
             }
 
             Debug.LogError("CurrentDonateNumberInDay: " +  runSaveData.CurrentDonateNumberInDay);
-            if (runSaveData.CurrentDonateNumberInDay >= 3)
+            if (runSaveData.CurrentDonateNumberInDay >= 3 || task is GiftSleepPills)
             {
-                G.DaysController.SetDay(++runSaveData.DayNumber, true);
-                await UniTask.WaitForSeconds(5);
+                G.DaysController.SetDay(++runSaveData.DayNumber, true).Forget();
+            }
+            else if(runSaveData.CurrentDonateNumberInDay == 2)
+            {
+                await G.ChatMiniGame.Play();
+                await UniTask.WaitForSeconds(2f);
+                
                 G.Donate.DonateExecuteProcess().Forget();
             }
             else

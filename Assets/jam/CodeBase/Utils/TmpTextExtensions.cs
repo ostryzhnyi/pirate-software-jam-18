@@ -1,8 +1,9 @@
-﻿using TMPro;
-using UnityEngine;
-using DG.Tweening;
-using System.Globalization;
+﻿using System.Globalization;
+using System.Threading;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using TMPro;
+using UnityEngine;
 
 namespace jam.CodeBase.Utils
 {
@@ -28,7 +29,7 @@ namespace jam.CodeBase.Utils
             {
                 raw = raw.Replace(" ", string.Empty)
                          .Replace("$", string.Empty)
-                         .Replace(",", "."); 
+                         .Replace(",", ".");
 
                 if (float.TryParse(raw, NumberStyles.Float, CultureInfo.InvariantCulture, out var parsed))
                     from = parsed;
@@ -86,18 +87,26 @@ namespace jam.CodeBase.Utils
                     text.SetText(format, to);
                 });
         }
-        
-        public static async UniTask ToType(this TMP_Text text, string fullText, float oneSymbolDuration = 0.03f)
+
+        public static async UniTask ToType(
+            this TMP_Text text,
+            string fullText,
+            float oneSymbolDuration = 0.03f,
+            CancellationToken cancellationToken = default)
         {
             text.text = string.Empty;
             int i = 0;
+
             while (i < fullText.Length)
             {
+                if (cancellationToken.IsCancellationRequested)
+                    return;
+
                 if (fullText[i] == '<')
                 {
                     int tagEnd = fullText.IndexOf('>', i);
                     if (tagEnd == -1)
-                        tagEnd = fullText.Length - 1; 
+                        tagEnd = fullText.Length - 1;
 
                     text.text += fullText.Substring(i, tagEnd - i + 1);
                     i = tagEnd + 1;
@@ -105,12 +114,17 @@ namespace jam.CodeBase.Utils
                 }
 
                 text.text += fullText[i];
-                bool waitedFull = await UniTaskHelper.SmartWaitSeconds(oneSymbolDuration);
-                if (!waitedFull)
+
+                bool waitedFull = await UniTaskHelper.SmartWaitSeconds(
+                    oneSymbolDuration,
+                    cancellationToken);
+
+                if (!waitedFull || cancellationToken.IsCancellationRequested)
                 {
                     text.text = fullText;
-                    break;
+                    return;
                 }
+
                 i++;
             }
         }

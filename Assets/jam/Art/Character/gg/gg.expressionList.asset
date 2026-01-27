@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: gg.expressionList
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Framework.Expression.CubismExpressionList
   CubismExpressionObjects:
-  - {fileID: 11400000, guid: 09035f5f0ccc46048b171bb187c3e58b, type: 2}
-  - {fileID: 11400000, guid: abcbf298567c10d47aaf60aeb1037837, type: 2}
-  - {fileID: 11400000, guid: c6c16a7ca891c91448f14f6c0647147d, type: 2}
-  - {fileID: 11400000, guid: 243a7e74b4fbb6d4a8b465d438bd4528, type: 2}
-  - {fileID: 11400000, guid: a40994c6b0a58494f97b687259fe5f2b, type: 2}
-  - {fileID: 11400000, guid: 3928a2c0f074cc94886812968cdae65f, type: 2}
-  - {fileID: 11400000, guid: 83a517e58b7ecd5408273387f7c081ba, type: 2}
-  - {fileID: 11400000, guid: 5ac76f8c0c2c1cb479b7a22ad1af065d, type: 2}
-  - {fileID: 11400000, guid: 8fe4b81847eba1a43b670469b4fbfad0, type: 2}
-  - {fileID: 11400000, guid: 09eebfcb867f04b4fb6dc17bf4282c1d, type: 2}
-  - {fileID: 11400000, guid: 7c687bf2843f80340835fe1eb1e43621, type: 2}
-  - {fileID: 11400000, guid: 20efd5b252922874192b7a84eaf1a0e1, type: 2}
-  - {fileID: 11400000, guid: e41a60501736aab459f9836dbf2357ab, type: 2}
-  - {fileID: 11400000, guid: 1d4f1140804c3f545a8bf66b65c397d2, type: 2}
-  - {fileID: 11400000, guid: 83f86f17d481689488d6d961c2d79087, type: 2}
+  - {fileID: 11400000, guid: 395c334b7297f9647ae96b17c3eafce8, type: 2}
+  - {fileID: 11400000, guid: 8b26cc51e3f0de64d8603b591add2435, type: 2}
+  - {fileID: 11400000, guid: aa7748981bfeff14ba4beba00060bfc3, type: 2}
+  - {fileID: 11400000, guid: 6245c4b3da3d6304baab4597516c65c6, type: 2}
+  - {fileID: 11400000, guid: 68523248803417d449ee7f4714902a8c, type: 2}
+  - {fileID: 11400000, guid: 28dbe18aa6f20ff439a768a3f4310b51, type: 2}
+  - {fileID: 11400000, guid: ed162899621385c448fe708fd49b4222, type: 2}
+  - {fileID: 11400000, guid: 91bccbc8485e8d0419d58c2f70dcb2dd, type: 2}
+  - {fileID: 11400000, guid: 3244be2edcbb7fd4bb0b69c5c595837e, type: 2}
+  - {fileID: 11400000, guid: bd59cec7d9ab65443884380ba43e700f, type: 2}
+  - {fileID: 11400000, guid: d639d633ba9dfb14cb2ecc899500b8c4, type: 2}
+  - {fileID: 11400000, guid: bcfee7d4eb62a3a46853852ed26d0d19, type: 2}
+  - {fileID: 11400000, guid: f60aeed97cf24bb4e8abe87e500434d4, type: 2}
+  - {fileID: 11400000, guid: f474a0bdb69a649448535c58507d458b, type: 2}
+  - {fileID: 11400000, guid: 28c0f4ec3a6c67d44a0d982b8ef33884, type: 2}

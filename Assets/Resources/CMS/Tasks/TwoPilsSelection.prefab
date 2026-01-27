@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1729a46f79086449a991b5512530e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: CMS::CMSEntityPfb
-  idCMS: CMS\Tasks\TwoPilsSelection
+  idCMS: CMS/Tasks/TwoPilsSelection
   Components:
   - rid: 4608936542719443226
   - rid: 3433833559035740283
@@ -58,10 +58,10 @@ MonoBehaviour:
         Name: Select left
         StatsAfforded:
         - StatsType: 0
-          ValueRange: {x: 1, y: 25}
+          ValueRange: {x: 1, y: 50}
           Method: 1
         - StatsType: 1
-          ValueRange: {x: 1, y: 10}
+          ValueRange: {x: 1, y: 25}
           Method: 0
         TaskTarget: 0
     - rid: 3433833559035740284
@@ -70,7 +70,7 @@ MonoBehaviour:
         Name: Select right
         StatsAfforded:
         - StatsType: 0
-          ValueRange: {x: 1, y: 25}
+          ValueRange: {x: 1, y: 20}
           Method: 0
         - StatsType: 1
           ValueRange: {x: 1, y: 10}

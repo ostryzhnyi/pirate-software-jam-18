@@ -1,0 +1,56 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "box.moc3",
+		"Textures": [
+			"box.4096/texture_00.png"
+		],
+		"DisplayInfo": "box.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "bandage.exp3.json",
+				"File": "expressions/bandage.exp3.json"
+			},
+			{
+				"Name": "bottle.exp3.json",
+				"File": "expressions/bottle.exp3.json"
+			},
+			{
+				"Name": "gun.exp3.json",
+				"File": "expressions/gun.exp3.json"
+			},
+			{
+				"Name": "phone.exp3.json",
+				"File": "expressions/phone.exp3.json"
+			},
+			{
+				"Name": "pills.exp3.json",
+				"File": "expressions/pills.exp3.json"
+			},
+			{
+				"Name": "sigs.exp3.json",
+				"File": "expressions/sigs.exp3.json"
+			}
+		],
+		"Motions": {
+			"Idle": [
+				{
+					"File": "motions/drop obj.motion3.json"
+				}
+			]
+		}
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	],
+	"HitAreas": []
+}

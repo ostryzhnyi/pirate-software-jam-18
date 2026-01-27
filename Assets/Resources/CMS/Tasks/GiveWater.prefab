@@ -74,5 +74,11 @@ MonoBehaviour:
       type: {class: DoNotGiveWater, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Name: Do not give water
-        StatsAfforded: []
+        StatsAfforded:
+        - StatsType: 0
+          ValueRange: {x: 8, y: 13}
+          Method: 1
+        - StatsType: 1
+          ValueRange: {x: 8, y: 13}
+          Method: 0
         TaskTarget: 0

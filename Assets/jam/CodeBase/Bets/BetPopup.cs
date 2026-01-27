@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
 using Ostryzhnyi.EasyViewService.Api.Service;
@@ -23,6 +24,7 @@ namespace jam.CodeBase.Bets
         [SerializeField] private TMP_Text _aliveKoef;
         [SerializeField] private TMP_Text _aliveSum;
         [SerializeField] private TMP_Text _dieSum;
+        [SerializeField] private TMP_Text _ftueText;
         [SerializeField] private BetView _aliveBetView;
         [SerializeField] private BetView _dieBetView;
         [SerializeField] private Button _bet;
@@ -31,6 +33,11 @@ namespace jam.CodeBase.Bets
         [SerializeField] private float _maxRotate = 15f;
         [SerializeField] private float _rotateDuration = 0.25f;
         [SerializeField] private Ease _ease = Ease.OutQuad;
+        [SerializeField] private GameObject _tutorialPointerPlusMin;
+        [SerializeField] private GameObject _tutorialPointerBet;
+
+        private CancellationTokenSource _playFirstFTUEcancellationTokenSource;
+        private CancellationTokenSource _playSecondFTUEcancellationTokenSource;
 
         private TMP_Text AliveKoef
         {
@@ -49,11 +56,16 @@ namespace jam.CodeBase.Bets
 
         private float _aliveSumValue = 0;
         private float _dieValue = 0;
+        private FTUESaveModel _ftueSaveModel;
         
         private void OnEnable()
         {
+            _ftueSaveModel = G.Saves.Get<FTUESaveModel>();
+            _ftueText.SetText("");
             G.BetController.OnChangeAliveCoefficient += Redraw;
             G.BetController.OnChangeDieCoefficient += Redraw;
+            G.BetController.StartFtueAwait += OnStartFtuteAwait;
+            G.BetController.StopFtueAwait += OnStopFtuteAwait;
             
             _aliveBetView.SetBit(0);
             _dieBetView.SetBit(0);
@@ -69,6 +81,9 @@ namespace jam.CodeBase.Bets
 
         private void OnDisable()
         {
+            G.BetController.StartFtueAwait -= OnStartFtuteAwait;
+            G.BetController.StopFtueAwait -= OnStopFtuteAwait;
+            
             G.BetController.OnChangeAliveCoefficient -= Redraw;
             G.BetController.OnChangeDieCoefficient -= Redraw;
             
@@ -82,9 +97,12 @@ namespace jam.CodeBase.Bets
             _timerAnimation.Stop();
         }
 
+
         protected override void Showed(ViewOption option = null)
         {
             base.Showed(option);
+            if(!_ftueSaveModel.Data.ShowedBetFTUE)
+                PlayFirstFTUE().Forget();
             Redraw(0f);
         }
 
@@ -133,7 +151,7 @@ namespace jam.CodeBase.Bets
                 .DOLocalRotate(new Vector3(0f, 0f, angle), _rotateDuration)
                 .SetEase(_ease);
             
-            _totalBet.DOFloatNumber(G.BetController.CurrentBet, _rotateDuration, "${0:0}", 10);
+            _totalBet.DOFloatNumber(G.BetController.CurrentBet, _rotateDuration, "{0:0}", 10);
         }
         
         private void OnDieBitChange(float bit)
@@ -141,6 +159,14 @@ namespace jam.CodeBase.Bets
             _aliveBetView.SetBit(0, true);
             
             _bet.interactable = Math.Max(_aliveBetView.Bit, _dieBetView.Bit) > 0;
+            
+            _tutorialPointerPlusMin.gameObject.SetActive(false);
+            _playFirstFTUEcancellationTokenSource?.Cancel();
+            
+            if (_playSecondFTUEcancellationTokenSource == null && !_ftueSaveModel.Data.ShowedBetFTUE)
+            {
+                PlaySecondFTUE().Forget();
+            }
         }
 
         private void OnAliveBitChange(float bit)
@@ -148,10 +174,19 @@ namespace jam.CodeBase.Bets
             _dieBetView.SetBit(0, true);
 
             _bet.interactable = Math.Max(_aliveBetView.Bit, _dieBetView.Bit) > 0;
+            _tutorialPointerPlusMin.gameObject.SetActive(false);
+            _playFirstFTUEcancellationTokenSource?.Cancel();
+
+            if (_playSecondFTUEcancellationTokenSource == null && !_ftueSaveModel.Data.ShowedBetFTUE)
+            {
+                PlaySecondFTUE().Forget();
+            }
         }
 
         private void OnBet()
         {
+            _playSecondFTUEcancellationTokenSource?.Cancel();
+            
             if(_aliveBetView.Bit > 0)
             {
                 G.BetController.BetToAlive(_aliveBetView.Bit);
@@ -168,8 +203,49 @@ namespace jam.CodeBase.Bets
                 _aliveBetView.LockButton();
             }
             
+            _ftueSaveModel.Data.ShowedBetFTUE = true;
+            _ftueSaveModel.ForceSave();
+            
+            _tutorialPointerBet.SetActive(false);
             _dieBetView.UpdateButtons();
             _aliveBetView.UpdateButtons();
+        }
+
+        private async UniTask PlayFirstFTUE()
+        {
+            _playFirstFTUEcancellationTokenSource = new  CancellationTokenSource();
+            _ftueText.SetText("");
+
+            await UniTask.WaitForSeconds(10);
+            await _ftueText.ToType(
+                "Welcome to the stream. A dangerous stream. You can place a bet on the main character's life, " +
+                "whether he will survive or not. Here you can place a bet. Increase the pot.", 
+                cancellationToken:_playFirstFTUEcancellationTokenSource.Token);
+            if(!_playFirstFTUEcancellationTokenSource.IsCancellationRequested)
+                _tutorialPointerPlusMin.SetActive(true);
+        }
+        
+        private async UniTask PlaySecondFTUE()
+        {
+            _playSecondFTUEcancellationTokenSource = new  CancellationTokenSource();
+            _ftueText.SetText("");
+            await UniTask.WaitForSeconds(5);
+            await _ftueText.ToType(
+                "You have chosen the amount of money. Now you need to place your bet.", 
+                cancellationToken:_playSecondFTUEcancellationTokenSource.Token);
+            if(!_playSecondFTUEcancellationTokenSource.IsCancellationRequested)
+                _tutorialPointerBet.SetActive(true);
+        }
+        
+        
+        private void OnStopFtuteAwait()
+        {
+            _timerAnimation.SetPause(false);
+        }
+
+        private void OnStartFtuteAwait()
+        {
+            _timerAnimation.SetPause(true);
         }
     }
 }

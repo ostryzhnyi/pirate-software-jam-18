@@ -53,13 +53,17 @@ MonoBehaviour:
     - rid: 4608936559312109739
       type: {class: BaseEconomyTag, ns: jam.CodeBase.Economy, asm: Assembly-CSharp}
       data:
-        BaseMoney: 1000
+        BaseMoney: 2000
+        RestoreMoneyByDayRange: {x: 100, y: 1000}
         BaseDonate: 5000
         DonateMultiplier: {x: 0.7, y: 1.3}
         BaseBetMultiplier: 0.25
         DonatorsAmountMinMax: {x: 40, y: 60}
-        "Donate\u0421hanceOppositeByPlayer": {x: 0.45, y: 0.65}
+        "Donate\u0421hanceOppositeByPlayer": {x: 0.47, y: 0.57}
+        OneDonateRandMultiplier: {x: 0.2, y: 2}
         BaseBet: {x: 8000, y: 12000}
         PercentsRangeFromPlayerMoney: {x: 4, y: 6}
         DieBiddersProporionRange: {x: 0.8, y: 0.5}
         AliveBiddersProporionRange: {x: 0.5, y: 0.2}
+        RestoreStressByDayRange: {x: 5, y: 15}
+        RestoreHealthByDayRange: {x: 5, y: 15}

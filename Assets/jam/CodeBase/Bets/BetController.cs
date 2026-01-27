@@ -12,6 +12,8 @@ namespace jam.CodeBase.Bets
     {
         public Action<float> OnChangeDieCoefficient;
         public Action<float> OnChangeAliveCoefficient;
+        public Action StartFtueAwait;
+        public Action StopFtueAwait;
 
         public float CurrentBet => AliveBet + DieBet;
         public float AliveBet;
@@ -86,6 +88,13 @@ namespace jam.CodeBase.Bets
 
             while (time > 0)
             {
+                while (time < 10 && !G.Saves.Get<FTUESaveModel>().Data.ShowedBetFTUE)
+                {
+                    StartFtueAwait?.Invoke();
+                    await UniTask.WaitForSeconds(1);
+                }
+                StopFtueAwait?.Invoke();
+                
                 MakeSecondBet(tickBets[tick]);
 
                 await UniTask.WaitForSeconds(1);

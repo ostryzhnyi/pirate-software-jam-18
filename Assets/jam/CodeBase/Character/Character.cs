@@ -16,6 +16,8 @@ namespace jam.CodeBase.Character
     {
         public event Action<float> OnStressUpdated;
         public event Action<float> OnHealthUpdated;
+        public event Action<float> OnHealthChanges;
+        public event Action<float> OnStressChanges;
 
         public string Name => Entity.Get<NameTag>().Name;
         public string Description => Entity.Get<DescribeTag>().Description;
@@ -81,19 +83,21 @@ namespace jam.CodeBase.Character
             else if (method == StatsChangeMethod.Remove)
             {
                 CurrentHealth -= amount * ModifierTag.PainThreshold;
-
-                if (IsDieHP())
-                {
-                    var dies = G.Interactors.GetAll<IDieHealthCharacter>();
-                    foreach (var dy in dies)
-                    {
-                        await dy.OnDie(this);
-                    }
-                }
             }
 
             OnHealthUpdated?.Invoke(CurrentHealth);
+            OnStressChanges?.Invoke(method == StatsChangeMethod.Remove ? amount : -amount);
 
+            if (IsDieHP())
+            {
+                var dies = G.Interactors.GetAll<IDieHealthCharacter>();
+
+                await UniTask.WaitForSeconds(1f);
+                foreach (var dy in dies)
+                {
+                    await dy.OnDie(this);
+                }
+            }
             Debug.LogError("Update HP to: " + CurrentHealth);
             Save();
         }
@@ -103,15 +107,6 @@ namespace jam.CodeBase.Character
             if (method == StatsChangeMethod.Add)
             {
                 CurrentStress += amount * ModifierTag.StressResistance;
-
-                if (IsDieStress())
-                {
-                    var dies = G.Interactors.GetAll<IDieStressCharacter>();
-                    foreach (var dy in dies)
-                    {
-                        await dy.OnDie(this);
-                    }
-                }
             }
             else if (method == StatsChangeMethod.Remove)
             {
@@ -122,7 +117,18 @@ namespace jam.CodeBase.Character
             }
 
             OnStressUpdated?.Invoke(CurrentStress);
-
+            OnStressChanges?.Invoke(method == StatsChangeMethod.Add ? amount : -amount);
+            
+            if (IsDieStress())
+            {
+                await UniTask.WaitForSeconds(1f);
+                    
+                var dies = G.Interactors.GetAll<IDieStressCharacter>();
+                foreach (var dy in dies)
+                {
+                    await dy.OnDie(this);
+                }
+            }
             Debug.LogError("Update stress to: " + CurrentStress);
             Save();
         }

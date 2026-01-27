@@ -7,11 +7,14 @@ using jam.CodeBase.Bets;
 using jam.CodeBase.Character;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
+using jam.CodeBase.Core.Stream.Views;
 using jam.CodeBase.GameLoop;
+using jam.CodeBase.Glitches;
 using jam.CodeBase.Room;
 using jam.CodeBase.Stream;
 using jam.CodeBase.Tasks;
 using Ostryzhnyi.EasyViewService.Api.Service;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
@@ -30,7 +33,10 @@ namespace jam.CodeBase.Core
         public static IViewService GlobalViewService;
         public static DaysController DaysController => StreamController.DaysController;
         public static CharacterAnimator CharacterAnimator;
+        public static BoxAnimator BoxAnimator;
         public static RoomLogic Room;
+        public static ChatMiniGame ChatMiniGame;
+        public static GlitchesController Glitches;
      
         public static AudioController Audio;
         
@@ -84,6 +90,11 @@ namespace jam.CodeBase.Core
 
         public static async UniTask RestartRun()
         {
+            foreach (var levelLoaded in Interactors.GetAll<IGameplayUnloaded>())
+            {
+                await levelLoaded.OnUnloaded();
+            }
+            
             var runSave = Saves.Get<RunSaveModel>();
             runSave.Clear();
             
@@ -101,8 +112,23 @@ namespace jam.CodeBase.Core
             }
         }
 
+        [Button]
+        public void AddStress(float stress = 99999)
+        {
+            G.Characters.CurrentCharacter.ChangeStress(stress, StatsChangeMethod.Add).Forget();
+        }
+
+        [Button]
+        public void AddHp(float stress = 99999)
+        {
+            G.Characters.CurrentCharacter.ChangeHP(stress, StatsChangeMethod.Remove).Forget();
+        }
+
         public static void Alive()
         {
+            if(FinishRun)
+                return;
+            
             FinishRun = true;
             var result = Menu.ViewService.GetView<ResultScreen>();
             
@@ -112,6 +138,9 @@ namespace jam.CodeBase.Core
 
         public static void Die()
         {
+            if(FinishRun)
+                return;
+            
             FinishRun = true;
             
             var result = Menu.ViewService.GetView<ResultScreen>();

@@ -1,5 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Character;
+using jam.CodeBase.Core;
 using UnityEngine;
 
 namespace jam.CodeBase.Tasks
@@ -7,10 +9,13 @@ namespace jam.CodeBase.Tasks
     [Serializable]
     public class LaunchBeesIntoTheRoom : BaseTask
     {
-        public override UniTask Execute()
+        public override async UniTask Execute()
         {
-            Debug.LogError("EnableMusicOnNightTask");
-            return UniTask.CompletedTask;
+            Debug.LogError("LaunchBeesIntoTheRoom");
+            
+            G.CharacterAnimator.PlayAnimation(AnimationType.SetSad);
+            G.Room.Bee.Play();
+            await UniTask.WaitForSeconds(3f);
         }
     }
 
@@ -19,7 +24,7 @@ namespace jam.CodeBase.Tasks
     {
         public override UniTask Execute()
         {
-            Debug.LogError("NotEnableMusicOnNightTask");
+            Debug.LogError("NotLaunchBeesIntoTheRoom");
             return UniTask.CompletedTask;
         }
     }
