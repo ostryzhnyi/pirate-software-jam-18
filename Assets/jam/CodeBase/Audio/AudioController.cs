@@ -50,6 +50,8 @@ namespace jam.CodeBase.Audio
                 SetSFXVolume(_sfxVolume);
             }
         }
+        public float MusicVolume => _musicVolume;
+        public float SoundVolume => _sfxVolume;
 
         private Dictionary<string, float> limitedFrequencySounds = new Dictionary<string, float>();
         private Dictionary<string, int>   lastPlayedSounds       = new Dictionary<string, int>(); 

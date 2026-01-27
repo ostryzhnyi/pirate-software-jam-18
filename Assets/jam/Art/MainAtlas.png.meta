@@ -1130,7 +1130,7 @@ TextureImporter:
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 12, y: 1, z: 10, w: 1}
       customData: 
       outline: []
       physicsShape: []
@@ -1152,7 +1152,7 @@ TextureImporter:
         height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 12, y: 1, z: 10, w: 1}
       customData: 
       outline: []
       physicsShape: []
@@ -1648,6 +1648,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: MainAtlas_53
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 472
+        width: 83
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 1, z: 10, w: 1}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f067ebf24660fa142a1b99a23294a6f2
+      internalID: -1434442842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1740,6 +1762,7 @@ TextureImporter:
       MainAtlas_50: -2113349531
       MainAtlas_51: 153797315
       MainAtlas_52: -1171451592
+      MainAtlas_53: -1434442842
       MainAtlas_6: 1103871475
       MainAtlas_7: -1714028130
       MainAtlas_8: 870191025

@@ -832,7 +832,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8261308442524081678}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1340749861781884853}
+        m_TargetAssemblyTypeName: jam.CodeBase.UI.CreditsView, Assembly-CSharp
+        m_MethodName: HideView
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2741942198222172272
 GameObject:
   m_ObjectHideFlags: 0
@@ -3146,6 +3158,7 @@ GameObject:
   - component: {fileID: 6325677475888476572}
   - component: {fileID: 6320856964021773250}
   - component: {fileID: 9031781674319450867}
+  - component: {fileID: 1340749861781884853}
   m_Layer: 5
   m_Name: CreditsPopup
   m_TagString: Untagged
@@ -3204,7 +3217,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -1859969343, guid: ed517c241aff78f448bf8ab09f40f27f, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3212,6 +3225,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.75
+--- !u!114 &1340749861781884853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8497193634229488907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13eba4521db97d49ba848680da6bc30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CreditsView
 --- !u!1 &8596559126289929216
 GameObject:
   m_ObjectHideFlags: 0
