@@ -1515,7 +1515,7 @@ GameObject:
   - component: {fileID: 2781117947153589140}
   - component: {fileID: 1647601954877302075}
   m_Layer: 5
-  m_Name: SettingsPopup
+  m_Name: SettingsView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1529,7 +1529,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4206857545339562945}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9719.999}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1539,7 +1539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60.263638, y: -27.38992}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1029, y: 519}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3743160112015178006

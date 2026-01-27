@@ -3160,7 +3160,7 @@ GameObject:
   - component: {fileID: 9031781674319450867}
   - component: {fileID: 1340749861781884853}
   m_Layer: 5
-  m_Name: CreditsPopup
+  m_Name: CreditsView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
