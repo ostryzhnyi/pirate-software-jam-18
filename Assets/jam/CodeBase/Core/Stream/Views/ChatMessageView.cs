@@ -130,7 +130,7 @@ namespace jam.CodeBase.Stream.View
             particle.Play(true);
             
             await elementView.transform.DOScale(0, .2f);
-            if(elementView.gameObject != null)
+            if(elementView != null && elementView.gameObject != null)
                 Destroy(elementView.gameObject);
             Destroy(particle.gameObject);
         }

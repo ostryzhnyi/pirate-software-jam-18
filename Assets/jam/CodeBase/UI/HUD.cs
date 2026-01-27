@@ -2,6 +2,7 @@
 using DG.Tweening;
 using jam.CodeBase.Character;
 using jam.CodeBase.Core;
+using jam.CodeBase.Core.Stream.Views;
 using jam.CodeBase.Tasks.DonateSystem;
 using jam.CodeBase.Utils;
 using TMPro;
@@ -17,6 +18,7 @@ namespace jam.CodeBase.UI
         public DonateHUDButton DonateHUDButton;
         public StartDonateNotification DonateNotification;
         public FinishDonateNotification FinishDonateNotification;
+        public AnswerOnChatMinigame AnswerOnChatMinigame;
         public Image FTUEImage;
         public TMP_Text FTUEText;
         public GameObject FTUEDonatePointer;

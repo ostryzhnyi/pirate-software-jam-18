@@ -12,6 +12,7 @@ using ProjectX.CodeBase.Utils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 namespace jam.CodeBase.Core.Stream.Views
 {
@@ -108,7 +109,18 @@ namespace jam.CodeBase.Core.Stream.Views
             G.Economy.AddMoney(totalMoney);
             
             _background.DOFade(0f, .5f);
-            
+            string answer = "";
+            if (lostBedMessageCount > 0)
+            {
+                answer = ChatMessageView.Elements.Where(e => e.Data.Type == MessageDataType.Negative)
+                    .OrderBy(n => new Random().Next()).First().Data.CharacterAnswer;
+            }
+            else
+            {
+                answer = ChatMessageView.Elements.Where(e => e.Data.Type == MessageDataType.Positive)
+                    .OrderBy(n => new Random().Next()).First().Data.CharacterAnswer;
+            }
+
             Chat.parent = _baseParent;
             Chat.SetSiblingIndex(_baseTransformIndex);
             Chat.DOLocalMove(_basePos, .5f);
@@ -118,6 +130,9 @@ namespace jam.CodeBase.Core.Stream.Views
             ChatMessageView.Clear();
             gameObject.SetActive(false);
             ChatMessageView.SetScrollState(true);
+           
+            Debug.LogError(answer);
+            G.Menu.HUD.AnswerOnChatMinigame.Play(answer).Forget();
         }
 
         

@@ -195,8 +195,10 @@ namespace jam.CodeBase.Tasks
             else
             {
                 List<CMSEntity> tasks;
-                if (GameResources.CMS.DebugRun.AsEntity().Is<DebugRunTag>(out var tag) && tag.DebugTask != null 
-                    && tag.DebugTask.Any())
+                if (GameResources.CMS.DebugRun.AsEntity().Is<DebugRunTag>(out var tag) && tag.DebugTask is
+                    {
+                        Count: > 0
+                    })
                 {
                     tasks = tag.DebugTask.Select(d => d.AsEntity()).ToList();
                 }

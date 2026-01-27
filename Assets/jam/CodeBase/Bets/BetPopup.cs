@@ -64,6 +64,8 @@ namespace jam.CodeBase.Bets
             _ftueText.SetText("");
             G.BetController.OnChangeAliveCoefficient += Redraw;
             G.BetController.OnChangeDieCoefficient += Redraw;
+            G.BetController.StartFtueAwait += OnStartFtuteAwait;
+            G.BetController.StopFtueAwait += OnStopFtuteAwait;
             
             _aliveBetView.SetBit(0);
             _dieBetView.SetBit(0);
@@ -79,6 +81,9 @@ namespace jam.CodeBase.Bets
 
         private void OnDisable()
         {
+            G.BetController.StartFtueAwait -= OnStartFtuteAwait;
+            G.BetController.StopFtueAwait -= OnStopFtuteAwait;
+            
             G.BetController.OnChangeAliveCoefficient -= Redraw;
             G.BetController.OnChangeDieCoefficient -= Redraw;
             
@@ -90,10 +95,8 @@ namespace jam.CodeBase.Bets
             _aliveTween?.Kill();
             _dieTween?.Kill();
             _timerAnimation.Stop();
-
-            _ftueSaveModel.Data.ShowedBetFTUE = true;
-            _ftueSaveModel.ForceSave();
         }
+
 
         protected override void Showed(ViewOption option = null)
         {
@@ -200,6 +203,9 @@ namespace jam.CodeBase.Bets
                 _aliveBetView.LockButton();
             }
             
+            _ftueSaveModel.Data.ShowedBetFTUE = true;
+            _ftueSaveModel.ForceSave();
+            
             _tutorialPointerBet.SetActive(false);
             _dieBetView.UpdateButtons();
             _aliveBetView.UpdateButtons();
@@ -229,6 +235,17 @@ namespace jam.CodeBase.Bets
                 cancellationToken:_playSecondFTUEcancellationTokenSource.Token);
             if(!_playSecondFTUEcancellationTokenSource.IsCancellationRequested)
                 _tutorialPointerBet.SetActive(true);
+        }
+        
+        
+        private void OnStopFtuteAwait()
+        {
+            _timerAnimation.SetPause(false);
+        }
+
+        private void OnStartFtuteAwait()
+        {
+            _timerAnimation.SetPause(true);
         }
     }
 }
