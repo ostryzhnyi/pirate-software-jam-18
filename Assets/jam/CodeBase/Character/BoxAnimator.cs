@@ -75,7 +75,8 @@ namespace jam.CodeBase.Character
         private async UniTask ResetAsync(float delay = .1f)
         {
             await UniTask.WaitForSeconds(delay);
-            transform.DOScale(Vector3.zero, .5f);
+            if(transform != null)
+                transform.DOScale(Vector3.zero, .5f);
         }
 
         private async UniTask PlayParticle()

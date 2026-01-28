@@ -1,89 +1,102 @@
 ﻿using UnityEngine;
-using System.Collections;
 using DG.Tweening;
-using Sirenix.OdinInspector;
 
 namespace jam.CodeBase.Room
 {
     public class FanAnimator : MonoBehaviour
     {
-        [Header("Fan Settings")]
-        [SerializeField] private float accelerateTime = 2f;
-        [SerializeField] private float fullSpeedRPS = 10f; 
-        [SerializeField] private Transform fan; 
-        [SerializeField] private ParticleSystem _particleSystem; 
-        
-        [Header("Speeds")]
-        [SerializeField] private float lowSpeedRPS = 2f;
-        [SerializeField] private float highSpeedRPS = 20f;
-        
-        private Tweener rotationTween;
-        private Coroutine accelerationCoroutine;
-        
-        [Button]
+        public enum FanState
+        {
+            Passive,
+            VerySlow,
+            Fast,
+            VeryFast
+        }
+
+        [Header("Speeds (RPM)")]
+        [SerializeField] float verySlowRpm = 30f;
+        [SerializeField] float fastRpm = 400f;
+        [SerializeField] float veryFastRpm = 800f;
+
+        [Header("Acceleration")]
+        [SerializeField] float changeSpeedDuration = 1f;
+        [SerializeField] Ease changeSpeedEase = Ease.OutCubic;
+
+        FanState _state = FanState.VerySlow;
+        Tweener _rotationTween;
+        Tweener _speedTween;
+        float _currentRpm;
+
+        void Awake()
+        {
+            _currentRpm = verySlowRpm;
+            SetState(FanState.VerySlow);
+            StartRotationTween();
+        }
+
         public void Play(bool fullSpeed)
         {
-            Stop();
-            
-            float targetRPS = fullSpeed ? highSpeedRPS : lowSpeedRPS;
-            float targetAngularSpeed = targetRPS * 360f; 
-            
-            rotationTween = fan.DOLocalRotate(new Vector3(0, 0, 360f), 1f / targetRPS, RotateMode.FastBeyond360)
-                .SetRelative()
-                .SetEase(Ease.Linear)
-                .SetLoops(-1)
-                .SetId("FanRotation");
-            
-            _particleSystem.gameObject.SetActive(fullSpeed);
-            
-            accelerationCoroutine = StartCoroutine(AccelerateToSpeed(targetRPS));
+            if (fullSpeed)
+                SetState(FanState.VeryFast);
+            else
+                SetState(FanState.Fast);
         }
-        
-        [Button]
+
         public void Stop()
         {
-            if (rotationTween != null)
-            {
-                DOTween.Kill("FanRotation");
-                rotationTween = null;
-            }
-            
-            if (accelerationCoroutine != null)
-            {
-                StopCoroutine(accelerationCoroutine);
-                accelerationCoroutine = null;
-            }
-            
-            _particleSystem.gameObject.SetActive(false);
-            
-            fan.DOLocalRotate(Vector3.zero, 0.5f).SetEase(Ease.OutQuad);
+            SetState(FanState.VerySlow);
         }
-        
-        private IEnumerator AccelerateToSpeed(float targetRPS)
+
+        void SetState(FanState newState)
         {
-            float startRPS = 0f;
-            float elapsed = 0f;
-            
-            while (elapsed < accelerateTime)
+            _state = newState;
+
+            float targetRpm = _state switch
             {
-                elapsed += Time.deltaTime;
-                float progress = elapsed / accelerateTime;
-                float currentRPS = Mathf.Lerp(startRPS, targetRPS, progress);
-                
-                if (rotationTween != null)
-                {
-                    float targetAngularSpeed = targetRPS * 360f;
-                    float currentAngularSpeed = currentRPS * 360f;
-                    rotationTween.timeScale = currentAngularSpeed / targetAngularSpeed;
-                }
-                
-                yield return null;
-            }
+                FanState.Passive   => 0f,
+                FanState.VerySlow  => verySlowRpm,
+                FanState.Fast      => fastRpm,
+                FanState.VeryFast  => veryFastRpm,
+                _ => verySlowRpm
+            };
+
+            StartSpeedTween(targetRpm);
         }
-        
-        private void OnDestroy()
+
+        void StartRotationTween()
         {
-            Stop();
+            _rotationTween?.Kill();
+
+            _rotationTween = transform
+                .DORotate(new Vector3(0f, 0f, 360f), 1f, RotateMode.FastBeyond360)
+                .SetRelative(true)
+                .SetEase(Ease.Linear)
+                .SetLoops(-1)
+                .SetSpeedBased();                     // крутится бесконечно, скорость задаём через timeScale [web:7][web:4]
+        }
+
+        void StartSpeedTween(float targetRpm)
+        {
+            _speedTween?.Kill();
+
+            _speedTween = DOTween
+                .To(() => _currentRpm, v => _currentRpm = v, targetRpm, changeSpeedDuration)
+                .SetEase(changeSpeedEase)
+                .OnUpdate(UpdateRotationSpeed);       // внутри апдейта меняем timeScale твина [web:23];
+        }
+
+        void UpdateRotationSpeed()
+        {
+            if (_rotationTween == null) return;
+
+            float degPerSec = _currentRpm / 60f * 360f;
+            _rotationTween.timeScale = degPerSec;     // управление скоростью через timeScale [web:23];
+        }
+
+        void OnDestroy()
+        {
+            _rotationTween?.Kill();
+            _speedTween?.Kill();
         }
     }
 }

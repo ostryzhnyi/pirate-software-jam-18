@@ -32,7 +32,7 @@ namespace jam.CodeBase.Character
             // CubismModel.Parameters.First(p => p.Id == "Param6").Value = -30;
             //PlayAnimation(AnimationType.BadHP);
             _animator = GetComponent<Animator>();
-           // G.CharacterAnimator = this;
+            G.CharacterAnimator = this;
         }
 
         private void OnDestroy()
