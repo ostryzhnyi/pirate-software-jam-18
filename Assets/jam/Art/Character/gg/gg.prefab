@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 4
-  Value: 30
+  Value: -4.9
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &6009417967965112264
@@ -1275,7 +1275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 6
-  Value: 30
+  Value: 28.1
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &598015047187402218
@@ -1338,7 +1338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 7
-  Value: 30
+  Value: -30
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &8569027851413900163
@@ -1527,7 +1527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 29
-  Value: 0
+  Value: -30
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &948591406683516438
@@ -1913,7 +1913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 3
-  Value: -30
+  Value: -24.9
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &79545939265826627
@@ -2783,7 +2783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 0
-  Value: 0
+  Value: 0.111
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &2414498328268407467
@@ -2929,7 +2929,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 24
   _depthOffset: 0.00001
-  _opacity: 1
+  _opacity: 0.99999994
 --- !u!1 &3123579619794036968
 GameObject:
   m_ObjectHideFlags: 0
@@ -3319,7 +3319,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 27
   _depthOffset: 0.00001
-  _opacity: 1
+  _opacity: 0.99999994
 --- !u!1 &3276117162099011526
 GameObject:
   m_ObjectHideFlags: 0
@@ -4676,7 +4676,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4203597826282290532}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4741,7 +4741,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 36
   _depthOffset: 0.00001
-  _opacity: 0
+  _opacity: 0.58166665
 --- !u!1 &4261334393581212636
 GameObject:
   m_ObjectHideFlags: 0
@@ -4788,7 +4788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 1
-  Value: 0
+  Value: 0.449
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &2507267944543343332
@@ -5578,7 +5578,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5363150517366431392}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5643,7 +5643,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 34
   _depthOffset: 0.00001
-  _opacity: 0
+  _opacity: 0.222
 --- !u!1 &5392090041242788207
 GameObject:
   m_ObjectHideFlags: 0
@@ -6096,7 +6096,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 21
   _depthOffset: 0.00001
-  _opacity: 1
+  _opacity: 0.99999994
 --- !u!1 &5824872887052364196
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,7 +6143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 2
-  Value: -1
+  Value: -0.228
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &660400332695638821
@@ -6479,7 +6479,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6204766362243220767}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -6544,7 +6544,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 30
   _depthOffset: 0.00001
-  _opacity: 0
+  _opacity: 0.031666696
 --- !u!1 &6372336700644182059
 GameObject:
   m_ObjectHideFlags: 0
@@ -6995,7 +6995,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6664592753006860599}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -7060,7 +7060,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 25
   _depthOffset: 0.00001
-  _opacity: 0
+  _opacity: 0.031666692
 --- !u!1 &6745258442693995166
 GameObject:
   m_ObjectHideFlags: 0
@@ -7450,7 +7450,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 35
   _depthOffset: 0.00001
-  _opacity: 1
+  _opacity: 0.778
 --- !u!1 &6896678263107405967
 GameObject:
   m_ObjectHideFlags: 0
@@ -7840,7 +7840,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 0
   _depthOffset: 0.00001
-  _opacity: 1
+  _opacity: 0.99999994
 --- !u!1 &7486704808424047697
 GameObject:
   m_ObjectHideFlags: 0
@@ -7950,7 +7950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Core.CubismParameter
   _unmanagedIndex: 30
-  Value: -30
+  Value: -21.1
   _isOverriddenUserParameterRepeat: 0
   _isParameterRepeated: 0
 --- !u!114 &7110453935412646843
@@ -9004,7 +9004,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8230009429420895987}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -9069,7 +9069,7 @@ MonoBehaviour:
   _sortingOrder: 1
   _renderOrder: 22
   _depthOffset: 0.00001
-  _opacity: 0
+  _opacity: 0.031666692
 --- !u!1 &8516444419246386586
 GameObject:
   m_ObjectHideFlags: 0
@@ -9380,12 +9380,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Rendering.CubismRenderController
   Opacity: 1
-  _lastOpacity: 0
+  _lastOpacity: 1
   _isOverriddenModelMultiplyColors: 0
   _isOverriddenModelScreenColors: 0
   _modelMultiplyColor: {r: 0, g: 0, b: 0, a: 0}
   _modelScreenColor: {r: 0, g: 0, b: 0, a: 0}
-  _sortingLayerId: 0
+  _sortingLayerId: 1765700325
   _sortingMode: 0
   _sortingOrder: 0
   CameraToFace: {fileID: 0}
@@ -9406,7 +9406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967223d908bf07b4f90945995bdca68f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Live2D.Cubism::Live2D.Cubism.Rendering.Masking.CubismMaskController
-  _maskTexture: {fileID: 0}
+  _maskTexture: {fileID: 11400000, guid: 16bf142754640ab4487bb625c30931fd, type: 2}
 --- !u!114 &2096277739089525335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9507,10 +9507,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::jam.CodeBase.Character.CharacterAnimator
   ExpressionsList: {fileID: 11400000, guid: a2e3a3273a645aa488705511215251a7, type: 2}
-  CubismModel: {fileID: 0}
-  _characterAnimationStructures: []
-  _defaultExpressionController: {fileID: 0}
-  _cubismRenderController: {fileID: 0}
+  CubismModel: {fileID: 116959744342998510}
+  _characterAnimationStructures:
+  - AnimationType: 0
+    Structure:
+      AnimationTrigger: SetIdle
+      Data: {fileID: 11400000, guid: 5ac76f8c0c2c1cb479b7a22ad1af065d, type: 2}
+  - AnimationType: 1
+    Structure:
+      AnimationTrigger: TakePill
+      Data: {fileID: 11400000, guid: a40994c6b0a58494f97b687259fe5f2b, type: 2}
+  - AnimationType: 2
+    Structure:
+      AnimationTrigger: TakePill
+      Data: {fileID: 11400000, guid: 243a7e74b4fbb6d4a8b465d438bd4528, type: 2}
+  - AnimationType: 3
+    Structure:
+      AnimationTrigger: SetCall
+      Data: {fileID: 0}
+  - AnimationType: 4
+    Structure:
+      AnimationTrigger: SetDrink
+      Data: {fileID: 11400000, guid: e41a60501736aab459f9836dbf2357ab, type: 2}
+  - AnimationType: 5
+    Structure:
+      AnimationTrigger: SetDrink
+      Data: {fileID: 11400000, guid: 83a517e58b7ecd5408273387f7c081ba, type: 2}
+  - AnimationType: 7
+    Structure:
+      AnimationTrigger: SetSad
+      Data: {fileID: 11400000, guid: 20efd5b252922874192b7a84eaf1a0e1, type: 2}
+  - AnimationType: 8
+    Structure:
+      AnimationTrigger: BrokeGlass
+      Data: {fileID: 0}
+  - AnimationType: 9
+    Structure:
+      AnimationTrigger: SetSmoking
+      Data: {fileID: 0}
+  - AnimationType: 10
+    Structure:
+      AnimationTrigger: SetEat
+      Data: {fileID: 0}
+  - AnimationType: 11
+    Structure:
+      AnimationTrigger: 
+      Data: {fileID: 11400000, guid: 5ac76f8c0c2c1cb479b7a22ad1af065d, type: 2}
+  - AnimationType: 12
+    Structure:
+      AnimationTrigger: 
+      Data: {fileID: 11400000, guid: 8fe4b81847eba1a43b670469b4fbfad0, type: 2}
+  - AnimationType: 13
+    Structure:
+      AnimationTrigger: 
+      Data: {fileID: 11400000, guid: 83f86f17d481689488d6d961c2d79087, type: 2}
+  - AnimationType: 14
+    Structure:
+      AnimationTrigger: 
+      Data: {fileID: 11400000, guid: 3928a2c0f074cc94886812968cdae65f, type: 2}
+  - AnimationType: 15
+    Structure:
+      AnimationTrigger: 
+      Data: {fileID: 11400000, guid: 5ac76f8c0c2c1cb479b7a22ad1af065d, type: 2}
+  - AnimationType: 16
+    Structure:
+      AnimationTrigger: 
+      Data: {fileID: 11400000, guid: c6c16a7ca891c91448f14f6c0647147d, type: 2}
+  - AnimationType: 17
+    Structure:
+      AnimationTrigger: 
+      Data: {fileID: 0}
+  - AnimationType: 18
+    Structure:
+      AnimationTrigger: SetNotAgree
+      Data: {fileID: 11400000, guid: 1d4f1140804c3f545a8bf66b65c397d2, type: 2}
+  - AnimationType: 6
+    Structure:
+      AnimationTrigger: SetRussuinRoulete
+      Data: {fileID: 0}
+  _defaultExpressionController: {fileID: 5097888388677435515}
+  _cubismRenderController: {fileID: 6958622972646693681}
   _move: {fileID: 0}
 --- !u!114 &548732614756624423
 MonoBehaviour:

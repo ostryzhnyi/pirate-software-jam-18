@@ -59,14 +59,28 @@ namespace Live2D.Cubism.Editor.Inspectors
             }
         }
 
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            CreateInspectorGUI();
+        }
+
         public override VisualElement CreateInspectorGUI()
         {
+                Debug.LogError("!!!! ");
+            
             var target = (CubismPartsInspector)this.target;
             target.Refresh();
-
+            if (target.Model == null)
+            {
+                target.Model = target.GetComponent<CubismModel>();
+                Debug.LogError("!!!! " +  target.Model);
+            }
             _visualElement = new VisualElement();
             if (target.Model != null)
             {
+                Debug.LogError("!!!! ");
+                
                 var parts = target.Model.Parts;
                 var data = new PartProxy[0];
                 _proxies = new PartProxy[parts.Length];

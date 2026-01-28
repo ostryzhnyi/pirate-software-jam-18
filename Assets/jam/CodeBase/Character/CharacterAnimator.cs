@@ -32,7 +32,7 @@ namespace jam.CodeBase.Character
             // CubismModel.Parameters.First(p => p.Id == "Param6").Value = -30;
             //PlayAnimation(AnimationType.BadHP);
             _animator = GetComponent<Animator>();
-            G.CharacterAnimator = this;
+           // G.CharacterAnimator = this;
         }
 
         private void OnDestroy()
@@ -53,35 +53,35 @@ namespace jam.CodeBase.Character
         {
             var structure = _characterAnimationStructures.FirstOrDefault(x => x.AnimationType == animationType);
 
-            if (animationType is AnimationType.BadHP or AnimationType.FineHP or AnimationType.NormalHP or
-                AnimationType.NormalStress or AnimationType.BadStress or AnimationType.FineStress)
-            {
-                Debug.LogError("UPDATE STATEL: " + animationType + " " + structure.Structure.Data.Parameters[0].Id);
-                SetParameter("Param5", 30);
-                SetParameter("Param6", 30);
-                SetParameter("ParamEyeROpen", 0);
-
-                if (animationType is AnimationType.NormalHP)
-                {
-                    SetParameter("Param5", -30);
-                }
-                else if (animationType is AnimationType.BadHP)
-                {
-                    SetParameter("Param6", -30);
-                }
-                else
-                {
-                    SetParameter(structure.Structure.Data.Parameters[0].Id,
-                        structure.Structure.Data.Parameters[0].Value);
-                }
-
-                return;
-            }
-            else if (animationType == AnimationType.Move)
-            {
-                PlayMoveAnim().Forget();
-                return;
-            }
+            // if (animationType is AnimationType.BadHP or AnimationType.FineHP or AnimationType.NormalHP or
+            //     AnimationType.NormalStress or AnimationType.BadStress or AnimationType.FineStress)
+            // {
+            //     Debug.LogError("UPDATE STATEL: " + animationType + " " + structure.Structure.Data.Parameters[0].Id);
+            //     SetParameter("Param5", 30);
+            //     SetParameter("Param6", 30);
+            //     SetParameter("ParamEyeROpen", 0);
+            //
+            //     if (animationType is AnimationType.NormalHP)
+            //     {
+            //         SetParameter("Param5", -30);
+            //     }
+            //     else if (animationType is AnimationType.BadHP)
+            //     {
+            //         SetParameter("Param6", -30);
+            //     }
+            //     else
+            //     {
+            //         SetParameter(structure.Structure.Data.Parameters[0].Id,
+            //             structure.Structure.Data.Parameters[0].Value);
+            //     }
+            //
+            //     return;
+            // }
+            // else if (animationType == AnimationType.Move)
+            // {
+            //     PlayMoveAnim().Forget();
+            //     return;
+            // }
 
             PlayAnimation(structure.Structure);
         }
@@ -91,8 +91,8 @@ namespace jam.CodeBase.Character
         {
             if (structure.AnimationTrigger != null)
                 SetTrigger(structure.AnimationTrigger);
-            if (structure.Data != null)
-                SetExpression(structure.Data);
+            // if (structure.Data != null)
+            //     SetExpression(structure.Data);
         }
 
         public void SetTrigger(string trigger)
