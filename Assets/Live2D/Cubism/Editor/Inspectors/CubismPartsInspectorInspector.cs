@@ -59,16 +59,8 @@ namespace Live2D.Cubism.Editor.Inspectors
             }
         }
 
-        public override void OnInspectorGUI()
-        {
-            base.OnInspectorGUI();
-            CreateInspectorGUI();
-        }
-
         public override VisualElement CreateInspectorGUI()
         {
-                Debug.LogError("!!!! ");
-            
             var target = (CubismPartsInspector)this.target;
             target.Refresh();
             if (target.Model == null)

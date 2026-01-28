@@ -53,35 +53,34 @@ namespace jam.CodeBase.Character
         {
             var structure = _characterAnimationStructures.FirstOrDefault(x => x.AnimationType == animationType);
 
-            // if (animationType is AnimationType.BadHP or AnimationType.FineHP or AnimationType.NormalHP or
-            //     AnimationType.NormalStress or AnimationType.BadStress or AnimationType.FineStress)
-            // {
-            //     Debug.LogError("UPDATE STATEL: " + animationType + " " + structure.Structure.Data.Parameters[0].Id);
-            //     SetParameter("Param5", 30);
-            //     SetParameter("Param6", 30);
-            //     SetParameter("ParamEyeROpen", 0);
-            //
-            //     if (animationType is AnimationType.NormalHP)
-            //     {
-            //         SetParameter("Param5", -30);
-            //     }
-            //     else if (animationType is AnimationType.BadHP)
-            //     {
-            //         SetParameter("Param6", -30);
-            //     }
-            //     else
-            //     {
-            //         SetParameter(structure.Structure.Data.Parameters[0].Id,
-            //             structure.Structure.Data.Parameters[0].Value);
-            //     }
-            //
-            //     return;
-            // }
-            // else if (animationType == AnimationType.Move)
-            // {
-            //     PlayMoveAnim().Forget();
-            //     return;
-            // }
+            if (animationType is AnimationType.BadHP or AnimationType.FineHP or AnimationType.NormalHP or
+                AnimationType.NormalStress or AnimationType.BadStress or AnimationType.FineStress)
+            {
+                Debug.LogError("UPDATE STATEL: " + animationType + " " + structure.Structure.Data.Parameters[0].Id);
+                // SetParameter("Param5", 30);
+                // SetParameter("Param6", 30);
+                // SetParameter("ParamEyeROpen", 0);
+            
+                if (animationType is AnimationType.BadHP or AnimationType.BadStress)
+                {
+                    _defaultExpressionController.CurrentExpressionIndex = 2;
+                }
+                else if (animationType is AnimationType.NormalHP or AnimationType.NormalStress)
+                {
+                    _defaultExpressionController.CurrentExpressionIndex = 5;
+                }
+                else
+                {
+                    _defaultExpressionController.CurrentExpressionIndex = 15;
+                }
+            
+                return;
+            }
+            else if (animationType == AnimationType.Move)
+            {
+                PlayMoveAnim().Forget();
+                return;
+            }
 
             PlayAnimation(structure.Structure);
         }
@@ -115,6 +114,7 @@ namespace jam.CodeBase.Character
         public void SetParameter(string id, float value)
         {
             //var par = CubismModel.Parameters.First(p => p.Id == parameter.Id);
+            CubismModel.Parameters.First(p => p.Id == id).SetRepeatFlagForParameterRepeat(true);
             CubismModel.Parameters.First(p => p.Id == id).Value = value;
             Debug.LogError("SET PARAMETER: " + id + " to " + value);
             //DOTween.To(() => par.Value, (v) =>  par.Value = v, par.Value, .4f);

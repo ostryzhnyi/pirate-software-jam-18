@@ -9568,7 +9568,7 @@ MonoBehaviour:
   - AnimationType: 15
     Structure:
       AnimationTrigger: 
-      Data: {fileID: 11400000, guid: 5ac76f8c0c2c1cb479b7a22ad1af065d, type: 2}
+      Data: {fileID: 11400000, guid: b2f067377b35adf4695dab7c7ce70f68, type: 2}
   - AnimationType: 16
     Structure:
       AnimationTrigger: 
