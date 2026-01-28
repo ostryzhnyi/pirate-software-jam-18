@@ -32,6 +32,8 @@ namespace jam.CodeBase.Tasks
             }
         }
 
+        public bool? LastDonateToAlive = false;
+
         public async UniTask DonateExecuteProcess()
         {
             if(G.FinishRun)
@@ -91,40 +93,43 @@ namespace jam.CodeBase.Tasks
                 time--;
                 G.Menu.HUD.DonateHUDButton.SetAmount(time / duration);
                 DonateProgress = time / duration;
-                if (currentSecond < totalSeconds && remainingDonate > 0f)
+                if(time > 3)
                 {
-              
-                    
-                    float donateAmount = oneDonate * economyTag.OneDonateRandMultiplier.GetRandomRange();
-
-                    if (donateAmount > remainingDonate)
-                        donateAmount = remainingDonate;
-
-                    remainingDonate -= donateAmount;
-
-                    try
+                    if (currentSecond < totalSeconds && remainingDonate > 0f)
                     {
-                        var currentTargetDonate = GetCurrentTarget();
 
-                        var task = BaseTasks.FirstOrDefault(t => t.TaskTarget == currentTargetDonate);
-                        if (task != null)
+
+                        float donateAmount = oneDonate * economyTag.OneDonateRandMultiplier.GetRandomRange();
+
+                        if (donateAmount > remainingDonate)
+                            donateAmount = remainingDonate;
+
+                        remainingDonate -= donateAmount;
+
+                        try
                         {
-                            G.Interactors.CallAll<IDonate>(d => d.Donate(task, donateAmount));
+                            var currentTargetDonate = GetCurrentTarget();
+
+                            var task = BaseTasks.FirstOrDefault(t => t.TaskTarget == currentTargetDonate);
+                            if (task != null)
+                            {
+                                G.Interactors.CallAll<IDonate>(d => d.Donate(task, donateAmount));
+                            }
+                            else
+                            {
+                                G.Interactors.CallAll<IDonate>(d => d.Donate(BaseTasks.GetRandom(), donateAmount));
+                                UnityEngine.Debug.LogError(
+                                    $"Not found {currentTargetDonate} task for {TaskDefinition.Description}");
+                            }
                         }
-                        else
+                        catch (Exception e)
                         {
+                            UnityEngine.Debug.LogError(e);
                             G.Interactors.CallAll<IDonate>(d => d.Donate(BaseTasks.GetRandom(), donateAmount));
-                            UnityEngine.Debug.LogError(
-                                $"Not found {currentTargetDonate} task for {TaskDefinition.Description}");
                         }
-                    }
-                    catch (Exception e)
-                    {
-                        UnityEngine.Debug.LogError(e);
-                        G.Interactors.CallAll<IDonate>(d => d.Donate(BaseTasks.GetRandom(), donateAmount));
-                    }
 
-                    currentSecond++;
+                        currentSecond++;
+                    }
                 }
 
                 await UniTask.WaitForSeconds(1f);
@@ -172,6 +177,7 @@ namespace jam.CodeBase.Tasks
                 G.Characters.CurrentCharacter.ApplyStatsAfforded(statsAfforded);
             }
 
+            G.Donate.LastDonateToAlive = null;
             
             G.Room.TVAnimator.Play(TVAnimation.SmokeTime, 3f);
             

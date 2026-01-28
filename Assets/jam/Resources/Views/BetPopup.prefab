@@ -978,7 +978,7 @@ MonoBehaviour:
   _bet: {fileID: 1566344400219872585}
   _totalBet: {fileID: 2521216974791166007}
   _timerAnimation: {fileID: 5225967198562924989}
-  _maxRotate: 15
+  _maxRotate: 9
   _rotateDuration: 0.75
   _ease: 6
   _tutorialPointerPlusMin: {fileID: 4877057150952830131}

@@ -79,6 +79,8 @@ namespace jam.CodeBase.Core.Stream.Views
             {
                 await PlayFTUE(ftueSaveModel);
             }
+
+            G.Donate.LastDonateToAlive = false;
             
             var duration = (float)balance.Duration;
             while (duration > 0)
@@ -130,6 +132,7 @@ namespace jam.CodeBase.Core.Stream.Views
             ChatMessageView.Clear();
             gameObject.SetActive(false);
             ChatMessageView.SetScrollState(true);
+            G.Donate.LastDonateToAlive = null;
            
             Debug.LogError(answer);
             G.Menu.HUD.AnswerOnChatMinigame.Play(answer).Forget();

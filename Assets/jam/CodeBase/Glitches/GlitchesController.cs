@@ -50,14 +50,45 @@ namespace jam.CodeBase.Glitches
 
         private void OnStressUpdated(float value)
         {
-            _saveModel.Data.TotalHarm += value;
+            Debug.LogError("OnStressUpdated " + value);
+            
+            if(value > 0)
+                return;
+
+            float calculatedValue = value;
+
+            if (!G.Donate.LastDonateToAlive.HasValue)
+            {
+                calculatedValue *= _data.BotsGlitchDamageMuliplier;
+            }
+            else if(G.Donate.LastDonateToAlive.HasValue)
+            {
+                calculatedValue = G.Donate.LastDonateToAlive.Value ? value * _data.BotsGlitchDamageMuliplier : value;
+            }
+
+            _saveModel.Data.TotalHarm += Math.Abs(calculatedValue);
             _saveModel.ForceSave();
             UpdateGlitches();
         }
 
         private void OnHealthUpdated(float value)
         {
-            _saveModel.Data.TotalHarm += value;
+            Debug.LogError("OnHealthUpdated " + value);
+            if(value > 0)
+                return;
+            
+            float calculatedValue = value;
+
+            if (!G.Donate.LastDonateToAlive.HasValue)
+            {
+                calculatedValue *= _data.BotsGlitchDamageMuliplier;
+            }
+            else if(G.Donate.LastDonateToAlive.HasValue)
+            {
+                calculatedValue = G.Donate.LastDonateToAlive.Value ? value * _data.BotsGlitchDamageMuliplier : value;
+            }
+            
+            _saveModel.Data.TotalHarm += Math.Abs(calculatedValue);
             _saveModel.ForceSave();
             UpdateGlitches();
         }
@@ -68,6 +99,7 @@ namespace jam.CodeBase.Glitches
                 return;
 
             float harm = _saveModel.Data.TotalHarm;
+            Debug.LogError("TOTAL HARM: " + harm + " player donated to live: " + (G.Donate.LastDonateToAlive.HasValue && G.Donate.LastDonateToAlive.Value));
 
             float handDrawnValue = CalculateValue(harm, _data.HandDrawnProportion.TotalHarm, _data.HandDrawnProportion.HandDrawnAmount);
             float chromAbberValue = CalculateValue(harm, _data.ChromaticAberrationProportion.TotalHarm, _data.ChromaticAberrationProportion.Amount);
@@ -88,7 +120,7 @@ namespace jam.CodeBase.Glitches
                 return;
             
             float harm = _saveModel.Data.TotalHarm;
-            Debug.LogError("TOTAL HARM: " + harm);
+            
             float handDrawnValue = CalculateValue(harm, _data.HandDrawnProportion.TotalHarm, _data.HandDrawnProportion.HandDrawnAmount);
             float chromAbberValue = CalculateValue(harm, _data.ChromaticAberrationProportion.TotalHarm, _data.ChromaticAberrationProportion.Amount);
             float glitchValue = CalculateValue(harm, _data.GlitchProportion.TotalHarm, _data.GlitchProportion.Amount);

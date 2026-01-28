@@ -6,6 +6,7 @@ using Ostryzhnyi.EasyViewService.Api.Service;
 using Ostryzhnyi.EasyViewService.ViewLayers;
 using UnityEngine;
 using DG.Tweening;
+using jam.CodeBase.Economy;
 using jam.CodeBase.UI;
 using jam.CodeBase.Utils;
 using TMPro;
@@ -132,7 +133,9 @@ namespace jam.CodeBase.Bets
             float aliveK = G.BetController.DieBetCoefficient;
             float dieK   = G.BetController.AliveBetCoefficient;
 
-            float diff = aliveK / 2.5f - dieK / 2.5f;                
+            var cfg = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
+
+            float diff = dieK / cfg.CoefficientToDieMultiplier - aliveK / cfg.CoefficientToAliveMultiplier;                
             float angle = diff * _maxRotate;         
 
             _weightTween?.Kill();

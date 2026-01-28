@@ -207,9 +207,10 @@ namespace jam.CodeBase.Bets
                 _smoothAlive = Mathf.Lerp(_smoothAlive, rawAlive, CoeffSmooth);
                 _smoothDie = Mathf.Lerp(_smoothDie, rawDie, CoeffSmooth);
             }
+            var cfg = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
 
-            AliveBetCoefficient = (_smoothDie + 1) * 2.5f;
-            DieBetCoefficient = (_smoothAlive + 1) * 2.5f;
+            AliveBetCoefficient = (_smoothDie + 1) * cfg.CoefficientToAliveMultiplier;
+            DieBetCoefficient = (_smoothAlive + 1) * cfg.CoefficientToDieMultiplier;
             Debug.Log(
                 $"[Coeffs]  AliveBet: {AliveBet}, DieBet: {DieBet}, AliveBetCoefficient: {AliveBetCoefficient}, DieBetCoefficient: {DieBetCoefficient}");
             OnChangeAliveCoefficient?.Invoke(AliveBetCoefficient);

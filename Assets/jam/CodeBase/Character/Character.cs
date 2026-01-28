@@ -86,7 +86,7 @@ namespace jam.CodeBase.Character
             }
 
             OnHealthUpdated?.Invoke(CurrentHealth);
-            OnStressChanges?.Invoke(method == StatsChangeMethod.Remove ? amount : -amount);
+            OnHealthChanges?.Invoke(method == StatsChangeMethod.Remove ? -amount : amount);
 
             if (IsDieHP())
             {
@@ -117,7 +117,7 @@ namespace jam.CodeBase.Character
             }
 
             OnStressUpdated?.Invoke(CurrentStress);
-            OnStressChanges?.Invoke(method == StatsChangeMethod.Add ? amount : -amount);
+            OnStressChanges?.Invoke(method == StatsChangeMethod.Add ? -amount : amount);
             
             if (IsDieStress())
             {

@@ -8,7 +8,7 @@ namespace jam.CodeBase.Glitches
     {
         public override int GetPriority()
         {
-            return int.MaxValue;
+            return int.MinValue + 2;
         }
 
         public UniTask<bool> OnLoaded(RunSaveModel runSaveModel)

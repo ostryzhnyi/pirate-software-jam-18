@@ -8,6 +8,7 @@ using jam.CodeBase.Character;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
 using jam.CodeBase.Core.Stream.Views;
+using jam.CodeBase.Economy;
 using jam.CodeBase.GameLoop;
 using jam.CodeBase.Glitches;
 using jam.CodeBase.Room;
@@ -100,7 +101,7 @@ namespace jam.CodeBase.Core
             
             var betSaveModel = Saves.Get<BetSaveModel>();
             betSaveModel.Clear();
-
+            Economy.AddMoney(GameResources.CMS.BaseEconomy.As<BaseEconomyTag>().RestoreMoneyByNewRun);
             BetController = new BetController();
             FinishRun = false;
             

@@ -11,6 +11,8 @@ namespace jam.CodeBase.Glitches
         public Glitch GlitchProportion;
         public Flicker FlickerProportion;
         public Fade FadeProportion;
+
+        public float BotsGlitchDamageMuliplier = .2f;
     }
 
 
