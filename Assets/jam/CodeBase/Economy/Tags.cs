@@ -17,7 +17,8 @@ namespace jam.CodeBase.Economy
         public Vector2 DonateMultiplier = new Vector2(0.7f, 1.3f);
         public float BaseBetMultiplier = 0.25f;
         public Vector2Int DonatorsAmountMinMax = new Vector2Int(40, 60);
-        public Vector2 DonateСhanceOppositeByPlayer = new Vector2(0.45f, .65f);
+       // public Vector2 DonateСhanceOppositeByPlayer = new Vector2(0.45f, .65f);
+        public float DonateСhanceOppositeByPlayer = .2f;
         public Vector2 OneDonateRandMultiplier = new Vector2(0.2f, 2f);
         
         [Header("Bets")]

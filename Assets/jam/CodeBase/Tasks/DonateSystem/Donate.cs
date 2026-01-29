@@ -7,6 +7,7 @@ using jam.CodeBase.Character;
 using jam.CodeBase.Core;
 using jam.CodeBase.Core.Tags;
 using jam.CodeBase.Economy;
+using jam.CodeBase.Tasks.DonateSystem;
 using jam.CodeBase.Tasks.Interactors;
 using ProjectX.CodeBase.Utils;
 using UnityEngine;
@@ -159,6 +160,9 @@ namespace jam.CodeBase.Tasks
             //     }
             // }
 
+            G.Menu.HUD.Donate.interactable = false;
+            G.Menu.ViewService.HideView<DonateView>();
+            
             var wonTask = Donates.OrderByDescending(p => p.Value).FirstOrDefault();
 
             G.Menu.HUD.DonateHUDButton.SetAmount(0);
@@ -248,8 +252,8 @@ namespace jam.CodeBase.Tasks
         {
             var economyTag = GameResources.CMS.BaseEconomy.As<BaseEconomyTag>();
             var isAlive = G.BetController.MyBetAlive > G.BetController.MyBetDie;
-            var oppositeChance = economyTag.DonateСhanceOppositeByPlayer.GetRandomRange();
-            var opposite = .5 < oppositeChance;
+            var oppositeChance = Random.value;
+            var opposite = oppositeChance > economyTag.DonateСhanceOppositeByPlayer;
 
             Debug.Log("oppositeChance: " + oppositeChance);
             if (isAlive && !opposite)

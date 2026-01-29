@@ -40,8 +40,7 @@ namespace jam.CodeBase.Tasks.Interactors
         public async UniTask OnFinishDonates(TaskDefinition taskDefinition, BaseTask task, float price)
         {
             var runSaveData = G.Saves.Get<RunSaveModel>().Data;
-            G.Menu.HUD.Donate.interactable = false;
-            G.Menu.ViewService.HideView<DonateView>();
+         
             await UniTask.WaitForSeconds(5);
 
             var donateButtons = (G.Menu.ViewService.GetView<DonateView>() as DonateView)?.DonateButtons;

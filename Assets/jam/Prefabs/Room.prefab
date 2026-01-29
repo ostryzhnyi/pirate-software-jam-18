@@ -5186,12 +5186,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08884969851c4c41a5b175b7e7367802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::jam.CodeBase.Room.FanAnimator
-  accelerateTime: 2
-  fullSpeedRPS: 10
-  fan: {fileID: 481106322493691970}
-  _particleSystem: {fileID: 6052749019200279346}
-  lowSpeedRPS: 2
-  highSpeedRPS: 20
+  verySlowRpm: 30
+  fastRpm: 400
+  veryFastRpm: 800
+  changeSpeedDuration: 1
+  changeSpeedEase: 9
 --- !u!1 &1106472235049886474
 GameObject:
   m_ObjectHideFlags: 0
