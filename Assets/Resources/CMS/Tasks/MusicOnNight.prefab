@@ -49,7 +49,6 @@ MonoBehaviour:
   - rid: 4608936542719443226
   - rid: 4608936559312109709
   - rid: 4608936559312109710
-  - rid: 4608936559312109798
   references:
     version: 2
     RefIds:
@@ -63,12 +62,6 @@ MonoBehaviour:
       type: {class: EnableMusicOnNightTask, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
       data:
         Name: Enable
-        StatsAfforded: []
-        TaskTarget: 0
-    - rid: 4608936559312109710
-      type: {class: NotEnableMusicOnNightTask, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
-      data:
-        Name: Not enable
         StatsAfforded:
         - StatsType: 0
           ValueRange: {x: 6, y: 12}
@@ -76,7 +69,10 @@ MonoBehaviour:
         - StatsType: 1
           ValueRange: {x: 6, y: 12}
           Method: 0
+        TaskTarget: 0
+    - rid: 4608936559312109710
+      type: {class: NotEnableMusicOnNightTask, ns: jam.CodeBase.Tasks, asm: Assembly-CSharp}
+      data:
+        Name: Not enable
+        StatsAfforded: []
         TaskTarget: 1
-    - rid: 4608936559312109798
-      type: {class: IgnoreTag, ns: jam.CodeBase.Core.Tags, asm: Assembly-CSharp}
-      data: 
