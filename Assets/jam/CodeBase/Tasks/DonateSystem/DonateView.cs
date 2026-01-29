@@ -91,7 +91,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
                 PlayFirstFTUE().Forget();
             
             _donateProgress.SetAmount(G.Donate.DonateProgress, true);
-            Price = Math.Min(G.Economy.CurrentMoney, CastedOption.TaskDefinition.BasePrice);
+            Price = (int)Math.Min(G.Economy.CurrentMoney, CastedOption.TaskDefinition.BasePrice);
             
             UpdateText();
             

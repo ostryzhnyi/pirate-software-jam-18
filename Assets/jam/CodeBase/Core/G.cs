@@ -114,15 +114,15 @@ namespace jam.CodeBase.Core
         }
 
         [Button]
-        public void AddStress(float stress = 99999)
+        public void AddStress(float stress = 99999, StatsChangeMethod method = StatsChangeMethod.Add)
         {
-            G.Characters.CurrentCharacter.ChangeStress(stress, StatsChangeMethod.Add).Forget();
+            G.Characters.CurrentCharacter.ChangeStress(stress,method).Forget();
         }
 
         [Button]
-        public void AddHp(float stress = 99999)
+        public void AddHp(float stress = 99999, StatsChangeMethod method = StatsChangeMethod.Add)
         {
-            G.Characters.CurrentCharacter.ChangeHP(stress, StatsChangeMethod.Remove).Forget();
+            G.Characters.CurrentCharacter.ChangeHP(stress, method).Forget();
         }
 
         public static void Alive()

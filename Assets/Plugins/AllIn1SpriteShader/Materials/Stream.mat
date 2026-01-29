@@ -90,7 +90,7 @@ Material:
     - _BlurIntensity: 0
     - _Brightness: 0
     - _ChromAberrAlpha: 0.013
-    - _ChromAberrAmount: 0
+    - _ChromAberrAmount: 0.2
     - _ClipUvDown: 0
     - _ClipUvLeft: 0
     - _ClipUvRight: 0
@@ -112,18 +112,18 @@ Material:
     - _DistortTexXSpeed: 5
     - _DistortTexYSpeed: 5
     - _EditorDrawers: 6
-    - _FadeAmount: -0.1
+    - _FadeAmount: 0.7
     - _FadeBurnGlow: 250
     - _FadeBurnTransition: 0.075
     - _FadeBurnWidth: 0.09
     - _FishEyeUvAmount: 0.453
     - _FlickerAlpha: 0.798
     - _FlickerFreq: 0.52
-    - _FlickerPercent: 0
+    - _FlickerPercent: 15
     - _GhostBlend: 0
     - _GhostColorBoost: 4.27
     - _GhostTransparency: 0
-    - _GlitchAmount: 0
+    - _GlitchAmount: 15
     - _GlitchSize: 0.84
     - _GlitchSpeed: 24.9
     - _Glow: 0
@@ -140,7 +140,7 @@ Material:
     - _GreyscaleBlend: 1
     - _GreyscaleLuminosity: 0
     - _GreyscaleOutline: 0
-    - _HandDrawnAmount: 0
+    - _HandDrawnAmount: 4
     - _HandDrawnSpeed: 7.37
     - _HitEffectBlend: 1
     - _HitEffectGlow: 5

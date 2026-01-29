@@ -53,7 +53,8 @@ MonoBehaviour:
     - rid: 4608936746846257236
       type: {class: DebugRunTag, ns: jam.CodeBase.Core, asm: Assembly-CSharp}
       data:
-        DebugTask: []
+        DebugTask:
+        - {fileID: 7006747429192221996, guid: 76e06e579befe3e48880fef62637f8de, type: 3}
         OverrideDay: -1
         OverrideEconomy: -1
         OverrideCurentDonate: -1
