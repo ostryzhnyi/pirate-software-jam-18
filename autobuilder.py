@@ -20,6 +20,7 @@ ITCH_PROJECT = 'ostryzhnyi/votecide:webgl'  # Itch.io project and channel
 CHECK_INTERVAL = 60  # Time in seconds to wait before checking for new commits
 
 
+
 def get_latest_commit_hash(repo_path):
     """Gets the latest commit hash from the git repository."""
     repo = Repo(repo_path)
