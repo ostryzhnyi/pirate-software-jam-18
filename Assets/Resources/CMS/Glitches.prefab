@@ -54,7 +54,7 @@ MonoBehaviour:
       type: {class: GlitchesTag, ns: jam.CodeBase.Glitches, asm: Assembly-CSharp}
       data:
         HandDrawnProportion:
-          TotalHarm: {x: 250, y: 450}
+          TotalHarm: {x: 200, y: 450}
           HandDrawnAmount: {x: 0, y: 4}
           Messages:
           - "I... I feel bad... this is wrong\u2026 "
@@ -73,24 +73,24 @@ MonoBehaviour:
           TotalHarm: {x: 600, y: 700}
           Amount: {x: 0, y: 15}
           Messages:
-          - 'All efforts are useless... they die... they suffer... so it was, so
-            it will be. '
+          - I see you, it's you, isn't it? It's me, isn't it?
           - "I can't take it anymore, they look when I turn away, they stand behind
             my back\u2026 "
-          - 'They are holding out their hands... I think I see them... '
-          - I can't... breathe. They grab my neck, they pull, they press... they
-            don't want to leave.
+          - 'They grab my neck, they pull, they press... they don''t want to leave. '
         FlickerProportion:
           TotalHarm: {x: 700, y: 800}
           Percent: {x: 0, y: 15}
           Messages:
           - "I... can't see. They cover my eyes with their palms\u2026 "
-          - Give up, you can't do anything, let go, fall, stop, freeze, sit down,
-            lie down, close your eyes, hold your breath, forever.
+          - 'All efforts are useless... they die... they suffer... so it was, so
+            it will be. I can''t... breathe.  '
+          - "I... can't see. They cover my eyes with their palms\u2026 "
         FadeProportion:
           TotalHarm: {x: 800, y: 1000}
           Amount: {x: -0.1, y: 0.7}
           Messages:
           - 'You die, I die, you die, I die, you''re dead, we''re dead. We''re together
             today, tomorrow, forever. '
+          - 'Give up, you can''t do anything, let go, fall, stop, freeze, sit down,
+            lie down, close your eyes, hold your breath, forever. '
         BotsGlitchDamageMuliplier: 0.2
