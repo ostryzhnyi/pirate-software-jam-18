@@ -23,6 +23,8 @@ namespace jam.CodeBase.Glitches
         
         public Vector2 TotalHarm = new Vector2(0, 200) ;
         public Vector2 HandDrawnAmount = new  Vector2(0, 4) ;
+
+        public string[] Messages;
     }
     
     [Serializable]
@@ -32,6 +34,8 @@ namespace jam.CodeBase.Glitches
         
         public Vector2 TotalHarm = new Vector2(150, 250) ;
         public Vector2 Amount = new  Vector2(0, .2f) ;
+        
+        public string[] Messages;
     }
     
     [Serializable]
@@ -41,6 +45,8 @@ namespace jam.CodeBase.Glitches
         
         public Vector2 TotalHarm = new Vector2(200, 350) ;
         public Vector2 Amount = new Vector2(0, 15f) ;
+        
+        public string[] Messages;
     }
     
     [Serializable]
@@ -50,6 +56,8 @@ namespace jam.CodeBase.Glitches
         
         public Vector2 TotalHarm = new Vector2(200, 350) ;
         public Vector2 Percent = new Vector2(0, 15f) ;
+        
+        public string[] Messages;
     }
     
     [Serializable]
@@ -59,5 +67,7 @@ namespace jam.CodeBase.Glitches
         
         public Vector2 TotalHarm = new Vector2(500, 1500) ;
         public Vector2 Amount = new Vector2(0, 0.7f) ;
+        
+        public string[] Messages;
     }
 }

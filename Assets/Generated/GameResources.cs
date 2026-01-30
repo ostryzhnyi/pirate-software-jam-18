@@ -15,9 +15,18 @@ public static class GameResources
             public static AudioClip Day1_Stream_ON => Resources.Load<AudioClip>("Audio/Loops/Day1_Stream ON");
             public static AudioClip Day2_keep_your_mind => Resources.Load<AudioClip>("Audio/Loops/Day2_keep your mind");
             public static AudioClip Day3_3 => Resources.Load<AudioClip>("Audio/Loops/Day3_3");
+            public static AudioClip menu_back => Resources.Load<AudioClip>("Audio/Loops/menu_back");
         }
         public static class SFX
         {
+            public static AudioClip BaseClick => Resources.Load<AudioClip>("Audio/SFX/BaseClick");
+            public static AudioClip Bet => Resources.Load<AudioClip>("Audio/SFX/Bet");
+            public static AudioClip ClickMenu => Resources.Load<AudioClip>("Audio/SFX/ClickMenu");
+            public static AudioClip Drink => Resources.Load<AudioClip>("Audio/SFX/Drink");
+            public static AudioClip Electic => Resources.Load<AudioClip>("Audio/SFX/Electic");
+            public static AudioClip GlassDestroy => Resources.Load<AudioClip>("Audio/SFX/GlassDestroy");
+            public static AudioClip PlusMin => Resources.Load<AudioClip>("Audio/SFX/PlusMin");
+            public static AudioClip Shoot => Resources.Load<AudioClip>("Audio/SFX/Shoot");
         }
     }
     public static class CMS
@@ -36,6 +45,15 @@ public static class GameResources
         {
             public static CMSEntityPfb ChatMiniGameBalance => Resources.Load<CMSEntityPfb>("CMS/ChatMiniGame/ChatMiniGameBalance");
             public static CMSEntityPfb ChatMiniMessages => Resources.Load<CMSEntityPfb>("CMS/ChatMiniGame/ChatMiniMessages");
+        }
+        public static class SFX
+        {
+            public static AudioCMSEntityPfb BaseClickSFX => Resources.Load<AudioCMSEntityPfb>("CMS/SFX/BaseClickSFX");
+            public static AudioCMSEntityPfb BetSFX => Resources.Load<AudioCMSEntityPfb>("CMS/SFX/BetSFX");
+            public static AudioCMSEntityPfb DrinkSFX => Resources.Load<AudioCMSEntityPfb>("CMS/SFX/DrinkSFX");
+            public static AudioCMSEntityPfb GlassDestroySFX => Resources.Load<AudioCMSEntityPfb>("CMS/SFX/GlassDestroySFX");
+            public static AudioCMSEntityPfb PlusMinusSFX => Resources.Load<AudioCMSEntityPfb>("CMS/SFX/PlusMinusSFX");
+            public static AudioCMSEntityPfb ShootSFX => Resources.Load<AudioCMSEntityPfb>("CMS/SFX/ShootSFX");
         }
         public static class Tasks
         {

@@ -86,4 +86,4 @@ MonoBehaviour:
     - rid: 4608936542719443205
       type: {class: TagSprite, ns: Runtime, asm: CMS}
       data:
-        sprite: {fileID: -8814638219562479829, guid: a7508630f2de87e48b2438c11ac4afa1, type: 3}
+        sprite: {fileID: 21300000, guid: 89cee61aed0cb5c46b669072c7c86fac, type: 3}

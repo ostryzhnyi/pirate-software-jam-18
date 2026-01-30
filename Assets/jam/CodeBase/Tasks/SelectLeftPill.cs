@@ -12,14 +12,13 @@ namespace jam.CodeBase.Tasks
         public override async UniTask Execute()
         {
             Debug.LogError("TakeBluePill");
-            G.CharacterAnimator.PlayAnimation(AnimationType.TakeBluePill);
+            
             G.BoxAnimator.PlayAnimation(BoxAnimationType.Pils);
+            await UniTask.WaitForSeconds(6f);
+            G.CharacterAnimator.PlayAnimation(AnimationType.TakeBluePill);
             
-            await UniTask.WaitForSeconds(5.5f);
+            await UniTask.WaitForSeconds(2f);
             
-            G.Room.TVAnimator.Play(TVAnimation.ChooseRedOrBlue, 3f);
-
-            await UniTask.WaitForSeconds(3);
         }
     }
 
@@ -29,10 +28,13 @@ namespace jam.CodeBase.Tasks
         public override async UniTask Execute()
         {
             Debug.LogError("TakeRedPill");
+            G.Room.TVAnimator.Play(TVAnimation.ChooseRedOrBlue, 8f);
+            
+            G.BoxAnimator.PlayAnimation(BoxAnimationType.Pils);
+            await UniTask.WaitForSeconds(6f);
             G.CharacterAnimator.PlayAnimation(AnimationType.TakeRedPill);
-            G.Room.TVAnimator.Play(TVAnimation.ChooseRedOrBlue, 3f);
-
-            await UniTask.WaitForSeconds(3);
+            
+            await UniTask.WaitForSeconds(2f);
         }
     }
 }

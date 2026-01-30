@@ -13,7 +13,6 @@ namespace jam.CodeBase.Tasks
         {
             Debug.LogError("LaunchBeesIntoTheRoom");
             
-            G.CharacterAnimator.PlayAnimation(AnimationType.SetSad);
             G.Room.Bee.Play();
             await UniTask.WaitForSeconds(3f);
         }

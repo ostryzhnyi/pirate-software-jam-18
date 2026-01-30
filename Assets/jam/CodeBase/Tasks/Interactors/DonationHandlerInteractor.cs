@@ -42,6 +42,9 @@ namespace jam.CodeBase.Tasks.Interactors
             var runSaveData = G.Saves.Get<RunSaveModel>().Data;
          
             await UniTask.WaitForSeconds(5);
+            
+            if(G.FinishRun)
+                return;
 
             var donateButtons = (G.Menu.ViewService.GetView<DonateView>() as DonateView)?.DonateButtons;
             if (donateButtons != null)

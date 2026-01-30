@@ -12,10 +12,12 @@ namespace jam.CodeBase.Tasks
         public override async UniTask Execute()
         {
             Debug.LogError("EnableAC");
+                  
+            G.CharacterAnimator.PlayAnimation(AnimationType.Idle);
+            
             G.Room.FanAnimator.Play(false);
-            
-            G.CharacterAnimator.PlayAnimation(AnimationType.SetSad);
-            
+
+       
             await UniTask.WaitForSeconds(4);
             G.Room.FanAnimator.Stop();
         }
@@ -26,10 +28,7 @@ namespace jam.CodeBase.Tasks
     {
         public override async UniTask Execute()
         {
-            Debug.LogError("DoNotEnableAC");
-            
-            G.CharacterAnimator.PlayAnimation(AnimationType.Idle);
-            
+            Debug.LogError("TurnColdest");
             G.Room.FanAnimator.Play(true);
             
             await UniTask.WaitForSeconds(4);

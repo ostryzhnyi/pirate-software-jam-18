@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using jam.CodeBase.Audio;
 using jam.CodeBase.Character;
 using jam.CodeBase.Core;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace jam.CodeBase.Tasks
             G.Room.TVAnimator.Play(TVAnimation.ShootTime, 6f);
             await UniTask.WaitForSeconds(1);
 
-            var range = UnityEngine.Random.Range(0, 60f);
+            var range = UnityEngine.Random.Range(0, 10);
             Debug.Log("Rand of russion rullet: " + range + ". Alive if less 10");
             var isAlive = range > 10;
             G.BoxAnimator.PlayAnimation(BoxAnimationType.Gun);
@@ -35,7 +36,9 @@ namespace jam.CodeBase.Tasks
             }
             else
             {
-                G.Characters.CurrentCharacter.ChangeHP(int.MaxValue, StatsChangeMethod.Remove).Forget();
+                CmsAudioController.Play(GameResources.CMS.SFX.ShootSFX);
+                
+                G.Characters.CurrentCharacter.ChangeHP(G.Characters.CurrentCharacter.CurrentHealth , StatsChangeMethod.Remove).Forget();
             }
         }
     }

@@ -59,6 +59,9 @@ namespace jam.CodeBase.Core.Stream.Views
 
         public async UniTask Play()
         {
+            if(G.FinishRun)
+                return;
+            
             _deletedGoodMessage = 0;
             _minusMoney = 0;
             _plusMoney = 0;

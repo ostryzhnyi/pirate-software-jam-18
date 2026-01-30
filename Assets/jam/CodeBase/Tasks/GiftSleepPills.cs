@@ -17,7 +17,7 @@ namespace jam.CodeBase.Tasks
             G.Saves.Get<RunSaveModel>().ForceSave();
             G.BoxAnimator.PlayAnimation(BoxAnimationType.Pils);
             
-            await UniTask.WaitForSeconds(5.5f);
+            await UniTask.WaitForSeconds(6f);
             
             G.CharacterAnimator.PlayAnimation(AnimationType.TakeRedPill);
 

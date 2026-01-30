@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using jam.CodeBase.Audio;
 using jam.CodeBase.Core;
 using jam.CodeBase.Economy;
 using TMPro;
@@ -128,7 +129,7 @@ namespace jam.CodeBase.Stream.View
             var particle = GameObject.Instantiate(GameResources.VFX.DestoryMessageVFX, pos , Quaternion.identity).GetComponent<ParticleSystem>();
             particle.transform.localScale = Vector3.one / 2;
             particle.Play(true);
-            
+            CmsAudioController.Play(GameResources.CMS.SFX.BaseClickSFX);
             await elementView.transform.DOScale(0, .2f);
             if(elementView != null && elementView.gameObject != null)
                 Destroy(elementView.gameObject);

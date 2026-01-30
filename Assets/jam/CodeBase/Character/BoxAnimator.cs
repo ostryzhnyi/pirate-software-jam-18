@@ -69,7 +69,7 @@ namespace jam.CodeBase.Character
             if (structure.Data != null)
                 SetExpression(structure.Data);
             
-            ResetAsync(7).Forget();
+            ResetAsync(6).Forget();
         }
 
         private async UniTask ResetAsync(float delay = .1f)

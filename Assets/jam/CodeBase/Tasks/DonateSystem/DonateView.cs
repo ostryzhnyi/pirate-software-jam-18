@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using jam.CodeBase.Audio;
 using jam.CodeBase.Core;
 using jam.CodeBase.Tasks.Interactors;
 using jam.CodeBase.Utils;
@@ -52,17 +53,24 @@ namespace jam.CodeBase.Tasks.DonateSystem
             
             _plus.onClick.AddListener(() =>
             {
+                CmsAudioController.Play(GameResources.CMS.SFX.PlusMinusSFX);
                 Price += MinBit;
                 UpdateText();
             });
             
             _minus.onClick.AddListener(() =>
             {
+                CmsAudioController.Play(GameResources.CMS.SFX.PlusMinusSFX);
+                
                 Price -= MinBit;
                 UpdateText();
             });
             
-            _hide.onClick.AddListener(() => Hide().Forget());
+            _hide.onClick.AddListener(() =>
+            {
+                CmsAudioController.Play(GameResources.CMS.SFX.BaseClickSFX);
+                Hide().Forget();
+            });
             _hideBack.onClick.AddListener(() => Hide().Forget());
         }
 
@@ -145,6 +153,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
             _window.DOPunchScale(Vector3.one * 0.05f, .2f, 20);
             UpdateText();
             _betCloseTutorialPointer.SetActive(false);
+            CmsAudioController.Play(GameResources.CMS.SFX.BetSFX);
             
             _playSecondFTUEcancellationTokenSource?.Cancel();
             _ftueSaveModel.Data.ShowedDonateFTUE = true;
@@ -154,6 +163,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
         private void OnClick(DonateButton button)
         {
             _selected = button;
+            CmsAudioController.Play(GameResources.CMS.SFX.BaseClickSFX);
 
             _plusHover.SetState(button.Task.Name != DonateButtons.First().Task.Name);
             _minusHover.SetState(button.Task.Name == DonateButtons.First().Task.Name);

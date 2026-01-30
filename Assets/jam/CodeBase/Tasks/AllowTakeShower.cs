@@ -12,7 +12,7 @@ namespace jam.CodeBase.Tasks
         public override async UniTask Execute()
         {
             Debug.LogError("AllowTakeSHowe");
-            G.Room.TVAnimator.Play(TVAnimation.ShowerTime, 4f);
+            G.Room.TVAnimator.Play(TVAnimation.ShowerTime, 8f);
             await G.CharacterAnimator.PlayMoveAnim(2f);
             G.CharacterAnimator.PlayAnimation(AnimationType.WetHair);
             G.Room.Steam.Play();

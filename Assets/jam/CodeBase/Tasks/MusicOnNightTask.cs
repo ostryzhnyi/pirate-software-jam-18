@@ -17,8 +17,6 @@ namespace jam.CodeBase.Tasks
             
             G.Room.TVAnimator.Play(TVAnimation.MusicTime, 3f);
             
-            G.CharacterAnimator.PlayAnimation(AnimationType.SetSad);
-
             await UniTask.WaitForSeconds(3);
         }
     }

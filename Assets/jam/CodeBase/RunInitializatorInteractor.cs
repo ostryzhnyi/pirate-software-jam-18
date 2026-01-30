@@ -68,6 +68,11 @@ namespace jam.CodeBase
 
         public async UniTask OnDie(Character.Character character)
         {
+            if(G.FinishRun)
+                return;
+            
+            G.FinishRun = true;
+            
             G.Room.TVAnimator.Play(TVAnimation.GameOver, 4f);
             G.CharacterAnimator.PlayMoveAnim(8).Forget();
             
@@ -78,6 +83,10 @@ namespace jam.CodeBase
 
         async UniTask  IDieHealthCharacter.OnDie(Character.Character character)
         {
+            if(G.FinishRun)
+                return;
+            
+            G.FinishRun = true;
             G.Room.TVAnimator.Play(TVAnimation.GameOver, 4f);
             G.CharacterAnimator.PlayMoveAnim(8).Forget();
             

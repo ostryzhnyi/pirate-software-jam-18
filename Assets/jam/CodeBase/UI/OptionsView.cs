@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
 using jam.CodeBase.UI;
 using UnityEngine;
@@ -14,13 +15,13 @@ namespace jam.CodeBase
         [SerializeField] private Toggle _toggle;
         [SerializeField] private Button _settingsButton;
         [SerializeField] private Button _creditsButton;
-        [SerializeField] private Button _exitButton;
+        [SerializeField] private Button _restartButton;
 
         private void Start()
         {
             _settingsButton.onClick.AddListener(OpenSettings);
             _creditsButton.onClick.AddListener(OpenCredits);
-            _exitButton.onClick.AddListener(Exit);
+            _restartButton.onClick.AddListener(Restart);
         }
 
         private void OpenSettings()
@@ -35,10 +36,10 @@ namespace jam.CodeBase
             _toggle.isOn = false;
         }
 
-        private void Exit()
+        private void Restart()
         {
             Debug.Log("Exit");
-            _toggle.isOn = false;
+            G.RestartGame().Forget();
         }
 
         private void Update()

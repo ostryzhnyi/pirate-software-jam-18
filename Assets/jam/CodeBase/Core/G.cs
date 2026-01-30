@@ -1,10 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Audio;
 using jam.CodeBase.Bets;
 using jam.CodeBase.Character;
+using jam.CodeBase.Character.Data;
 using jam.CodeBase.Core.Interactors;
 using jam.CodeBase.Core.SavesGeneral;
 using jam.CodeBase.Core.Stream.Views;
@@ -101,8 +101,15 @@ namespace jam.CodeBase.Core
             
             var betSaveModel = Saves.Get<BetSaveModel>();
             betSaveModel.Clear();
+            
+            
             Economy.AddMoney(GameResources.CMS.BaseEconomy.As<BaseEconomyTag>().RestoreMoneyByNewRun);
             BetController = new BetController();
+            
+            Characters.ClearSaveForAliveCharacters();
+            Characters = new Characters();
+
+            await UniTask.WaitForSeconds(1);
             FinishRun = false;
             
             foreach (var levelLoaded in Interactors.GetAll<IGameplayLoaded>())
@@ -111,6 +118,22 @@ namespace jam.CodeBase.Core
                 if(!isComplete)
                     break;
             }
+        }
+        
+        
+
+        public static async UniTask RestartGame()
+        {
+            FinishRun = true;
+            
+            var glitchesSaveModel = Saves.Get<GlitchesSaveModel>();
+            glitchesSaveModel.Clear();
+            var economySaveModel = Saves.Get<EconomySaveModel>();
+            economySaveModel.Clear();
+            var charactersSaveModel = Saves.Get<CharactersSaveModel>();
+            charactersSaveModel.Clear();
+
+            await RestartRun();
         }
 
         [Button]
@@ -139,11 +162,6 @@ namespace jam.CodeBase.Core
 
         public static void Die()
         {
-            if(FinishRun)
-                return;
-            
-            FinishRun = true;
-            
             var result = Menu.ViewService.GetView<ResultScreen>();
             (result as ResultScreen).SetState(BetController.MyBetDie > 0);
             result.Show();

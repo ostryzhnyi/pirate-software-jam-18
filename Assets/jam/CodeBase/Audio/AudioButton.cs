@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace jam.CodeBase.Audio
@@ -7,6 +8,16 @@ namespace jam.CodeBase.Audio
     {
         [SerializeField] private Button _button;
         [SerializeField] private AudioCMSEntityPfb _entityPfb;
+        [SerializeField] private string _entityPfbPath;
+
+        private void Awake()
+        {
+            _button = GetComponent<Button>();
+            if (_entityPfb == null)
+            {
+                _entityPfb = Resources.Load<AudioCMSEntityPfb>(_entityPfbPath);
+            }
+        }
 
         private void OnEnable()
         {
@@ -15,7 +26,8 @@ namespace jam.CodeBase.Audio
 
         private void OnDisable()
         {
-            _button.onClick.RemoveListener(OnClick);
+            if(_button != null)
+                _button.onClick.RemoveListener(OnClick);
         }
 
         private void OnClick()

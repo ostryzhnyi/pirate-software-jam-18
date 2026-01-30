@@ -1,4 +1,7 @@
-﻿using Ostryzhnyi.EasyViewService.Api.Service;
+﻿using System;
+using Cysharp.Threading.Tasks;
+using jam.CodeBase.Core;
+using Ostryzhnyi.EasyViewService.Api.Service;
 using Ostryzhnyi.EasyViewService.ViewLayers;
 using TMPro;
 using UnityEngine;
@@ -32,6 +35,16 @@ namespace jam.CodeBase.Character
             _painThreashold.SetText("Pain threshold: " +  character.ModifierTag.GetStringPainThreshold());
             _stressResistance.SetText("Stress resistance: " +  character.ModifierTag.GetStringStressResistance());
             _image.sprite = character.Preview;
+            
+            PlayMenuSound().Forget();
+        }
+
+        private async UniTask PlayMenuSound()
+        {
+            await UniTask.WaitUntil(() => G.Audio != null);
+            
+            G.Audio.SetLoopAndPlay("menu_back");
+            
         }
     }
     

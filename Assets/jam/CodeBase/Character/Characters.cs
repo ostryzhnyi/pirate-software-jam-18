@@ -25,5 +25,45 @@ namespace jam.CodeBase.Character
                 CharactersList.Add(character);
             }
         }
+
+        public void ClearSaveForAliveCharacters()
+        {
+            var saveModel = G.Saves.Get<CharactersSaveModel>();
+            var saveData = saveModel.Data;
+            
+            if (CharactersList.All(c => c.IsDie))
+            {
+                saveModel.Clear();
+            }
+
+            foreach (var character in CharactersList)
+            {
+                if (!character.IsDie)
+                {
+
+                    var currentCharacterSave = saveData.CharactersSaves
+                        .FirstOrDefault(s => s.CharacterName == character.Name);
+
+                    if (currentCharacterSave == null)
+                    {
+                        currentCharacterSave = new CharacterSaveData
+                        {
+                            CharacterName = character.Name,
+                        };
+                        if (saveModel.Data.CharactersSaves == null)
+                        {
+                            saveModel.Data.CharactersSaves = new List<CharacterSaveData>();
+                        }
+
+                        saveModel.Data.CharactersSaves.Add(currentCharacterSave);
+                    }
+
+                    currentCharacterSave.Health = character.BaseHP;
+                    currentCharacterSave.Stress = character.BaseStress;
+
+                    saveModel.ForceSave();
+                }
+            }
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using System.Threading;
 using System.Threading.Tasks;
+using jam.CodeBase.Core;
 using jam.CodeBase.Core.Tags;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -40,11 +41,15 @@ namespace jam.CodeBase.Stream
         {
             foreach (var message in _dailyMessages.OrderBy(x => Random.value))
             {
+                var waitTIme = Random.Range(DEFAULT_TIME_RANGE.x, DEFAULT_TIME_RANGE.y);
+                
+                if(G.FinishRun)
+                    await UniTask.Delay(TimeSpan.FromSeconds(waitTIme), cancellationToken: _cst.Token);
+                    
                 var data = GetData(message.Type);
                 var messageData = new ChatMessage(message.Sender, string.Format(message.Message, data?.ToLower()));
                 OnMessageReceived?.Invoke(messageData);
                 Debug.Log($"Send message: {messageData.Sender} : {messageData.Message}");
-                var waitTIme = Random.Range(DEFAULT_TIME_RANGE.x, DEFAULT_TIME_RANGE.y);
                 await UniTask.Delay(TimeSpan.FromSeconds(waitTIme), cancellationToken: _cst.Token);
             }
         }
@@ -62,7 +67,6 @@ namespace jam.CodeBase.Stream
         public void ShowDonateMessage(int value, string goal)
         {
             var chatMessage = new ChatMessage("", $"Someone donated ${value} to {goal}", MessageDataType.Donate);
-            Debug.Log($"Send message: {chatMessage.Message}");
             OnMessageReceived?.Invoke(chatMessage);
         }
 
@@ -79,7 +83,6 @@ namespace jam.CodeBase.Stream
                 {
                     var chatMessage = new ChatMessage(sender, messages.ElementAt(Random.Range(0, messages.Count)).Message);
                     OnMessageReceived?.Invoke(chatMessage);
-                    Debug.Log($"Send message: {chatMessage.Sender} : {chatMessage.Message}");
                     var waitTIme = Random.Range(REACTIONS_TIME_RANGE.x, REACTIONS_TIME_RANGE.y);
                     await UniTask.Delay(TimeSpan.FromSeconds(waitTIme), cancellationToken: _cst.Token);
                 }

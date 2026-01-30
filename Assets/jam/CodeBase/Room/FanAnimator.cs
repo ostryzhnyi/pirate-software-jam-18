@@ -13,6 +13,7 @@ namespace jam.CodeBase.Room
             VeryFast
         }
 
+        [SerializeField] private Transform fan;
         [Header("Speeds (RPM)")]
         [SerializeField] float verySlowRpm = 30f;
         [SerializeField] float fastRpm = 400f;
@@ -21,6 +22,7 @@ namespace jam.CodeBase.Room
         [Header("Acceleration")]
         [SerializeField] float changeSpeedDuration = 1f;
         [SerializeField] Ease changeSpeedEase = Ease.OutCubic;
+        [SerializeField] private ParticleSystem _particleSystem;
 
         FanState _state = FanState.VerySlow;
         Tweener _rotationTween;
@@ -45,6 +47,7 @@ namespace jam.CodeBase.Room
         public void Stop()
         {
             SetState(FanState.VerySlow);
+            _particleSystem.gameObject.SetActive(false);
         }
 
         void SetState(FanState newState)
@@ -60,6 +63,8 @@ namespace jam.CodeBase.Room
                 _ => verySlowRpm
             };
 
+            _particleSystem.gameObject.SetActive(newState == FanState.VeryFast);
+            
             StartSpeedTween(targetRpm);
         }
 
@@ -67,12 +72,12 @@ namespace jam.CodeBase.Room
         {
             _rotationTween?.Kill();
 
-            _rotationTween = transform
+            _rotationTween = fan
                 .DORotate(new Vector3(0f, 0f, 360f), 1f, RotateMode.FastBeyond360)
                 .SetRelative(true)
                 .SetEase(Ease.Linear)
                 .SetLoops(-1)
-                .SetSpeedBased();                     // крутится бесконечно, скорость задаём через timeScale [web:7][web:4]
+                .SetSpeedBased();            
         }
 
         void StartSpeedTween(float targetRpm)
@@ -82,7 +87,7 @@ namespace jam.CodeBase.Room
             _speedTween = DOTween
                 .To(() => _currentRpm, v => _currentRpm = v, targetRpm, changeSpeedDuration)
                 .SetEase(changeSpeedEase)
-                .OnUpdate(UpdateRotationSpeed);       // внутри апдейта меняем timeScale твина [web:23];
+                .OnUpdate(UpdateRotationSpeed);    
         }
 
         void UpdateRotationSpeed()
@@ -90,7 +95,7 @@ namespace jam.CodeBase.Room
             if (_rotationTween == null) return;
 
             float degPerSec = _currentRpm / 60f * 360f;
-            _rotationTween.timeScale = degPerSec;     // управление скоростью через timeScale [web:23];
+            _rotationTween.timeScale = degPerSec;   
         }
 
         void OnDestroy()

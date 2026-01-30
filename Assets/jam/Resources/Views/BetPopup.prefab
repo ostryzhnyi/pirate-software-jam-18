@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -620.4397, y: -55.306}
-  m_SizeDelta: {x: 506.8957, y: 159.52}
+  m_AnchoredPosition: {x: -604.15, y: -55.306}
+  m_SizeDelta: {x: 478.04, y: 159.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3138578950597613257
 MonoBehaviour:
@@ -557,6 +557,7 @@ GameObject:
   - component: {fileID: 8682686748019368682}
   - component: {fileID: 652769596918803337}
   - component: {fileID: 7545302719429090262}
+  - component: {fileID: 8745872381695325991}
   m_Layer: 5
   m_Name: Plus
   m_TagString: Untagged
@@ -580,7 +581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 176.3348, y: 0.4314}
+  m_AnchoredPosition: {x: 159.6, y: 0.90001}
   m_SizeDelta: {x: 110.4496, y: 100.6655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4691892479630486286
@@ -680,6 +681,21 @@ MonoBehaviour:
   _image: {fileID: 8682686748019368682}
   _defaultSprite: {fileID: 6883014374050076497, guid: 4896fe561cf225248a45bd9bd04879a0, type: 3}
   _disableSprite: {fileID: -122750418114549048, guid: 4896fe561cf225248a45bd9bd04879a0, type: 3}
+--- !u!114 &8745872381695325991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002400109536731814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223ae4eca7e34b6dba851322a38ce4f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::jam.CodeBase.Audio.AudioButton
+  _button: {fileID: 0}
+  _entityPfb: {fileID: 0}
+  _entityPfbPath: CMS/SFX/PlusMinusSFX
 --- !u!1 &3285816005614090935
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,7 +929,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 16.1703}
-  m_SizeDelta: {x: 1758, y: 857.6592}
+  m_SizeDelta: {x: 1720, y: 864}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3745119105882569776
 CanvasRenderer:
@@ -936,7 +952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10264832, g: 0.08397118, b: 0.16037738, a: 0.87058824}
+  m_Color: {r: 0.047169805, g: 0.003782485, b: 0.007009651, a: 0.972549}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1568,7 +1584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 123.7}
+  m_AnchoredPosition: {x: 0, y: 123.70001}
   m_SizeDelta: {x: 0, y: 270.1334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6002446362494467123
@@ -1896,6 +1912,7 @@ GameObject:
   - component: {fileID: 4643987821435228590}
   - component: {fileID: 1773862442773854152}
   - component: {fileID: 2001591020292413658}
+  - component: {fileID: 1029732671987622969}
   m_Layer: 5
   m_Name: Minus
   m_TagString: Untagged
@@ -1919,7 +1936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -162.4, y: 0.4314}
+  m_AnchoredPosition: {x: -171.08, y: 0.9}
   m_SizeDelta: {x: 110.4496, y: 100.6655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5231138882501439549
@@ -2019,6 +2036,21 @@ MonoBehaviour:
   _image: {fileID: 4643987821435228590}
   _defaultSprite: {fileID: -5292392231657286311, guid: 4896fe561cf225248a45bd9bd04879a0, type: 3}
   _disableSprite: {fileID: 59812006959091858, guid: 4896fe561cf225248a45bd9bd04879a0, type: 3}
+--- !u!114 &1029732671987622969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5472192485258789254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223ae4eca7e34b6dba851322a38ce4f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::jam.CodeBase.Audio.AudioButton
+  _button: {fileID: 0}
+  _entityPfb: {fileID: 0}
+  _entityPfbPath: CMS/SFX/PlusMinusSFX
 --- !u!1 &5835627877386520396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,6 +2064,7 @@ GameObject:
   - component: {fileID: 2810042158121947625}
   - component: {fileID: 5566518124041384904}
   - component: {fileID: 7445169483185975144}
+  - component: {fileID: 3336474600888427675}
   m_Layer: 5
   m_Name: Minus
   m_TagString: Untagged
@@ -2055,7 +2088,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -162.4, y: 0.4314}
+  m_AnchoredPosition: {x: -162.6, y: 0.8}
   m_SizeDelta: {x: 110.4496, y: 100.6655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7119686128310224957
@@ -2155,6 +2188,21 @@ MonoBehaviour:
   _image: {fileID: 2810042158121947625}
   _defaultSprite: {fileID: -5292392231657286311, guid: 4896fe561cf225248a45bd9bd04879a0, type: 3}
   _disableSprite: {fileID: 59812006959091858, guid: 4896fe561cf225248a45bd9bd04879a0, type: 3}
+--- !u!114 &3336474600888427675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5835627877386520396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223ae4eca7e34b6dba851322a38ce4f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::jam.CodeBase.Audio.AudioButton
+  _button: {fileID: 0}
+  _entityPfb: {fileID: 0}
+  _entityPfbPath: CMS/SFX/PlusMinusSFX
 --- !u!1 &6048580871485198842
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,7 +2353,7 @@ GameObject:
   - component: {fileID: 1509295069813777871}
   - component: {fileID: 887209802871981}
   - component: {fileID: 2732712663175987999}
-  - component: {fileID: 5419719823017346658}
+  - component: {fileID: 1264456627974982673}
   m_Layer: 5
   m_Name: Plus
   m_TagString: Untagged
@@ -2329,7 +2377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 176.3348, y: 0.4314}
+  m_AnchoredPosition: {x: 170.39, y: 0.91}
   m_SizeDelta: {x: 110.4496, y: 100.6655}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7444120835769504976
@@ -2429,7 +2477,7 @@ MonoBehaviour:
   _image: {fileID: 1509295069813777871}
   _defaultSprite: {fileID: 6883014374050076497, guid: 4896fe561cf225248a45bd9bd04879a0, type: 3}
   _disableSprite: {fileID: -122750418114549048, guid: 4896fe561cf225248a45bd9bd04879a0, type: 3}
---- !u!114 &5419719823017346658
+--- !u!114 &1264456627974982673
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2438,13 +2486,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6318471400924198072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Script: {fileID: 11500000, guid: 223ae4eca7e34b6dba851322a38ce4f1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: AllIn1SpriteShaderAssembly::AllIn1SpriteShader.AllIn1Shader
-  currentShaderType: 0
-  normalStrength: 5
-  normalSmoothing: 1
-  computingNormal: 0
+  m_EditorClassIdentifier: Assembly-CSharp::jam.CodeBase.Audio.AudioButton
+  _button: {fileID: 0}
+  _entityPfb: {fileID: 0}
+  _entityPfbPath: CMS/SFX/PlusMinusSFX
 --- !u!1 &6326579480073742783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2650,6 +2697,7 @@ GameObject:
   - component: {fileID: 5130776186945786520}
   - component: {fileID: 1566344400219872585}
   - component: {fileID: 377008067271860219}
+  - component: {fileID: 6381611705307026163}
   m_Layer: 5
   m_Name: bet
   m_TagString: Untagged
@@ -2773,6 +2821,21 @@ MonoBehaviour:
   _image: {fileID: 5130776186945786520}
   _defaultSprite: {fileID: 7497620388577438844, guid: 4896fe561cf225248a45bd9bd04879a0, type: 3}
   _disableSprite: {fileID: 1654226672043830175, guid: 4896fe561cf225248a45bd9bd04879a0, type: 3}
+--- !u!114 &6381611705307026163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8129284936586022137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223ae4eca7e34b6dba851322a38ce4f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::jam.CodeBase.Audio.AudioButton
+  _button: {fileID: 0}
+  _entityPfb: {fileID: 0}
+  _entityPfbPath: CMS/SFX/BetSFX
 --- !u!1 &8130131033019174356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2872,7 +2935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.7466, y: -0.2044}
+  m_AnchoredPosition: {x: 3.3, y: 0.4314}
   m_SizeDelta: {x: 200.1766, y: 82.4179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5578656889400966109
@@ -3012,7 +3075,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.7466, y: -0.2044}
+  m_AnchoredPosition: {x: -6, y: -0.0000028163}
   m_SizeDelta: {x: 200.1766, y: 82.4179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3436432219220359373

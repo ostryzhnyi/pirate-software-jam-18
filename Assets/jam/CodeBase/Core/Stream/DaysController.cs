@@ -17,7 +17,7 @@ namespace jam.CodeBase.Stream
         public event Action<int> OnDayEnded;
 
         private const float DAY_TIME = 24; //hours
-        private const float DAY_REALTIME = 1f; //minutes
+        private const float DAY_REALTIME = 6f; //minutes
         private const float DAY_SENONDS_PER_REAL_SECOND = (DAY_TIME * 3600) / (DAY_REALTIME * 60); //seconds
 
         public event Action<int> OnDayUpdated;
@@ -70,10 +70,6 @@ namespace jam.CodeBase.Stream
                     G.Characters.CurrentCharacter.ChangeStress(economyTag.RestoreStressByDayRange.GetRandomRange(),
                         StatsChangeMethod.Remove).Forget();
                 }
-                else
-                {
-                    PlaySadAnim().Forget();
-                }
                 
                 await UniTask.WaitForSeconds(2);
                 G.Donate.DonateExecuteProcess().Forget();
@@ -87,12 +83,6 @@ namespace jam.CodeBase.Stream
             runSaveModel.ForceSave();
         }
 
-        private async UniTask PlaySadAnim()
-        {
-            G.CharacterAnimator.PlayAnimation(AnimationType.SetSad);
-            await UniTask.WaitForSeconds(2);
-            G.CharacterAnimator.DisableExpressions();
-        }
 
         private async UniTask StartDayCycle(CancellationToken token)
         {

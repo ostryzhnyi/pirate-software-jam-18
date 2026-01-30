@@ -12,11 +12,11 @@ namespace jam.CodeBase.Tasks
         public override async UniTask Execute()
         {
             Debug.LogError("EnableMusicOnNightTask");
-            G.Room.TVAnimator.Play(TVAnimation.CallFriend, 4f);
+            G.Room.TVAnimator.Play(TVAnimation.CallFriend, 10f);
             
             G.BoxAnimator.PlayAnimation(BoxAnimationType.Phone);
             
-            await UniTask.WaitForSeconds(5.5f);
+            await UniTask.WaitForSeconds(6f);
             
             G.CharacterAnimator.PlayAnimation(AnimationType.Call);
 

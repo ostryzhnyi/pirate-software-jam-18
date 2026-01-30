@@ -1,4 +1,5 @@
 using System;
+using jam.CodeBase.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,7 +36,6 @@ namespace jam.CodeBase.UI
 
         private void OnClick()
         {
-           //todo play sound
         }
     }
 }

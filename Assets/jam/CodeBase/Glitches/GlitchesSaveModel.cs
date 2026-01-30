@@ -6,9 +6,15 @@ namespace jam.CodeBase.Glitches
     {
         protected override void SetDefault()
         {
-            Data = new GlitchesSaveData()
+            Data = new GlitchesSaveData
             {
-                TotalHarm = 0
+                TotalHarm = 0,
+                HandDrawnShown = false,
+                ChromaticShown = false,
+                GlitchShown = false,
+                FlickerShown = false,
+                FadeFirstShown = false,
+                FadeLastShown = false
             };
         }
     }
@@ -16,5 +22,13 @@ namespace jam.CodeBase.Glitches
     public class GlitchesSaveData
     {
         public float TotalHarm;
+
+        public bool HandDrawnShown;
+        public bool ChromaticShown;
+        public bool GlitchShown;
+        public bool FlickerShown;
+
+        public bool FadeFirstShown;
+        public bool FadeLastShown;
     }
 }
