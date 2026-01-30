@@ -93,6 +93,4 @@ public static class GameResources
     }
     public static AudioController AudioController => Resources.Load<AudioController>("AudioController");
     public static CanvasScaler Canvas => Resources.Load<CanvasScaler>("Canvas");
-    public static TextAsset PerformanceTestRunInfo => Resources.Load<TextAsset>("PerformanceTestRunInfo");
-    public static TextAsset PerformanceTestRunSettings => Resources.Load<TextAsset>("PerformanceTestRunSettings");
 }
