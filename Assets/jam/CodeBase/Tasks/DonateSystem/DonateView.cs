@@ -149,7 +149,8 @@ namespace jam.CodeBase.Tasks.DonateSystem
             G.Economy.SpendMoney(Price);
             G.Interactors.CallAll<IDonate>((d) => d.Donate(_selected.Task, Price));
             G.Donate.LastDonateToAlive = _selected.Task.TaskTarget == TaskTarget.Live;
-            _window.DOPunchScale(Vector3.one * 0.05f, .2f, 20);
+            DOTween.Kill(gameObject.GetInstanceID());
+            _window.DOPunchScale(Vector3.one * 0.05f, .2f, 20).SetId(gameObject.GetInstanceID());
             UpdateText();
             _betCloseTutorialPointer.SetActive(false);
             CmsAudioController.Play(GameResources.CMS.SFX.BetSFX);
