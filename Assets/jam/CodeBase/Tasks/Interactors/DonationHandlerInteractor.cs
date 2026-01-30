@@ -3,6 +3,7 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using jam.CodeBase.Core;
 using jam.CodeBase.Core.Interactors;
+using jam.CodeBase.Glitches;
 using jam.CodeBase.Tasks.DonateSystem;
 using UnityEngine;
 
@@ -53,15 +54,20 @@ namespace jam.CodeBase.Tasks.Interactors
                 {
                     donateButton?.UpdateProgress(0);
                 }
+                donateButtons.First().Button.onClick.Invoke();
             }
 
             Debug.LogError("CurrentDonateNumberInDay: " +  runSaveData.CurrentDonateNumberInDay);
             if (runSaveData.CurrentDonateNumberInDay >= 3 || task is GiftSleepPills)
             {
+                await UniTask.WaitWhile(() => G.Menu.ViewService.GetView<GlithcesView>().IsOpened);
+                
                 G.DaysController.SetDay(++runSaveData.DayNumber, true).Forget();
             }
             else if(runSaveData.CurrentDonateNumberInDay == 2)
             {
+                await UniTask.WaitWhile(() => G.Menu.ViewService.GetView<GlithcesView>().IsOpened);
+                
                 await G.ChatMiniGame.Play();
                 await UniTask.WaitForSeconds(2f);
                 

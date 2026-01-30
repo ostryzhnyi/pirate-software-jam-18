@@ -9588,6 +9588,7 @@ MonoBehaviour:
   _defaultExpressionController: {fileID: 5097888388677435515}
   _cubismRenderController: {fileID: 6958622972646693681}
   _move: {fileID: 0}
+  _die: {fileID: 0}
 --- !u!114 &548732614756624423
 MonoBehaviour:
   m_ObjectHideFlags: 0

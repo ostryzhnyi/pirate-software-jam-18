@@ -49,7 +49,6 @@ namespace jam.CodeBase.Stream
                 var data = GetData(message.Type);
                 var messageData = new ChatMessage(message.Sender, string.Format(message.Message, data?.ToLower()));
                 OnMessageReceived?.Invoke(messageData);
-                Debug.Log($"Send message: {messageData.Sender} : {messageData.Message}");
                 await UniTask.Delay(TimeSpan.FromSeconds(waitTIme), cancellationToken: _cst.Token);
             }
         }

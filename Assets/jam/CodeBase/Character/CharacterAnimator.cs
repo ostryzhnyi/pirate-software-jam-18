@@ -24,6 +24,7 @@ namespace jam.CodeBase.Character
         [SerializeField] private CubismExpressionController _defaultExpressionController;
         [SerializeField] private CubismRenderController _cubismRenderController;
         [SerializeField] private SpriteRenderer _move;
+        [SerializeField] private SpriteRenderer _die;
 
         private Animator _animator;
 
@@ -131,6 +132,19 @@ namespace jam.CodeBase.Character
             DOTween.To(() => _cubismRenderController.Opacity, (o) => _cubismRenderController.Opacity = o, 1, .5f);
             await _move.DOColor(new Color(1, 1, 1, 0), 0.5f).ToUniTask();
             _move.gameObject.SetActive(false);
+        }
+
+        public async UniTask PlayDieAnim(float delay = .8f)
+        {
+            _die.gameObject.SetActive(true);
+            DOTween.To(() => _cubismRenderController.Opacity, (o) => _cubismRenderController.Opacity = o, 0, .5f);
+            await _die.DOColor(new Color(1, 1, 1, 1), 0.5f).ToUniTask();
+
+            await UniTask.WaitForSeconds(delay);
+
+            DOTween.To(() => _cubismRenderController.Opacity, (o) => _cubismRenderController.Opacity = o, 1, .5f);
+            await _die.DOColor(new Color(1, 1, 1, 0), 0.5f).ToUniTask();
+            _die.gameObject.SetActive(false);
         }
     }
 

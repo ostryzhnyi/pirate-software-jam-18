@@ -26,6 +26,8 @@ namespace jam.CodeBase.Bets
         [SerializeField] private TMP_Text _aliveSum;
         [SerializeField] private TMP_Text _dieSum;
         [SerializeField] private TMP_Text _ftueText;
+        [SerializeField] private Image _aliveImage;
+        [SerializeField] private Image _dieImage;
         [SerializeField] private BetView _aliveBetView;
         [SerializeField] private BetView _dieBetView;
         [SerializeField] private Button _bet;
@@ -104,6 +106,10 @@ namespace jam.CodeBase.Bets
             base.Showed(option);
             if(!_ftueSaveModel.Data.ShowedBetFTUE)
                 PlayFirstFTUE().Forget();
+            
+            _aliveImage.material.DisableKeyword("CHANGECOLOR_ON");
+            _dieImage.material.DisableKeyword("CHANGECOLOR_ON");
+            
             Redraw(0f);
         }
 
@@ -196,6 +202,8 @@ namespace jam.CodeBase.Bets
                 G.Economy.SpendMoney(_aliveBetView.Bit);
                 _aliveBetView.SetBit(0);
                 _dieBetView.LockButton();
+                _aliveImage.material.EnableKeyword("CHANGECOLOR_ON");
+                _dieImage.material.DisableKeyword("CHANGECOLOR_ON");
             }
             
             if(_dieBetView.Bit > 0)
@@ -204,6 +212,8 @@ namespace jam.CodeBase.Bets
                 G.Economy.SpendMoney(_dieBetView.Bit);
                 _dieBetView.SetBit(0);
                 _aliveBetView.LockButton();
+                _aliveImage.material.DisableKeyword("CHANGECOLOR_ON");
+                _dieImage.material.EnableKeyword("CHANGECOLOR_ON");
             }
             
             _ftueSaveModel.Data.ShowedBetFTUE = true;

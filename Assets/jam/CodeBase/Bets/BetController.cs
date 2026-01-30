@@ -215,6 +215,7 @@ namespace jam.CodeBase.Bets
                 $"[Coeffs]  AliveBet: {AliveBet}, DieBet: {DieBet}, AliveBetCoefficient: {AliveBetCoefficient}, DieBetCoefficient: {DieBetCoefficient}");
             OnChangeAliveCoefficient?.Invoke(AliveBetCoefficient);
             OnChangeDieCoefficient?.Invoke(DieBetCoefficient);
+            
         }
     }
 }

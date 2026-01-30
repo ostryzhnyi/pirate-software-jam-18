@@ -24,6 +24,11 @@ namespace jam.CodeBase.UI
         public GameObject FTUEDonatePointer;
         public RawImage StreamScreenGlitches;
         public GameObject ScreenEffect;
+        public Image BetImage;
+        public Sprite AliveSprite;
+        public Sprite DieSprite;
+        public TMP_Text BetText;
+        public TMP_Text BetCoef;
 
         private int donateButtonSiblingIndex;
         private Transform baseDonateParent;
@@ -34,11 +39,28 @@ namespace jam.CodeBase.UI
             baseDonateParent = DonateHUDButton.transform.parent;
             Donate.onClick.AddListener(OpenDonate);
             FTUEImage.gameObject.SetActive(false);
+            
+            G.BetController.OnChangeDieCoefficient += OnChangeDieCoefficient;
+            G.BetController.OnChangeAliveCoefficient += OnChangeDieCoefficient;
+            OnChangeDieCoefficient(G.BetController.MyBetAlive);
         }
         
         private void OnDisable()
         {
             Donate.onClick.RemoveListener(OpenDonate);
+            
+            G.BetController.OnChangeDieCoefficient -= OnChangeDieCoefficient;
+            G.BetController.OnChangeAliveCoefficient -= OnChangeDieCoefficient;
+        }
+        
+        
+        void OnChangeDieCoefficient(float coef)
+        {
+            BetImage.sprite = G.BetController.MyBetAlive > 0 ? AliveSprite : DieSprite;
+            BetText.text = G.BetController.MyBetAlive > 0 ? "Alive" : "Die";
+            BetCoef.text = (G.BetController.MyBetAlive > 0
+                ? G.BetController.AliveBetCoefficient
+                : G.BetController.DieBetCoefficient).ToString("0.00");
         }
 
         private void OpenDonate()

@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using jam.CodeBase.Character;
 using jam.CodeBase.Core;
 using jam.CodeBase.Core.Interactors;
+using jam.CodeBase.Glitches;
 using UnityEngine;
 
 namespace jam.CodeBase
@@ -66,7 +67,7 @@ namespace jam.CodeBase
             return UniTask.CompletedTask;
         }
 
-        public async UniTask OnDie(Character.Character character)
+        async UniTask IDieStressCharacter.OnDie(Character.Character character)
         {
             if(G.FinishRun)
                 return;
@@ -77,6 +78,7 @@ namespace jam.CodeBase
             G.CharacterAnimator.PlayMoveAnim(8).Forget();
             
             await UniTask.WaitForSeconds(4f);        
+            await UniTask.WaitWhile(() => G.Menu.ViewService.GetView<GlithcesView>().IsOpened);
 
             G.Die();
         }
@@ -88,9 +90,10 @@ namespace jam.CodeBase
             
             G.FinishRun = true;
             G.Room.TVAnimator.Play(TVAnimation.GameOver, 4f);
-            G.CharacterAnimator.PlayMoveAnim(8).Forget();
+            G.CharacterAnimator.PlayDieAnim(8).Forget();
             
             await UniTask.WaitForSeconds(4f);        
+            await UniTask.WaitWhile(() => G.Menu.ViewService.GetView<GlithcesView>().IsOpened);
             
             G.Die();
         }

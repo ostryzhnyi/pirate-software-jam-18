@@ -176,7 +176,7 @@ namespace jam.CodeBase.Glitches
             if (!_saveModel.Data.HandDrawnShown && harm >= _data.HandDrawnProportion.TotalHarm.x)
             {
                 if (fadeState == FadeState.None)
-                    ShowGlitchPopup(_data.HandDrawnProportion.Messages, false);
+                    ShowGlitchPopup(_data.HandDrawnProportion.Messages, false, false);
 
                 _saveModel.Data.HandDrawnShown = true;
                 _saveModel.ForceSave();
@@ -185,7 +185,7 @@ namespace jam.CodeBase.Glitches
             if (!_saveModel.Data.ChromaticShown && harm >= _data.ChromaticAberrationProportion.TotalHarm.x)
             {
                 if (fadeState == FadeState.None)
-                    ShowGlitchPopup(_data.ChromaticAberrationProportion.Messages, false);
+                    ShowGlitchPopup(_data.ChromaticAberrationProportion.Messages, false, false);
 
                 _saveModel.Data.ChromaticShown = true;
                 _saveModel.ForceSave();
@@ -194,7 +194,7 @@ namespace jam.CodeBase.Glitches
             if (!_saveModel.Data.GlitchShown && harm >= _data.GlitchProportion.TotalHarm.x)
             {
                 if (fadeState == FadeState.None)
-                    ShowGlitchPopup(_data.GlitchProportion.Messages, false);
+                    ShowGlitchPopup(_data.GlitchProportion.Messages, false, true);
 
                 _saveModel.Data.GlitchShown = true;
                 _saveModel.ForceSave();
@@ -203,7 +203,7 @@ namespace jam.CodeBase.Glitches
             if (!_saveModel.Data.FlickerShown && harm >= _data.FlickerProportion.TotalHarm.x)
             {
                 if (fadeState == FadeState.None)
-                    ShowGlitchPopup(_data.FlickerProportion.Messages, false);
+                    ShowGlitchPopup(_data.FlickerProportion.Messages, false, true);
 
                 _saveModel.Data.FlickerShown = true;
                 _saveModel.ForceSave();
@@ -211,14 +211,14 @@ namespace jam.CodeBase.Glitches
 
             if (fadeState == FadeState.First && !_saveModel.Data.FadeFirstShown)
             {
-                ShowGlitchPopup(_data.FadeProportion.Messages, false);
+                ShowGlitchPopup(_data.FadeProportion.Messages, false, true);
                 _saveModel.Data.FadeFirstShown = true;
                 _saveModel.ForceSave();
             }
 
             if (fadeState == FadeState.Last && !_saveModel.Data.FadeLastShown)
             {
-                ShowGlitchPopup(_data.FadeProportion.Messages, true);
+                ShowGlitchPopup(_data.FadeProportion.Messages, true, true);
                 _saveModel.Data.FadeLastShown = true;
                 _saveModel.ForceSave();
             }
@@ -235,7 +235,7 @@ namespace jam.CodeBase.Glitches
             return FadeState.None;
         }
 
-        private void ShowGlitchPopup(string[] messages, bool isLast)
+        private void ShowGlitchPopup(string[] messages, bool isLast, bool isShowRestart)
         {
             if (messages == null || messages.Length == 0)
                 return;
@@ -243,7 +243,7 @@ namespace jam.CodeBase.Glitches
             int index = UnityEngine.Random.Range(0, messages.Length);
             string message = messages[index];
 
-            G.Menu.ViewService.ShowView<GlithcesView>(new GlithcesViewOption(isLast, message));
+            G.Menu.ViewService.ShowView<GlithcesView>(new GlithcesViewOption(isLast, isShowRestart, message));
         }
 
         private enum FadeState

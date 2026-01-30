@@ -59,16 +59,16 @@ namespace jam.CodeBase.Stream
                 G.Characters.CurrentCharacter.ChangeHP(economyTag.RestoreHealthByDayRange.GetRandomRange(),
                     StatsChangeMethod.Add).Forget();
                 G.Economy.AddMoney(economyTag.RestoreMoneyByDayRange.GetRandomRange());
-
-                foreach (var music in G.Room.Music)
-                {
-                    music.Stop();
-                }
-
+                
                 if (G.Room.Music.All(music => !music.isPlaying))
                 {
                     G.Characters.CurrentCharacter.ChangeStress(economyTag.RestoreStressByDayRange.GetRandomRange(),
                         StatsChangeMethod.Remove).Forget();
+                }
+                
+                foreach (var music in G.Room.Music)
+                {
+                    music.Stop();
                 }
                 
                 await UniTask.WaitForSeconds(2);

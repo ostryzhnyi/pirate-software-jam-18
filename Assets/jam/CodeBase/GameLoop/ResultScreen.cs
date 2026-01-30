@@ -21,11 +21,16 @@ namespace jam.CodeBase.GameLoop
         [SerializeField] private float _rotateDuration = 2f;
         [SerializeField] private Ease _ease = Ease.OutQuad;
 
-        [Title("Text")] [SerializeField] private TMP_Text _mainText;
+        [Title("Text")] 
+        [SerializeField] private TMP_Text _mainText;
         [SerializeField] private TMP_Text _value;
         [SerializeField] private GameObject _betValue;
         [SerializeField] private TMP_Text _seeYou;
         [SerializeField] private TMP_Text _tapAnyButtonForPlayNext;
+        [SerializeField] private TMP_Text _dieCost;
+        [SerializeField] private TMP_Text _dieCoef;
+        [SerializeField] private TMP_Text _aliveCost;
+        [SerializeField] private TMP_Text _aliveCoef;
 
 
         private Tween _weightTween;
@@ -49,6 +54,12 @@ namespace jam.CodeBase.GameLoop
 
             float diff = aliveK - dieK;
             float angle = diff * _maxRotate;
+
+            _aliveCost.text = ((int)(G.BetController.AliveBetCoefficient * G.BetController.AliveBet) + "$").ToString();
+            _dieCost.text = ((int)(G.BetController.DieBetCoefficient * G.BetController.DieBet) + "$").ToString();
+
+            _aliveCoef.text = G.BetController.AliveBetCoefficient.ToString("0.00"); ;
+            _dieCoef.text = G.BetController.DieBetCoefficient.ToString("0.00");
 
             _weightTween?.Kill();
             _aliveTween?.Kill();

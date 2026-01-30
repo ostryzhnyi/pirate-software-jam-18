@@ -117,7 +117,6 @@ namespace jam.CodeBase.Tasks.DonateSystem
                 DonateButtons[i].UpdateProgressWithoutAnim(G.Donate.Donates[baseTask] / sum);
             }
             
-            DonateButtons.First().Button.onClick.Invoke();
             _donate.interactable = G.Economy.CanSpend(Price);
             
             _donate.onClick.AddListener(OnDonate);

@@ -526,7 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 651ced83f1826794a9e8ce216c88aa5f, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -989,6 +989,8 @@ MonoBehaviour:
   _aliveSum: {fileID: 2771211320002299513}
   _dieSum: {fileID: 4686206901145744520}
   _ftueText: {fileID: 491993990212733934}
+  _aliveImage: {fileID: 8004846679049145314}
+  _dieImage: {fileID: 6207619226015471708}
   _aliveBetView: {fileID: 7282067051575731643}
   _dieBetView: {fileID: 3138578950597613257}
   _bet: {fileID: 1566344400219872585}
@@ -3307,7 +3309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: a673e8f263c76e341b94b8ea9bc9ff4a, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}

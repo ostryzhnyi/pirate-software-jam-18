@@ -28,7 +28,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CharacterMove
+  m_Name: CharacterDie
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -64,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a45cc5cece53b0a48a87ee5c172edb93, type: 2}
+  m_Motion: {fileID: 7400000, guid: 68def87aeb41fa14fa328bf34a1fd4fd, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -1081,6 +1081,10 @@ MonoBehaviour:
   _betValue: {fileID: 1842031203857049862}
   _seeYou: {fileID: 1534379398166327585}
   _tapAnyButtonForPlayNext: {fileID: 2801266502315522213}
+  _dieCost: {fileID: 5728883382371858524}
+  _dieCoef: {fileID: 5381234411988442940}
+  _aliveCost: {fileID: 4443657538788378683}
+  _aliveCoef: {fileID: 8754892989267981827}
 --- !u!225 &3728903652984433876
 CanvasGroup:
   m_ObjectHideFlags: 0
