@@ -62,7 +62,7 @@ MonoBehaviour:
         DonatorsAmountMinMax: {x: 40, y: 60}
         "Donate\u0421hanceOppositeByPlayer": 0.46
         OneDonateRandMultiplier: {x: 0.7, y: 1.3}
-        BaseBet: {x: 8000, y: 12000}
+        BaseBet: {x: 8000, y: 12001}
         PercentsRangeFromPlayerMoney: {x: 4, y: 6}
         DieBiddersProporionRange: {x: 0.8, y: 0.5}
         AliveBiddersProporionRange: {x: 0.5, y: 0.2}
