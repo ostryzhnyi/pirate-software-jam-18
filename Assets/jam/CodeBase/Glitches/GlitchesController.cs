@@ -29,6 +29,14 @@ namespace jam.CodeBase.Glitches
         public GlitchesController()
         {
             _saveModel = G.Saves.Get<GlitchesSaveModel>();
+            
+            
+            if (GameResources.CMS.DebugRun.AsEntity().Is<DebugRunTag>(out var tag) && tag.OverrideTotalHarm != -1)
+            {
+                _saveModel.Data.TotalHarm = tag.OverrideTotalHarm;
+                _saveModel.ForceSave();
+            }
+            
             _data = GameResources.CMS.Glitches.AsEntity().Get<GlitchesTag>();
 
             _handDrawnId = Shader.PropertyToID(HandDrawn.Param);

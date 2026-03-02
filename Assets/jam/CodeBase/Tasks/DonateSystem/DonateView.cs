@@ -116,7 +116,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
                 DonateButtons[i].Init(baseTask, OnClick);
                 DonateButtons[i].UpdateProgressWithoutAnim(G.Donate.Donates[baseTask] / sum);
             }
-            
+            DonateButtons.First().Button.onClick.Invoke();
             _donate.interactable = G.Economy.CanSpend(Price);
             
             _donate.onClick.AddListener(OnDonate);
@@ -189,9 +189,15 @@ namespace jam.CodeBase.Tasks.DonateSystem
 
 
         private CancellationTokenSource _playFirstFTUEcancellationTokenSource;
+        private bool _isPlayFirstFTUE;
+        private bool _isPlaySecondFTUE;
         
         private async UniTask PlayFirstFTUE()
         {
+            if (_isPlayFirstFTUE)
+                return;
+            
+            _isPlayFirstFTUE = true;
             await _window.DOAnchorPos(_targetTutorialPosition.anchoredPosition, .5f);
             _playFirstFTUEcancellationTokenSource = new  CancellationTokenSource();
             _ftueText.SetText("");
@@ -214,6 +220,11 @@ namespace jam.CodeBase.Tasks.DonateSystem
         
         private async UniTask PlaySecondFTUE()
         {
+            if (_isPlaySecondFTUE)
+                return;
+            
+            _isPlaySecondFTUE = true;
+            
             _playSecondFTUEcancellationTokenSource = new  CancellationTokenSource();
             _ftueText.SetText("");
 

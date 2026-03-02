@@ -11,6 +11,8 @@ namespace jam.CodeBase.Core
         public int OverrideDay = -1;
         public int OverrideEconomy = -1;
         public int OverrideCurentDonate = -1;
+        public int OverrideHelath = -1;
+        public int OverrideTotalHarm = -1;
         public bool OnlyChat = false;
     }
 }

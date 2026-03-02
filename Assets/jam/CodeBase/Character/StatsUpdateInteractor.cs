@@ -15,6 +15,12 @@ namespace jam.CodeBase.Character
         {
             G.Characters.CurrentCharacter.OnHealthUpdated += OnHealthUpdated;
             G.Characters.CurrentCharacter.OnStressUpdated += OnStressUpdated;
+            
+            
+            if (GameResources.CMS.DebugRun.AsEntity().Is<DebugRunTag>(out var tag) && tag.OverrideHelath != -1)
+            {
+                OnHealthUpdated(tag.OverrideHelath);
+            }
             return UniTask.FromResult(true);
         }
 

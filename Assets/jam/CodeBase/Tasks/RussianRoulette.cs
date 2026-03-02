@@ -15,7 +15,7 @@ namespace jam.CodeBase.Tasks
             G.Room.TVAnimator.Play(TVAnimation.ShootTime, 6f);
             await UniTask.WaitForSeconds(1);
 
-            var range = UnityEngine.Random.Range(0, 60);
+            var range = UnityEngine.Random.Range(0, 10);
             Debug.Log("Rand of russion rullet: " + range + ". Alive if less 10");
             var isAlive = range > 10;
             G.BoxAnimator.PlayAnimation(BoxAnimationType.Gun);
