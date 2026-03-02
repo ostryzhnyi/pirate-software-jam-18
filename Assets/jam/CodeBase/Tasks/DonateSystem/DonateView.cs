@@ -19,10 +19,10 @@ namespace jam.CodeBase.Tasks.DonateSystem
     public class DonateView : BaseOptionView<DonateViewOptions>
     {
         public override ViewLayers Layer => ViewLayers.Popup;
-        
-        public List<DonateButton> DonateButtons = new  List<DonateButton>();
+
+        public List<DonateButton> DonateButtons = new List<DonateButton>();
         public float Price;
-        
+
         [SerializeField] private RectTransform _window;
         [SerializeField] private Button _donate;
         [SerializeField] private TMP_Text _text;
@@ -38,34 +38,34 @@ namespace jam.CodeBase.Tasks.DonateSystem
         [SerializeField] private GameObject _plusMinTutorialPointer;
         [SerializeField] private GameObject _betCloseTutorialPointer;
         [SerializeField] private RectTransform _targetTutorialPosition;
-        
+
         [SerializeField] private Image[] _taskOneContours;
         [SerializeField] private Image[] _taskTwoContours;
 
         private FTUESaveModel _ftueSaveModel;
         private DonateButton _selected;
-        
+
         private const float MinBit = 50;
 
         private void Awake()
         {
             G.Donate.OnDonateProgressUpdated += UpdateDotateProgress;
-            
+
             _plus.onClick.AddListener(() =>
             {
                 CmsAudioController.Play(GameResources.CMS.SFX.PlusMinusSFX);
                 Price += MinBit;
                 UpdateText();
             });
-            
+
             _minus.onClick.AddListener(() =>
             {
                 CmsAudioController.Play(GameResources.CMS.SFX.PlusMinusSFX);
-                
+
                 Price -= MinBit;
                 UpdateText();
             });
-            
+
             _hide.onClick.AddListener(() =>
             {
                 CmsAudioController.Play(GameResources.CMS.SFX.BaseClickSFX);
@@ -94,21 +94,22 @@ namespace jam.CodeBase.Tasks.DonateSystem
             _ftueText.SetText("");
             _window.anchoredPosition = Vector3.zero;
             _ftueSaveModel = G.Saves.Get<FTUESaveModel>();
-            
-            if(!_ftueSaveModel.Data.ShowedDonateFTUE)
+
+            if (!_ftueSaveModel.Data.ShowedDonateFTUE)
                 PlayFirstFTUE().Forget();
-            
+
             _donateProgress.SetAmount(G.Donate.DonateProgress, true);
             Price = (int)Math.Min(G.Economy.CurrentMoney, CastedOption.TaskDefinition.BasePrice);
-            
+
             UpdateText();
-            
+
             _text.text = CastedOption.TaskDefinition.Description;
-            
+
             foreach (var donateButton in DonateButtons)
             {
                 donateButton.Button.interactable = true;
             }
+
             var sum = G.Donate.Donates.Sum(d => d.Value);
             for (var i = 0; i < CastedOption.Tasks.Count; i++)
             {
@@ -116,20 +117,21 @@ namespace jam.CodeBase.Tasks.DonateSystem
                 DonateButtons[i].Init(baseTask, OnClick);
                 DonateButtons[i].UpdateProgressWithoutAnim(G.Donate.Donates[baseTask] / sum);
             }
+
             DonateButtons.First().Button.onClick.Invoke();
             _donate.interactable = G.Economy.CanSpend(Price);
-            
+
             _donate.onClick.AddListener(OnDonate);
         }
 
         private void UpdateText()
         {
             _playFirstFTUEcancellationTokenSource?.Cancel();
-            if(!_ftueSaveModel.Data.ShowedDonateFTUE)
+            if (!_ftueSaveModel.Data.ShowedDonateFTUE)
                 PlaySecondFTUE().Forget();
-            
+
             _plusMinTutorialPointer.SetActive(false);
-            
+
             _donate.interactable = G.Economy.CanSpend(Price) && Price != 0;
             _plus.interactable = G.Economy.CanSpend(Price + MinBit);
             _minus.interactable = MinBit < Price;
@@ -154,7 +156,7 @@ namespace jam.CodeBase.Tasks.DonateSystem
             UpdateText();
             _betCloseTutorialPointer.SetActive(false);
             CmsAudioController.Play(GameResources.CMS.SFX.BetSFX);
-            
+
             _playSecondFTUEcancellationTokenSource?.Cancel();
             _ftueSaveModel.Data.ShowedDonateFTUE = true;
             _ftueSaveModel.ForceSave();
@@ -167,13 +169,13 @@ namespace jam.CodeBase.Tasks.DonateSystem
 
             _plusHover.SetState(button.Task.Name != DonateButtons.First().Task.Name);
             _minusHover.SetState(button.Task.Name == DonateButtons.First().Task.Name);
-            
+
             foreach (var donateButton in DonateButtons)
             {
                 donateButton.SetSelected(button == donateButton);
             }
         }
-        
+
         public void LockButtons()
         {
             foreach (var donateButton in DonateButtons)
@@ -191,49 +193,50 @@ namespace jam.CodeBase.Tasks.DonateSystem
         private CancellationTokenSource _playFirstFTUEcancellationTokenSource;
         private bool _isPlayFirstFTUE;
         private bool _isPlaySecondFTUE;
-        
+
         private async UniTask PlayFirstFTUE()
         {
             if (_isPlayFirstFTUE)
                 return;
+
+            _ftueText.SetText("");
             
             _isPlayFirstFTUE = true;
             await _window.DOAnchorPos(_targetTutorialPosition.anchoredPosition, .5f);
-            _playFirstFTUEcancellationTokenSource = new  CancellationTokenSource();
-            _ftueText.SetText("");
+            _playFirstFTUEcancellationTokenSource = new CancellationTokenSource();
 
             await _ftueText.ToType(
-                "Choose the option you want to vote for. Note that your decision can change what is happening.", 
-                cancellationToken:_playFirstFTUEcancellationTokenSource.Token);
+                "Choose the option you want to vote for. Note that your decision can change what is happening.",
+                cancellationToken: _playFirstFTUEcancellationTokenSource.Token);
 
             await UniTaskHelper.SmartWaitSeconds(3f);
-            
-           await _ftueText.ToType(
-                "Place your bet by increasing or decreasing the current pot.", 
-                cancellationToken:_playFirstFTUEcancellationTokenSource.Token);
-            
+
+            await _ftueText.ToType(
+                "Place your bet by increasing or decreasing the current pot.",
+                cancellationToken: _playFirstFTUEcancellationTokenSource.Token);
+
             _plusMinTutorialPointer.SetActive(true);
         }
 
 
         private CancellationTokenSource _playSecondFTUEcancellationTokenSource;
-        
+
         private async UniTask PlaySecondFTUE()
         {
             if (_isPlaySecondFTUE)
                 return;
-            
+
             _isPlaySecondFTUE = true;
-            
-            _playSecondFTUEcancellationTokenSource = new  CancellationTokenSource();
+
+            _playSecondFTUEcancellationTokenSource = new CancellationTokenSource();
             _ftueText.SetText("");
 
             await _ftueText.ToType(
-                "After choosing the desired option and amount, you need to send it to the streamer or skip this donate if you want.", 
-                cancellationToken:_playFirstFTUEcancellationTokenSource.Token);
+                "After choosing the desired option and amount, you need to send it to the streamer or skip this donate if you want.",
+                cancellationToken: _playFirstFTUEcancellationTokenSource.Token);
 
             await UniTaskHelper.SmartWaitSeconds(3f);
-            
+
             _betCloseTutorialPointer.SetActive(true);
         }
     }

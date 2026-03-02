@@ -26,7 +26,7 @@ namespace jam.CodeBase.Core
             {
                 if(Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Mouse1) || Input.GetKey(KeyCode.Mouse2))
                 {
-                    Cursor.SetCursor(_clickCursor, Vector2.zero, CursorMode.Auto);
+                    Cursor.SetCursor(_clickCursor, Vector2.zero,  CursorMode.Auto);
                 }
                 else
                 {
